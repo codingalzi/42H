@@ -61,7 +61,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'values_variables';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4. 자료형과 표현식" href="expressions_dataTypes.html" />
+    <link rel="next" title="4. 표현식과 자료형" href="expressions_dataTypes.html" />
     <link rel="prev" title="2. 프로그래밍 맛보기" href="starting.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -170,7 +170,8 @@
 <li class="toctree-l1"><a class="reference internal" href="programming.html">1. 컴퓨터 프로그래밍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="starting.html">2. 프로그래밍 맛보기</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">3. 값과 변수</a></li>
-<li class="toctree-l1"><a class="reference internal" href="expressions_dataTypes.html">4. 자료형과 표현식</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expressions_dataTypes.html">4. 표현식과 자료형</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input_print.html">5. 사용자 입력</a></li>
 </ul>
 
     </div>
@@ -555,20 +556,21 @@ document.write(`
 <h2><span class="section-number">3.2. </span>기초 명령문: 조건문<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>컴퓨터 프로그램은 값을 저장하고 조작하여 새로운 값을 계산하여 활용하는 방법을 묘사한다.
 그리고 새로운 값을 계산할 때 주어진 값에 따라 다른 방법으로 일을 하도록 할 수 있다.</p>
-<p>예를 들어 아래 코드는 파이썬을 좋아하는 경우에만 Hello world!와 I love Python 두 문자열이 출력되도록 한다.</p>
+<p><strong>if … 조건문</strong></p>
+<p>예를 들어 아래 코드는 파이썬을 좋아하는 경우에만 ‘안녕!’과 ‘파이썬 좋아요.’ 두 문자열이 출력되도록 한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">love_python</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="k">if</span> <span class="n">love_python</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I love Python&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;안녕!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;파이썬 좋아요.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, world!
-I love Python
+파이썬 좋아요.
 </pre></div>
 </div>
 </div>
@@ -576,7 +578,7 @@ I love Python
 <p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">love_python</span></code>은 <code class="docutils literal notranslate"><span class="pre">love_python</span></code>이 참인지 여부를 확인하도록 하는 명령문이다.
 그런데 1번 줄에서 <code class="docutils literal notranslate"><span class="pre">love_python</span> <span class="pre">=</span> <span class="pre">True</span></code>라고 작성되어 있기에
 <code class="docutils literal notranslate"><span class="pre">love_python</span></code>이 참으로 확인되고,
-따라서 들여쓰기된 <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello,</span> <span class="pre">world!&quot;)</span></code>와 <code class="docutils literal notranslate"><span class="pre">print('I</span> <span class="pre">love</span> <span class="pre">Python')</span></code> 두 명령문이 차례대로 실행된다.</p>
+따라서 들여쓰기된 <code class="docutils literal notranslate"><span class="pre">print(&quot;안녕!&quot;)</span></code>와 <code class="docutils literal notranslate"><span class="pre">print('파이썬</span> <span class="pre">좋아요.')</span></code> 두 명령문이 차례대로 실행된다.</p>
 <div class="note admonition">
 <p class="admonition-title">들여쓰기와 코드 블록</p>
 <p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">love_python:</span></code>에 콜론 기호 <code class="docutils literal notranslate"><span class="pre">:</span></code> 사용되고 이어지는 두 개의 명령문은 들여쓰기 이후에 작성되었음에 주의한다.
@@ -594,12 +596,37 @@ I love Python
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">love_python</span> <span class="o">=</span> <span class="kc">False</span>
 
 <span class="k">if</span> <span class="n">love_python</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I love Python&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;안녕!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;파이썬 좋아요.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p><strong>if … else … 조건문</strong></p>
+<p>위 코드의 <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">lov_python</span></code> 조건문에서 <code class="docutils literal notranslate"><span class="pre">love_python</span></code>이 거짓이어서 들여쓰기된 코드 블록이 실행되지 않았다.
+그런데 그런 경우, 즉 <code class="docutils literal notranslate"><span class="pre">if</span></code> 다음이 거짓으로 판정될 때 실행되는 다른 코드 블록을 <code class="docutils literal notranslate"><span class="pre">else</span></code> 키워드를 이용하여 지정할 수 있다.
+예를 들어 아래 코드는 파이썬을 좋아하지 않는 경우에 파이썬을 사랑해주면 행복진다는 문장을 출력한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">love_python</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">if</span> <span class="n">love_python</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;안녕!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;파이썬 좋아요.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;파이썬을 사랑해주세요!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;그러면 행복해집니다.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>파이썬을 사랑해주세요!
+그러면 행복해집니다.
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">else</span></code> 키워드 또한 콜론 기호 <code class="docutils literal notranslate"><span class="pre">:</span></code>로 끝나고 줄바꿈 후에 들여쓰기로 코드 블록을 지정함에 주의한다.</p>
 </section>
 <section id="id4">
 <h2><span class="section-number">3.3. </span>연산자와 값<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
@@ -1269,7 +1296,7 @@ I love Python
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>자료형과 표현식</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>표현식과 자료형</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
