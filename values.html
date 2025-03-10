@@ -398,8 +398,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.1. 값의 종류</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.2. 기초 명령문: 조건문</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.1. 기초 명령문: 조건문</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.2. 값의 종류</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.3. 연산자와 값</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.4. 예제</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">3.5. 연습문제</a></li>
@@ -418,70 +418,11 @@ document.write(`
 <h1><span class="section-number">3. </span>값과 연산<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p>프로그래밍언어의 핵심 기능 중의 하나가
 바로 컴퓨터에 저장된 값을 조작하는 일이다.
-이번 장에서는 가장 많이 사용되는 값의 종류와 연산자를 이용하여 새로운 값을 생성하는 과정을 소개한다.
-또한 주어진 값에 따라 다른 일을 하도록 명령하는 조건문의 기초 활용법을 알아본다.</p>
+이번 장에서는 가장 많이 사용되는 값의 종류를 소개하고,
+연산자를 이용하여 주어진 값으로부터 새로운 값을 생성하는 연산을 다룬다.</p>
+<p>먼저 주어진 값에 따라 다른 일을 하도록 명령하는 조건문의 기초 활용법을 알아본다.</p>
 <section id="id2">
-<h2><span class="section-number">3.1. </span>값의 종류<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p><strong>값</strong><font size="2">values</font>은 컴퓨터에 저장해서
-활용할 수 있는 대상이다.
-정수, 부동소수점, 문자열 이 대표적인 값들이며
-이외에 부울값과 리스트 등 다양한 값들이 사용된다.</p>
-<p><strong>정수</strong></p>
-<p>정수는 …, -2, -1, 0, 1, 2, … 등 이미 알고 있는 것과 동일한 숫자를 가리킨다.</p>
-<p><strong>부동소수점</strong></p>
-<p>무리수를 포함한 모든 실수는 컴퓨터의 용향 한계로 인해 불완전하게 다뤄진다.
-파이썬을 포함하여 모든 프로그래밍 언어는 유한소수와 무한소수 모두
-소수점 이하 적당한 자리에서 끊어 저장한다.
-소수점 이하 자릿수를 얼마로 할 것인가는 프로그램이 실행되는 환경에 따라 달라진다.
-이런 의미에서 유한소수의 자료형을
-<strong>부동소수점</strong><font size='2'>floating points</font>이라 부른다.</p>
-<p><strong>문자열</strong></p>
-<p>정수, 부동소수점과 더불어
-<code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code>, …, <code class="docutils literal notranslate"><span class="pre">가</span></code>, <code class="docutils literal notranslate"><span class="pre">나</span></code>, <code class="docutils literal notranslate"><span class="pre">다</span></code>, …, <code class="docutils literal notranslate"><span class="pre">!</span></code>, <code class="docutils literal notranslate"><span class="pre">:</span></code>, <code class="docutils literal notranslate"><span class="pre">;</span></code>, <code class="docutils literal notranslate"><span class="pre">_</span></code>, <code class="docutils literal notranslate"><span class="pre">(</span></code>, <code class="docutils literal notranslate"><span class="pre">)</span></code>, … 처럼
-컴퓨터 키보드를 이용하여 입력할 수 있는 임의의 문자, 숫자, 기호로
-구성된 문자열도 값이다.
-예를 들어, <code class="docutils literal notranslate"><span class="pre">파이썬</span> <span class="pre">좋아요;-)</span></code>, <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">World!</span></code> 등과 같은 문자열도 값이다.
-이외에 파이썬은 리스트, 튜플, 집합, 사전 등 다양한 종류의 값을 제공하며,
-앞으로 하나씩 상세히 살펴볼 것이다.</p>
-<p><strong>부울값</strong></p>
-<p>참과 거짓을 의미하는 <code class="docutils literal notranslate"><span class="pre">True</span></code>와 <code class="docutils literal notranslate"><span class="pre">False</span></code>를
-<strong>부울값</strong><font size="2">Boolean value</font>
-또는 <strong>진릿값</strong>이라 한다.</p>
-<p><strong>리스트</strong></p>
-<p><strong>리스트</strong><font size="2">list</font>는 여러 개의 값을 항목으로 갖는 목록을 가리키는 값이다.
-리스트는 대괄호 <code class="docutils literal notranslate"><span class="pre">[]</span></code> 로 항목들의 목록을 감싸고, 각각의 항목은 쉼표 <code class="docutils literal notranslate"><span class="pre">,</span></code> 로 구분한다.
-예를 들어, 1부터 5까지의 정수로 구성된 리스트를 가리키는 변수를 다음과 같이 선언한다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2five</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>아래 <code class="docutils literal notranslate"><span class="pre">name_list</span></code> 변수는 사람들의 이름, 즉 문자열로 구성된 리스트를 가리킨다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;김강현&#39;</span><span class="p">,</span> <span class="s1">&#39;황현&#39;</span><span class="p">,</span> <span class="s1">&#39;남세원&#39;</span><span class="p">,</span> <span class="s1">&#39;최흥선&#39;</span><span class="p">,</span> <span class="s1">&#39;김현선&#39;</span><span class="p">,</span> <span class="s1">&#39;함중아&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>리스트의 항목은 서로 다른 종류의 값이 사용될 수도 있다.
-예를 들어 아래 리스트는 김강현의 이름, 전화번호, 나이, 키, 출생지로 구성된
-리스트를 정의한다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kgh</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;김강현&#39;</span><span class="p">,</span> <span class="s1">&#39;010-1234-5678&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mf">172.3</span><span class="p">,</span> <span class="s1">&#39;제주&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>기타 등등</strong></p>
-<p>정수, 부동소수점, 문자열, 부울값, 리스트 이외에 튜플, 사전, 파일 등 보다 복잡한 종류의 값도 사용한다.
-앞으로 필요에 따라 하나씩 살펴볼 예정이다.</p>
-</section>
-<section id="id3">
-<h2><span class="section-number">3.2. </span>기초 명령문: 조건문<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.1. </span>기초 명령문: 조건문<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>컴퓨터 프로그램은 값을 저장하고 조작하여 새로운 값을 계산하여 활용하는 방법을 묘사한다.
 이때 주어진 값에 따라 따라 다른 방법으로 일을 하도록 명령할 수 있다.</p>
 <p><strong>if … 조건문</strong></p>
@@ -555,6 +496,66 @@ document.write(`
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">else</span></code> 키워드 또한 콜론 기호 <code class="docutils literal notranslate"><span class="pre">:</span></code>로 끝나고 줄바꿈 후에 들여쓰기로 코드 블록을 지정함에 주의한다.</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">3.2. </span>값의 종류<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p><strong>값</strong><font size="2">values</font>은 컴퓨터에 저장해서
+활용할 수 있는 대상이다.
+정수, 부동소수점, 문자열 이 대표적인 값들이며
+이외에 부울값과 리스트 등 다양한 값들이 사용된다.</p>
+<p><strong>정수</strong></p>
+<p>정수는 …, -2, -1, 0, 1, 2, … 등 이미 알고 있는 것과 동일한 숫자를 가리킨다.</p>
+<p><strong>부동소수점</strong></p>
+<p>무리수를 포함한 모든 실수는 컴퓨터의 용향 한계로 인해 불완전하게 다뤄진다.
+파이썬을 포함하여 모든 프로그래밍 언어는 유한소수와 무한소수 모두
+소수점 이하 적당한 자리에서 끊어 저장한다.
+소수점 이하 자릿수를 얼마로 할 것인가는 프로그램이 실행되는 환경에 따라 달라진다.
+이런 의미에서 유한소수의 자료형을
+<strong>부동소수점</strong><font size='2'>floating points</font>이라 부른다.</p>
+<p><strong>문자열</strong></p>
+<p>정수, 부동소수점과 더불어
+<code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code>, …, <code class="docutils literal notranslate"><span class="pre">가</span></code>, <code class="docutils literal notranslate"><span class="pre">나</span></code>, <code class="docutils literal notranslate"><span class="pre">다</span></code>, …, <code class="docutils literal notranslate"><span class="pre">!</span></code>, <code class="docutils literal notranslate"><span class="pre">:</span></code>, <code class="docutils literal notranslate"><span class="pre">;</span></code>, <code class="docutils literal notranslate"><span class="pre">_</span></code>, <code class="docutils literal notranslate"><span class="pre">(</span></code>, <code class="docutils literal notranslate"><span class="pre">)</span></code>, … 처럼
+컴퓨터 키보드를 이용하여 입력할 수 있는 임의의 문자, 숫자, 기호로
+구성된 문자열도 값이다.
+예를 들어, <code class="docutils literal notranslate"><span class="pre">파이썬</span> <span class="pre">좋아요;-)</span></code>, <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">World!</span></code> 등과 같은 문자열도 값이다.
+이외에 파이썬은 리스트, 튜플, 집합, 사전 등 다양한 종류의 값을 제공하며,
+앞으로 하나씩 상세히 살펴볼 것이다.</p>
+<p><strong>부울값</strong></p>
+<p>참과 거짓을 의미하는 <code class="docutils literal notranslate"><span class="pre">True</span></code>와 <code class="docutils literal notranslate"><span class="pre">False</span></code>를
+<strong>부울값</strong><font size="2">Boolean value</font>
+또는 <strong>진릿값</strong>이라 한다.</p>
+<p><strong>리스트</strong></p>
+<p><strong>리스트</strong><font size="2">list</font>는 여러 개의 값을 항목으로 갖는 목록을 가리키는 값이다.
+리스트는 대괄호 <code class="docutils literal notranslate"><span class="pre">[]</span></code> 로 항목들의 목록을 감싸고, 각각의 항목은 쉼표 <code class="docutils literal notranslate"><span class="pre">,</span></code> 로 구분한다.
+예를 들어, 1부터 5까지의 정수로 구성된 리스트를 가리키는 변수를 다음과 같이 선언한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2five</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>아래 <code class="docutils literal notranslate"><span class="pre">name_list</span></code> 변수는 사람들의 이름, 즉 문자열로 구성된 리스트를 가리킨다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;김강현&#39;</span><span class="p">,</span> <span class="s1">&#39;황현&#39;</span><span class="p">,</span> <span class="s1">&#39;남세원&#39;</span><span class="p">,</span> <span class="s1">&#39;최흥선&#39;</span><span class="p">,</span> <span class="s1">&#39;김현선&#39;</span><span class="p">,</span> <span class="s1">&#39;함중아&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>리스트의 항목은 서로 다른 종류의 값이 사용될 수도 있다.
+예를 들어 아래 리스트는 김강현의 이름, 전화번호, 나이, 키, 출생지로 구성된
+리스트를 정의한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kgh</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;김강현&#39;</span><span class="p">,</span> <span class="s1">&#39;010-1234-5678&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mf">172.3</span><span class="p">,</span> <span class="s1">&#39;제주&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>기타 등등</strong></p>
+<p>정수, 부동소수점, 문자열, 부울값, 리스트 이외에 튜플, 사전, 파일 등 보다 복잡한 종류의 값도 사용한다.
+앞으로 필요에 따라 하나씩 살펴볼 예정이다.</p>
 </section>
 <section id="id4">
 <h2><span class="section-number">3.3. </span>연산자와 값<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
@@ -1374,8 +1375,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.1. 값의 종류</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.2. 기초 명령문: 조건문</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.1. 기초 명령문: 조건문</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.2. 값의 종류</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.3. 연산자와 값</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.4. 예제</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">3.5. 연습문제</a></li>
