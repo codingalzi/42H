@@ -1120,7 +1120,6 @@ document.write(`
 </section>
 <section id="id5">
 <h2><span class="section-number">3.4. </span>예제<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<p><strong>추가 사항:</strong> <code class="docutils literal notranslate"><span class="pre">in</span></code> 연산자와 인덱싱 관련 예제와 연습문제 추가 필요</p>
 <p><strong>예제 1</strong></p>
 <p>아래 코드를 실행했을 때 부동소수점 <code class="docutils literal notranslate"><span class="pre">27.1</span></code>이 어떻게 이해되는지를 설명하라.</p>
 <div class="cell docutils container">
@@ -1223,6 +1222,97 @@ document.write(`
 </div>
 </div>
 <p><strong>예제 5</strong></p>
+<p>변수 <code class="docutils literal notranslate"><span class="pre">second_languages</span></code>는 아래 리스트를 가리킨다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">second_languages</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;C++&#39;, &#39;C#&#39;, &#39;자바스크립트&#39;, &#39;Node.js&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>변수 <code class="docutils literal notranslate"><span class="pre">lang</span></code>가 가리키는 문자열이 <code class="docutils literal notranslate"><span class="pre">second_languages</span></code>가 가리키는
+리스트  포함되어 있지 않은 경우에만 언급된 언어가
+오르편 끝에 추가된 리스트를 화면에 출력하는 코드를 작성한다.</p>
+<p>힌트: <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code> 연산자 활용</p>
+<p>답</p>
+<p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> </code> 명령문을 이용한다.
+이때 <code class="docutils literal notranslate"><span class="pre">if</span></code> 다음에 오는 진리값을 표현하는 식으로 리스트를 대상으로 항목이 아닌경우에
+<code class="docutils literal notranslate"><span class="pre">True</span></code>로 계산되는 <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code> 연산자를 이용한다.
+또한 리스트의 <code class="docutils literal notranslate"><span class="pre">+</span></code> 연산을 이용한다.</p>
+<ul class="simple">
+<li><p>예제: 새로운 언어를 사용하는 경우</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lang</span> <span class="o">=</span> <span class="s1">&#39;파이썬&#39;</span>
+
+<span class="k">if</span> <span class="n">lang</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">second_languages</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">second_languages</span> <span class="o">+</span> <span class="p">[</span><span class="n">lang</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;C++&#39;, &#39;C#&#39;, &#39;자바스크립트&#39;, &#39;Node.js&#39;, &#39;파이썬&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>예제: 이미 포함된 언어를 사용하는 경우엔 아무 것도 하지 않음.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lang</span> <span class="o">=</span> <span class="s1">&#39;Node.js&#39;</span>
+
+<span class="k">if</span> <span class="n">lang</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">second_languages</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">second_languages</span> <span class="o">+</span> <span class="p">[</span><span class="n">lang</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 6</strong></p>
+<p>변수 <code class="docutils literal notranslate"><span class="pre">greetings</span></code>가 다음과 같이 선언된다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">greetings</span> <span class="o">=</span> <span class="s1">&#39;파이썬, 안녕!&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(1) 문자열에 포함된 쉼표 기호 <code class="docutils literal notranslate"><span class="pre">,</span></code>를 확인하는 인덱싱을 표현하는 수식을 정의하라.</p>
+<p><strong>답</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">greetings</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;,&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>(2) 문자열에 포함된 느낌표 기호 <code class="docutils literal notranslate"><span class="pre">!</span></code>을 확인하는 인덱싱을 표현하는 수식을 정의하라.</p>
+<p><strong>답</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">greetings</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;!&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 7</strong></p>
 <p>우유 가격은 820원이고, 아이스크림 가격은 1500원이다.
 아이스크림은 3개 이상 구입하면 5% 할인해준다.
 우유 2개와 아이스크림 3개를 구입할 때 지불해야 하는 가격을 다양한 변수를 활용하여 계산하는 코드를 작성한다.</p>
@@ -1264,7 +1354,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>예제 6</strong></p>
+<p><strong>예제 8</strong></p>
 <p>연이자 5%인 정기예금에 1천만원을 10년간 은행에 맡겼을 때
 10년 후에 수령할 금액을 계산하는 코드를 다양한 변수를 활용하여 구현한다.
 단, 다음 형식으로 출력하라.</p>
@@ -1306,7 +1396,7 @@ document.write(`
 <section id="id6">
 <h2><span class="section-number">3.5. </span>연습문제<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p><a class="reference external" href="https://colab.research.google.com/github/codingalzi/42H/blob/master/practices/practice-values_variables.ipynb">(연습) 값과 변수</a>에 포함된 문제들을 풀어보세요.</p></li>
+<li><p><a class="reference external" href="https://colab.research.google.com/github/codingalzi/42H/blob/master/practices/practice-values.ipynb">(연습) 값과 연산</a>에 포함된 문제들을 풀어보세요.</p></li>
 </ol>
 </section>
 </section>
