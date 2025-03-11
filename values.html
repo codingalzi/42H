@@ -1040,8 +1040,8 @@ document.write(`
 의도한 대로 계산된다.
 정수와 부동소수점 관련 연산자들의 우선순위는 수학에서 배운 것과 동일하다.</p>
 <p>괄호 안에 있는 표현식을 가장 먼저 계산한다.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">=&gt;</span> <span class="mi">4</span>
-<span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">5</span> <span class="mi">2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="mi">5</span> <span class="mi">2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">=&gt;</span> <span class="mi">8</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">=&gt;</span> <span class="mi">4</span>
+<span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">=&gt;</span> <span class="mi">8</span>
 </pre></div>
 </div>
 <p>거듭제곱이 사칙연산보다 우선순위가 높다.</p>
@@ -1050,7 +1050,7 @@ document.write(`
 </pre></div>
 </div>
 <p>곱셈과 나눗셈이 덧셈과 뺄셈보다 우선순위가 높다.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">6</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">5</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">6</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">5</span>
 <span class="mi">6</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">=&gt;</span> <span class="mi">6</span> <span class="o">+</span> <span class="p">(</span><span class="mi">4</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="mi">6</span> <span class="o">+</span> <span class="mf">2.0</span> <span class="o">=&gt;</span> <span class="mf">8.0</span>
 </pre></div>
 </div>
