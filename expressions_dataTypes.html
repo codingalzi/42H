@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -402,7 +402,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.2. 주석</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4.3. 자료형</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4.3.1. 값과 변수의 자료형</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">4.3.2. <strong>표현식의 자료형</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">4.3.2. 표현식의 자료형</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">4.3.3. 파이썬 기초 자료형</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sec-type-casting">4.3.4. 형변환</a></li>
 </ul>
@@ -422,7 +422,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">4. </span>표현식과 자료형<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>이번 장에서는 값을 나타내는 표현식과 값의 자료형에 대해 알아본다.</p>
+<p>값을 나타내는 표현식과 값의 자료형에 대해 알아본다.</p>
 <section id="sec-expressions">
 <span id="id2"></span><h2><span class="section-number">4.1. </span>표현식<a class="headerlink" href="#sec-expressions" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">17</span></code>, <code class="docutils literal notranslate"><span class="pre">3.14</span></code>, <code class="docutils literal notranslate"><span class="pre">'안녕하세요!'</span></code> 등은 변수에 할당하거나 연산자 또는 함수의 인자로
@@ -453,7 +453,7 @@ document.write(`
 </div>
 <p><strong>함수의 인자에서 활용</strong></p>
 <p>아래 코드는 두 인자 중에서 최댓값을 계산하는 함수의 인자로
-변수를 이용한 수식을 활용하는 방식을 보여준다.</p>
+변수를 활용하는 방식을 보여준다.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">max(num+2,</span> <span class="pre">num//2)</span></code>: <code class="docutils literal notranslate"><span class="pre">num+2</span></code>가 나타내는 값 19와 <code class="docutils literal notranslate"><span class="pre">num//2</span></code>가 나타내는 값 8의 최댓값 계산.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">max_17</span></code>: 계산된 최댓값인 19를 할당받음.</p></li>
@@ -485,17 +485,41 @@ document.write(`
 </div>
 </div>
 </div>
-<p>이전 두 코드에서 값을 나태내는 표현하는 식은 다음과 같다.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">num</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">17</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">+</span> <span class="pre">2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">max(num+2,</span> <span class="pre">num//2)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">max_value</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">min(num*2,</span> <span class="pre">num/2)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">min_value</span></code></p></li>
-</ul>
+<p>이전 두 코드에서 값을 나태내는 표현하는 식과 실제 나타내는 값은 다음과 같다.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>표현식</p></th>
+<th class="head text-center"><p>값</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">num</span></code></p></td>
+<td class="text-center"><p>17</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">17</span></code></p></td>
+<td class="text-center"><p>17</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+<td class="text-center"><p>2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">+</span> <span class="pre">2</span></code></p></td>
+<td class="text-center"><p>19</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">max(num+2,</span> <span class="pre">num//2)</span></code></p></td>
+<td class="text-center"><p>19</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">max_value</span></code></p></td>
+<td class="text-center"><p>19</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">min(num*2,</span> <span class="pre">num/2)</span></code></p></td>
+<td class="text-center"><p>8.5</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">min_value</span></code></p></td>
+<td class="text-center"><p>8.5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>이처럼 특정 값을 표현하는 식을 <strong>표현식</strong><font size='2'>expression</font>이라 부른다.</p>
 <p>파이썬을 포함하여 대다수의 프로그래밍 언어에서는 정수와 부동소수점을 이용한 계산뿐만 아니라
 다양한 종류의 연산자와 함수를 활용하여 특정 값을 표현하는 표현식을 작성할 수 있다.
@@ -549,12 +573,11 @@ document.write(`
 프로그램의 작동 원리와 과정을 보다 쉽게 이해할 수 있다.
 이와 같이 프로그램의 실행과는 무관하지만 명령문, 함수 등의
 기능, 아이디어 등을 설명하는 문장이
-<strong>주석</strong><font size="2">comment</font>이다.
-주석은 프로그램이 실행될 때 파이썬 실행기에 의해 무시된다.</p>
+<strong>주석</strong><font size="2">comment</font>이다.</p>
+<p>주석은 설명 용도로만 사용되며 프로그램이 실행될 때 파이썬 실행기에 의해 무시된다.</p>
 <p><strong>한줄 주석</strong></p>
 <p>주석은 한 줄 또는 여러 줄로 작성될 수 있다.
-한줄 주석은 <strong>샵</strong><font size="2">sharp</font> 기호 <code class="docutils literal notranslate"><span class="pre">#</span></code> 로 시작한다.
-주석 기호 이후의 실행기에 의해 무시된다.</p>
+한줄 주석은 우물정(샵) 기호 <code class="docutils literal notranslate"><span class="pre">#</span></code> 로 시작한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># speed는 시속을 가리키는 변수이다.</span>
@@ -584,10 +607,8 @@ document.write(`
 </div>
 </div>
 </div>
-<p>다만 코드에 사용된 변수와 코드의 의미에 대한 설명이
-주석으로 추가된 경우가 코드의 의미를 이해하는 데에 보다 도움이 된다.</p>
 <p><strong>여러 줄 주석</strong></p>
-<p>한줄 주석을 연속 사용하여 여러 줄 주석을 작성할 수 있다.</p>
+<p>한줄 주석을 연속적으로 사용하여 여러 줄 주석을 작성할 수 있다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># speed는 시속을 가리키는 변수이다.</span>
@@ -643,20 +664,6 @@ document.write(`
 </div>
 </div>
 </div>
-<p>여러 줄 주석을 코드 또한 모두 아래 코드와 동일하게 작동한다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">speed</span> <span class="o">=</span> <span class="mi">90</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;스피드:&quot;</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="s2">&quot;km&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>스피드: 90 km
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="id4">
 <h2><span class="section-number">4.3. </span>자료형<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
@@ -681,7 +688,8 @@ document.write(`
 예를 들어 변수 <code class="docutils literal notranslate"><span class="pre">b</span></code>에 할당된 값이 6기에 변수 <code class="docutils literal notranslate"><span class="pre">b</span></code>의 자료형 또한 <code class="docutils literal notranslate"><span class="pre">int</span></code>로 확인된다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -692,8 +700,7 @@ document.write(`
 </div>
 </div>
 <p>그런데 변수가 가리키는 값을 다른 값으로 대체할 수 있는데 이때 다른 자료형의 값이 사용될 수 있다.
-예를 들어 아래 코드는 변수 <code class="docutils literal notranslate"><span class="pre">b</span></code>가 가리키는 값을 <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">world!</span></code> 라는 영어 문장으로 지정한다.
-문장은 큰따옴표 또는 작은따옴표로 감싸짐에 주의한다.</p>
+예를 들어 아래 코드는 변수 <code class="docutils literal notranslate"><span class="pre">b</span></code>가 가리키는 값을 <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">world!</span></code> 라는 문자열로 지정한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;Hello, world!&quot;</span>
@@ -701,16 +708,8 @@ document.write(`
 </div>
 </div>
 </div>
-<p>또는</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;Hello, world!&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>변수가 가리키는 값이 달라지면 변수의 자료형 또한 변경된 값의 자료형으로 바뀐다.
-단어 또는 문장의 자료형은 <code class="docutils literal notranslate"><span class="pre">str</span></code> 이며 보통 <strong>문자열</strong><font size='2'>string</font>이라 부른다.</p>
+문자열의 자료형은 <code class="docutils literal notranslate"><span class="pre">str</span></code>이다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
@@ -744,8 +743,8 @@ document.write(`
 </div>
 </section>
 <section id="id6">
-<h3><span class="section-number">4.3.2. </span><strong>표현식의 자료형</strong><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
-<p>표현식은 표현하는 값의 자료형을 갖는다.</p>
+<h3><span class="section-number">4.3.2. </span>표현식의 자료형<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>표현식의 자료형은 표현하는 값의 자료형이다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">num</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
@@ -811,7 +810,7 @@ document.write(`
 <h3><span class="section-number">4.3.3. </span>파이썬 기초 자료형<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>지금까지 살펴본 정수, 부동소수점, 문자열 세 종류의 값은
 <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>의 자료형을 갖는다.
-이에 더해 파이썬은 부울 자료형인 <code class="docutils literal notranslate"><span class="pre">bool</span></code>도 기초 자료형으로 제공한다.</p>
+이에 더해 파이썬은 <code class="docutils literal notranslate"><span class="pre">True</span></code>와 <code class="docutils literal notranslate"><span class="pre">False</span></code>로 구성된 부울 자료형인 <code class="docutils literal notranslate"><span class="pre">bool</span></code>도 기초 자료형으로 제공한다.</p>
 <p><strong>정수 자료형: <code class="docutils literal notranslate"><span class="pre">int</span></code></strong></p>
 <p>-2, -1, 0, 1, 2 등의 정수는 <code class="docutils literal notranslate"><span class="pre">int</span></code> 자료형의 값이다.
 정수는 사칙연산, 변수 할당 등에 사용된다.</p>
@@ -957,36 +956,24 @@ document.write(`
 </section>
 <section id="sec-type-casting">
 <span id="id8"></span><h3><span class="section-number">4.3.4. </span>형변환<a class="headerlink" href="#sec-type-casting" title="Link to this heading">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">2.3</span> <span class="pre">+</span> <span class="pre">3</span></code>을 실행하면 파이썬 실행기<font size="2">interpreter</font>는
-내부적으로 정수를 이용하여 동일한 값의 부동소수점을 계산하는 함수 <code class="docutils literal notranslate"><span class="pre">float()</span></code>를 이용하여
-<code class="docutils literal notranslate"><span class="pre">2.3</span> <span class="pre">+</span> <span class="pre">3</span></code>을 <code class="docutils literal notranslate"><span class="pre">2.3</span> <span class="pre">+</span> <span class="pre">3.0</span></code>으로 계산한다.</p>
+<p>서로 다른 두 자료형의 연산은 일반적으로 허용되지 않는다.
+그런데 부동소수점 2.0과 정수 3을 더하면 5.0으로 계산된다.
+이는 파이썬 실행기가 정수 3을 부동소수점 3.0으로 자료형을 변환하여 계산하기 때문이다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">2.0</span> <span class="o">+</span> <span class="mi">3</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">2.3</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.3
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.0
 </pre></div>
 </div>
 </div>
 </div>
 <p>이렇게 내부적으로 값을 다른 자료형의 값으로 계산하는 기능을
 <strong>형변환</strong><font size="2">type casting</font>이라 부른다.
-<code class="docutils literal notranslate"><span class="pre">float()</span></code> 함수 이외에 <code class="docutils literal notranslate"><span class="pre">int()</span></code>, <code class="docutils literal notranslate"><span class="pre">str()</span></code>, <code class="docutils literal notranslate"><span class="pre">bool()</span></code> 등 다양한 형변환 함수가 제공된다.</p>
+형변환 사용되는 함수로 <code class="docutils literal notranslate"><span class="pre">int()</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">str()</span></code>, <code class="docutils literal notranslate"><span class="pre">bool()</span></code> 등이 가장 많이 자주 사용된다.</p>
 <p><strong><code class="docutils literal notranslate"><span class="pre">int()</span></code> 함수</strong></p>
 <p>정수 모양의 문자열, 부동소수점, 부울값을 정수로 계산한다.</p>
 <ul class="simple">
@@ -1018,7 +1005,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">34</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;5.1&#39;</span><span class="p">)</span>
 
 <span class="ne">ValueError</span>: invalid literal for int() with base 10: &#39;5.1&#39;
@@ -1035,11 +1022,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
-</pre></div>
-</div>
-</div>
 </div>
 <ul class="simple">
 <li><p>부울값에서 정수로: <code class="docutils literal notranslate"><span class="pre">True</span></code>와 <code class="docutils literal notranslate"><span class="pre">False</span></code>는 각각 1과 0으로 취급</p></li>
@@ -1050,11 +1032,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1062,14 +1039,24 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">float()</span></code> 함수</strong></p>
+<p>정수 또는 유한소수 모양의 문자열을 부동소수점으로 계산한다.</p>
+<ul class="simple">
+<li><p>정수를 부동소수점으로 형변환</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong><code class="docutils literal notranslate"><span class="pre">float()</span></code> 함수</strong></p>
-<p>유한소수 모양의 문자열 또는 정수 등을 부동소수점으로 계산한다.</p>
 <ul class="simple">
 <li><p>유한소수 모양의 문자열 형변환</p></li>
 </ul>
@@ -1114,25 +1101,10 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">38</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;5.1a&#39;</span><span class="p">)</span>
 
 <span class="ne">ValueError</span>: invalid literal for int() with base 10: &#39;5.1a&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>정수에서 부동소수점으로 형변환. 소수점 추가.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.0
 </pre></div>
 </div>
 </div>
@@ -1204,7 +1176,7 @@ document.write(`
 </div>
 <p><strong><code class="docutils literal notranslate"><span class="pre">bool()</span></code> 함수</strong></p>
 <p>임의의 값을 <code class="docutils literal notranslate"><span class="pre">True</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">False</span></code> 로 변환한다.
-<code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">0.0</span></code>, <code class="docutils literal notranslate"><span class="pre">''</span></code>(빈 문자열) 등처럼 0, 비어 있는 것, 의미 없는 것등은 <code class="docutils literal notranslate"><span class="pre">False</span></code> 로
+<code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">0.0</span></code>, <code class="docutils literal notranslate"><span class="pre">''</span></code>(비어 있는 문자열), <code class="docutils literal notranslate"><span class="pre">[]</span></code> (비어 있는 리스트) 등처럼 0, 비어 있는 것, 의미 없는 것등은 <code class="docutils literal notranslate"><span class="pre">False</span></code> 로
 그렇지 않으면 <code class="docutils literal notranslate"><span class="pre">True</span></code> 로 지정한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1220,7 +1192,19 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1244,7 +1228,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span><span class="p">(</span><span class="o">-</span><span class="mf">0.01</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1268,7 +1252,31 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span><span class="p">([])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span><span class="p">([</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1280,10 +1288,10 @@ document.write(`
 </div>
 <div class="tip admonition">
 <p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">float</span></code> 대 <code class="docutils literal notranslate"><span class="pre">float()</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">float</span></code>는 부동소수점 자료형을 가리키기도 하고
+<p><code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code> 등은 각각의 자료형을 가리키기도 하고
 형변환 함수를 가리키기도 한다.
 여기서는 자료형과 형변환 함수의 이름을 구분하기 위해
-함수는 <code class="docutils literal notranslate"><span class="pre">int()</span></code>, <code class="docutils literal notranslate"><span class="pre">float()</span></code>, <code class="docutils literal notranslate"><span class="pre">str()</span></code> 등처럼
+함수는 <code class="docutils literal notranslate"><span class="pre">int()</span></code>, <code class="docutils literal notranslate"><span class="pre">float()</span></code>, <code class="docutils literal notranslate"><span class="pre">str()</span></code>, <code class="docutils literal notranslate"><span class="pre">bool()</span></code> 등처럼
 함수 이름과 괄호를 함께 사용하는 표기법 관행을 따른다.</p>
 </div>
 </section>
@@ -1366,7 +1374,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.2. 주석</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4.3. 자료형</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4.3.1. 값과 변수의 자료형</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">4.3.2. <strong>표현식의 자료형</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">4.3.2. 표현식의 자료형</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">4.3.3. 파이썬 기초 자료형</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sec-type-casting">4.3.4. 형변환</a></li>
 </ul>
