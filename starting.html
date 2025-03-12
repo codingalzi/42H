@@ -1115,6 +1115,53 @@ b 곱하기 a: 18
 <section id="id6">
 <h2><span class="section-number">2.6. </span>예제<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p><strong>예제 1</strong></p>
+<p>아래 문장들을 적절한 수식으로 작성한 다음 실행 결과를 확인한다.</p>
+<p>(1) 정수 25와 정수 12 더하기</p>
+<p>답:</p>
+<p>덧셈 연산자를 활용한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">25</span> <span class="o">+</span> <span class="mi">12</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37
+</pre></div>
+</div>
+</div>
+</div>
+<p>(2) 정수 92와 부동소수점 8.0 곱하기</p>
+<p>답:</p>
+<p>곱셈 연산자를 활용한다. 정수와 부동소수점의 곱셈은 부동소수점으로 계산된다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">92</span> <span class="o">*</span> <span class="mf">8.0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>736.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>(3) 정수 7을 5로 나눴을 때의 몫</p>
+<p>답:</p>
+<p>몫 연산자를 활용한다. 결과는 항상 정수다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span> <span class="o">//</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 2</strong></p>
 <p>아래 명령문들을 실행해서 오류가 발생하는 경우 오류의 종류와 원인을 설명하고 수정한다.
 오류가 발생하지 않으면 실행 결과를 설명한다.</p>
 <p>(1)</p>
@@ -1266,7 +1313,7 @@ b 곱하기 a: 18
 </div>
 </div>
 </div>
-<p><strong>예제 2</strong></p>
+<p><strong>예제 3</strong></p>
 <p>변수 할당 명령문과 관련하여 주의해야할 점들을 다룬다.
 아래 명령문들을 실행해서 오류가 발생하는 경우 오류의 종류와 원인을 설명하고 수정한다.</p>
 <p>(1)</p>
@@ -1355,126 +1402,6 @@ b 곱하기 a: 18
 <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>
 
 <span class="n">y</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>예제 3</strong></p>
-<p>먼저 아래와 같이 변수를 선언한다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">17</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>언급된 값을 표현하는 수식을 <code class="docutils literal notranslate"><span class="pre">number</span></code> 변수를 이용하여 표현한 다음에 실행하여라.</p>
-<p>(1) number 더하기 2</p>
-<p>답</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">+</span> <span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19
-</pre></div>
-</div>
-</div>
-</div>
-<p>(2) number 빼기 2.0</p>
-<p>답</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">-</span> <span class="mf">2.0</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.0
-</pre></div>
-</div>
-</div>
-</div>
-<p>(3) number 나누기 7</p>
-<p>답</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">/</span> <span class="mi">7</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.4285714285714284
-</pre></div>
-</div>
-</div>
-</div>
-<p>(4) number를 7로 나눴을 때의 몫</p>
-<p>답</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">//</span> <span class="mi">7</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
-</pre></div>
-</div>
-</div>
-</div>
-<p>(5) number를 7로 나눴을 때의 나머지</p>
-<p>답</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">%</span> <span class="mi">7</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
-</pre></div>
-</div>
-</div>
-</div>
-<p>(6) number의 세제곱을 (2 + 3)으로 나누기</p>
-<p>답</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>982.6
-</pre></div>
-</div>
-</div>
-</div>
-<p>그런데 아래와 같이 하면 다른, 따라서 틀린 값이 나온다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2459.5
-</pre></div>
-</div>
-</div>
-</div>
-<p>이유는 나눗셈 연산자 <code class="docutils literal notranslate"><span class="pre">/</span></code>의 우선순위가 덧셈 연산자 <code class="docutils literal notranslate"><span class="pre">+</span></code> 보다 높아서 위 수식은 아래 수식처럼 계산되기 때문이다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">number</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2459.5
 </pre></div>
 </div>
 </div>

@@ -1121,6 +1121,126 @@ document.write(`
 <section id="id5">
 <h2><span class="section-number">3.4. </span>예제<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <p><strong>예제 1</strong></p>
+<p>먼저 아래와 같이 변수를 선언한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">17</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>언급된 값을 표현하는 수식을 <code class="docutils literal notranslate"><span class="pre">number</span></code> 변수를 이용하여 표현한 다음에 실행하여라.</p>
+<p>(1) number 더하기 2</p>
+<p>답:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19
+</pre></div>
+</div>
+</div>
+</div>
+<p>(2) number 빼기 2.0</p>
+<p>답:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">-</span> <span class="mf">2.0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>(3) number 나누기 7</p>
+<p>답:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">/</span> <span class="mi">7</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.4285714285714284
+</pre></div>
+</div>
+</div>
+</div>
+<p>(4) number를 7로 나눴을 때의 몫</p>
+<p>답:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">//</span> <span class="mi">7</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>(5) number를 7로 나눴을 때의 나머지</p>
+<p>답:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">%</span> <span class="mi">7</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p>(6) number의 세제곱을 (2 + 3)으로 나누기</p>
+<p>답:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>982.6
+</pre></div>
+</div>
+</div>
+</div>
+<p>그런데 아래와 같이 하면 다른, 따라서 틀린 값이 나온다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2459.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>이유는 나눗셈 연산자 <code class="docutils literal notranslate"><span class="pre">/</span></code>의 우선순위가 덧셈 연산자 <code class="docutils literal notranslate"><span class="pre">+</span></code> 보다 높아서 위 수식은 아래 수식처럼 계산되기 때문이다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">number</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2459.5
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 2</strong></p>
 <p>아래 코드를 실행했을 때 부동소수점 <code class="docutils literal notranslate"><span class="pre">27.1</span></code>이 어떻게 이해되는지를 설명하라.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1135,16 +1255,16 @@ document.write(`
 </div>
 </div>
 </div>
-<p>답</p>
+<p>답:</p>
 <p>파이썬에서 0은 <code class="docutils literal notranslate"><span class="pre">False</span></code>로, 다른 값은 <code class="docutils literal notranslate"><span class="pre">True</span></code>로 간주된다.
 이런 의미로 <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">27.1</span></code>에 사용된 <code class="docutils literal notranslate"><span class="pre">27.1</span></code>은 부동소수점이면서 0이 아니기에
 <code class="docutils literal notranslate"><span class="pre">True</span></code>로 간주되어 조건문의 본문에 포함된 <code class="docutils literal notranslate"><span class="pre">print()</span></code> 함수가 실행된다.</p>
-<p><strong>예제 2</strong></p>
+<p><strong>예제 3</strong></p>
 <p>아래 내용의 논리식을 할당받는 변수 <code class="docutils literal notranslate"><span class="pre">p1</span></code>을 선언한 후에 <code class="docutils literal notranslate"><span class="pre">p1</span></code>에 할당된 진리값을 확인한다.</p>
 <blockquote>
 <div><p>3과 4가 다른지 여부 판단</p>
 </div></blockquote>
-<p>답</p>
+<p>답:</p>
 <p>아래 코드는 두 값이 다른지 여부는 <code class="docutils literal notranslate"><span class="pre">!=</span></code> 연산자를 이용하여 표현한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1159,12 +1279,12 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>예제 3</strong></p>
+<p><strong>예제 4</strong></p>
 <p>아래 내용의 논리식을 할당받는 변수 <code class="docutils literal notranslate"><span class="pre">p2</span></code>를 선언한 후에 <code class="docutils literal notranslate"><span class="pre">p2</span></code>에 할당된 진리값을 확인한다.</p>
 <blockquote>
 <div><p>“hello”와 “hi”가 같은지 여부 판단</p>
 </div></blockquote>
-<p>답</p>
+<p>답:</p>
 <p>아래 코드는 두 값이 동일한지 여부는 <code class="docutils literal notranslate"><span class="pre">==</span></code> 연산자를 이용하여 표현한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1179,7 +1299,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>예제 4</strong></p>
+<p><strong>예제 5</strong></p>
 <p>15, 28이 각각 짝수인지 또는 홀수인지를 판별하는 코드를 작성한다.
 출력된 결과는 아래와 같은 형식이어야 한다.</p>
 <blockquote>
@@ -1187,7 +1307,7 @@ document.write(`
 28은 짝수인가요? True</p>
 </div></blockquote>
 <p>힌트: 짝수는 2로 나눴을 때 나머지가 0이다.</p>
-<p>답</p>
+<p>답:</p>
 <p>15가 짝수인지 여부는 <code class="docutils literal notranslate"><span class="pre">15</span> <span class="pre">%</span> <span class="pre">2</span> <span class="pre">==</span> <span class="pre">0</span></code> 가 <code class="docutils literal notranslate"><span class="pre">True</span></code>로 계산되는지로 확인한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1221,7 +1341,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>예제 5</strong></p>
+<p><strong>예제 6</strong></p>
 <p>변수 <code class="docutils literal notranslate"><span class="pre">second_languages</span></code>는 아래 리스트를 가리킨다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1239,7 +1359,7 @@ document.write(`
 리스트  포함되어 있지 않은 경우에만 언급된 언어가
 오르편 끝에 추가된 리스트를 화면에 출력하는 코드를 작성한다.</p>
 <p>힌트: <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code> 연산자 활용</p>
-<p>답</p>
+<p>답:</p>
 <p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> </code> 명령문을 이용한다.
 이때 <code class="docutils literal notranslate"><span class="pre">if</span></code> 다음에 오는 진리값을 표현하는 식으로 리스트를 대상으로 항목이 아닌경우에
 <code class="docutils literal notranslate"><span class="pre">True</span></code>로 계산되는 <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code> 연산자를 이용한다.
@@ -1275,7 +1395,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>예제 6</strong></p>
+<p><strong>예제 7</strong></p>
 <p>변수 <code class="docutils literal notranslate"><span class="pre">greetings</span></code>가 다음과 같이 선언된다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1285,7 +1405,7 @@ document.write(`
 </div>
 </div>
 <p>(1) 문자열에 포함된 쉼표 기호 <code class="docutils literal notranslate"><span class="pre">,</span></code>를 확인하는 인덱싱을 표현하는 수식을 정의하라.</p>
-<p><strong>답</strong></p>
+<p>답:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">greetings</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
@@ -1299,7 +1419,7 @@ document.write(`
 </div>
 </div>
 <p>(2) 문자열에 포함된 느낌표 기호 <code class="docutils literal notranslate"><span class="pre">!</span></code>을 확인하는 인덱싱을 표현하는 수식을 정의하라.</p>
-<p><strong>답</strong></p>
+<p>답:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">greetings</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -1312,12 +1432,12 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>예제 7</strong></p>
+<p><strong>예제 8</strong></p>
 <p>우유 가격은 820원이고, 아이스크림 가격은 1500원이다.
 아이스크림은 3개 이상 구입하면 5% 할인해준다.
 우유 2개와 아이스크림 3개를 구입할 때 지불해야 하는 가격을 다양한 변수를 활용하여 계산하는 코드를 작성한다.</p>
 <p>힌트: 할인율이 5%이면 할인을 적용할 때 구입 가격에 (1 - 0.05)를 곱한다.</p>
-<p>답</p>
+<p>답:</p>
 <p>우유 가격과 개수, 아이스크림 가격과 개수, 할인율을 변수로 활용해서
 간단한 연산을 실행한다.</p>
 <div class="cell docutils container">
@@ -1354,7 +1474,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>예제 8</strong></p>
+<p><strong>예제 9</strong></p>
 <p>연이자 5%인 정기예금에 1천만원을 10년간 은행에 맡겼을 때
 10년 후에 수령할 금액을 계산하는 코드를 다양한 변수를 활용하여 구현한다.
 단, 다음 형식으로 출력하라.</p>
@@ -1373,7 +1493,7 @@ document.write(`
 <li><p>period = 저축기간(년)</p></li>
 <li><p>savings = 원리합계</p></li>
 </ul>
-<p>답</p>
+<p>답:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">principal</span> <span class="o">=</span> <span class="mi">10000000</span>
