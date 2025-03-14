@@ -807,46 +807,40 @@ document.write(`
 <p><strong>예제 5</strong></p>
 <p>사용자로부터 0이 아닌 한자리 정수 <code class="docutils literal notranslate"><span class="pre">n</span></code> 을 입력받아 <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">+</span> <span class="pre">nn</span> <span class="pre">+</span> <span class="pre">nnn</span></code> 을 계산하는 코드를 작성한다.
 단, <code class="docutils literal notranslate"><span class="pre">nn</span></code>과 <code class="docutils literal notranslate"><span class="pre">nnn</span></code>은 곱셈이 아니고 문자열 <code class="docutils literal notranslate"><span class="pre">n</span></code>을 각각 두 번과 세 번 반복한 결과로 생성된 정수를 가리킨다.
-예를 들어 5가 입력되면 아래 값이 계산되어야 한다.</p>
+예를 들어 5가 입력되면 아래 값이 출력되어야 한다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="o">+</span> <span class="mi">55</span> <span class="o">+</span> <span class="mi">555</span> <span class="o">=</span> <span class="mi">615</span>
 </pre></div>
 </div>
-<p>힌트: <code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수와 <code class="docutils literal notranslate"><span class="pre">int()</span></code> 함수 활용. 문자열 이어붙이기 연산자 <code class="docutils literal notranslate"><span class="pre">+</span></code> 또는 복제 후 이어붙이기 연산자 <code class="docutils literal notranslate"><span class="pre">*</span></code> 활용.</p>
-<p>주의사항: <code class="docutils literal notranslate"><span class="pre">int(input())</span></code> 형식은 사용하지 않음.</p>
+<p>주의사항: <code class="docutils literal notranslate"><span class="pre">int(input())</span></code> 형식을 사용하면 곤란해짐.</p>
 <p>답:</p>
-<ul class="simple">
-<li><p>문자열 이어붙이기 연산자 <code class="docutils literal notranslate"><span class="pre">+</span></code> 활용</p></li>
-</ul>
+<p>(1) 문자열 <code class="docutils literal notranslate"><span class="pre">+</span></code> 연산자 활용</p>
 <p>5를 입력하면 <code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수는 문자열 <code class="docutils literal notranslate"><span class="pre">'5'</span></code>를 입력값으로 지정한다.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>n = input(&quot;한 자리 정수 하나를 입력하세요: &quot;)
 </pre></div>
 </div>
-<p>이제 <code class="docutils literal notranslate"><span class="pre">+</span></code> 연산자를 이용하여 변수 <code class="docutils literal notranslate"><span class="pre">n</span></code>에 할당된 값을 이어붙인다.
+<p>이제 문자열 <code class="docutils literal notranslate"><span class="pre">+</span></code> 연산자를 이용하여 변수 <code class="docutils literal notranslate"><span class="pre">n</span></code>에 할당된 값을 이어붙인다.
 예를 들어 문자열 <code class="docutils literal notranslate"><span class="pre">'5'</span></code>를 이어붙이면 <code class="docutils literal notranslate"><span class="pre">'55'</span></code>가 된다.
 여기에 <code class="docutils literal notranslate"><span class="pre">int()</span></code> 함수를 적용하면 정수 55가 계산된다.
 유사한 방식으로 정수 555를 계산할 수 있다.</p>
-<p>위 설명을 코드로 구현하면 다음과 같으며
-정수 5를 입력해서 <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">+</span> <span class="pre">55</span> <span class="pre">+</span> <span class="pre">555</span></code>를 계산한다.</p>
+<p>위 설명을 코드로 구현한 다음에 5를 입력하면 언급된 결과가 화면에 출력된다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;한 자리 정수 하나를 입력하세요: &quot;</span><span class="p">)</span>
 <span class="n">nn</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="n">n</span>
 <span class="n">nnn</span> <span class="o">=</span> <span class="n">nn</span> <span class="o">+</span> <span class="n">n</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">nn</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">nnn</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="s1">&#39; + &#39;</span><span class="o">+</span><span class="n">nn</span><span class="o">+</span><span class="s1">&#39; + &#39;</span><span class="o">+</span><span class="n">nnn</span><span class="o">+</span><span class="s1">&#39; =&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">nn</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">nnn</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>정수 하나를 입력하세요: 5
-615
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>한 자리 정수 하나를 입력하세요: 5
+5 + 55 + 555 = 615
 </pre></div>
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>문자열 복제 후 이어붙이기 연산자 <code class="docutils literal notranslate"><span class="pre">*</span></code> 활용</p></li>
-</ul>
+<p>(1) 문자열 <code class="docutils literal notranslate"><span class="pre">*</span></code> 연산자 활용</p>
 <p>두 변수 <code class="docutils literal notranslate"><span class="pre">n</span></code>과 <code class="docutils literal notranslate"><span class="pre">nn</span></code>을 <code class="docutils literal notranslate"><span class="pre">*</span></code> 연산자를 이용하여 정의한다.
 실행할 때 7을 입력하여 <code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">+</span> <span class="pre">77</span> <span class="pre">+</span> <span class="pre">777</span> <span class="pre">=</span> <span class="pre">861</span></code>을 계산한다.</p>
 <div class="cell docutils container">
@@ -855,13 +849,13 @@ document.write(`
 <span class="n">nn</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">2</span>
 <span class="n">nnn</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">3</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">nn</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">nnn</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="s1">&#39; + &#39;</span><span class="o">+</span><span class="n">nn</span><span class="o">+</span><span class="s1">&#39; + &#39;</span><span class="o">+</span><span class="n">nnn</span><span class="o">+</span><span class="s1">&#39; =&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">nn</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">nnn</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>정수 하나를 입력하세요: 5
-615
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>한 자리 정수 하나를 입력하세요: 7
+7 + 77 + 777 = 861
 </pre></div>
 </div>
 </div>
