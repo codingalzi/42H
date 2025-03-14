@@ -28,13 +28,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -399,8 +399,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input">5.1. <code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.2. 필수 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input">5.1. <code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수 사용법</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.2. 예제</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.3. 연습문제</a></li>
 </ul>
             </nav>
@@ -415,9 +415,6 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">5. </span>사용자 입력<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>사용자로 입력값을 받아 처리하는 방식을 소개한다.</p>
-<section id="input">
-<h2><span class="section-number">5.1. </span><code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수<a class="headerlink" href="#input" title="Link to this heading">#</a></h2>
 <p>아래 코드를 실행한 다음에 키보드에서 숫자 13을 입력하고 <kbd>Enter</kbd> 키를 누르면
 최종적으로 <code class="docutils literal notranslate"><span class="pre">'맞았습니다!'</span></code>가 출력된다.</p>
 <div class="cell docutils container">
@@ -443,41 +440,25 @@ document.write(`
 </div>
 </div>
 </div>
-<p>이유는 <code class="docutils literal notranslate"><span class="pre">secret</span></code> 변수에 할당되어 있는 값이 13이고
-<code class="docutils literal notranslate"><span class="pre">guess</span></code> 변수에는 사용자가 입력한 값인 13이 할당되는 데
-그러면 <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span> <span class="pre">...</span></code> 조건문에 사용된 논리식
-<code class="docutils literal notranslate"><span class="pre">guess</span> <span class="pre">==</span> <span class="pre">secret</span></code>가 <code class="docutils literal notranslate"><span class="pre">True</span></code>로 계산되어
-<code class="docutils literal notranslate"><span class="pre">print(&quot;맞았습니다!&quot;)</span></code>가 실행되기 때문이다.</p>
-<p>사용자가 입력한 13은 <code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수에 의해 변수 <code class="docutils literal notranslate"><span class="pre">guess_str</span></code>에 할당된다.
-<code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수의 사용법은 다음과 같다.</p>
+<p>위 코드의 실행 내용은 다음과 같다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">secret</span></code> 변수에 정수 13을 할당한다.</p></li>
+<li><p>사용자가 입력한 값 13은 <code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수에 의해 문자열 <code class="docutils literal notranslate"><span class="pre">'13'</span></code>으로 반환되어 변수 <code class="docutils literal notranslate"><span class="pre">guess_str</span></code>에 할당된다.</p></li>
+<li><p>문자열 <code class="docutils literal notranslate"><span class="pre">'13'</span></code>이 곧바로 <code class="docutils literal notranslate"><span class="pre">guess</span></code> 변수에 정수 13으로 변환되어 할당된다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">secret</span> <span class="pre">==</span> <span class="pre">guess</span></code>가 <code class="docutils literal notranslate"><span class="pre">True</span></code>로 계산되어 “맞았습니다!”가 화면에 출력된다.</p></li>
+</ul>
+<section id="input">
+<h2><span class="section-number">5.1. </span><code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수 사용법<a class="headerlink" href="#input" title="Link to this heading">#</a></h2>
+<p>일반적인 <code class="docutils literal notranslate"><span class="pre">input()</span></code>의 사용법은 다음과 같다.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;입력값 안내 문자열&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수의 인자는 사용자로부터 입력되어야 하는 값에 대한 정보를 알려주는 안내문의 역할을 수행할 뿐이며
-사용자의 입력값을 처리하는 방식에는 전혀 영향을 미치지 않는다.
+<p><strong>인자</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수와 함께 지정되는 인자는
+사용자가 입력해야 하는 값에 대한 정보를 알려주는 문장이며,
+사용자의 입력값을 처리하는 방식과는 무관하다.
 따라서 안내 문자열을 생략할 수 있다.</p>
-<p>입력값 안내 문자열을 지정하고 실행하면 안내 문자열이 먼저 출력되고 사용자가 <kbd>Enter</kbd> 키를 입력할 때까지 기다린다.
-<code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수가 사용자로부터 받아들이는 값은 <kbd>Enter</kbd> 키가 입력되기 전까지 입력된 문자와 기호로 이루어진
-문자열이다.
-아래 코드를 실행할 때 사용자가 1과 3을 연속으로 입력한 후에 <kbd>Enter</kbd> 키를 치면
-<code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수는 문자열 <code class="docutils literal notranslate"><span class="pre">'13'</span></code>을 입력값으로 처리한다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;10부터 19 사이의 숫자 하나를 입력하세요: &quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10부터 19 사이의 숫자 하나를 입력하세요: 13
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;13&#39;
-</pre></div>
-</div>
-</div>
-</div>
 <p>입력값 안내 문자열을 사용하지 않으면 아무런 정보 없이 사용자가 <kbd>Enter</kbd> 키를 입력할 때까지 기다린다.
-사용자 입력값은 정수, 부동소수점뿐만 아니라 임의의 키의 조합이 될 수 있다.
 아래 코드를 실행한 후에 <code class="docutils literal notranslate"><span class="pre">파이썬</span></code>을 입력한 후에 <kbd>Enter</kbd> 키를 치면
 문자열 <code class="docutils literal notranslate"><span class="pre">'파이썬'</span></code>이 <code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수의 입력값으로 처리된다.</p>
 <div class="cell docutils container">
@@ -495,8 +476,30 @@ document.write(`
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수의 입력값은 무조건 문자열로 지정된다.
-이런 이유로 <code class="docutils literal notranslate"><span class="pre">guess_str</span></code> 변수에 할당된 값은 정수 13이 아니라 문자열 <code class="docutils literal notranslate"><span class="pre">'13'</span></code>이다.</p>
+<p><strong>실행 과정</strong></p>
+<p>입력값 안내 문자열을 지정하고 실행하면 안내 문자열이 먼저 출력되고 사용자가 <kbd>Enter</kbd> 키를 입력할 때까지
+입력창에서 커서가 기다린다.</p>
+<p><strong>반환값</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수의 반환값은 사용자가 <kbd>Enter</kbd> 키를 치기 전까지
+타이핑한 기호들로 구성된 <strong>문자열</strong>이다.</p>
+<p>아래 코드를 실행할 때 사용자가 1과 3을 연속으로 입력한 후에 <kbd>Enter</kbd> 키를 치면
+문자열 <code class="docutils literal notranslate"><span class="pre">'13'</span></code>을 반환한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;10부터 19 사이의 숫자 하나를 입력하세요: &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10부터 19 사이의 숫자 하나를 입력하세요: 13
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;13&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>이런 이유로 <code class="docutils literal notranslate"><span class="pre">guess_str</span></code> 변수에 할당된 값은 정수 13이 아니라 문자열 <code class="docutils literal notranslate"><span class="pre">'13'</span></code>이다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">guess_str</span>
@@ -521,9 +524,10 @@ document.write(`
 </div>
 </div>
 </div>
-<p>그런데 사용자가 입력해서 맞혀야 하는 값은 정수 13이고
-파이썬은 정수와 문자열을 비교하면 항상 <code class="docutils literal notranslate"><span class="pre">False</span></code>로 계산한다.
-이는 정수 13과 문자열 <code class="docutils literal notranslate"><span class="pre">'13'</span></code>에 대해서도 동일하다.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">int()</span></code> 함수 활용</strong></p>
+<p>문자열 <code class="docutils literal notranslate"><span class="pre">'13'</span></code>을 <code class="docutils literal notranslate"><span class="pre">secret</span></code>에 할당된 정수와 비교하면,
+즉, <code class="docutils literal notranslate"><span class="pre">secret</span> <span class="pre">==</span> <span class="pre">guess_str</span></code>을 실행하면 무조건 <code class="docutils literal notranslate"><span class="pre">&quot;틀렸습니다!&quot;</span></code>가 출력된다.
+이유는 정수와 문자열을 비교하면 무조건 <code class="docutils literal notranslate"><span class="pre">False</span></code>로 계산되기 때문이다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">13</span> <span class="o">==</span> <span class="s1">&#39;13&#39;</span>
@@ -532,26 +536,6 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
-</div>
-</div>
-</div>
-<p>따라서 <code class="docutils literal notranslate"><span class="pre">int()</span></code> 함수를 이용하여 변환된 값을 <code class="docutils literal notranslate"><span class="pre">guess</span></code> 변수에 할당한 후에
-<code class="docutils literal notranslate"><span class="pre">secret</span></code>에 할당된 정수 13과 비교하는 <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span> <span class="pre">...</span></code> 조건문을 실행한다.
-만약에 이 과정을 거치지 않고 <code class="docutils literal notranslate"><span class="pre">secret</span> <span class="pre">==</span> <span class="pre">guess_str</span></code>을 사용하면
-무조건 <code class="docutils literal notranslate"><span class="pre">&quot;틀렸습니다!&quot;</span></code>가 출력될 것이다.
-이유는 앞서 설명한 대로 <code class="docutils literal notranslate"><span class="pre">secret</span> <span class="pre">==</span> <span class="pre">guess_str</span></code>가 <code class="docutils literal notranslate"><span class="pre">False</span></code>로 계산되기 때문이다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">secret</span> <span class="o">==</span> <span class="n">guess_str</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;맞았습니다!&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;틀렸습니다!&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>틀렸습니다!
 </pre></div>
 </div>
 </div>
@@ -570,35 +554,17 @@ document.write(`
 </div>
 </div>
 </div>
-<p>또한 <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">..</span> <span class="pre">else</span> <span class="pre">...</span></code> 조건문도 <code class="docutils literal notranslate"><span class="pre">guess</span></code>를 대신 이용해야 13이 제대로 입력되었음을 확인받을 수 있다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">secret</span> <span class="o">==</span> <span class="n">guess</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;맞았습니다!&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;틀렸습니다!&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>맞았습니다!
-</pre></div>
-</div>
-</div>
-</div>
 <p><strong><code class="docutils literal notranslate"><span class="pre">int(input())</span></code> 활용</strong></p>
 <p>앞서 입력된 값을 처리하기 위해 두 개의 변수를 사용하였다.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">guess_str</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;10부터 19 사이의 숫자 하나를 입력하세요: &quot;</span><span class="p">)</span> 
 <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">guess_str</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>그런데 어차리 정수로 변환된 값을 사용할 것이기에 <code class="docutils literal notranslate"><span class="pre">guess_str</span></code> 변수를 사용하지 않으면서
+<p>그런데 어차피 정수로 변환된 값을 사용할 것이기에 <code class="docutils literal notranslate"><span class="pre">guess_str</span></code> 변수를 사용하지 않으면서
 직접 <code class="docutils literal notranslate"><span class="pre">guess</span></code>를 다음과 같이 정의해도 된다.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;10부터 19 사이의 숫자 하나를 입력하세요: &quot;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>즉, <code class="docutils literal notranslate"><span class="pre">guess_str</span></code> 변수가 가리키고 있는 <code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수 호출 표현식 그대로를
-<code class="docutils literal notranslate"><span class="pre">int()</span></code> 함수의 인자로 지정한다.</p>
 <p>이제 <code class="docutils literal notranslate"><span class="pre">secret</span></code> 변수에 저장된 13을 맞히는 코드를 다음과 같이 작성할 수 있다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -616,20 +582,294 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>숫자맞히기 게임에 환영합니다.
-10부터 19 사이의 숫자 하나를 입력하세요:  13
+10부터 19 사이의 숫자 하나를 입력하세요: 13
 맞았습니다!
+</pre></div>
+</div>
+</div>
+</div>
+<p>물론 13이 아닌 다른 숫자를 입력하면 ‘틀렸습니다’가 출력된다.
+아래 코드는 17일 입력했을 때의 결과를 보여준다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;숫자맞히기 게임에 환영합니다.&quot;</span><span class="p">)</span>
+
+<span class="n">secret</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;10부터 19 사이의 숫자 하나를 입력하세요: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">secret</span> <span class="o">==</span> <span class="n">guess</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;맞았습니다!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;틀렸습니다!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>숫자맞히기 게임에 환영합니다.
+10부터 19 사이의 숫자 하나를 입력하세요: 17
+틀렸습니다!
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="id2">
-<h2><span class="section-number">5.2. </span>필수 예제<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/pybook/blob/master/examples/examples-variables_expressions.ipynb">(필수 예제) 변수, 값, 표현식</a></p>
+<h2><span class="section-number">5.2. </span>예제<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p><strong>예제 1</strong></p>
+<p>입력받은 두 정수의 합을 지정된 형식으로 출력하는 코드를 작성한다.
+입력된 두 개의 정수는 각각 변수 <code class="docutils literal notranslate"><span class="pre">a</span></code>와 <code class="docutils literal notranslate"><span class="pre">b</span></code>에 저장한다.</p>
+<p>예를 들어 3과 2가 입력되면 아래처럼 화면에 출력되도록 한다.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>3 + 2 = 5
+</pre></div>
+</div>
+<p>답:</p>
+<p>정수 두 개를 각각 입력받을 수 있도록 <code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수를 두 번 사용한다.
+첫째 입력값은 정수로 변환해서 <code class="docutils literal notranslate"><span class="pre">a</span></code>에 할당, 둘째 입력값은 <code class="docutils literal notranslate"><span class="pre">b</span></code>에 할당한다.
+지정된 형식으로의 출력은 <code class="docutils literal notranslate"><span class="pre">print()</span></code> 함수를 이용한다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">print()</span></code> 함수에 쉼표를 이용하여 여러 개의 인자를 지정하면
+각각의 인자가 공백으로 구분되어 한 줄에 출력되는 성질을 이용한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;첫째 정수를 입력하세요: &quot;</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;둘째 정수를 입력하세요: &quot;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>첫째 정수를 입력하세요: 3
+둘째 정수를 입력하세요: 2
+3 + 2 = 5
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 2</strong></p>
+<p>두 개의 부동소수점<code class="docutils literal notranslate"><span class="pre">x</span></code>와 <code class="docutils literal notranslate"><span class="pre">y</span></code>를 입력받아 두 수의
+평균값을 아래 형식으로 출력하는 코드를 작성한다.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2.4 와 5.7 의 평균값: 4.05
+</pre></div>
+</div>
+<p>단, <code class="docutils literal notranslate"><span class="pre">x</span></code>와 <code class="docutils literal notranslate"><span class="pre">y</span></code>의 평균값은 <code class="docutils literal notranslate"><span class="pre">(x</span> <span class="pre">+</span> <span class="pre">y)/2</span></code>이며, 평균값은 소수점 이하 셋째 자리에서 반올림한다.</p>
+<p>힌트: <code class="docutils literal notranslate"><span class="pre">float()</span></code> 함수와 <code class="docutils literal notranslate"><span class="pre">round()</span></code> 함수 활용</p>
+<p>답:</p>
+<p><code class="docutils literal notranslate"><span class="pre">round()</span></code> 함수의 첫째 인자는 부동소수점, 둘째 인자는 소수점 이하 자릿수를 지정하며
+반올림을 이용하여 지정된 자릿수까지만 계산한다.
+활용법은 다음과 같다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">3.141592</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.142
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">3.141592</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14
+</pre></div>
+</div>
+</div>
+</div>
+<p>사용자가 정수가 아닌 유한소수를 입력할 것을 예상해야 하기에
+<code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수의 결과에 바로 <code class="docutils literal notranslate"><span class="pre">float()</span></code> 함수를 적용한다.
+그 다음에 평균값을 계산하여 지정된 방식으로 출력한다.
+단, <code class="docutils literal notranslate"><span class="pre">round()</span></code> 함수를 이용하여 소수점 이하의 자릿수를 2로 지정한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;첫째 유한소수를 입력하세요: &quot;</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;둘째 유한소수를 입력하세요: &quot;</span><span class="p">))</span>
+
+<span class="c1"># 평균값</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;와&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;의 평균값:&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>첫째 유한소수를 입력하세요: 2.4
+둘째 유한소수를 입력하세요: 5.7
+2.4 와 5.7 의 평균값: 4.05
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 3</strong></p>
+<p>사용자로부터 정수를 한 개 입력받은 후 입력된 정수의 짝수/홀수 여부를 판정하는 코드를 작성한다.</p>
+<p>답:</p>
+<p><code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수를 다음과 같이 이용하여 사용자로부터 정수를 입력 받아 정수로 변환하여
+변수 <code class="docutils literal notranslate"><span class="pre">user_input</span></code>에 할당한다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user_input</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;정수 하나를 입력하세요: &quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>이제 <code class="docutils literal notranslate"><span class="pre">user_input</span></code>에 할당된 정수의 짝수/홀수 여부를 2로 나눈 나머지가 0인지
+여부에 따라 결정하여 그결과를 출력한다.</p>
+<p>아래 코드는 9를 입력했을 때 홀수 판정을 내린다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_input</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;정수 하나를 입력하세요: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">user_input</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;짝수&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;홀수&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>정수 하나를 입력하세요: 9
+홀수
+</pre></div>
+</div>
+</div>
+</div>
+<p>아래 코드는 <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span> <span class="pre">...</span></code> 조건문을 사용하지 않으면서
+동일한 기능을 수행하는 코드를 보여준다.
+대신 짝수일 때는 <code class="docutils literal notranslate"><span class="pre">True</span></code>를 홀수일 때는 <code class="docutils literal notranslate"><span class="pre">False</span></code>를 출력한다.
+예를 들어 18을 입력하면 <code class="docutils literal notranslate"><span class="pre">True</span></code>를 출력한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_input</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;정수 하나를 입력하세요: &quot;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;입력값이 짝수인가요?&quot;</span><span class="p">,</span> <span class="n">user_input</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>정수 하나를 입력하세요: 18
+입력값이 짝수인가요? True
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 4</strong></p>
+<p>사용자로부터 하나의 정수를 입력받은 후 입력값이 17보다 크면
+입력값과의 편차의 제곱을,
+아니면 입력된 정수를 출력하는 코드를 작성한다.</p>
+<p>답:</p>
+<p>두 정수의 크기비교를 위해 <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> 연산자를 이용한다.
+<code class="docutils literal notranslate"><span class="pre">a</span></code>가 표현하는 값이 <code class="docutils literal notranslate"><span class="pre">b</span></code>가 표현하는 값보다 클 때
+표현식 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;</span> <span class="pre">b</span></code>가 <code class="docutils literal notranslate"><span class="pre">True</span></code>로 계산된다는 사실을
+<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span> <span class="pre">...</span></code> 조건문에 적용한다.</p>
+<ul class="simple">
+<li><p>20을 입력할 때: 9 출력</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="n">user_input</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;정수 하나를 입력하세요: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">user_input</span> <span class="o">&gt;</span> <span class="mi">17</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;17과의 편차의 제곱:&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">user_input</span> <span class="o">-</span> <span class="mi">17</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;17보다 크지 않은 값&quot;</span><span class="p">,</span> <span class="n">user_input</span><span class="p">,</span> <span class="s1">&#39;을(를) 입력하였습니다.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>정수 하나를 입력하세요: 20
+17과의 편차의 제곱: 9
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>15를 입력할 때: 15 출력</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="n">user_input</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;정수 하나를 입력하세요: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">user_input</span> <span class="o">&gt;</span> <span class="mi">17</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;17과의 편차의 제곱:&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">user_input</span> <span class="o">-</span> <span class="mi">17</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;17보다 크지 않은 값&quot;</span><span class="p">,</span> <span class="n">user_input</span><span class="p">,</span> <span class="s1">&#39;을(를) 입력하였습니다.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>정수 하나를 입력하세요: 15
+17보다 크지 않은 값 15 을(를) 입력하였습니다.
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 5</strong></p>
+<p>사용자로부터 0이 아닌 한자리 정수 <code class="docutils literal notranslate"><span class="pre">n</span></code> 을 입력받아 <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">+</span> <span class="pre">nn</span> <span class="pre">+</span> <span class="pre">nnn</span></code> 을 계산하는 코드를 작성한다.
+단, <code class="docutils literal notranslate"><span class="pre">nn</span></code>과 <code class="docutils literal notranslate"><span class="pre">nnn</span></code>은 곱셈이 아니고 문자열 <code class="docutils literal notranslate"><span class="pre">n</span></code>을 각각 두 번과 세 번 반복한 결과로 생성된 정수를 가리킨다.
+예를 들어 5가 입력되면 아래 값이 계산되어야 한다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="o">+</span> <span class="mi">55</span> <span class="o">+</span> <span class="mi">555</span> <span class="o">=</span> <span class="mi">615</span>
+</pre></div>
+</div>
+<p>힌트: <code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수와 <code class="docutils literal notranslate"><span class="pre">int()</span></code> 함수 활용. 문자열 이어붙이기 연산자 <code class="docutils literal notranslate"><span class="pre">+</span></code> 또는 복제 후 이어붙이기 연산자 <code class="docutils literal notranslate"><span class="pre">*</span></code> 활용.</p>
+<p>주의사항: <code class="docutils literal notranslate"><span class="pre">int(input())</span></code> 형식은 사용하지 않음.</p>
+<p>답:</p>
+<ul class="simple">
+<li><p>문자열 이어붙이기 연산자 <code class="docutils literal notranslate"><span class="pre">+</span></code> 활용</p></li>
+</ul>
+<p>5를 입력하면 <code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수는 문자열 <code class="docutils literal notranslate"><span class="pre">'5'</span></code>를 입력값으로 지정한다.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>n = input(&quot;한 자리 정수 하나를 입력하세요: &quot;)
+</pre></div>
+</div>
+<p>이제 <code class="docutils literal notranslate"><span class="pre">+</span></code> 연산자를 이용하여 변수 <code class="docutils literal notranslate"><span class="pre">n</span></code>에 할당된 값을 이어붙인다.
+예를 들어 문자열 <code class="docutils literal notranslate"><span class="pre">'5'</span></code>를 이어붙이면 <code class="docutils literal notranslate"><span class="pre">'55'</span></code>가 된다.
+여기에 <code class="docutils literal notranslate"><span class="pre">int()</span></code> 함수를 적용하면 정수 55가 계산된다.
+유사한 방식으로 정수 555를 계산할 수 있다.</p>
+<p>위 설명을 코드로 구현하면 다음과 같으며
+정수 5를 입력해서 <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">+</span> <span class="pre">55</span> <span class="pre">+</span> <span class="pre">555</span></code>를 계산한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;한 자리 정수 하나를 입력하세요: &quot;</span><span class="p">)</span>
+<span class="n">nn</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="n">n</span>
+<span class="n">nnn</span> <span class="o">=</span> <span class="n">nn</span> <span class="o">+</span> <span class="n">n</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">nn</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">nnn</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>정수 하나를 입력하세요: 5
+615
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>문자열 복제 후 이어붙이기 연산자 <code class="docutils literal notranslate"><span class="pre">*</span></code> 활용</p></li>
+</ul>
+<p>두 변수 <code class="docutils literal notranslate"><span class="pre">n</span></code>과 <code class="docutils literal notranslate"><span class="pre">nn</span></code>을 <code class="docutils literal notranslate"><span class="pre">*</span></code> 연산자를 이용하여 정의한다.
+실행할 때 7을 입력하여 <code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">+</span> <span class="pre">77</span> <span class="pre">+</span> <span class="pre">777</span> <span class="pre">=</span> <span class="pre">861</span></code>을 계산한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;한 자리 정수 하나를 입력하세요: &quot;</span><span class="p">)</span>
+<span class="n">nn</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="n">nnn</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">3</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">nn</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">nnn</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>정수 하나를 입력하세요: 5
+615
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id3">
 <h2><span class="section-number">5.3. </span>연습문제<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/pybook/blob/master/practices/practice-variables_expressions.ipynb">(연습) 변수, 값, 표현식</a></p>
+<p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/42H/blob/master/practices/practice-inputs.ipynb">(연습) 사용자 입력</a></p>
 </section>
 </section>
 
@@ -697,8 +937,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input">5.1. <code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.2. 필수 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input">5.1. <code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수 사용법</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.2. 예제</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.3. 연습문제</a></li>
 </ul>
   </nav></div>
