@@ -399,9 +399,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input">5.1. <code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수 사용법</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.2. 예제</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.3. 연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input">5.1. <code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.2. 숫자 입력값 처리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.3. 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">5.4. 연습문제</a></li>
 </ul>
             </nav>
         </div>
@@ -448,7 +449,7 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">secret</span> <span class="pre">==</span> <span class="pre">guess</span></code>가 <code class="docutils literal notranslate"><span class="pre">True</span></code>로 계산되어 “맞았습니다!”가 화면에 출력된다.</p></li>
 </ul>
 <section id="input">
-<h2><span class="section-number">5.1. </span><code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수 사용법<a class="headerlink" href="#input" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.1. </span><code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수<a class="headerlink" href="#input" title="Link to this heading">#</a></h2>
 <p>일반적인 <code class="docutils literal notranslate"><span class="pre">input()</span></code>의 사용법은 다음과 같다.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;입력값 안내 문자열&quot;</span><span class="p">)</span>
 </pre></div>
@@ -524,7 +525,9 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong><code class="docutils literal notranslate"><span class="pre">int()</span></code> 함수 활용</strong></p>
+</section>
+<section id="id2">
+<h2><span class="section-number">5.2. </span>숫자 입력값 처리<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>문자열 <code class="docutils literal notranslate"><span class="pre">'13'</span></code>을 <code class="docutils literal notranslate"><span class="pre">secret</span></code>에 할당된 정수와 비교하면,
 즉, <code class="docutils literal notranslate"><span class="pre">secret</span> <span class="pre">==</span> <span class="pre">guess_str</span></code>을 실행하면 무조건 <code class="docutils literal notranslate"><span class="pre">&quot;틀렸습니다!&quot;</span></code>가 출력된다.
 이유는 정수와 문자열을 비교하면 무조건 <code class="docutils literal notranslate"><span class="pre">False</span></code>로 계산되기 때문이다.</p>
@@ -540,16 +543,18 @@ document.write(`
 </div>
 </div>
 </div>
-<p>따라서 <code class="docutils literal notranslate"><span class="pre">guess_str</span></code>에 할당된 값을 정수형으로 변환한 다음에 <code class="docutils literal notranslate"><span class="pre">secret</span></code> 변수가 가리키는 값과
-동일한지 여부를 판단해야 한다.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">int()</span></code> 함수 활용</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">guess_str</span></code>에 할당된 값을 정수형으로 변환한 다음에 <code class="docutils literal notranslate"><span class="pre">secret</span></code> 변수가 가리키는 값과
+동일한지 여부를 판단해야 한다.
+이를 위해 <code class="docutils literal notranslate"><span class="pre">int()</span></code> 형변환 함수를 이용한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">guess</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">guess_str</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">guess</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">guess_str</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -612,9 +617,65 @@ document.write(`
 </div>
 </div>
 </div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">float()</span></code> 함수 활용</strong></p>
+<p>만약에 입력값을 부동소수점으로 변환해야 한다면 <code class="docutils literal notranslate"><span class="pre">float()</span></code> 형변환 함수를 이용한다.
+아래 코드는 7을 2로 나눈 값 3.5를 입력해야 한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;나눗셈 질문입니다.&quot;</span><span class="p">)</span>
+
+<span class="n">guess</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;7 나누기 2는 얼마인가요? &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="mf">3.5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;맞았습니다!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;틀렸습니다!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>나눗셈 질문입니다.
+7 나누기 2는 얼마인가요? 3.5
+맞았습니다!
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">int()</span></code>를 사용하면 부동소수점 형식의 문자열 <code class="docutils literal notranslate"><span class="pre">'3.5'</span></code>를 처리할 수 없기에 오류가 발생한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;나눗셈 질문입니다.&quot;</span><span class="p">)</span>
+
+<span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;7 나누기 2는 얼마인가요? &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="mf">3.5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;맞았습니다!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;틀렸습니다!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>나눗셈 질문입니다.
+7 나누기 2는 얼마인가요? 3.5
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;나눗셈 질문입니다.&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;7 나누기 2는 얼마인가요? &quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="mf">3.5</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;맞았습니다!&quot;</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: invalid literal for int() with base 10: &#39;3.5&#39;
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="id2">
-<h2><span class="section-number">5.2. </span>예제<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h2><span class="section-number">5.3. </span>예제<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p><strong>예제 1</strong></p>
 <p>입력받은 두 정수의 합을 지정된 형식으로 출력하는 코드를 작성한다.
 입력된 두 개의 정수는 각각 변수 <code class="docutils literal notranslate"><span class="pre">a</span></code>와 <code class="docutils literal notranslate"><span class="pre">b</span></code>에 저장한다.</p>
@@ -840,7 +901,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>(1) 문자열 <code class="docutils literal notranslate"><span class="pre">*</span></code> 연산자 활용</p>
+<p>(2) 문자열 <code class="docutils literal notranslate"><span class="pre">*</span></code> 연산자 활용</p>
 <p>두 변수 <code class="docutils literal notranslate"><span class="pre">n</span></code>과 <code class="docutils literal notranslate"><span class="pre">nn</span></code>을 <code class="docutils literal notranslate"><span class="pre">*</span></code> 연산자를 이용하여 정의한다.
 실행할 때 7을 입력하여 <code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">+</span> <span class="pre">77</span> <span class="pre">+</span> <span class="pre">777</span> <span class="pre">=</span> <span class="pre">861</span></code>을 계산한다.</p>
 <div class="cell docutils container">
@@ -861,8 +922,8 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="id3">
-<h2><span class="section-number">5.3. </span>연습문제<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h2><span class="section-number">5.4. </span>연습문제<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/42H/blob/master/practices/practice-inputs.ipynb">(연습) 사용자 입력</a></p>
 </section>
 </section>
@@ -931,9 +992,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input">5.1. <code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수 사용법</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.2. 예제</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.3. 연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input">5.1. <code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.2. 숫자 입력값 처리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.3. 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">5.4. 연습문제</a></li>
 </ul>
   </nav></div>
 
