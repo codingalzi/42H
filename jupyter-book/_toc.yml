@@ -12,7 +12,8 @@ chapters:
 - file: values
 - file: expressions_dataTypes
 - file: inputs
-- file: strings
+- file: strings_part1
+- file: strings_part2
 # - file: functions
 # - file: modules
 # - file: conditionals
