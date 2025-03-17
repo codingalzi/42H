@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -876,12 +876,14 @@ ame
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\s&#39;
 &lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\s&#39;
-/tmp/ipykernel_13462/3441249919.py:1: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+/tmp/ipykernel_50907/3441249919.py:1: SyntaxWarning: invalid escape sequence &#39;\s&#39;
   print(&#39;C:\some\name&#39;)
 </pre></div>
 </div>
 </div>
 </div>
+<p>주의사항: <code class="docutils literal notranslate"><span class="pre">SyntacWarning</span></code>은 경고일 뿐이지 오류가 아니다.
+경고는 권장사항에 어긋난다 정도로 이해한다.</p>
 <ul class="simple">
 <li><p>날 문자열 사용: 특수 문자 기능 없음</p></li>
 </ul>
@@ -1229,6 +1231,95 @@ hello+++++
 <section id="id7">
 <h2><span class="section-number">6.7. </span>예제<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <p><strong>예제 1</strong></p>
+<p>아래 코드의 실행 결과를 설명하라.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Hello World</span><span class="se">\n</span><span class="s2">!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Hello World
+!
+</pre></div>
+</div>
+</div>
+</div>
+<p>답:</p>
+<p>세 종류의 화이트 스페이스가 사용되었음.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">'</span></code>: 공백</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'\t'</span></code>: 탭</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'\n'</span></code>: 줄바꿈</p></li>
+</ul>
+<p>문자열이 먼저 탭(스페이스 4칸)으로 시작하고 이후에 Hello World를 출력한 다음 줄바꿈을 진행한다.
+줄이 바뀐 후 느낌표 기호가 출력된다.</p>
+<p><strong>예제 2</strong></p>
+<p>아래 코드의 실행 결과를 설명하라.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;Hello</span><span class="se">\t</span><span class="s2">World</span><span class="se">\n</span><span class="s2">!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13
+</pre></div>
+</div>
+</div>
+</div>
+<p>답:</p>
+<p>사용된 세 개의 모든 화이트스페이스 문자의 길이는 1이다.
+여기에 Hello와 World 단어에 포함된 알파벳 10개를 포함해서 총 13개의 문자로 구성된 문자열이다.</p>
+<p><strong>예제 3</strong></p>
+<p>아래 두 코드의 실행 결과가 다른 이유를 설명하라.</p>
+<p>주의사항: <code class="docutils literal notranslate"><span class="pre">SyntacWarning</span></code>은 경고일 뿐이지 오류가 아니다.
+경고는 권장사항에 어긋난다 정도로 이해한다.</p>
+<ul class="simple">
+<li><p>코드 1</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Python</span><span class="se">\n</span><span class="s1">is\easy</span><span class="se">\t</span><span class="s1">o\learn&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Python
+is\easy	o\learn
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\e&#39;
+&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\e&#39;
+/tmp/ipykernel_50907/1790380387.py:1: SyntaxWarning: invalid escape sequence &#39;\e&#39;
+  print(&#39;Python\nis\easy\to\learn&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>코드 2</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Python\nis\easy\to\learn&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Python\nis\easy\to\learn
+</pre></div>
+</div>
+</div>
+</div>
+<p>답:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'Python\nis\easy\to\learn'</span></code>: <code class="docutils literal notranslate"><span class="pre">\n</span></code>와 <code class="docutils literal notranslate"><span class="pre">\t</span></code> 가 각각 줄바꿈과 탭으로 처리되어 화면에 출력됨.</p></li>
+</ul>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">r'Python\nis\easy\to\learn'</span></code>: 날 문자열로 처리되어 있는 그대로 출력됨.</p></li>
+</ul>
+<p><strong>예제 4</strong></p>
 <p>아래 두 개의 부동소수점을 소수점 이하 두 자리까지만 출력되도록 f-문자열을 활용하라.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1254,7 +1345,7 @@ hello+++++
 </div>
 </div>
 </div>
-<p><strong>예제 2</strong></p>
+<p><strong>예제 5</strong></p>
 <p>아래 두 개의 부동소수점의 소수점을 모두 버리고 정수 부문만 출력되도록 f-문자열을 활용하라.
 단, <code class="docutils literal notranslate"><span class="pre">int()</span></code> 함수는 사용하지 않는다.</p>
 <div class="cell docutils container">
@@ -1296,7 +1387,7 @@ hello+++++
 </div>
 </div>
 </div>
-<p><strong>예제 3</strong></p>
+<p><strong>예제 6</strong></p>
 <p>아래 두 개의 정수를 총 다섯 칸을 차지하도록 f-문자열을 활용하라.
 단 모든 정수는 오른쪽으로 정렬되어야 하며 앞쪽 빈칸은 0으로 채운다.</p>
 <div class="cell docutils container">
