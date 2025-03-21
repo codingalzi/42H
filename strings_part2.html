@@ -1401,7 +1401,7 @@ document.write(`
 <p><strong>예제 4</strong></p>
 <p><strong>어구전철</strong><font size='2'>anagram</font>은 주어진 단어에 사용된 철자의 순서를 변경해서 생성되는 단어를 가리킨다.
 예를 들어 “python”과 “thpyon” 서로 어구전철 관계다.</p>
-<p>(1) <code class="docutils literal notranslate"><span class="pre">'python'</span></code>, <code class="docutils literal notranslate"><span class="pre">'thpyon'</span></code> 두 문자열이 서로 어구전철임을 확인해주는 코드를 작성하라.</p>
+<p><code class="docutils literal notranslate"><span class="pre">'python'</span></code>, <code class="docutils literal notranslate"><span class="pre">'thpyon'</span></code> 두 문자열이 서로 어구전철임을 확인해주는 코드를 작성하라.</p>
 <p>힌트: <code class="docutils literal notranslate"><span class="pre">sorted()</span></code> 함수 활용</p>
 <p>답:</p>
 <p>어구전철 관계의 두 단어는 사용하는 문자의 종류와 빈도가 동일하다.
@@ -1446,51 +1446,10 @@ document.write(`
 </div>
 </div>
 </div>
-<p>(2) <code class="docutils literal notranslate"><span class="pre">'happ</span> <span class="pre">y'</span></code>와 <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">ypp</span> <span class="pre">ah'</span></code> 두 문자열에 대해 공백을 무시하면서 어구전철 여부를 판단하는 코드를 작성하라.</p>
-<p>답:</p>
-<p><code class="docutils literal notranslate"><span class="pre">sorted()</span></code> 함수를 적용하기 전에 <code class="docutils literal notranslate"><span class="pre">replace()</span></code> 메서드를 이용하여 문자열에서 공백을 모두 없애면 된다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">happy1</span> <span class="o">=</span> <span class="s1">&#39;ha pp y&#39;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="n">happy1</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;happy&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">happy2</span> <span class="o">=</span> <span class="s1">&#39;ypp ah&#39;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="n">happy2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;yppah&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">happy1</span><span class="p">)</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">happy2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
 <p><strong>예제 5</strong></p>
 <p>‘기러기’, ‘토마토’, ‘우영우’, ‘인싸 의사의 싸인’, ‘bob’, ‘eye’, ‘pop’와 같이
 앞으로 읽어도, 뒤로 읽어도 동일한 문자열을 <strong>회문</strong><font size='2'>palindrome</font>이라 부른다.</p>
-<p>(1) 주어진 문자열에서 공백을 무시할 때의 회문 여부를 확인하려 한다.
+<p>주어진 문자열에서 공백을 무시할 때의 회문 여부를 확인하려 한다.
 아래 문자열에서 공백을 모두 제거하면 회문이 됨을 보이는 코드를 작성하라.</p>
 <p>힌트: 문자열 역순 슬라이싱</p>
 <div class="cell docutils container">
@@ -1532,34 +1491,6 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_wo_space</span> <span class="o">==</span> <span class="n">word_wo_space</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
-<p>(2) 아래 문자열에서 공백 뿐만 아니라 알파벳 대소문자 여부도 무시할 때 회문이 됨을 보이는 코드를 작성하라.</p>
-<p>힌트: 문자열 <code class="docutils literal notranslate"><span class="pre">lower()</span></code> 메서드,  문자열 슬라이싱 활용</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;A man a plan a canal Panama&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>답:</p>
-<p>이전 문제와 동일한 과정을 밟는다.
-대신 마지막에 <code class="docutils literal notranslate"><span class="pre">lower()</span></code> 메서드를 이용하여 모두 소문자로 변환된 문자열을 이용하여 회문 여부를 판단한다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_list</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-<span class="n">word_wo_space</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">word_list</span><span class="p">)</span>
-<span class="n">word_wo_space</span> <span class="o">=</span> <span class="n">word_wo_space</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-
-<span class="n">word_wo_space</span> <span class="o">==</span> <span class="n">word_wo_space</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1891,7 +1822,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">ord()</span></code> 함수와 <code class="docutils literal notranslate"><span class="pre">chr()</span></code> 함수를 이용하여 변수 <code class="docutils literal notranslate"><span class="pre">alphabet</span></code>이 가리키는 값이 <code class="docutils literal notranslate"><span class="pre">'y'</span></code>가 되도록 하라.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ord()</span></code> 함수와 <code class="docutils literal notranslate"><span class="pre">chr()</span></code> 함수를 이용하여 변수 <code class="docutils literal notranslate"><span class="pre">alphabet</span></code>이 가리키는 값이 <code class="docutils literal notranslate"><span class="pre">'z'</span></code>가 되도록 하라.</p>
 <p>답:</p>
 <p>영어 알파벳이 26개 이기에 13번째 알파벳인 <code class="docutils literal notranslate"><span class="pre">m</span></code>까지는 <code class="docutils literal notranslate"><span class="pre">ord()</span></code> 값에 13을 더하면
 원하는 알파벳이 지정된다.
@@ -1930,7 +1861,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">ord()</span></code> 함수와 <code class="docutils literal notranslate"><span class="pre">chr()</span></code> 함수를 이용하여 변수 <code class="docutils literal notranslate"><span class="pre">alphabet</span></code>가 가리키는 값이 <code class="docutils literal notranslate"><span class="pre">'d'</span></code>가 되도록 하라.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ord()</span></code> 함수와 <code class="docutils literal notranslate"><span class="pre">chr()</span></code> 함수를 이용하여 변수 <code class="docutils literal notranslate"><span class="pre">alphabet</span></code>이 가리키는 값이 <code class="docutils literal notranslate"><span class="pre">'k'</span></code>가 되도록 하라.</p>
 <p>답:</p>
 <p>영어 알파벳이 26개 이기에 13번째 알파벳인 <code class="docutils literal notranslate"><span class="pre">m</span></code> 이후 부터는 <code class="docutils literal notranslate"><span class="pre">ord()</span></code> 값에 13을 더하면 알바벳의 범위를 벗어난다.
 예를 들어 <code class="docutils literal notranslate"><span class="pre">n</span></code>에 대항하는 기호가 여는 중괄호로 지정된다.</p>
