@@ -401,9 +401,23 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for">8.1. 문자열과 for 반복문</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">8.2. 정규표현식</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">8.3. 예제</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">8.4. 연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">8.2. 정규표현식</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regex">8.2.1. RegEx 모듈</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-in-python">8.2.2. RegEx in Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-functions">8.2.3. RegEx Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metacharacters">8.2.4. Metacharacters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#special-sequences">8.2.5. Special Sequences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sets">8.2.6. Sets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-findall-function">8.2.7. The findall() Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-search-function">8.2.8. The <code class="docutils literal notranslate"><span class="pre">search()</span></code> Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-split-function">8.2.9. The split() Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sub-function">8.2.10. The sub() Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#match-object">8.2.11. Match Object</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">8.3. 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">8.4. 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">8.5. 연습문제</a></li>
 </ul>
             </nav>
         </div>
@@ -423,15 +437,542 @@ document.write(`
 </section>
 <section id="id2">
 <h2><span class="section-number">8.2. </span>정규표현식<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>준비중 …</p>
+<p>A RegEx, or Regular Expression, is a sequence of characters that forms a search pattern.</p>
+<p>RegEx can be used to check if a string contains the specified search pattern.</p>
+<section id="regex">
+<h3><span class="section-number">8.2.1. </span>RegEx 모듈<a class="headerlink" href="#regex" title="Link to this heading">#</a></h3>
+<p>Python has a built-in package called re, which can be used to work with Regular Expressions.</p>
+<p>Import the re module:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="regex-in-python">
+<h3><span class="section-number">8.2.2. </span>RegEx in Python<a class="headerlink" href="#regex-in-python" title="Link to this heading">#</a></h3>
+<p>When you have imported the re module, you can start using regular expressions:</p>
+<p>Example</p>
+<p>Search the string to see if it starts with “The” and ends with “Spain”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;The rain in Spain&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;^The.*Spain$&quot;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="regex-functions">
+<h3><span class="section-number">8.2.3. </span>RegEx Functions<a class="headerlink" href="#regex-functions" title="Link to this heading">#</a></h3>
+<p>The re module offers a set of functions that allows us to search a string for a match:</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id3">
+<caption><span class="caption-number">Table 8.1 </span><span class="caption-text">정규식 함수</span><a class="headerlink" href="#id3" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>기능</p></th>
+<th class="head"><p>설명</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>findall</p></td>
+<td><p>Returns a list containing all matches</p></td>
+</tr>
+<tr class="row-odd"><td><p>search</p></td>
+<td><p>Returns a Match object if there is a match anywhere in the string</p></td>
+</tr>
+<tr class="row-even"><td><p>split</p></td>
+<td><p>Returns a list where the string has been split at each match</p></td>
+</tr>
+<tr class="row-odd"><td><p>sub</p></td>
+<td><p>Replaces one or many matches with a string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="metacharacters">
+<h3><span class="section-number">8.2.4. </span>Metacharacters<a class="headerlink" href="#metacharacters" title="Link to this heading">#</a></h3>
+<p>Metacharacters are characters with a special meaning:</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id4">
+<caption><span class="caption-number">Table 8.2 </span><span class="caption-text">메타 기호</span><a class="headerlink" href="#id4" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 12.5%" />
+<col style="width: 62.5%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>기호</p></th>
+<th class="head"><p>설명</p></th>
+<th class="head"><p>예제</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[]</span></code></p></td>
+<td><p>A set of characters</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;[a-m]&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\</span></code></p></td>
+<td><p>Signals a special sequence (can also be used to escape special characters)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;\d&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">.</span></code></p></td>
+<td><p>Any character (except newline character)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;he..o&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+<td><p>Starts with</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;^hello&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">$</span></code></p></td>
+<td><p>Ends with</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;planet$&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p>Zero or more occurrences</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;he.*o&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p>One or more occurrences</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;he.+o&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">?</span></code></p></td>
+<td><p>Zero or one occurrences</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;he.?o&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{}</span></code></p></td>
+<td><p>Exactly the specified number of occurrences</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;he.{2}o&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">|</span></code></p></td>
+<td><p>Either or</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;falls|stays&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">()</span></code></p></td>
+<td><p>Capture and group</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="special-sequences">
+<h3><span class="section-number">8.2.5. </span>Special Sequences<a class="headerlink" href="#special-sequences" title="Link to this heading">#</a></h3>
+<p>A special sequence is a \ followed by one of the characters in the list below, and has a special meaning:</p>
+<div class="pst-scrollable-table-container"><table class="table" id="special-seq">
+<caption><span class="caption-number">Table 8.3 </span><span class="caption-text">특별 기호</span><a class="headerlink" href="#special-seq" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 12.5%" />
+<col style="width: 62.5%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>기호</p></th>
+<th class="head"><p>설명</p></th>
+<th class="head"><p>예제</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\A</span></code></p></td>
+<td><p>Returns a match if the specified characters are at the beginning of the string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;\AThe&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\b</span></code></p></td>
+<td><p>Returns a match where the specified characters are at the beginning or at the end of a word</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">r&quot;\bain&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>(the “r” in the beginning is making sure that the string is being treated as a “raw string”)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">r&quot;ain\b&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\B</span></code></p></td>
+<td><p>Returns a match where the specified characters are present, but NOT at the beginning (or at the end) of a</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">r&quot;\Bain&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>word (the “r” in the beginning is making sure that the string is being treated as a “raw string”)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">r&quot;ain\B&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\d</span></code></p></td>
+<td><p>Returns a match where the string contains digits (numbers from 0-9)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;\d&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\D</span></code></p></td>
+<td><p>Returns a match where the string DOES NOT contain digits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;\D&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\s</span></code></p></td>
+<td><p>Returns a match where the string contains a white space character</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;\s&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\S</span></code></p></td>
+<td><p>Returns a match where the string DOES NOT contain a white space character</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;\S&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\w</span></code></p></td>
+<td><p>Returns a match where the string contains any word characters (characters from a to Z, digits from 0-9, and the underscore _ character)</p></td>
+<td><p>“\w”</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\W</span></code></p></td>
+<td><p>Returns a match where the string DOES NOT contain any word characters</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;\W&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\Z</span></code></p></td>
+<td><p>Returns a match if the specified characters are at the end of the string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;Spain\Z&quot;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sets">
+<h3><span class="section-number">8.2.6. </span>Sets<a class="headerlink" href="#sets" title="Link to this heading">#</a></h3>
+<p>A set is a set of characters inside a pair of square brackets [] with a special meaning:</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id5">
+<caption><span class="caption-number">Table 8.4 </span><span class="caption-text">집합</span><a class="headerlink" href="#id5" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>집합</p></th>
+<th class="head"><p>설명</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[arn]</span></code></p></td>
+<td><p>Returns a match where one of the specified characters (a, r, or n) is present</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[a-n]</span></code></p></td>
+<td><p>Returns a match for any lower case character, alphabetically between a and n</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[^arn]</span></code></p></td>
+<td><p>Returns a match for any character EXCEPT a, r, and n</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[0123]</span></code></p></td>
+<td><p>Returns a match where any of the specified digits (0, 1, 2, or 3) are present</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[0-9]</span></code></p></td>
+<td><p>Returns a match for any digit between 0 and 9</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[0-5][0-9]</span></code></p></td>
+<td><p>Returns a match for any two-digit numbers from 00 and 59</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[a-zA-Z]</span></code></p></td>
+<td><p>Returns a match for any character alphabetically between a and z, lower case OR upper case</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[+]</span></code></p></td>
+<td><p>In sets, +, *, ., |, (), $,{} has no special meaning, so [+] means: return a match for any + character in the string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="the-findall-function">
+<h3><span class="section-number">8.2.7. </span>The findall() Function<a class="headerlink" href="#the-findall-function" title="Link to this heading">#</a></h3>
+<p>The findall() function returns a list containing all matches.</p>
+<p>Example</p>
+<p>Print a list of all matches:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;The rain in Spain&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;ai&quot;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ai&#39;, &#39;ai&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The list contains the matches in the order they are found.</p>
+<p>If no matches are found, an empty list is returned:</p>
+<p>Example</p>
+<p>Return an empty list if no match was found:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;The rain in Spain&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;Portugal&quot;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-search-function">
+<h3><span class="section-number">8.2.8. </span>The <code class="docutils literal notranslate"><span class="pre">search()</span></code> Function<a class="headerlink" href="#the-search-function" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">search()</span></code> function searches the string for a match, and returns a Match object if there is a match.</p>
+<p>If there is more than one match, only the first occurrence of the match will be returned:</p>
+<p>Example</p>
+<p>Search for the first white-space character in the string:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;The rain in Spain&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;\s&quot;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The first white-space character is located in position:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">start</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The first white-space character is located in position: 3
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:4: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+&lt;&gt;:4: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+/tmp/ipykernel_1345/3440849899.py:4: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+  x = re.search(&quot;\s&quot;, txt)
+</pre></div>
+</div>
+</div>
+</div>
+<p>If no matches are found, the value None is returned:</p>
+<p>Example</p>
+<p>Make a search that returns no match:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;The rain in Spain&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;Portugal&quot;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-split-function">
+<h3><span class="section-number">8.2.9. </span>The split() Function<a class="headerlink" href="#the-split-function" title="Link to this heading">#</a></h3>
+<p>The split() function returns a list where the string has been split at each match:</p>
+<p>Example</p>
+<p>Split at each white-space character:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;The rain in Spain&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;\s&quot;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;The&#39;, &#39;rain&#39;, &#39;in&#39;, &#39;Spain&#39;]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:4: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+&lt;&gt;:4: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+/tmp/ipykernel_1345/544782604.py:4: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+  x = re.split(&quot;\s&quot;, txt)
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can control the number of occurrences by specifying the maxsplit parameter:</p>
+<p>Example</p>
+<p>Split the string only at the first occurrence:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;The rain in Spain&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;\s&quot;</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;The&#39;, &#39;rain in Spain&#39;]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:4: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+&lt;&gt;:4: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+/tmp/ipykernel_1345/2050144357.py:4: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+  x = re.split(&quot;\s&quot;, txt, 1)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-sub-function">
+<h3><span class="section-number">8.2.10. </span>The sub() Function<a class="headerlink" href="#the-sub-function" title="Link to this heading">#</a></h3>
+<p>The sub() function replaces the matches with the text of your choice:</p>
+<p>Example</p>
+<p>Replace every white-space character with the number 9:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;The rain in Spain&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;\s&quot;</span><span class="p">,</span> <span class="s2">&quot;9&quot;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The9rain9in9Spain
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:4: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+&lt;&gt;:4: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+/tmp/ipykernel_1345/1314579611.py:4: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+  x = re.sub(&quot;\s&quot;, &quot;9&quot;, txt)
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can control the number of replacements by specifying the count parameter:</p>
+<p>Example</p>
+<p>Replace the first 2 occurrences:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;The rain in Spain&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;\s&quot;</span><span class="p">,</span> <span class="s2">&quot;9&quot;</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The9rain9in Spain
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:4: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+&lt;&gt;:4: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+/tmp/ipykernel_1345/390712954.py:4: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+  x = re.sub(&quot;\s&quot;, &quot;9&quot;, txt, 2)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="match-object">
+<h3><span class="section-number">8.2.11. </span>Match Object<a class="headerlink" href="#match-object" title="Link to this heading">#</a></h3>
+<p>A Match Object is an object containing information about the search and the result.</p>
+<p>Note: If there is no match, the value None will be returned, instead of the Match Object.</p>
+<p>Example</p>
+<p>Do a search that will return a Match Object:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;The rain in Spain&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;ai&quot;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#this will print an object</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;re.Match object; span=(5, 7), match=&#39;ai&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The Match object has properties and methods used to retrieve information about the search, and the result:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.span()</span></code> returns a tuple containing the start-, and end positions of the match.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.string</span></code> returns the string passed into the function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.group()</span></code> returns the part of the string where there was a match</p></li>
+</ul>
+<p>Example</p>
+<p>Print the position (start- and end-position) of the first match occurrence.</p>
+<p>The regular expression looks for any words that starts with an upper case “S”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;The rain in Spain&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\bS\w+&quot;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">span</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(12, 17)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Example</p>
+<p>Print the string passed into the function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;The rain in Spain&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\bS\w+&quot;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The rain in Spain
+</pre></div>
+</div>
+</div>
+</div>
+<p>Example</p>
+<p>Print the part of the string where there was a match.</p>
+<p>The regular expression looks for any words that starts with an upper case “S”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;The rain in Spain&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\bS\w+&quot;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Spain
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id6">
+<h2><span class="section-number">8.3. </span>예제<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p>Consider the following code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">txt</span> <span class="o">=</span> <span class="s1">&#39;The rain in Spain&#39;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[a-c]&#39;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;a&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>참고</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.w3schools.com/python/python_regex.asp">(W3 Schools) Python RegEx</a></p></li>
 <li><p><a class="reference external" href="https://regexone.com">RegexOne</a></p></li>
 </ul>
 </section>
-<section id="id3">
-<h2><span class="section-number">8.3. </span>예제<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<section id="id7">
+<h2><span class="section-number">8.4. </span>예제<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <p><strong>예제 ?</strong></p>
 <p>다음 세 개의 함수는 모두 입력된 문자열이 소문자를 포함하고 있는지 여부를 조사하도록 구현되었지만
 하나만 제대로 작동한다.
@@ -927,8 +1468,8 @@ one_two_three
 </div>
 </div>
 </section>
-<section id="id4">
-<h2><span class="section-number">8.4. </span>연습문제<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h2><span class="section-number">8.5. </span>연습문제<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/pybook/blob/master/practices/practice-strings_part3.ipynb">(연습) 문자열 3부</a></p>
 </section>
 </section>
@@ -989,9 +1530,23 @@ one_two_three
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for">8.1. 문자열과 for 반복문</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">8.2. 정규표현식</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">8.3. 예제</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">8.4. 연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">8.2. 정규표현식</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regex">8.2.1. RegEx 모듈</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-in-python">8.2.2. RegEx in Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-functions">8.2.3. RegEx Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metacharacters">8.2.4. Metacharacters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#special-sequences">8.2.5. Special Sequences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sets">8.2.6. Sets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-findall-function">8.2.7. The findall() Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-search-function">8.2.8. The <code class="docutils literal notranslate"><span class="pre">search()</span></code> Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-split-function">8.2.9. The split() Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sub-function">8.2.10. The sub() Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#match-object">8.2.11. Match Object</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">8.3. 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">8.4. 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">8.5. 연습문제</a></li>
 </ul>
   </nav></div>
 
