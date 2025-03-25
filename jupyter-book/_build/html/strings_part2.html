@@ -1462,10 +1462,114 @@ document.write(`
 </div>
 </div>
 </div>
+<p><strong>continue 명령문</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">continue</span></code> 명령문은 실행되는 순간 자신을 감싸고 있는 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문의 처음으로 돌아가서
+반복되어야 할 다음 차례를 실행한다.
+예를 들어 아래 코드는 홀수만 더한 결과를 출력한다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span></code>가 홀수인 경우: 해당 문자 출력</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span></code>가 짝수인 경우: 먼저 <code class="docutils literal notranslate"><span class="pre">'...'</span></code> 문자열을 출력한 다음에
+<code class="docutils literal notranslate"><span class="pre">continue</span></code> 명령문이 실행되어 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문 처음으로 돌아가서
+<code class="docutils literal notranslate"><span class="pre">char</span></code> 변수가 다음 문자를 가리키게 됨.
+즉, 바로 아래의 <code class="docutils literal notranslate"><span class="pre">print(f&quot;{char}는</span> <span class="pre">짝수라서</span> <span class="pre">무시&quot;)</span></code> 명령문은 실행되지 않음.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">one2five</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+        <span class="k">continue</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">char</span><span class="si">}</span><span class="s2">는 짝수라서 무시&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;짝수는 모두 무시됨&quot;</span><span class="p">)</span>        
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+...
+2는 짝수라서 무시
+3
+...
+4는 짝수라서 무시
+5
+짝수는 모두 무시됨
+</pre></div>
+</div>
+</div>
+</div>
+<p>아래 코드는 짝수를 무시하는 성질을 이용하여 홀수만 더한 결과를 출력한다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span></code>가 홀수인 경우: <code class="docutils literal notranslate"><span class="pre">sum_list</span></code> 변수 업데이터</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span></code>가 짝수인 경우: 무시</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sum_list</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">one2five</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">sum_list</span> <span class="o">=</span> <span class="n">sum_list</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+        <span class="k">continue</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">char</span><span class="si">}</span><span class="s2">는 짝수라서 무시&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;짝수는 모두 무시됨&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;1부터 5까지 홀수들의 합:&quot;</span><span class="p">,</span> <span class="n">sum_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...
+2는 짝수라서 무시
+...
+4는 짝수라서 무시
+짝수는 모두 무시됨
+1부터 5까지 홀수들의 합: 9
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>break 명령문</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">break</span></code> 명령문은 실행되는 순간 자신을 감싸고 있는 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문을 중지시키고
 반복문 다음의 명령문으로 넘어가도록 한다.
-예를 들어 아래 코드는 4보다 작은 양의 정수만 더한다.</p>
+예를 들어 아래 코드는 <code class="docutils literal notranslate"><span class="pre">char</span></code> 변수가 4를 가리키는 순간
+<code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문의 실행을 중단하고 이어지는 <code class="docutils literal notranslate"><span class="pre">print()</span></code> 명령문으로
+바로 넘어간다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span></code>가 4보다 작은 정수를 가리키는: 해당 문자 출력</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span></code>가 4 이상인 정수를 가리키는 경우: <code class="docutils literal notranslate"><span class="pre">break</span></code> 명령문이 실행되어 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문의 실행을 중단시킴.
+즉, 4와 5의 경우는 전혀 실행되지 않음.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">one2five</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">break</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;1부터 </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s2">까지만 반복문이 실행됨!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+1부터 3까지만 반복문이 실행됨!
+</pre></div>
+</div>
+</div>
+</div>
+<p>아래 코드는 4 이상인 정수는 취급되지 않는 성질을 이용하여 1부터 3까지의 정수만 더한 결과를 출력한다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span></code>가 4보다 작은 정수를 가리키는 경우: <code class="docutils literal notranslate"><span class="pre">sum_list</span></code> 변수 업데이터</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span></code>가 4 이상인 정수를 가리키는 경우: 취급되지 못함.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sum_list</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1474,38 +1578,14 @@ document.write(`
     <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
         <span class="n">sum_list</span> <span class="o">=</span> <span class="n">sum_list</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">break</span> <span class="c1"># 4이상인 경우 반복문 실행 중단</span>
+        <span class="k">break</span> <span class="c1"># 4이상인 경우 반복문 바로 실행 중단</span>
     
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;1부터 </span><span class="si">{</span><span class="n">char</span><span class="si">}</span><span class="s2">까지 정수의 합:&quot;</span><span class="p">,</span> <span class="n">sum_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;1부터 </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s2">까지 정수의 합:&quot;</span><span class="p">,</span> <span class="n">sum_list</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1부터 4까지 정수의 합: 6
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>continue 명령문</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">continue</span></code> 명령문은 실행되는 순간 자신을 감싸고 있는 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문의 처음으로 돌아가서
-다음 차례의 반복문을 실행한다.
-예를 들어 아래 코드는 홀수만 더한 결과를 출력한다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sum_list</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">one2five</span><span class="p">:</span>
-    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span><span class="mi">1</span><span class="p">:</span>
-        <span class="n">sum_list</span> <span class="o">=</span> <span class="n">sum_list</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">continue</span>
-    
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;1부터 5까지 홀수들의 합:&quot;</span><span class="p">,</span> <span class="n">sum_list</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1부터 5까지 홀수들의 합: 9
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1부터 3까지 정수의 합: 6
 </pre></div>
 </div>
 </div>
@@ -2162,6 +2242,98 @@ document.write(`
 </div>
 </div>
 <p><strong>예제 7</strong></p>
+<p>다음과 같이 영어 알파벳으로 구성된 문자열이 주어졌다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text1</span> <span class="o">=</span> <span class="s1">&#39;Python Data Analysis&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(1) 문자열에 포함된 모음으로만 구성된 문자열을 생성하는 코드를 작성하라.
+단, 모음 알파벳은 아래 문자열에 포함되어 있다.</p>
+<p>힌트: <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문와 <code class="docutils literal notranslate"><span class="pre">in</span></code> 연산자 활용</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vowels</span><span class="o">=</span><span class="s1">&#39;AEIOUaeiou&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>답:</p>
+<p>아래 코드는<code class="docutils literal notranslate"><span class="pre">text1</span></code>에 포함된 모음만 모으기 위해 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문을 이용한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vowel_strings</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text1</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">:</span>
+        <span class="n">vowel_strings</span> <span class="o">+=</span> <span class="n">char</span>
+        <span class="k">continue</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;모음만 모아서 출력&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vowel_strings</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P
+y
+t
+h
+n
+ 
+D
+t
+ 
+n
+l
+y
+s
+s
+모음만 모아서 출력
+oaaAai
+</pre></div>
+</div>
+</div>
+</div>
+<p>(2) 문자열에 포함된 자음으로만 구성된 문자열을 생성하는 코드를 작성하라.</p>
+<p>힌트: <code class="docutils literal notranslate"><span class="pre">isalpha()</span></code> 메서드 활용</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text2</span> <span class="o">=</span> <span class="s2">&quot; Python Data_Analysis!&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>답:</p>
+<p>아래 코드는<code class="docutils literal notranslate"><span class="pre">text2</span></code>에 포함된 자음만 모으기 위해 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문을 이용한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;포함된 모음:&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="n">consonant_strings</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text2</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">char</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vowels</span> <span class="ow">and</span> <span class="n">char</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
+        <span class="n">consonant_strings</span> <span class="o">+=</span> <span class="n">char</span>
+        <span class="k">continue</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+        
+<span class="nb">print</span><span class="p">()</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;자음모음&quot;</span><span class="p">,</span> <span class="n">consonant_strings</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>포함된 모음:   o   a a _ A a i ! 
+자음모음 PythnDtnlyss
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 8</strong></p>
 <p>문자열의 <code class="docutils literal notranslate"><span class="pre">find()</span></code> 메서드가 작동하는 방식을 이해하기 위한 예제다.
 먼저 두 개의 문자열을 지정한다.</p>
 <div class="cell docutils container">
