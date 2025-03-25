@@ -28,13 +28,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -610,6 +610,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;red&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>보폭을 1로 지정해도 동일한 결과를 얻는다.</p>
 <div class="cell docutils container">
@@ -781,7 +786,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;Michael Jackson&quot;</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">Name</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;J&#39;</span>
 
@@ -967,7 +972,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">29</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">30</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">words</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;col&#39;</span><span class="p">)</span>
 
 <span class="ne">ValueError</span>: substring not found
@@ -1467,11 +1472,9 @@ document.write(`
 반복되어야 할 다음 차례를 실행한다.
 예를 들어 아래 코드는 홀수만 더한 결과를 출력한다.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">char</span></code>가 홀수인 경우: 해당 문자 출력</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">char</span></code>가 짝수인 경우: 먼저 <code class="docutils literal notranslate"><span class="pre">'...'</span></code> 문자열을 출력한 다음에
-<code class="docutils literal notranslate"><span class="pre">continue</span></code> 명령문이 실행되어 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문 처음으로 돌아가서
-<code class="docutils literal notranslate"><span class="pre">char</span></code> 변수가 다음 문자를 가리키게 됨.
-즉, 바로 아래의 <code class="docutils literal notranslate"><span class="pre">print(f&quot;{char}는</span> <span class="pre">짝수라서</span> <span class="pre">무시&quot;)</span></code> 명령문은 실행되지 않음.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span></code>가 홀수인 경우: 해당 문자 출력한 후에 바로 반복문의 처음으로 돌아감.
+따라서 <code class="docutils literal notranslate"><span class="pre">if</span></code> 조건문 아래에 있는 <code class="docutils literal notranslate"><span class="pre">print()</span></code> 명령문이 실행되지 않음.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span></code>가 짝수인 경우: <code class="docutils literal notranslate"><span class="pre">if</span></code> 조건문이 실행되지 않고 바로 <code class="docutils literal notranslate"><span class="pre">print()</span></code> 명령문만 실행됨.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1480,7 +1483,6 @@ document.write(`
         <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
         <span class="k">continue</span>
         
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">char</span><span class="si">}</span><span class="s2">는 짝수라서 무시&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;짝수는 모두 무시됨&quot;</span><span class="p">)</span>        
@@ -1489,10 +1491,8 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-...
 2는 짝수라서 무시
 3
-...
 4는 짝수라서 무시
 5
 짝수는 모두 무시됨
@@ -1514,7 +1514,6 @@ document.write(`
         <span class="n">sum_list</span> <span class="o">=</span> <span class="n">sum_list</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
         <span class="k">continue</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">char</span><span class="si">}</span><span class="s2">는 짝수라서 무시&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;짝수는 모두 무시됨&quot;</span><span class="p">)</span>
@@ -1523,9 +1522,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...
-2는 짝수라서 무시
-...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2는 짝수라서 무시
 4는 짝수라서 무시
 짝수는 모두 무시됨
 1부터 5까지 홀수들의 합: 9
@@ -2245,13 +2242,32 @@ document.write(`
 <p>다음과 같이 영어 알파벳으로 구성된 문자열이 주어졌다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text1</span> <span class="o">=</span> <span class="s1">&#39;Python Data Analysis&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;Python_Data-Analysis!&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>(1) 문자열에 포함된 모음으로만 구성된 문자열을 생성하는 코드를 작성하라.
-단, 모음 알파벳은 아래 문자열에 포함되어 있다.</p>
+<p>(1) <code class="docutils literal notranslate"><span class="pre">text</span></code> 문자열에 포함된 모음으로만 구성된 문자열을 다음과 같이 출력하는 코드를 작성하라.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>P는 모음 아님
+y는 모음 아님
+t는 모음 아님
+h는 모음 아님
+n는 모음 아님
+_는 모음 아님
+D는 모음 아님
+t는 모음 아님
+-는 모음 아님
+n는 모음 아님
+l는 모음 아님
+y는 모음 아님
+s는 모음 아님
+s는 모음 아님
+!는 모음 아님
+
+모음만 모아서 출력: oaaAai
+</pre></div>
+</div>
+<p>단, 모음 알파벳은 아래 문자열에 포함되어 있다.</p>
 <p>힌트: <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문와 <code class="docutils literal notranslate"><span class="pre">in</span></code> 연산자 활용</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2261,74 +2277,72 @@ document.write(`
 </div>
 </div>
 <p>답:</p>
-<p>아래 코드는<code class="docutils literal notranslate"><span class="pre">text1</span></code>에 포함된 모음만 모으기 위해 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문을 이용한다.</p>
+<p>아래 코드는<code class="docutils literal notranslate"><span class="pre">text</span></code>에 포함된 모음만 모으기 위해 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문을 이용한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vowel_strings</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text1</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">:</span>
         <span class="n">vowel_strings</span> <span class="o">+=</span> <span class="n">char</span>
         <span class="k">continue</span>
         
-    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">char</span><span class="si">}</span><span class="s2">는 모음 아님&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;모음만 모아서 출력&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">vowel_strings</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;모음만 모아서 출력:&quot;</span><span class="p">,</span> <span class="n">vowel_strings</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P
-y
-t
-h
-n
- 
-D
-t
- 
-n
-l
-y
-s
-s
-모음만 모아서 출력
-oaaAai
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P는 모음 아님
+y는 모음 아님
+t는 모음 아님
+h는 모음 아님
+n는 모음 아님
+_는 모음 아님
+D는 모음 아님
+t는 모음 아님
+-는 모음 아님
+n는 모음 아님
+l는 모음 아님
+y는 모음 아님
+s는 모음 아님
+s는 모음 아님
+!는 모음 아님
+
+모음만 모아서 출력: oaaAai
 </pre></div>
 </div>
 </div>
 </div>
-<p>(2) 문자열에 포함된 자음으로만 구성된 문자열을 생성하는 코드를 작성하라.</p>
+<p>(2) <code class="docutils literal notranslate"><span class="pre">text</span></code> 문자열에 포함된 자음으로만 구성된 문자열을 다음과 같이 출력하는 코드를 작성하라.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>포함된 모음: o_aa-Aai!
+포함된 자음: PythnDtnlyss
+</pre></div>
+</div>
 <p>힌트: <code class="docutils literal notranslate"><span class="pre">isalpha()</span></code> 메서드 활용</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text2</span> <span class="o">=</span> <span class="s2">&quot; Python Data_Analysis!&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>답:</p>
-<p>아래 코드는<code class="docutils literal notranslate"><span class="pre">text2</span></code>에 포함된 자음만 모으기 위해 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문을 이용한다.</p>
+<p>아래 코드는<code class="docutils literal notranslate"><span class="pre">text</span></code>에 포함된 자음만 모으기 위해 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문을 이용한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;포함된 모음:&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
 <span class="n">consonant_strings</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text2</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">char</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vowels</span> <span class="ow">and</span> <span class="n">char</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
         <span class="n">consonant_strings</span> <span class="o">+=</span> <span class="n">char</span>
         <span class="k">continue</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
         
 <span class="nb">print</span><span class="p">()</span>
         
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;자음모음&quot;</span><span class="p">,</span> <span class="n">consonant_strings</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;포함된 자음:&quot;</span><span class="p">,</span> <span class="n">consonant_strings</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>포함된 모음:   o   a a _ A a i ! 
-자음모음 PythnDtnlyss
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>포함된 모음: o_aa-Aai!
+포함된 자음: PythnDtnlyss
 </pre></div>
 </div>
 </div>
@@ -2346,7 +2360,7 @@ oaaAai
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">word2</span></code> 변수가 가리키는 문자열이 <code class="docutils literal notranslate"><span class="pre">word1</span></code> 문자열에 처음 사용되기 시작하는 곳의 인덱스를
 찾는 코드를 작성하라.</p>
-<p>힌트: <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문, 문자열 슬라이싱, 논리 연산자 활용</p>
+<p>힌트: <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문, 문자열 슬라이싱, <code class="docutils literal notranslate"><span class="pre">break</span></code> 명령문 활용</p>
 <p>답 1:</p>
 <p><code class="docutils literal notranslate"><span class="pre">uka</span></code>는 2번 인덱스부터 시작한다.
 따라서 2번부터 거기에 <code class="docutils literal notranslate"><span class="pre">uka</span></code> 문자열의 길이인 3만큼 큰 구간에 대해 슬라이싱을 적용하면
