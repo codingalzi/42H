@@ -28,13 +28,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -610,21 +610,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;red&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>보폭을 1로 지정해도 동일한 결과를 얻는다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;red&#39;
 </pre></div>
 </div>
 </div>
@@ -786,7 +776,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;Michael Jackson&quot;</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">Name</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;J&#39;</span>
 
@@ -972,7 +962,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">30</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">words</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;col&#39;</span><span class="p">)</span>
 
 <span class="ne">ValueError</span>: substring not found
@@ -2280,7 +2270,9 @@ s는 모음 아님
 <p>아래 코드는<code class="docutils literal notranslate"><span class="pre">text</span></code>에 포함된 모음만 모으기 위해 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문을 이용한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vowel_strings</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vowels</span><span class="o">=</span><span class="s1">&#39;AEIOUaeiou&#39;</span>
+
+<span class="n">vowel_strings</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">:</span>
         <span class="n">vowel_strings</span> <span class="o">+=</span> <span class="n">char</span>
@@ -2325,7 +2317,9 @@ s는 모음 아님
 <p>아래 코드는<code class="docutils literal notranslate"><span class="pre">text</span></code>에 포함된 자음만 모으기 위해 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문을 이용한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;포함된 모음:&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vowels</span><span class="o">=</span><span class="s1">&#39;AEIOUaeiou&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;기타 문자:&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
 <span class="n">consonant_strings</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">char</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vowels</span> <span class="ow">and</span> <span class="n">char</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
@@ -2341,7 +2335,7 @@ s는 모음 아님
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>포함된 모음: o_aa-Aai!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>기타 문자: o_aa-Aai!
 포함된 자음: PythnDtnlyss
 </pre></div>
 </div>
@@ -2429,6 +2423,384 @@ s는 모음 아님
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>uka가 시작되는 인덱스: 2
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 9</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문을 이용하여 구구단을 출력하고자 한다.
+반복문을 위해 아래 문자열을 이용한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2nine</span> <span class="o">=</span> <span class="s1">&#39;123456789&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(1) 사용자로부터 1부터 9사이의 정수를 입력 받은 후 입력된 정수의 배수에 해당하는 구구단만 화면에 출력하는
+코드를 작성하라.
+예를 들어, 사용자가 3을 입력하면 3의 배수인 3, 6, 9에 대한 구구단만 아래와 같이 출력해야 한다.
+또한 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문과 함께 <code class="docutils literal notranslate"><span class="pre">continue</span></code> 명령문을 구구단 출력에 이용해야 하며,
+곱셈 결과는 오른쪽으로 정렬되어야 한다.</p>
+<ul class="simple">
+<li><p>3을 입력하는 경우</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">단수를</span> <span class="n">입력하세요</span><span class="p">:</span> <span class="mi">3</span>
+
+<span class="mi">3</span><span class="n">의</span> <span class="n">배수</span> <span class="n">구구단</span> <span class="n">출력</span>
+
+<span class="mi">3</span><span class="n">단</span>
+
+<span class="mi">3</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">=</span>  <span class="mi">3</span>
+<span class="mi">3</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">=</span>  <span class="mi">6</span>
+<span class="mi">3</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">=</span>  <span class="mi">9</span>
+<span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="mi">3</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="mi">3</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="mi">3</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="mi">3</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">=</span> <span class="mi">24</span>
+<span class="mi">3</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">=</span> <span class="mi">27</span>
+
+<span class="mi">6</span><span class="n">단</span>
+
+<span class="mi">6</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">=</span>  <span class="mi">6</span>
+<span class="mi">6</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="mi">6</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="mi">6</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">=</span> <span class="mi">24</span>
+<span class="mi">6</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="mi">6</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">=</span> <span class="mi">36</span>
+<span class="mi">6</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="mi">6</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">=</span> <span class="mi">48</span>
+<span class="mi">6</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">=</span> <span class="mi">54</span>
+
+<span class="mi">9</span><span class="n">단</span>
+
+<span class="mi">9</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">=</span>  <span class="mi">9</span>
+<span class="mi">9</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="mi">9</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">=</span> <span class="mi">27</span>
+<span class="mi">9</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">=</span> <span class="mi">36</span>
+<span class="mi">9</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">=</span> <span class="mi">45</span>
+<span class="mi">9</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">=</span> <span class="mi">54</span>
+<span class="mi">9</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">=</span> <span class="mi">63</span>
+<span class="mi">9</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">=</span> <span class="mi">72</span>
+<span class="mi">9</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">=</span> <span class="mi">81</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>4를 입력하는 경우</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">단수를</span> <span class="n">입력하세요</span><span class="p">:</span> <span class="mi">4</span>
+
+<span class="mi">4</span><span class="n">의</span> <span class="n">배수</span> <span class="n">구구단</span> <span class="n">출력</span>
+
+<span class="mi">4</span><span class="n">단</span>
+
+<span class="mi">4</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">=</span>  <span class="mi">4</span>
+<span class="mi">4</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">=</span>  <span class="mi">8</span>
+<span class="mi">4</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="mi">4</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="mi">4</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="mi">4</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">=</span> <span class="mi">24</span>
+<span class="mi">4</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">=</span> <span class="mi">28</span>
+<span class="mi">4</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="mi">4</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">=</span> <span class="mi">36</span>
+
+<span class="mi">8</span><span class="n">단</span>
+
+<span class="mi">8</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">=</span>  <span class="mi">8</span>
+<span class="mi">8</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="mi">8</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">=</span> <span class="mi">24</span>
+<span class="mi">8</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="mi">8</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="mi">8</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">=</span> <span class="mi">48</span>
+<span class="mi">8</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">=</span> <span class="mi">56</span>
+<span class="mi">8</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="mi">8</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">=</span> <span class="mi">72</span>
+</pre></div>
+</div>
+<p>힌트: <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문을 중첩해서 활용</p>
+<p>답:</p>
+<p><code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문을 중첩해서 사용해야 한다.</p>
+<ul class="simple">
+<li><p>바깥쪽 <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i_th</span> <span class="pre">in</span> <span class="pre">one2nine</span></code> 형식의 반복문: 1단부터 9단까지 진행</p></li>
+<li><p>안쪽 <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">j_th</span> <span class="pre">in</span> <span class="pre">one2nie</span></code> 형식의 반복문: 각각의 단계에서 1부터 9까지의 곱 실행</p></li>
+</ul>
+<p>이때 입력값의 배수가 아닌 단은 무시해야 하기에 바깥쪽 <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i_th</span> <span class="pre">in</span> <span class="pre">one2nine</span></code> 반복문에서
+<code class="docutils literal notranslate"><span class="pre">i_th</span></code>가 입력값의 배수가 아닌 경우는 <code class="docutils literal notranslate"><span class="pre">continue</span></code> 명령문을 이용하여 무시하고 건너뛰도록 한다.</p>
+<ul class="simple">
+<li><p>3을 입력하는 경우</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2nine</span> <span class="o">=</span> <span class="s1">&#39;123456789&#39;</span>
+
+<span class="n">table_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;단수를 입력하세요: &quot;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">table_index</span><span class="si">}</span><span class="s2">의 배수 구구단 출력</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i_th</span> <span class="ow">in</span> <span class="n">one2nine</span><span class="p">:</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">i_th</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">table_index</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">단</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j_th</span> <span class="ow">in</span> <span class="n">one2nine</span><span class="p">:</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">j_th</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> * </span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">j</span><span class="si">:</span><span class="s2">&gt;2d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># 곱셈 오른쪽으로 정렬</span>
+        
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>단수를 입력하세요: 3
+
+3의 배수 구구단 출력
+
+3단
+
+3 * 1 =  3
+3 * 2 =  6
+3 * 3 =  9
+3 * 4 = 12
+3 * 5 = 15
+3 * 6 = 18
+3 * 7 = 21
+3 * 8 = 24
+3 * 9 = 27
+
+6단
+
+6 * 1 =  6
+6 * 2 = 12
+6 * 3 = 18
+6 * 4 = 24
+6 * 5 = 30
+6 * 6 = 36
+6 * 7 = 42
+6 * 8 = 48
+6 * 9 = 54
+
+9단
+
+9 * 1 =  9
+9 * 2 = 18
+9 * 3 = 27
+9 * 4 = 36
+9 * 5 = 45
+9 * 6 = 54
+9 * 7 = 63
+9 * 8 = 72
+9 * 9 = 81
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>4를 입력하는 경우</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2nine</span> <span class="o">=</span> <span class="s1">&#39;123456789&#39;</span>
+
+<span class="n">table_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;단수를 입력하세요: &quot;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">table_index</span><span class="si">}</span><span class="s2">의 배수 구구단 출력</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i_th</span> <span class="ow">in</span> <span class="n">one2nine</span><span class="p">:</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">i_th</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">table_index</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">단</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j_th</span> <span class="ow">in</span> <span class="n">one2nine</span><span class="p">:</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">j_th</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> * </span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">j</span><span class="si">:</span><span class="s2">&gt;2d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>단수를 입력하세요: 4
+
+4의 배수 구구단 출력
+
+4단
+
+4 * 1 =  4
+4 * 2 =  8
+4 * 3 = 12
+4 * 4 = 16
+4 * 5 = 20
+4 * 6 = 24
+4 * 7 = 28
+4 * 8 = 32
+4 * 9 = 36
+
+8단
+
+8 * 1 =  8
+8 * 2 = 16
+8 * 3 = 24
+8 * 4 = 32
+8 * 5 = 40
+8 * 6 = 48
+8 * 7 = 56
+8 * 8 = 64
+8 * 9 = 72
+</pre></div>
+</div>
+</div>
+</div>
+<p>(2) 사용자로부터 1부터 9사이의 정수를 입력 받은 후 입력된 정수의 배수에 해당하는 구구단만
+지정된 형식으로 화면에 출력하는 코드를 작성하라.
+예를 들어, 사용자가 3을 입력하면 3의 배수인 3, 6, 9에 대한 구구단만 아래와 같이 출력해야 한다.
+또한 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문과 함께 <code class="docutils literal notranslate"><span class="pre">continue</span></code>, <code class="docutils literal notranslate"><span class="pre">break</span></code> 명령문을 구구단 출력에 이용해야 하며,
+곱셈 결과는 오른쪽으로 정렬되어야 한다.</p>
+<ul class="simple">
+<li><p>3을 입력하는 경우</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">단수를</span> <span class="n">입력하세요</span><span class="p">:</span> <span class="mi">3</span>
+
+<span class="mi">3</span><span class="n">의</span> <span class="n">배수</span> <span class="n">구구단</span> <span class="n">출력</span>
+
+<span class="mi">3</span><span class="n">단</span>
+
+<span class="mi">3</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">=</span>  <span class="mi">3</span>
+<span class="mi">3</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">=</span>  <span class="mi">6</span>
+
+<span class="mi">6</span><span class="n">단</span>
+
+<span class="mi">6</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">=</span>  <span class="mi">6</span>
+<span class="mi">6</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">=</span> <span class="mi">12</span>
+
+<span class="mi">9</span><span class="n">단</span>
+
+<span class="mi">9</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">=</span>  <span class="mi">9</span>
+<span class="mi">9</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">=</span> <span class="mi">18</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>4를 입력하는 경우</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">단수를</span> <span class="n">입력하세요</span><span class="p">:</span> <span class="mi">4</span>
+
+<span class="mi">4</span><span class="n">의</span> <span class="n">배수</span> <span class="n">구구단</span> <span class="n">출력</span>
+
+<span class="mi">4</span><span class="n">단</span>
+
+<span class="mi">4</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">=</span>  <span class="mi">4</span>
+<span class="mi">4</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">=</span>  <span class="mi">8</span>
+<span class="mi">4</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">=</span> <span class="mi">12</span>
+
+<span class="mi">8</span><span class="n">단</span>
+
+<span class="mi">8</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">=</span>  <span class="mi">8</span>
+<span class="mi">8</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="mi">8</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">=</span> <span class="mi">24</span>
+</pre></div>
+</div>
+<p>힌트: <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문을 중첩해서 활용</p>
+<p>답:</p>
+<p><code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문을 중첩해서 사용해야 한다.</p>
+<ul class="simple">
+<li><p>바깥쪽 <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i_th</span> <span class="pre">in</span> <span class="pre">one2nine</span></code> 형식의 반복문: 1단부터 9단까지 진행</p></li>
+<li><p>안쪽 <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">j_th</span> <span class="pre">in</span> <span class="pre">one2nie</span></code> 형식의 반복문: 각각의 단계에서 1부터 9까지의 곱 실행</p></li>
+</ul>
+<p>이때 입력값의 배수가 아닌 단은 무시해야 하기에 바깥쪽 <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i_th</span> <span class="pre">in</span> <span class="pre">one2nine</span></code> 반복문에서
+<code class="docutils literal notranslate"><span class="pre">i_th</span></code>가 입력값의 배수가 아닌 경우는 <code class="docutils literal notranslate"><span class="pre">continue</span></code> 명령문을 이용하여 무시하고 건너뛰도록 한다.</p>
+<p>더 나아기 안쪽 <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">j_th</span> <span class="pre">in</span> <span class="pre">one2nie</span></code>에서 <code class="docutils literal notranslate"><span class="pre">j_th</span></code>가 입력값보다 작을 때까지만 곱셈을 실행하도록 해야한다.
+이를 위해 <code class="docutils literal notranslate"><span class="pre">break</span></code> 명령문을 활용한다.</p>
+<ul class="simple">
+<li><p>3을 입력하는 경우</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2nine</span> <span class="o">=</span> <span class="s1">&#39;123456789&#39;</span>
+
+<span class="n">table_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;단수를 입력하세요: &quot;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">table_index</span><span class="si">}</span><span class="s2">의 배수 구구단 출력</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i_th</span> <span class="ow">in</span> <span class="n">one2nine</span><span class="p">:</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">i_th</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">table_index</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">단</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j_th</span> <span class="ow">in</span> <span class="n">one2nine</span><span class="p">:</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">j_th</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="n">table_index</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> * </span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">j</span><span class="si">:</span><span class="s2">&gt;2d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>단수를 입력하세요: 3
+
+3의 배수 구구단 출력
+
+3단
+
+3 * 1 =  3
+3 * 2 =  6
+
+6단
+
+6 * 1 =  6
+6 * 2 = 12
+
+9단
+
+9 * 1 =  9
+9 * 2 = 18
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>4를 입력하는 경우</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2nine</span> <span class="o">=</span> <span class="s1">&#39;123456789&#39;</span>
+
+<span class="n">table_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;단수를 입력하세요: &quot;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">table_index</span><span class="si">}</span><span class="s2">의 배수 구구단 출력</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i_th</span> <span class="ow">in</span> <span class="n">one2nine</span><span class="p">:</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">i_th</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">table_index</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">단</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j_th</span> <span class="ow">in</span> <span class="n">one2nine</span><span class="p">:</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">j_th</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="n">table_index</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> * </span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">j</span><span class="si">:</span><span class="s2">&gt;2d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>단수를 입력하세요: 4
+
+4의 배수 구구단 출력
+
+4단
+
+4 * 1 =  4
+4 * 2 =  8
+4 * 3 = 12
+
+8단
+
+8 * 1 =  8
+8 * 2 = 16
+8 * 3 = 24
 </pre></div>
 </div>
 </div>
