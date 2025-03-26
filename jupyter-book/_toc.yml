@@ -14,7 +14,8 @@ chapters:
 - file: inputs
 - file: strings_part1
 - file: strings_part2
-# - file: strings_part3
+- file: strings_part3
+# - file: strings_part4
 # - file: functions
 # - file: modules
 # - file: conditionals
