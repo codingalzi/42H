@@ -408,11 +408,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">7.4. 문자열 메서드</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">7.4.1. 탐색 메서드</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">7.4.2. 새로운 문자열 생성 메서드</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">7.4.3. 메서드 연속 적용</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">7.5. 예제</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">7.6. 연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">7.5. 메서드 연속 적용</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">7.6. 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">7.7. 연습문제</a></li>
 </ul>
             </nav>
         </div>
@@ -584,6 +584,16 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">colors</span><span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">]</span>
+
+<span class="ne">IndexError</span>: string index out of range
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="id3">
@@ -612,11 +622,21 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;red&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>보폭을 1로 지정해도 동일한 결과를 얻는다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;red&#39;
 </pre></div>
 </div>
 </div>
@@ -778,7 +798,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;Michael Jackson&quot;</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">Name</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;J&#39;</span>
 
@@ -807,7 +827,7 @@ document.write(`
 <p>문자열 자료형에만 사용하는 함수들이 있다.
 이와같이 특정 자료형에만 사용하는 함수들을 <strong>메서드</strong><font size = "2">method</font>라 부른다.
 메서드는 일반적인 함수와는 달리
-특정 자료형의 값을 먼저 언급하고 바로 이어서 점(<code class="docutils literal notranslate"><span class="pre">.</span></code>)과 함께 호출한다.</p>
+특정 자료형의 값을 먼저 언급하고 바로 이어서 점(<code class="docutils literal notranslate"><span class="pre">.</span></code>)과 함께 실행한다.</p>
 <p>문자열 자료형은 다양한 메서드를 제공한다.
 여기서는 아래 메서드의 기능만 살펴 본다.</p>
 <div class="pst-scrollable-table-container"><table class="table" id="string-methods">
@@ -870,6 +890,13 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
+<div class="note admonition">
+<p class="admonition-title">함수와 메서드의 반환값</p>
+<p>함수와 메서드의 반환값으로 지정된 값은 변수에 저장하여
+언제 어디서든 활용할 수 있다.
+파이썬의 모든 함수는 반드시 반환값을 지정하도록 되어 있다.
+나중에 함수에 대해 배울 때 자세히 설명한다.</p>
 </div>
 <section id="id6">
 <h3><span class="section-number">7.4.1. </span>탐색 메서드<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
@@ -964,7 +991,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">31</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">words</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;col&#39;</span><span class="p">)</span>
 
 <span class="ne">ValueError</span>: substring not found
@@ -1155,7 +1182,7 @@ document.write(`
 </div>
 <p><strong><code class="docutils literal notranslate"><span class="pre">join()</span></code> 메서드</strong></p>
 <p>여러 개의 문자열을 결합한다.
-<code class="docutils literal notranslate"><span class="pre">join()</span></code> 메서드를 호출하는 문자열은 지정된 항목들을 이어붙이는 연결고리 역할을 수행한다.</p>
+<code class="docutils literal notranslate"><span class="pre">join()</span></code> 메서드를 실행하는 문자열은 지정된 항목들을 이어붙이는 연결고리 역할을 수행한다.</p>
 <p>예를 들어 아래 코드는 <code class="docutils literal notranslate"><span class="pre">hello</span></code> 문자열에 포함된 모든 문자열들 사이에 별표 기호를 추가하여 새로운 문자열을 생성한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1199,8 +1226,9 @@ document.write(`
 </div>
 </div>
 </section>
+</section>
 <section id="id8">
-<h3><span class="section-number">7.4.3. </span>메서드 연속 적용<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<h2><span class="section-number">7.5. </span>메서드 연속 적용<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>새로운 문자열을 생성하는 메서드에 다른 문자열 메서드를 연속해서 적용하면 매우 효율적으로 원하는 문자열을 생성할 수 있다.
 예를 들어, 아래 코드는 문자열 양끝에서 화이트 스페이스를 제거하면 <code class="docutils literal notranslate"><span class="pre">'My'</span></code>로 시작함을 확인해준다.</p>
 <div class="cell docutils container">
@@ -1215,6 +1243,21 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;My life is \tso so cool!&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>위 방식이 어용되는 이유는 메서드를 실행하는 표현식과 메서드의 반환값을 동일시되기 때문이다.
+즉, <code class="docutils literal notranslate"><span class="pre">words.strip()</span></code>와 문자열 <code class="docutils literal notranslate"><span class="pre">My</span> <span class="pre">life</span> <span class="pre">is</span> <span class="pre">\tso</span> <span class="pre">so</span> <span class="pre">cool!</span></code>이 동일시되며,
+따라서 <code class="docutils literal notranslate"><span class="pre">startswith()</span></code> 메서드 등 다른 문자열 메서드를 연속해서 적용할 수 있다.</p>
 <p>반면에 아래 코드는 먼저 소문자로 변경한 다음에 화이트 스페이스 기준으로 쪼갠다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1244,9 +1287,8 @@ document.write(`
 </div>
 </div>
 </section>
-</section>
 <section id="id9">
-<h2><span class="section-number">7.5. </span>예제<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.6. </span>예제<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <p><strong>예제 1</strong></p>
 <p>아래와 같이 선언된 <code class="docutils literal notranslate"><span class="pre">lyrics</span></code>변수가 있다.</p>
 <div class="cell docutils container">
@@ -1897,7 +1939,7 @@ document.write(`
 </div>
 </section>
 <section id="id10">
-<h2><span class="section-number">7.6. </span>연습문제<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.7. </span>연습문제<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
 <p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/42H/blob/master/practices/practice-strings_part2.ipynb">(연습) 문자열 2부</a></p>
 </section>
 </section>
@@ -1972,11 +2014,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">7.4. 문자열 메서드</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">7.4.1. 탐색 메서드</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">7.4.2. 새로운 문자열 생성 메서드</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">7.4.3. 메서드 연속 적용</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">7.5. 예제</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">7.6. 연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">7.5. 메서드 연속 적용</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">7.6. 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">7.7. 연습문제</a></li>
 </ul>
   </nav></div>
 
