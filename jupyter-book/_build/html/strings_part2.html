@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7. 문자열 2부 &#8212; 파이썬 프로그래밍</title>
+    <title>7. 문자열 인덱싱, 슬라이싱 &#8212; 파이썬 프로그래밍</title>
   
   
   
@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -61,8 +61,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'strings_part2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="8. 문자열 3부" href="strings_part3.html" />
-    <link rel="prev" title="6. 문자열 1부" href="strings_part1.html" />
+    <link rel="next" title="8. 문자열과 for 반복문" href="strings_part3.html" />
+    <link rel="prev" title="6. 문자열" href="strings_part1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -172,10 +172,10 @@
 <li class="toctree-l1"><a class="reference internal" href="values.html">3. 값과 연산</a></li>
 <li class="toctree-l1"><a class="reference internal" href="expressions_dataTypes.html">4. 표현식과 자료형</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inputs.html">5. 사용자 입력</a></li>
-<li class="toctree-l1"><a class="reference internal" href="strings_part1.html">6. 문자열 1부</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. 문자열 2부</a></li>
-<li class="toctree-l1"><a class="reference internal" href="strings_part3.html">8. 문자열 3부</a></li>
-<li class="toctree-l1"><a class="reference internal" href="strings_part4.html">9. 문자열 4부</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings_part1.html">6. 문자열</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. 문자열 인덱싱, 슬라이싱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings_part3.html">8. 문자열과 for 반복문</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regex.html">9. 정규표현식</a></li>
 </ul>
 
     </div>
@@ -392,7 +392,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>문자열 2부</h1>
+    <h1>문자열 인덱싱, 슬라이싱</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -425,7 +425,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="ch-strings-part2">
-<span id="id1"></span><h1><span class="section-number">7. </span>문자열 2부<a class="headerlink" href="#ch-strings-part2" title="Link to this heading">#</a></h1>
+<span id="id1"></span><h1><span class="section-number">7. </span>문자열 인덱싱, 슬라이싱<a class="headerlink" href="#ch-strings-part2" title="Link to this heading">#</a></h1>
 <p>문자열은 포함된 문자와 기호의 순서를 중요하게 여기는
 <strong>순차 자료형</strong><font size='2'>sequence type</font>이다.
 따라서 문자열의 항목으로 포함된 문자와 기호의 순서가 다르거나
@@ -1940,7 +1940,7 @@ document.write(`
 </section>
 <section id="id10">
 <h2><span class="section-number">7.7. </span>연습문제<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
-<p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/42H/blob/master/practices/practice-strings_part2.ipynb">(연습) 문자열 2부</a></p>
+<p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/42H/blob/master/practices/practice-strings_part2.ipynb">(연습) 문자열 인덱싱, 슬라이싱</a></p>
 </section>
 </section>
 
@@ -1980,7 +1980,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>문자열 1부</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>문자열</p>
       </div>
     </a>
     <a class="right-next"
@@ -1988,7 +1988,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>문자열 3부</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>문자열과 for 반복문</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
