@@ -28,13 +28,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -466,9 +466,9 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2five_str</span> <span class="o">=</span> <span class="s2">&quot;12345&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2five</span> <span class="o">=</span> <span class="s2">&quot;12345&quot;</span>
 
-<span class="k">for</span> <span class="n">ichar</span> <span class="ow">in</span> <span class="n">one2five_str</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">ichar</span> <span class="ow">in</span> <span class="n">one2five</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">ichar</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -488,7 +488,12 @@ document.write(`
 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문으로 다섯 숫자의 합을 계산할 수 있다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2five</span> <span class="o">=</span> <span class="s1">&#39;12345&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2five</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;12345&#39;
 </pre></div>
 </div>
 </div>
@@ -507,7 +512,9 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sum_list</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2five</span> <span class="o">=</span> <span class="s1">&#39;12345&#39;</span>
+
+<span class="n">sum_list</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">one2five</span><span class="p">:</span>
     <span class="n">sum_list</span> <span class="o">=</span> <span class="n">sum_list</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
@@ -621,7 +628,9 @@ document.write(`
 1부터 5까지의 합을 다음과 같이 계산한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sum_list</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2five</span> <span class="o">=</span> <span class="s1">&#39;12345&#39;</span>
+
+<span class="n">sum_list</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">one2five</span><span class="p">:</span>
     <span class="n">sum_list</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
@@ -650,7 +659,9 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">one2five</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2five</span> <span class="o">=</span> <span class="s1">&#39;12345&#39;</span>
+
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">one2five</span><span class="p">:</span>
     <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
         <span class="k">continue</span>
@@ -679,7 +690,9 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sum_list</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2five</span> <span class="o">=</span> <span class="s1">&#39;12345&#39;</span>
+
+<span class="n">sum_list</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">one2five</span><span class="p">:</span>
     <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span><span class="mi">1</span><span class="p">:</span>
@@ -715,11 +728,13 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">one2five</span><span class="p">:</span>
-    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2five</span> <span class="o">=</span> <span class="s1">&#39;12345&#39;</span>
+
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">one2five</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">4</span><span class="p">:</span>
         <span class="k">break</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
         
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;1부터 </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s2">까지만 반복문이 실행됨!&quot;</span><span class="p">)</span>
 </pre></div>
@@ -741,13 +756,15 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sum_list</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2five</span> <span class="o">=</span> <span class="s1">&#39;12345&#39;</span>
+
+<span class="n">sum_list</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">one2five</span><span class="p">:</span>
-    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
-        <span class="n">sum_list</span> <span class="o">=</span> <span class="n">sum_list</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">break</span> <span class="c1"># 4이상인 경우 반복문 바로 실행 중단</span>
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">4</span><span class="p">:</span> <span class="c1"># 4 이상이면 중단</span>
+        <span class="k">break</span>
+
+    <span class="n">sum_list</span> <span class="o">=</span> <span class="n">sum_list</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
     
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;1부터 </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s2">까지 정수의 합:&quot;</span><span class="p">,</span> <span class="n">sum_list</span><span class="p">)</span>
 </pre></div>
