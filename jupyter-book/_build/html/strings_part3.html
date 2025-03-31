@@ -795,7 +795,38 @@ document.write(`
 </div>
 </div>
 <p><strong><code class="docutils literal notranslate"><span class="pre">continue</span></code>와 <code class="docutils literal notranslate"><span class="pre">break</span></code> 명령문 시각화</strong></p>
-<p><div align="center"><img src="https://raw.githubusercontent.com/codingalzi/42H/master/jupyter-book/images/break-continue.png" style="width:600px"></div></p></section>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2nine</span> <span class="o">=</span> <span class="s1">&#39;123456789&#39;</span>
+
+<span class="k">for</span> <span class="n">ichar</span> <span class="ow">in</span> <span class="n">one2nine</span><span class="p">:</span>
+    <span class="n">ichar</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ichar</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ichar</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ichar</span><span class="si">}</span><span class="s2">는 3의 배수 아님.&quot;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">ichar</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+        <span class="k">break</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ichar 변수가 1부터 </span><span class="si">{</span><span class="n">ichar</span><span class="si">}</span><span class="s2">까지만 반복문이 실행되었음!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1는 3의 배수 아님.
+2는 3의 배수 아님.
+4는 3의 배수 아님.
+5는 3의 배수 아님.
+7는 3의 배수 아님.
+
+ichar 변수가 1부터 7까지만 반복문이 실행되었음!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="id3">
 <h2><span class="section-number">8.4. </span>예제<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p><strong>예제 1</strong></p>
