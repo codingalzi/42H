@@ -61,6 +61,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'regex';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="10. 함수" href="functions.html" />
     <link rel="prev" title="8. 문자열과 for 반복문" href="strings_part3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -175,6 +176,9 @@
 <li class="toctree-l1"><a class="reference internal" href="strings_part2.html">7. 문자열 인덱싱, 슬라이싱</a></li>
 <li class="toctree-l1"><a class="reference internal" href="strings_part3.html">8. 문자열과 for 반복문</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">9. 정규표현식</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">10. 함수</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">11. 모듈</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">12. 파일</a></li>
 </ul>
 
     </div>
@@ -1125,15 +1129,15 @@ document.write(`
 <p>예를 들어 아래 코드는 <code class="docutils literal notranslate"><span class="pre">June</span> <span class="pre">24</span></code> 처럼 월과 날짜 형식의 문자열을 모두 <code class="docutils literal notranslate"><span class="pre">날짜</span> <span class="pre">of</span> <span class="pre">월</span></code> 형식으로
 대체한 문자열을 생성한다.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">\1</span></code>: 첫째 캡처 그룹</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">\2</span></code>: 둘째 캡처 그룹</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\g&lt;1&gt;</span></code>: 첫째 캡처 그룹</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\g&lt;2&gt;</span></code>: 둘째 캡처 그룹</p></li>
 </ul>
 <p>캡처 그룹의 내용은 앞서 <code class="docutils literal notranslate"><span class="pre">re.findall()</span></code> 함수의 결과를 참고한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;([a-zA-Z]+) (\d+)&quot;</span>
 
-<span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\2 of \1&quot;</span><span class="p">,</span> <span class="s2">&quot;June 24, August 9, Dec 12&quot;</span><span class="p">)</span>
+<span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\g&lt;2&gt; of \g&lt;1&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;June 24, August 9, Dec 12&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1148,7 +1152,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;([a-zA-Z]+) (\d+)&quot;</span>
 
-<span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\2 of \1&quot;</span><span class="p">,</span> <span class="s2">&quot;June 24, August 9, Dec 12&quot;</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\g&lt;2&gt; of \g&lt;1&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;June 24, August 9, Dec 12&quot;</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1162,7 +1166,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;([a-zA-Z]+) (\d+)&quot;</span>
 
-<span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\2 of \1&quot;</span><span class="p">,</span> <span class="s2">&quot;June 24, August 9, Dec 12&quot;</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\g&lt;2&gt; of \g&lt;1&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;June 24, August 9, Dec 12&quot;</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1247,14 +1251,14 @@ document.write(`
 </div>
 </div>
 <p>아래 명령문은 다음과 동일하다.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\w+) language&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\1 programming language&quot;</span><span class="p">,</span> <span class="s2">&quot;Python is the easiest language.&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\w+) language&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\g&lt;1&gt; programming language&quot;</span><span class="p">,</span> <span class="s2">&quot;Python is the easiest language.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>즉, 정규표현식에 매칭된 <code class="docutils literal notranslate"><span class="pre">easiest</span> <span class="pre">language</span></code> 대신에 캡처된 <code class="docutils literal notranslate"><span class="pre">easiest</span></code>를 사용한 <code class="docutils literal notranslate"><span class="pre">easiest</span> <span class="pre">programming</span> <span class="pre">language</span></code>를
 사용한 문자열이 생성된다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regex</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\1 programming language&quot;</span><span class="p">,</span> <span class="s2">&quot;Python is the easiest language.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regex</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\g&lt;1&gt; programming language&quot;</span><span class="p">,</span> <span class="s2">&quot;Python is the easiest language.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2457,6 +2461,15 @@ HTML 태그를 캡처한다.</p>
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title"><span class="section-number">8. </span>문자열과 for 반복문</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="functions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>함수</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

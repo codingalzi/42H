@@ -16,15 +16,15 @@ chapters:
 - file: strings_part2
 - file: strings_part3
 - file: regex
-# - file: functions
-# - file: modules
+- file: functions
+- file: modules
+- file: files
 # - file: conditionals
 # - file: iterations
 # - file: turtle_graphics
 # - file: exception_handling
 # - file: lists_tuples
 # - file: dicts_sets
-# - file: files
 # - file: oop
 # - file: classes_instances_objects
 # - file: inheritance
