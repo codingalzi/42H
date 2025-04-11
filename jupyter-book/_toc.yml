@@ -16,11 +16,11 @@ chapters:
 - file: strings_part2
 - file: strings_part3
 - file: regex
+- file: logical
+- file: iterations
 - file: functions
 - file: modules
 - file: files
-# - file: conditionals
-# - file: iterations
 # - file: turtle_graphics
 # - file: exception_handling
 # - file: lists_tuples

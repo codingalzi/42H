@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>11. 모듈 &#8212; 파이썬 프로그래밍</title>
+    <title>13. 모듈 &#8212; 파이썬 프로그래밍</title>
   
   
   
@@ -61,8 +61,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'modules';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="12. 파일" href="files.html" />
-    <link rel="prev" title="10. 함수" href="functions.html" />
+    <link rel="next" title="14. 파일" href="files.html" />
+    <link rel="prev" title="12. 함수" href="functions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,9 +176,11 @@
 <li class="toctree-l1"><a class="reference internal" href="strings_part2.html">7. 문자열 인덱싱, 슬라이싱</a></li>
 <li class="toctree-l1"><a class="reference internal" href="strings_part3.html">8. 문자열과 for 반복문</a></li>
 <li class="toctree-l1"><a class="reference internal" href="regex.html">9. 정규표현식</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">10. 함수</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. 모듈</a></li>
-<li class="toctree-l1"><a class="reference internal" href="files.html">12. 파일</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logical.html">10. 논리 연산</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iterations.html">11. 반복문</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">12. 함수</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. 모듈</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">14. 파일</a></li>
 </ul>
 
     </div>
@@ -405,11 +407,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import">11.1. 모듈 활용법 1: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">모듈명</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-import">11.2. 모듈 활용법 2: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">모듈명</span> <span class="pre">import</span> <span class="pre">...</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-as">11.3. 모듈 활용법 3: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">모듈명</span> <span class="pre">as</span> <span class="pre">모듈별칭</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">11.4. 필수 예제</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">11.5. 연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import">13.1. 모듈 활용법 1: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">모듈명</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-import">13.2. 모듈 활용법 2: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">모듈명</span> <span class="pre">import</span> <span class="pre">...</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-as">13.3. 모듈 활용법 3: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">모듈명</span> <span class="pre">as</span> <span class="pre">모듈별칭</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">13.4. 필수 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">13.5. 연습문제</a></li>
 </ul>
             </nav>
         </div>
@@ -422,7 +424,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="ch-modules">
-<span id="id1"></span><h1><span class="section-number">11. </span>모듈<a class="headerlink" href="#ch-modules" title="Link to this heading">#</a></h1>
+<span id="id1"></span><h1><span class="section-number">13. </span>모듈<a class="headerlink" href="#ch-modules" title="Link to this heading">#</a></h1>
 <p><strong>모듈</strong><font size='2'>module</font>은 이미 선언된 함수, 변수, 클래스의 정의가
 포함된 소스코드 파일이며, 파일명의 확장자는 <code class="docutils literal notranslate"><span class="pre">.py</span></code>이다.
 아래 세 모듈의 이용하여 모듈에 포함된 함수, 변수 등을 활용하는 일반적인 방법을 소개한다.</p>
@@ -439,7 +441,7 @@ document.write(`
 </ul>
 <p>모듈의 보다 다양한 활용법은 <a class="reference external" href="https://codingalzi.github.io/pybook/modules_advanced.html">모듈 고급 활용법</a>을 참고한다.</p>
 <section id="import">
-<h2><span class="section-number">11.1. </span>모듈 활용법 1: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">모듈명</span></code><a class="headerlink" href="#import" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.1. </span>모듈 활용법 1: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">모듈명</span></code><a class="headerlink" href="#import" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">time</span></code> 모듈은 시간과 관련된 유용한 함수를 제공한다.
 여기서는 <code class="docutils literal notranslate"><span class="pre">sleep()</span></code>, <code class="docutils literal notranslate"><span class="pre">time()</span></code>, <code class="docutils literal notranslate"><span class="pre">ctime()</span></code> 함수의 간단한 사용법을 소개한다.</p>
 <p><strong><code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> 함수</strong></p>
@@ -532,7 +534,7 @@ document.write(`
 그리니치 표준시, 즉 영국 시간으로는 1970년 1월 1일 0시를 가리킨다.</p>
 </section>
 <section id="from-import">
-<h2><span class="section-number">11.2. </span>모듈 활용법 2: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">모듈명</span> <span class="pre">import</span> <span class="pre">...</span></code><a class="headerlink" href="#from-import" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.2. </span>모듈 활용법 2: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">모듈명</span> <span class="pre">import</span> <span class="pre">...</span></code><a class="headerlink" href="#from-import" title="Link to this heading">#</a></h2>
 <p>예를 들어 1부터 5까지의 정수 중에서 무작위로 하나의 정수를 계산하는
 함수가 필요할 때 <code class="docutils literal notranslate"><span class="pre">random</span></code> 모듈의 <code class="docutils literal notranslate"><span class="pre">randint()</span></code> 함수를 활용할 수 있다.
 이를 위해 먼저 <code class="docutils literal notranslate"><span class="pre">random</span></code> 모듈을 불러온다.</p>
@@ -700,7 +702,7 @@ document.write(`
 </div>
 </section>
 <section id="import-as">
-<h2><span class="section-number">11.3. </span>모듈 활용법 3: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">모듈명</span> <span class="pre">as</span> <span class="pre">모듈별칭</span></code><a class="headerlink" href="#import-as" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.3. </span>모듈 활용법 3: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">모듈명</span> <span class="pre">as</span> <span class="pre">모듈별칭</span></code><a class="headerlink" href="#import-as" title="Link to this heading">#</a></h2>
 <p>수학에서 많이 사용되는 <code class="docutils literal notranslate"><span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">sin</span></code>, <code class="docutils literal notranslate"><span class="pre">cos</span></code> 등의 함수의 정의는 <code class="docutils literal notranslate"><span class="pre">math</span></code> 모듈에 포함되어 있다.
 예를 들어 아래 코드는 정수 2의 자연로그값을 계산한다.</p>
 <div class="cell docutils container">
@@ -820,11 +822,11 @@ document.write(`
 </div>
 </section>
 <section id="id2">
-<h2><span class="section-number">11.4. </span>필수 예제<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.4. </span>필수 예제<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/pybook/blob/master/examples/examples-modules.ipynb">(필수 예제) 모듈</a></p>
 </section>
 <section id="id3">
-<h2><span class="section-number">11.5. </span>연습문제<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.5. </span>연습문제<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/pybook/blob/master/practices/practice-modules.ipynb">(연습) 모듈</a></p>
 </section>
 </section>
@@ -865,7 +867,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>함수</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>함수</p>
       </div>
     </a>
     <a class="right-next"
@@ -873,7 +875,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>파일</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>파일</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -893,11 +895,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import">11.1. 모듈 활용법 1: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">모듈명</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-import">11.2. 모듈 활용법 2: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">모듈명</span> <span class="pre">import</span> <span class="pre">...</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-as">11.3. 모듈 활용법 3: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">모듈명</span> <span class="pre">as</span> <span class="pre">모듈별칭</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">11.4. 필수 예제</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">11.5. 연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import">13.1. 모듈 활용법 1: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">모듈명</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-import">13.2. 모듈 활용법 2: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">모듈명</span> <span class="pre">import</span> <span class="pre">...</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-as">13.3. 모듈 활용법 3: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">모듈명</span> <span class="pre">as</span> <span class="pre">모듈별칭</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">13.4. 필수 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">13.5. 연습문제</a></li>
 </ul>
   </nav></div>
 
