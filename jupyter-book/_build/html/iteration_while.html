@@ -181,7 +181,6 @@
 <li class="toctree-l1"><a class="reference internal" href="functions.html">12. 함수</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">13. 모듈</a></li>
 <li class="toctree-l1"><a class="reference internal" href="files.html">14. 파일</a></li>
-<li class="toctree-l1"><a class="reference internal" href="turtle_graphics.html">15. 거북이 그래픽</a></li>
 </ul>
 
     </div>
@@ -409,9 +408,9 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">11.1. 기본 활용법</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">11.2. 리스트와 <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continue-break">11.3. <code class="docutils literal notranslate"><span class="pre">continue</span></code>와 <code class="docutils literal notranslate"><span class="pre">break</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#break">11.4. 무한 반복과 <code class="docutils literal notranslate"><span class="pre">break</span></code> 명령문</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">11.2. 리스트와 while 반복문</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continue-break">11.3. continue와 break</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#break">11.4. 무한 반복과 break 명령문</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">11.5. 예제</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">11.6. 연습문제</a></li>
 </ul>
@@ -530,7 +529,7 @@ document.write(`
 </div>
 </section>
 <section id="id2">
-<h2><span class="section-number">11.2. </span>리스트와 <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.2. </span>리스트와 while 반복문<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>아래 코드는 1부터 5까지의 정수를 더하는 코드를 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문으로 구현한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -611,7 +610,7 @@ document.write(`
 <div align="center" border="1px"><img src="https://raw.githubusercontent.com/codingalzi/pybook/master/jupyter-book/images/list-while-03.png" width="800"/></div>
 <p><div style="text-align: center">&lt;그림 출처: <a href="https://pythontutor.com/render.html#code=one2five%20%3D%20%5B1,%202,%203,%204,%205%5D%0A%0Asum_list%20%3D%200%0Ai%20%3D%200%0A%0Awhile%20i%20%3C%20len%28one2five%29%3A%0A%20%20%20%20item%20%3D%20one2five%5Bi%5D%0A%20%20%20%20sum_list%20%2B%3D%20item%0A%20%20%20%20i%20%2B%3D%201%0A%0Aprint%28sum_list%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">Python Tutor</a>&gt;</div></p></section>
 <section id="continue-break">
-<h2><span class="section-number">11.3. </span><code class="docutils literal notranslate"><span class="pre">continue</span></code>와 <code class="docutils literal notranslate"><span class="pre">break</span></code><a class="headerlink" href="#continue-break" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.3. </span>continue와 break<a class="headerlink" href="#continue-break" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">for</span></code>반복문 뿐만 아니라 <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문의 실행 도중에도
 <code class="docutils literal notranslate"><span class="pre">continue</span></code> 명령문과 <code class="docutils literal notranslate"><span class="pre">break</span></code> 명령문이 실행되면
 특정 경우를 건너뛰도록 하거나 <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문의 실행을 중간에 중단된다.</p>
@@ -769,7 +768,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong><code class="docutils literal notranslate"><span class="pre">continue</span></code>와 <code class="docutils literal notranslate"><span class="pre">break</span></code> 영향 범위</strong></p>
+<p><strong>continue와 break 영향 범위</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">continue</span></code>와 <code class="docutils literal notranslate"><span class="pre">break</span></code> 명령문은 자신을 포함한 <code class="docutils literal notranslate"><span class="pre">for</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문의 실행에만
 영항을 준다.</p>
 <p>예를 들어 동일한 일을 하는 아래 두 코드를 실행하면 1과 2를 출력한 후에
@@ -876,7 +875,7 @@ document.write(`
 </div>
 </section>
 <section id="break">
-<h2><span class="section-number">11.4. </span>무한 반복과 <code class="docutils literal notranslate"><span class="pre">break</span></code> 명령문<a class="headerlink" href="#break" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.4. </span>무한 반복과 break 명령문<a class="headerlink" href="#break" title="Link to this heading">#</a></h2>
 <p>아래 코드를 실행하면 사용자로부터 계속해서 값을 입력받으며
 절대로 멈추지 않는다.
 이유는 <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code>에서 사용된 <code class="docutils literal notranslate"><span class="pre">True</span></code> 표현식이 항상 참이기 때문이다.</p>
@@ -921,13 +920,15 @@ document.write(`
 단, 게임이 종료되는 조건이 되면 <code class="docutils literal notranslate"><span class="pre">break</span></code> 명령문 등과 같이 반복문의 실행을 종료시키거나
 프로그램 자체를 종료시키는 특정 명령문이 실행되도록 해야 한다.</p>
 <p>예를 들어, <a class="reference external" href="https://leegys_gmail_com.trinket.io/python-turtle#/mini-peurojegteu/geobugi-gyeongju-geim">거북이 경주 게임</a>에서
-두 마리의 거북이가 목표 지점에 다다르기 위해 경주를 한다.
-두 마리 중 한 마리의 거북이가 먼저 목표 지점에 다다르면 승자가 결정되고 게임이 멈추는데 그때가 언제인지는
-절대로 미리 알 수 없다.
-따라서 경주를 진행하는 반복문이 <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code>로 시작하며
+두 마리의 거북이가 목표 지점에 다다르기 위해 경주를 한다.</p>
+<p><div align="center"><img src="https://raw.githubusercontent.com/codingalzi/42H/master/jupyter-book/images/turtle_race02.png" style="width:400px"></div></p><p>코드를 실행한 다음에 <kdb>Enter</kbd>키를 누르면
+각각의 거북이가 무작위로 앞으로 전진한다.
+한 마리의 거북이가 먼저 목표 지점에 다다르면 승자가 결정되고 게임이 멈추는데 그때가 언제인지는
+절대로 미리 알 수 없다.</p>
+<p>따라서 경주를 진행하는 반복문이 <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code>로 시작하며
 한 마리의 거북이가 목표 지점에 다다르면 반복문의 실행이 멈추도록 <code class="docutils literal notranslate"><span class="pre">break</span></code> 명령문이 사용되었다.</p>
 <p>참고로 아래 거북이 경주 게임 코드는 2차원 컴퓨터 그래픽스를 지원하는 <code class="docutils literal notranslate"><span class="pre">turtle</span></code> 모듈을 사용하며 구글 코랩에서는 실행되지 않는다.
-코드 설명과 실행 환경에 대해서는 <a class="reference internal" href="turtle_graphics.html#ch-turtle-graphics"><span class="std std-numref">15장</span></a>을 참고한다.</p>
+코드 설명과 실행은 <a class="reference external" href="https://leegys_gmail_com.trinket.io/python-turtle#/welcome/koding-han-sigan">코딩 한 시간: 거북이 소개</a>에서 확인한다.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">turtle</span>
 <span class="kn">import</span> <span class="nn">random</span>
 
@@ -986,10 +987,133 @@ document.write(`
 </section>
 <section id="id3">
 <h2><span class="section-number">11.5. </span>예제<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p><strong>예제 ?</strong></p>
-<p>2부터 9 까지의 자연수 <code class="docutils literal notranslate"><span class="pre">n</span></code>을 입력 받아 구구단의 <code class="docutils literal notranslate"><span class="pre">n</span></code>단을 아래 형식으로 출력하는
-<code class="docutils literal notranslate"><span class="pre">times_table()</span></code> 함수를 <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문을 이용하여 작성한다.
-예를 들어 <code class="docutils literal notranslate"><span class="pre">time_table(3)</span></code>을 호출하면 3단을 다음과 같이 출력한다.</p>
+<p><strong>예제 1</strong></p>
+<p>다음 모양을 출력하는 코드를 작성한다.
+두 개의 별 기호 사이에 공백(space)이 사용됨에 주의한다.
+공백도 하나의 기호로 취급된다.
+단, <code class="docutils literal notranslate"><span class="pre">print()</span></code> 함수와 <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문은 한 번씩만 활용한다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>  
+<span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>  
+<span class="o">*</span> <span class="o">*</span> <span class="o">*</span>  
+<span class="o">*</span> <span class="o">*</span>  
+<span class="o">*</span>
+<span class="o">*</span>
+<span class="o">*</span> <span class="o">*</span>
+<span class="o">*</span> <span class="o">*</span> <span class="o">*</span>
+<span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>
+<span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>답:</p>
+<p>별 기호와 공백으로 구성된 문자열, 즉 <code class="docutils literal notranslate"><span class="pre">&quot;*</span> <span class="pre">&quot;</span></code>이 차례대로 5, 4, 3, 2, 1 번씩,
+이후에 다시 1, 2, 3, 4, 5 번씩 반복된다.
+<code class="docutils literal notranslate"><span class="pre">While</span></code> 반복문:  총 10번 출력하며 처음 5번과 나중 5번이 대칭을 이룬다.
+<code class="docutils literal notranslate"><span class="pre">num</span></code>이 0부터 9까지 변할 때 <code class="docutils literal notranslate"><span class="pre">'*</span> <span class="pre">'</span></code> 문자열이 반복되는 횟수를 <code class="docutils literal notranslate"><span class="pre">stars</span></code> 변수에 할당하는데
+<code class="docutils literal notranslate"><span class="pre">num</span></code>에 할당된 값이 5일 때를 기준으로 달라진다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">stars</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">-</span> <span class="n">num</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">stars</span> <span class="o">=</span> <span class="n">num</span> <span class="o">-</span> <span class="mi">4</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;* &quot;</span> <span class="o">*</span> <span class="n">stars</span><span class="p">)</span>
+        
+    <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>* * * * * 
+* * * * 
+* * * 
+* * 
+* 
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 2</strong></p>
+<p>0부터 100까지의 숫자 중에서 3 또는 7의 배수를 모두 더한 결과를
+다음과 같이 출력하는 프로그램을 작성하라.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="o">~</span><span class="mi">100</span><span class="n">의</span> <span class="n">숫자</span> <span class="n">중</span> <span class="mi">3</span><span class="n">의</span> <span class="n">배수와</span> <span class="mi">7</span><span class="n">의</span> <span class="n">배수들의</span> <span class="n">합</span><span class="p">:</span> <span class="mi">2208</span>
+</pre></div>
+</div>
+<p>힌트: <code class="docutils literal notranslate"><span class="pre">range()</span></code> 함수와 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문 활용</p>
+<p>답:</p>
+<p>0부터 100까지의 정수들의 구간은 <code class="docutils literal notranslate"><span class="pre">range(0,</span> <span class="pre">101)</span></code>로 표현한다.
+그리고 <code class="docutils literal notranslate"><span class="pre">num</span></code> 하나의 정수를 가리킬 때 <code class="docutils literal notranslate"><span class="pre">num</span></code>이 3의 배수이거나 7의 배수인지 여부는
+다음 표현식이 판단한다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">7</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>이를 정리하여 0부터 100까지의 정수들 중에서 3의 배수이거나 7의 배수의 합을
+계산하는 코드를 다음과 같다.
+<code class="docutils literal notranslate"><span class="pre">sum</span></code> 변수는 3 또는 7의 배수만을 더한 누적합을 기억하는 장치로 이용된다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">7</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">sum</span> <span class="o">+=</span> <span class="n">num</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;0~100의 숫자 중 3의 배수와 7의 배수들의 합:&quot;</span><span class="p">,</span> <span class="nb">sum</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0~100의 숫자 중 3의 배수와 7의 배수들의 합: 2208
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 3</strong></p>
+<p>사용자로부터 3보다 큰 양의 정수 <code class="docutils literal notranslate"><span class="pre">n</span></code>을 입력 받으면,
+1과 <code class="docutils literal notranslate"><span class="pre">n</span></code>을 제외한 <code class="docutils literal notranslate"><span class="pre">n</span></code>의 약수를
+모두 출력하는 코드를 구현하라.
+예를 들어 24가 입력되었을 때 다음과 같이 출력되어야 한다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">24</span><span class="n">의</span> <span class="n">약수</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> 
+</pre></div>
+</div>
+<p>단, <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문을 이용한다.</p>
+<p>답:</p>
+<p>3보다 큰 양의 정수 <code class="docutils literal notranslate"><span class="pre">n</span></code>의 약수는 보통 1부터 <code class="docutils literal notranslate"><span class="pre">n</span></code>까지 확인하지만 여기서는 양 끝수는 제외한다.
+따라서 <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문을 이용하여 2부터 시작해서 <code class="docutils literal notranslate"><span class="pre">n-1</span></code>까지의 정수에 대해
+<code class="docutils literal notranslate"><span class="pre">n</span></code>의 약수인지 여부를 판단한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;3보다 큰 양의 정수 입력:&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot;의 약수:&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">while</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;, &quot;</span><span class="p">)</span>
+    <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3보다 큰 양의 정수 입력:24
+
+24의 약수: 2, 3, 4, 6, 8, 12, 
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 4</strong></p>
+<p>사용자로부터 2부터 9 까지의 정수 중에 하나를 입력 받아 구구단을 아래 형식으로 출력하는
+코드를 <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문을 이용하여 작성한다.
+예를 들어 3을 입력받으면 3단을 다음과 같이 출력한다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">=</span> <span class="mi">6</span>
 <span class="mi">3</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">=</span> <span class="mi">9</span>
 <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">=</span> <span class="mi">12</span>
@@ -1003,10 +1127,10 @@ document.write(`
 <p><strong>답</strong></p>
 <p>2부터 시작해서 <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문의 본문이 실행될 때마다 1씩 커지는
 방식으로 업데이트되는 변수 <code class="docutils literal notranslate"><span class="pre">num</span></code>을 활용한다.
-예를 들어 아래 코드는 3단을 출력한다.</p>
+아래 코드를 실행한 다음 3을 입력하면 3단을 출력한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;2에서 9사이 정수 하나 입력: &quot;</span><span class="p">))</span>
 
 <span class="n">num</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="k">while</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
@@ -1016,7 +1140,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 * 2 = 6
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2에서 9사이 정수 하나 입력: 3
+3 * 2 = 6
 3 * 3 = 9
 3 * 4 = 12
 3 * 5 = 15
@@ -1028,11 +1153,10 @@ document.write(`
 </div>
 </div>
 </div>
-<p>5단을 출력하기 위해서는 <code class="docutils literal notranslate"><span class="pre">n</span></code>에 5만 할당하면 되며,
-코드의 다른 부분은 그대로 둔다.</p>
+<p>5를 입력하면 5단이 출력된다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;2에서 9사이 정수 하나 입력: &quot;</span><span class="p">))</span>
 
 <span class="n">num</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="k">while</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
@@ -1042,7 +1166,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 * 2 = 10
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2에서 9사이 정수 하나 입력: 5
+5 * 2 = 10
 5 * 3 = 15
 5 * 4 = 20
 5 * 5 = 25
@@ -1054,67 +1179,119 @@ document.write(`
 </div>
 </div>
 </div>
-<p>따라서 변수 <code class="docutils literal notranslate"><span class="pre">n</span></code>을 매개변수로 사용하는 함수를 선언하면
-<code class="docutils literal notranslate"><span class="pre">n</span></code>단을 출력하는 함수가 된다.</p>
+<p><strong>예제 5</strong></p>
+<p>아래 코드의 실행 결과를 설명하라.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">times_table</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">num</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="k">while</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">n</span><span class="o">*</span><span class="n">num</span><span class="p">)</span>
-        <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>3단</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">times_table</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">while</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;은(는) 홀수다.&quot;</span><span class="p">)</span>
+    
+    <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">continue</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;실행 종료!&quot;</span><span class="p">)</span>        
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 * 2 = 6
-3 * 3 = 9
-3 * 4 = 12
-3 * 5 = 15
-3 * 6 = 18
-3 * 7 = 21
-3 * 8 = 24
-3 * 9 = 27
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 3 은(는) 홀수다.
+- 5 은(는) 홀수다.
+- 7 은(는) 홀수다.
+- 9 은(는) 홀수다.
+실행 종료!
 </pre></div>
 </div>
 </div>
 </div>
+<p>답:</p>
+<p><code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문은 <code class="docutils literal notranslate"><span class="pre">n</span></code>이 2부터 10까지의 정수를 차례대로 가리키는 동안 실행된다.</p>
 <ul class="simple">
-<li><p>8단</p></li>
+<li><p>3번 줄에서 시작하는 <code class="docutils literal notranslate"><span class="pre">if</span></code> 조건문은 <code class="docutils literal notranslate"><span class="pre">n</span></code>이 홀수일 때 홀수임을 확인한 다음 <code class="docutils literal notranslate"><span class="pre">n</span></code>을 1 키운다.</p></li>
+<li><p>이후에 7번 줄에서 <code class="docutils literal notranslate"><span class="pre">continue</span></code> 명령문이 실행되어 <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문의 처음으로 돌아간다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문이 종료된 후에 이어지는 명령문이 계속해서 실행되어
+마지막 줄의 <code class="docutils literal notranslate"><span class="pre">print(&quot;실행</span> <span class="pre">종료!&quot;)</span></code>에 의해 코드의 실행이 종료되었음을 확인해준다.</p></li>
 </ul>
+<p><strong>예제 6</strong></p>
+<p>아래 코드의 실행 결과를 설명하라.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">times_table</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">:</span>
+            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">break</span>
+        <span class="nb">print</span><span class="p">([</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8 * 2 = 16
-8 * 3 = 24
-8 * 4 = 32
-8 * 5 = 40
-8 * 6 = 48
-8 * 7 = 56
-8 * 8 = 64
-8 * 9 = 72
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 0]
+[2, 0]
+[2, 1]
+[3, 0]
+[3, 1]
+[3, 2]
 </pre></div>
 </div>
 </div>
 </div>
+<p>답:</p>
+<p><code class="docutils literal notranslate"><span class="pre">i</span></code>가 0부터 3까지 변할 때 다음을 실행한다.</p>
+<ul class="simple">
+<li><p>각각의 <code class="docutils literal notranslate"><span class="pre">i</span></code>에 대해 <code class="docutils literal notranslate"><span class="pre">j</span></code>가 0부터 3까지 변하면서 <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">==</span> <span class="pre">j</span></code> 가 참이 되는 순간까지 <code class="docutils literal notranslate"><span class="pre">[i,</span> <span class="pre">j]</span></code> 출력.</p></li>
+</ul>
+<p>결론적으로 <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">j</span></code>인 경우에만 <code class="docutils literal notranslate"><span class="pre">[i,</span> <span class="pre">j]</span></code>를 출력한다.</p>
+<p><strong>예제 7</strong></p>
+<p>아래 코드의 실행 결과를 설명하라.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">:</span>
+            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">continue</span>
+        <span class="nb">print</span><span class="p">([</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1]
+[0, 2]
+[0, 3]
+[1, 0]
+[1, 2]
+[1, 3]
+[2, 0]
+[2, 1]
+[2, 3]
+[3, 0]
+[3, 1]
+[3, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>답:</p>
+<p><code class="docutils literal notranslate"><span class="pre">i</span></code>가 0부터 3까지 변할 때 다음을 실행한다.</p>
+<ul class="simple">
+<li><p>각각의 <code class="docutils literal notranslate"><span class="pre">i</span></code>에 대해 <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">j</span></code> 가 거짓인 경우에만 리스트 <code class="docutils literal notranslate"><span class="pre">[i,</span> <span class="pre">j]</span></code> 출력.</p></li>
+<li><p>각각의 <code class="docutils literal notranslate"><span class="pre">i</span></code>에 대해 <code class="docutils literal notranslate"><span class="pre">j</span></code>가 0부터 3까지 변하면서 <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">==</span> <span class="pre">j</span></code> 가 참이 되는 순간 <code class="docutils literal notranslate"><span class="pre">continue</span></code> 명령문이 실행됨.</p></li>
+</ul>
+<p>결론적으로 <code class="docutils literal notranslate"><span class="pre">i</span></code>와 <code class="docutils literal notranslate"><span class="pre">j</span></code>가 다른 경우에만 <code class="docutils literal notranslate"><span class="pre">[i,</span> <span class="pre">j]</span></code>를 출력한다.</p>
 </section>
 <section id="id4">
 <h2><span class="section-number">11.6. </span>연습문제<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/pybook/blob/master/practices/practice-iteration_while.ipynb">(연습) while 반복문</a></p>
+<p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/42H/blob/master/practices/practice-iteration_while.ipynb">(연습) while 반복문</a></p>
 </section>
 </section>
 
@@ -1183,9 +1360,9 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">11.1. 기본 활용법</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">11.2. 리스트와 <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continue-break">11.3. <code class="docutils literal notranslate"><span class="pre">continue</span></code>와 <code class="docutils literal notranslate"><span class="pre">break</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#break">11.4. 무한 반복과 <code class="docutils literal notranslate"><span class="pre">break</span></code> 명령문</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">11.2. 리스트와 while 반복문</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continue-break">11.3. continue와 break</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#break">11.4. 무한 반복과 break 명령문</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">11.5. 예제</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">11.6. 연습문제</a></li>
 </ul>
