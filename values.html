@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -174,11 +174,13 @@
 <li class="toctree-l1"><a class="reference internal" href="inputs.html">5. 사용자 입력</a></li>
 <li class="toctree-l1"><a class="reference internal" href="strings_part1.html">6. 문자열</a></li>
 <li class="toctree-l1"><a class="reference internal" href="strings_part2.html">7. 문자열 인덱싱, 슬라이싱</a></li>
-<li class="toctree-l1"><a class="reference internal" href="strings_part3.html">8. 문자열과 for 반복문</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regex.html">9. 정규표현식</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">10. 함수</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">11. 모듈</a></li>
-<li class="toctree-l1"><a class="reference internal" href="files.html">12. 파일</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regex.html">8. 정규표현식</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logical.html">9. 논리 연산</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iteration_for.html">10. for 반복문</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iteration_while.html">11. while 반복문</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">12. 함수</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">13. 모듈</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">14. 파일</a></li>
 </ul>
 
     </div>
@@ -405,7 +407,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.1. 기초 명령문: 조건문</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sec-values-if">3.1. 기초 명령문: 조건문</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.2. 값의 종류</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.3. 연산자와 값</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.4. 예제</a></li>
@@ -421,15 +423,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">3. </span>값과 연산<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="ch-values">
+<span id="id1"></span><h1><span class="section-number">3. </span>값과 연산<a class="headerlink" href="#ch-values" title="Link to this heading">#</a></h1>
 <p>프로그래밍언어의 핵심 기능 중의 하나가
 바로 컴퓨터에 저장된 값을 조작하는 일이다.
 이번 장에서는 가장 많이 사용되는 값의 종류를 소개하고,
 연산자를 이용하여 주어진 값으로부터 새로운 값을 생성하는 연산을 다룬다.</p>
 <p>먼저 주어진 값에 따라 다른 일을 하도록 명령하는 조건문의 기초 활용법을 알아본다.</p>
-<section id="id2">
-<h2><span class="section-number">3.1. </span>기초 명령문: 조건문<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="sec-values-if">
+<span id="id2"></span><h2><span class="section-number">3.1. </span>기초 명령문: 조건문<a class="headerlink" href="#sec-values-if" title="Link to this heading">#</a></h2>
 <p>컴퓨터 프로그램은 값을 저장하고 조작하여 새로운 값을 계산하여 활용하는 방법을 묘사한다.
 이때 주어진 값에 따라 따라 다른 방법으로 일을 하도록 명령할 수 있다.</p>
 <p><strong>if … 조건문</strong></p>
@@ -1645,7 +1647,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.1. 기초 명령문: 조건문</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sec-values-if">3.1. 기초 명령문: 조건문</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.2. 값의 종류</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.3. 연산자와 값</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.4. 예제</a></li>

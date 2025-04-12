@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>12. 파일 &#8212; 파이썬 프로그래밍</title>
+    <title>14. 파일 &#8212; 파이썬 프로그래밍</title>
   
   
   
@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -61,7 +61,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'files';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="11. 모듈" href="modules.html" />
+    <link rel="prev" title="13. 모듈" href="modules.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -173,11 +173,13 @@
 <li class="toctree-l1"><a class="reference internal" href="inputs.html">5. 사용자 입력</a></li>
 <li class="toctree-l1"><a class="reference internal" href="strings_part1.html">6. 문자열</a></li>
 <li class="toctree-l1"><a class="reference internal" href="strings_part2.html">7. 문자열 인덱싱, 슬라이싱</a></li>
-<li class="toctree-l1"><a class="reference internal" href="strings_part3.html">8. 문자열과 for 반복문</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regex.html">9. 정규표현식</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">10. 함수</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">11. 모듈</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. 파일</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regex.html">8. 정규표현식</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logical.html">9. 논리 연산</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iteration_for.html">10. for 반복문</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iteration_while.html">11. while 반복문</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">12. 함수</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">13. 모듈</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. 파일</a></li>
 </ul>
 
     </div>
@@ -404,11 +406,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">12.1. 파일의 종류와 경로</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">12.2. 파일 준비</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">12.3. 텍스트 파일 생성</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">12.4. 필수 예제</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">12.5. 연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">14.1. 파일의 종류와 경로</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">14.2. 파일 준비</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">14.3. 텍스트 파일 생성</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">14.4. 필수 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">14.5. 연습문제</a></li>
 </ul>
             </nav>
         </div>
@@ -421,7 +423,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="ch-files">
-<span id="id1"></span><h1><span class="section-number">12. </span>파일<a class="headerlink" href="#ch-files" title="Link to this heading">#</a></h1>
+<span id="id1"></span><h1><span class="section-number">14. </span>파일<a class="headerlink" href="#ch-files" title="Link to this heading">#</a></h1>
 <p>열 명의 5미터 다이빙 경기의 점수를 저장한 텍스트 파일에서
 필요한 정보를 추출하는 과정을 살펴본다.
 파일의 내용은 다음과 같이 첫째 줄엔 ‘이름’과 ‘점수’라는 구분이 표시되어 있으며,
@@ -441,7 +443,7 @@ document.write(`
 </pre></div>
 </div>
 <section id="id2">
-<h2><span class="section-number">12.1. </span>파일의 종류와 경로<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.1. </span>파일의 종류와 경로<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p><strong>텍스트 파일과 바이너리 파일</strong></p>
 <p>파일은 <strong>텍스트</strong><font size='2'>text</font> 파일과
 <strong>바이너리</strong><font size='2'>binary</font> 파일 두 가지로 나뉜다.</p>
@@ -502,7 +504,7 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
 </ul>
 </section>
 <section id="id3">
-<h2><span class="section-number">12.2. </span>파일 준비<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.2. </span>파일 준비<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>먼저 위에서 언급된 파일을 다운 받아서 파이썬 코딩을 실습하는 디렉토리에 저장한다.
 여기서는 <code class="docutils literal notranslate"><span class="pre">data</span></code>라는 하위디렉토리에 <code class="docutils literal notranslate"><span class="pre">results5m.txt</span></code>라는 파일로 저장한다.</p>
 <p><strong><code class="docutils literal notranslate"><span class="pre">pathlib.Path</span></code> 클래스: 디렉토리 지정</strong></p>
@@ -1078,7 +1080,7 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
 </div>
 </section>
 <section id="id4">
-<h2><span class="section-number">12.3. </span>텍스트 파일 생성<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.3. </span>텍스트 파일 생성<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p><strong><code class="docutils literal notranslate"><span class="pre">mode</span></code> 옵션 인자</strong></p>
 <p>파일을 열 때 기본적으로 읽기 모드로 열린다.
 그러면 파일 내용을 읽을 수는 있지만 수정, 추가 등은 불가능하다.
@@ -1298,11 +1300,11 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
 </div>
 </section>
 <section id="id5">
-<h2><span class="section-number">12.4. </span>필수 예제<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.4. </span>필수 예제<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/pybook/blob/master/examples/examples-files.ipynb">(필수 예제) 파일</a></p>
 </section>
 <section id="id6">
-<h2><span class="section-number">12.5. </span>연습문제<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.5. </span>연습문제<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/pybook/blob/master/practices/practice-files.ipynb">(실습) 파일</a></p>
 </section>
 </section>
@@ -1343,7 +1345,7 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>모듈</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>모듈</p>
       </div>
     </a>
 </div>
@@ -1362,11 +1364,11 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">12.1. 파일의 종류와 경로</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">12.2. 파일 준비</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">12.3. 텍스트 파일 생성</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">12.4. 필수 예제</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">12.5. 연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">14.1. 파일의 종류와 경로</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">14.2. 파일 준비</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">14.3. 텍스트 파일 생성</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">14.4. 필수 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">14.5. 연습문제</a></li>
 </ul>
   </nav></div>
 
