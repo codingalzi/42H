@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>10. 논리 연산 &#8212; 파이썬 프로그래밍</title>
+    <title>9. 논리 연산 &#8212; 파이썬 프로그래밍</title>
   
   
   
@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -61,8 +61,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'logical';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="11. 반복문" href="iterations.html" />
-    <link rel="prev" title="9. 정규표현식" href="regex.html" />
+    <link rel="next" title="10. for 반복문" href="iteration_for.html" />
+    <link rel="prev" title="8. 정규표현식" href="regex.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,10 +174,10 @@
 <li class="toctree-l1"><a class="reference internal" href="inputs.html">5. 사용자 입력</a></li>
 <li class="toctree-l1"><a class="reference internal" href="strings_part1.html">6. 문자열</a></li>
 <li class="toctree-l1"><a class="reference internal" href="strings_part2.html">7. 문자열 인덱싱, 슬라이싱</a></li>
-<li class="toctree-l1"><a class="reference internal" href="strings_part3.html">8. 문자열과 for 반복문</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regex.html">9. 정규표현식</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. 논리 연산</a></li>
-<li class="toctree-l1"><a class="reference internal" href="iterations.html">11. 반복문</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regex.html">8. 정규표현식</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. 논리 연산</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iteration_for.html">10. for 반복문</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iteration_while.html">11. while 반복문</a></li>
 <li class="toctree-l1"><a class="reference internal" href="functions.html">12. 함수</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">13. 모듈</a></li>
 <li class="toctree-l1"><a class="reference internal" href="files.html">14. 파일</a></li>
@@ -407,11 +407,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">10.1. 논리식</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">10.2. 논리 연산자</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if">10.3. 논리식과 <code class="docutils literal notranslate"><span class="pre">if</span></code> 조건문</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">10.4. 예제</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">10.5. 연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">9.1. 기본 논리식</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">9.2. 논리 연산자</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if">9.3. 논리식과 <code class="docutils literal notranslate"><span class="pre">if</span></code> 조건문</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">9.4. 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">9.5. 연습문제</a></li>
 </ul>
             </nav>
         </div>
@@ -424,11 +424,13 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">10. </span>논리 연산<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">9. </span>논리 연산<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>논리식은 <code class="docutils literal notranslate"><span class="pre">True</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">False</span></code>를 나타내는 표현식이며,
+<code class="docutils literal notranslate"><span class="pre">if</span></code> 조건문, <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문 등과 함께 활용되어
+프로그램의 실행을 제어하는 매우 중요한 기능을 수행한다.</p>
 <section id="id2">
-<h2><span class="section-number">10.1. </span>논리식<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>논리식은 <code class="docutils literal notranslate"><span class="pre">True</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">False</span></code>를 나타내는 표현식이다.
-가장 단순한 논리식은 등식, 부등식 등의 비교 연산자를 이용한 표현식이다.</p>
+<h2><span class="section-number">9.1. </span>기본 논리식<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>가장 단순한 논리식은 등식, 부등식 등의 비교 연산자를 이용한 표현식이다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">17</span> <span class="o">-</span> <span class="mi">9</span>
@@ -504,7 +506,7 @@ document.write(`
 <p>보다 복잡한 논리식은 논리 연산자를 이용하여 만든다.</p>
 </section>
 <section id="id3">
-<h2><span class="section-number">10.2. </span>논리 연산자<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.2. </span>논리 연산자<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>영어의 and, or, not 의 개념과 거의(!) 유사하게 작동하는
 세 개의 논리 연산자를 이용하여 보다 복잡한 논리식을 구현할 수 있다.</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -694,7 +696,7 @@ True
 </div>
 </section>
 <section id="if">
-<h2><span class="section-number">10.3. </span>논리식과 <code class="docutils literal notranslate"><span class="pre">if</span></code> 조건문<a class="headerlink" href="#if" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.3. </span>논리식과 <code class="docutils literal notranslate"><span class="pre">if</span></code> 조건문<a class="headerlink" href="#if" title="Link to this heading">#</a></h2>
 <p>논리식은 <code class="docutils literal notranslate"><span class="pre">if</span></code> 조건문에서 다양한 형식으로 활용된다.
 여기서는 <a class="reference internal" href="values.html#sec-values-if"><span class="std std-numref">3.1절</span></a>에서 소개한
 간단한 형식의 <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span> <span class="pre">...</span></code> 이외에
@@ -919,7 +921,7 @@ True
 </div>
 </section>
 <section id="id4">
-<h2><span class="section-number">10.4. </span>예제<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.4. </span>예제<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p><strong>예제 1</strong></p>
 <p>아래 두 논리식이 서로 다른 값을 갖도록 하는 정수 a, b, c, d를 정하라.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span> <span class="ow">and</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">d</span>          <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span><span class="p">)</span> <span class="ow">and</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">d</span><span class="p">)</span>
@@ -1527,8 +1529,8 @@ True
 </div>
 </section>
 <section id="id5">
-<h2><span class="section-number">10.5. </span>연습문제<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/42H/blob/master/practices/practice-conditionals.ipynb">(실습) 조건문</a></p>
+<h2><span class="section-number">9.5. </span>연습문제<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/42H/blob/master/practices/practice-logical.ipynb">(실습) 조건문</a></p>
 </section>
 </section>
 
@@ -1568,15 +1570,15 @@ True
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>정규표현식</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>정규표현식</p>
       </div>
     </a>
     <a class="right-next"
-       href="iterations.html"
+       href="iteration_for.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>반복문</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>for 반복문</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1596,11 +1598,11 @@ True
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">10.1. 논리식</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">10.2. 논리 연산자</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if">10.3. 논리식과 <code class="docutils literal notranslate"><span class="pre">if</span></code> 조건문</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">10.4. 예제</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">10.5. 연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">9.1. 기본 논리식</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">9.2. 논리 연산자</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if">9.3. 논리식과 <code class="docutils literal notranslate"><span class="pre">if</span></code> 조건문</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">9.4. 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">9.5. 연습문제</a></li>
 </ul>
   </nav></div>
 

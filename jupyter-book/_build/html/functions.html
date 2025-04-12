@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -62,7 +62,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="13. 모듈" href="modules.html" />
-    <link rel="prev" title="11. 반복문" href="iterations.html" />
+    <link rel="prev" title="11. while 반복문" href="iteration_while.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,10 +174,10 @@
 <li class="toctree-l1"><a class="reference internal" href="inputs.html">5. 사용자 입력</a></li>
 <li class="toctree-l1"><a class="reference internal" href="strings_part1.html">6. 문자열</a></li>
 <li class="toctree-l1"><a class="reference internal" href="strings_part2.html">7. 문자열 인덱싱, 슬라이싱</a></li>
-<li class="toctree-l1"><a class="reference internal" href="strings_part3.html">8. 문자열과 for 반복문</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regex.html">9. 정규표현식</a></li>
-<li class="toctree-l1"><a class="reference internal" href="logical.html">10. 논리 연산</a></li>
-<li class="toctree-l1"><a class="reference internal" href="iterations.html">11. 반복문</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regex.html">8. 정규표현식</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logical.html">9. 논리 연산</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iteration_for.html">10. for 반복문</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iteration_while.html">11. while 반복문</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">12. 함수</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">13. 모듈</a></li>
 <li class="toctree-l1"><a class="reference internal" href="files.html">14. 파일</a></li>
@@ -2301,6 +2301,78 @@ while 반복문의 본문 반복 횟수: 1 번
 </div>
 </div>
 </div>
+<p><strong>예제 9</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">range()</span></code> 함수를 이용하여
+2 보다 같거나 큰 양의 정수 n이 인자로 주어지면
+2부터 n까지의 짝수들의 합을 반환하는 함수
+<code class="docutils literal notranslate"><span class="pre">addition_n()</span></code>을 선언하라.</p>
+<p>답:</p>
+<p>아래 <code class="docutils literal notranslate"><span class="pre">addition_n()</span></code> 함수는 n이 인자로 들어오면
+2부터 n까지의 정수를 포함하는 값 <code class="docutils literal notranslate"><span class="pre">range(2,</span> <span class="pre">n+1)</span></code>에 대해 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문을 실행한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">addition_n</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">item</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2부터&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;까지 짝수들의 합:&quot;</span><span class="p">,</span> <span class="nb">sum</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">addition_n</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2부터 10 까지 짝수들의 합: 30
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">addition_n</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2부터 100 까지 짝수들의 합: 2550
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">addition_n</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2부터 1000 까지 짝수들의 합: 250500
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">addition_n</span><span class="p">(</span><span class="mi">100000000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2부터 100000000 까지 짝수들의 합: 2500000050000000
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>주의사항</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">range()</span></code> 함수를 이용하지 않고 리스트를 이용하여 동일한 기능을 수행하는 함수를 구현할 수는 없다.
+이유는 리스트 <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">4,</span> <span class="pre">6,</span> <span class="pre">...,</span> <span class="pre">n]</span></code> 의 길이가 <code class="docutils literal notranslate"><span class="pre">n</span></code>에 의존해서 달라지는데
+변수 <code class="docutils literal notranslate"><span class="pre">n</span></code>이 가리키는 값을 모르면 리스트 자체를 선언할 수 없기 때문이다.</p>
 </section>
 <section id="id11">
 <h2><span class="section-number">12.6. </span>연습문제<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
@@ -2339,12 +2411,12 @@ while 반복문의 본문 반복 횟수: 1 번
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="iterations.html"
+       href="iteration_while.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>반복문</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>while 반복문</p>
       </div>
     </a>
     <a class="right-next"

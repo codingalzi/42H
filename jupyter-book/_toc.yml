@@ -14,10 +14,10 @@ chapters:
 - file: inputs
 - file: strings_part1
 - file: strings_part2
-- file: strings_part3
 - file: regex
 - file: logical
-- file: iterations
+- file: iteration_for
+- file: iteration_while
 - file: functions
 - file: modules
 - file: files
