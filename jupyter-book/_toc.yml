@@ -21,7 +21,6 @@ chapters:
 - file: functions
 - file: modules
 - file: files
-# - file: turtle_graphics
 # - file: exception_handling
 # - file: lists_tuples
 # - file: dicts_sets

@@ -181,6 +181,7 @@
 <li class="toctree-l1"><a class="reference internal" href="functions.html">12. 함수</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">13. 모듈</a></li>
 <li class="toctree-l1"><a class="reference internal" href="files.html">14. 파일</a></li>
+<li class="toctree-l1"><a class="reference internal" href="turtle_graphics.html">15. 거북이 그래픽</a></li>
 </ul>
 
     </div>
@@ -1220,6 +1221,87 @@ s는 모음 아님
 </div>
 </div>
 </div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">continue</span></code>와 <code class="docutils literal notranslate"><span class="pre">break</span></code> 영향 범위</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">continue</span></code>와 <code class="docutils literal notranslate"><span class="pre">break</span></code> 명령문은 자신을 포함한 <code class="docutils literal notranslate"><span class="pre">for</span></code> 실행에만
+영항을 준다.</p>
+<p>예를 들어 아래 코드는 <code class="docutils literal notranslate"><span class="pre">n</span></code>이 12 또는 13을 가리킬 때
+<code class="docutils literal notranslate"><span class="pre">n</span></code>의 소수 여부에 따라 소수면 소수임을 확인하는 문장을,
+아니면 작은 수들의 곱으로 계산되는 여러 방식을 화면에 보여준다.</p>
+<p>양의 정수가 소수가 되려면 2보다 크고 자신보다 작은 모든 정수에 대해 배수가 아니어야 하는데
+이 사실을 확인하기 위해 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문을 이용한다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">is_prime</span></code> 변수: 처음에 <code class="docutils literal notranslate"><span class="pre">True</span></code>를 가리키다가 <code class="docutils literal notranslate"><span class="pre">n</span></code>을 나누는 2보다 큰 정수가 확인되는 순간
+<code class="docutils literal notranslate"><span class="pre">False</span></code>로 변하게 되어 <code class="docutils literal notranslate"><span class="pre">n</span></code>이 소수가 아님을 기억한다.
+이후 <code class="docutils literal notranslate"><span class="pre">continue</span></code> 명령문에 의해 <code class="docutils literal notranslate"><span class="pre">n</span></code>을 나누는 다른 경우를 확인한다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문의 실행중에 <code class="docutils literal notranslate"><span class="pre">is_prime</span></code>이 가리키는 값이 변하지 않았다면
+<code class="docutils literal notranslate"><span class="pre">n</span></code>이 소수임 밝힌다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">일때:&quot;</span><span class="p">)</span>
+    <span class="n">is_prime</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># 이 값이 계속 유지되면 소수임</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">is_prime</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">n</span><span class="o">//</span><span class="n">x</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+    <span class="k">if</span> <span class="n">is_prime</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot;은(는) 소수다.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;은(는) 소수가 아니다.&quot;</span><span class="p">)</span>
+        
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n=12일때:
+- 12 = 2 * 6
+- 12 = 3 * 4
+- 12 = 4 * 3
+- 12 = 6 * 2
+  12 은(는) 소수가 아니다.
+
+n=13일때:
+13 은(는) 소수다.
+</pre></div>
+</div>
+</div>
+</div>
+<p>반면에 아래 코드는 소수가 아닐 때 하나의 곱셈식만 출력한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">일때:&quot;</span><span class="p">)</span>
+    <span class="n">is_prime</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># 이 값이 계속 유지되면 소수임</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">is_prime</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">n</span><span class="o">//</span><span class="n">x</span><span class="p">)</span>
+            <span class="k">break</span>
+
+    <span class="k">if</span> <span class="n">is_prime</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot;은(는) 소수다.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;은(는) 소수가 아니다.&quot;</span><span class="p">)</span>
+        
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n=12일때:
+- 12 = 2 * 6
+  12 은(는) 소수가 아니다.
+
+n=13일때:
+13 은(는) 소수다.
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id4">
 <h2><span class="section-number">10.6. </span>예제<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
@@ -1926,55 +2008,6 @@ item 변수가 1부터 7까지만 반복문이 실행되었음!
 </div>
 </div>
 <p><strong>예제 9</strong></p>
-<p>아래 코드의 실행결과를 설명하라.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">일때:&quot;</span><span class="p">)</span>
-    <span class="n">is_prime</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># 이 값이 계속 유지되면 소수임</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">is_prime</span> <span class="o">=</span> <span class="kc">False</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">n</span><span class="o">//</span><span class="n">x</span><span class="p">)</span>
-            <span class="k">continue</span>
-
-    <span class="k">if</span> <span class="n">is_prime</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot;은(는) 소수다.&quot;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;은(는) 소수가 아니다.&quot;</span><span class="p">)</span>
-        
-    <span class="nb">print</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n=12일때:
-- 12 = 2 * 6
-- 12 = 3 * 4
-- 12 = 4 * 3
-- 12 = 6 * 2
-  12 은(는) 소수가 아니다.
-
-n=13일때:
-13 은(는) 소수다.
-</pre></div>
-</div>
-</div>
-</div>
-<p>답:</p>
-<p><code class="docutils literal notranslate"><span class="pre">n</span></code>이 12 또는 13을 가리킬 때
-<code class="docutils literal notranslate"><span class="pre">n</span></code>의 소수 여부에 따라 소수면 소수임을 확인하는 문장을
-아니면 왜 소인수분해의 결과를 보여준다.</p>
-<p>양의 정수가 소수가 되려면 2보다 크고 자신보다 작은 모든 정수에 대해 배수가 아니어야 하는데
-이 사실을 확인하기 위해 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문을 이용한다.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">is_prime</span></code> 변수: 처음에 <code class="docutils literal notranslate"><span class="pre">True</span></code>를 가리키다가 <code class="docutils literal notranslate"><span class="pre">n</span></code>을 나누는 2보다 큰 정수가 확인되는 순간
-<code class="docutils literal notranslate"><span class="pre">False</span></code>로 변하게 되어 <code class="docutils literal notranslate"><span class="pre">n</span></code>이 소수가 아님을 기억한다.
-이후 <code class="docutils literal notranslate"><span class="pre">continue</span></code> 명령문에 의해 <code class="docutils literal notranslate"><span class="pre">n</span></code>을 나누는 다른 경우를 확인한다.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문의 실행중에 <code class="docutils literal notranslate"><span class="pre">is_prime</span></code>이 가리키는 값이 변하지 않았다면
-<code class="docutils literal notranslate"><span class="pre">n</span></code>이 소수임 밝힌다.</p></li>
-</ul>
-<p><strong>예제 10</strong></p>
 <p>369게임은 사용자로부터 양의 정수 <code class="docutils literal notranslate"><span class="pre">n</span></code>이 입력되었을 때 1부터 <code class="docutils literal notranslate"><span class="pre">n</span></code>까지의 자연수를
 다음 규칙에 따라 출력한다.</p>
 <ul class="simple">
