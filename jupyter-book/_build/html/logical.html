@@ -572,8 +572,8 @@ True
 <p><strong>자동 형변환</strong></p>
 <p>정수, 리스트, 문자열 등을 논리식에 바로 사용할 수 있다.
 <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">''</span></code>, <code class="docutils literal notranslate"><span class="pre">[]</span></code> 등 없거나 비어있는 상태를 나타내는 값은 <code class="docutils literal notranslate"><span class="pre">False</span></code>로,
-아니면 <code class="docutils literal notranslate"><span class="pre">True</span></code>로 취급되기 때문이다.
-즉 마치 <code class="docutils literal notranslate"><span class="pre">bool()</span></code> 형변환 함수가 적용된 것처럼 처리된다.</p>
+그 이외의 값은 <code class="docutils literal notranslate"><span class="pre">True</span></code>로 취급된다.
+즉, 마치 <code class="docutils literal notranslate"><span class="pre">bool()</span></code> 형변환 함수가 적용된 것처럼 처리된다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="ow">and</span> <span class="kc">False</span>
@@ -701,6 +701,7 @@ True
 다른 형식의 조건문을 소개한다.</p>
 <p><strong><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">elif</span> <span class="pre">...</span> <span class="pre">else</span> <span class="pre">...</span></code> 명령문</strong></p>
 <p>참, 거짓 여부를 판단해야 하는 경우가 세 개 이상일 때 조건문에 <code class="docutils literal notranslate"><span class="pre">elif</span></code> 키워드를 추가로 사용한다.
+<code class="docutils literal notranslate"><span class="pre">elif</span></code> 키워드는 영어의 ‘else if’의 줄임말이며, 원하는 만큼 많이 사용할 수 있다.
 예를 들어 아래 코드는 <code class="docutils literal notranslate"><span class="pre">x</span></code>와 <code class="docutils literal notranslate"><span class="pre">y</span></code>의 크기 비교를 위해 작을 때, 클 때, 같을 때 세 가지 경우로 판단한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -722,18 +723,16 @@ True
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">elif</span></code>는 영어의 ‘’else if’’의 줄임말이며,
-사용하는 경우의 수 만큼 사용될 수 있다.
-<code class="docutils literal notranslate"><span class="pre">if</span></code>와 <code class="docutils literal notranslate"><span class="pre">elif</span></code> 문에 사용된 조건은 위에서부터 차례대로 확인되어
-참이되는 경우의 명령문이 실행되며 그러면 나머지 경우는 무시된다.
-따라서 위 코드의 조건문이 나타내는 세 가지 경우는 다음과 같다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">if</span></code>와 <code class="docutils literal notranslate"><span class="pre">elif</span></code> 문에 사용된 조건은 위에서부터 차례대로 확인되어 가장 먼저
+참이되는 경우의 명령문이 실행되고 나머지 경우는 무시된다.
+예를 들어 위 코드의 조건문은 다음 세 경우를 위에서부터 차례대로 처리한다.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></code>가 참인 경우</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></code>가 거짓이면서 <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span></code>가 참인 경우</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></code>와 <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span></code> 모두 거짓인 경우, 즉 <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code> 가 참인 경우</p></li>
 </ul>
-<p>이처럼 <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">elif</span> <span class="pre">...</span> <span class="pre">else</span> <span class="pre">...</span></code> 에 사용된 논리식은 항상 이전의 논리식이 거짓임을 가정한다.</p>
-<p>아래 코드는 <code class="docutils literal notranslate"><span class="pre">y</span></code>를 5로 나눈 나머지에 따라 다른 명령문을 다음과 같이 지정할 수 있다.</p>
+<p>이처럼 <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">elif</span> <span class="pre">...</span> <span class="pre">else</span> <span class="pre">...</span></code> 에 사용된 논리식은 항상 이전의 논리식이 거짓임을 가정한다.
+아래 코드는 <code class="docutils literal notranslate"><span class="pre">y</span></code>를 5로 나눈 나머지에 의존하여 서로 다른 명령문을 실행하도록 한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
@@ -745,23 +744,19 @@ True
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;나머지가 1&#39;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;나머지가 2&#39;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;나머지가 3&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;나머지가 4&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;기타 등등&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>나머지가 4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>기타 등등
 </pre></div>
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">else</span></code>는 이전에 사용된 모든 논리식이 거짓일 때
-실행할 명령문을 지정하며 불필요할 경우 생략이 가능하다.
-위 코드에서 사용된 <code class="docutils literal notranslate"><span class="pre">else</span></code> 대신에
-아래 코드에서철 <code class="docutils literal notranslate"><span class="pre">elif</span></code>를 한 번 더 써도 동일한 결과가 나온다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">else</span></code>와 <code class="docutils literal notranslate"><span class="pre">elif</span></code>는 용도가 다르다.
+<code class="docutils literal notranslate"><span class="pre">else</span></code>를 사용하지 않으면서 위 코드와 동일한 결과를 내려면 다음과 같이 작성해야 한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
@@ -774,18 +769,68 @@ True
 <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;나머지가 2&#39;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;나머지가 3&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;기타 등등&#39;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;나머지가 4&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;기타 등등&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>나머지가 4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>기타 등등
 </pre></div>
 </div>
 </div>
 </div>
+<p>반면에 아래 코드는 동일한 결과를 내는 것처럼 보이지만 사실 기능이 다르다.
+<code class="docutils literal notranslate"><span class="pre">y=4</span></code>일 때는 결과가 동일하다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">%</span> <span class="mi">5</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;나머지가 0&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;나머지가 1&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;나머지가 2&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;기타 등등&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>기타 등등
+</pre></div>
+</div>
+</div>
+</div>
+<p>하지만 예를 들어 <code class="docutils literal notranslate"><span class="pre">y=2</span></code>인 경우엔 결과가 다르다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">%</span> <span class="mi">5</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;나머지가 0&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;나머지가 1&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;나머지가 2&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;기타 등등&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>나머지가 2
+기타 등등
+</pre></div>
+</div>
+</div>
+</div>
+<p>이유는 마지마 줄의 <code class="docutils literal notranslate"><span class="pre">print('기타</span> <span class="pre">등등')</span></code>이 위쪽의 <code class="docutils literal notranslate"><span class="pre">if</span></code> 조건문과 상관없이 항상 실행되기 때문이다.
+반면에 이전 코드에서는 <code class="docutils literal notranslate"><span class="pre">else</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">elif</span></code>의 경우에 해당되는 경우에만 ‘기타 등등’이 출력되었다.</p>
 <p><strong>중첩 조건문</strong></p>
 <p>사실 <code class="docutils literal notranslate"><span class="pre">elif</span></code> 키워드는 없어도 된다.
 예를 들어 아래 코드는 주어진 두 값을 비교할 때
@@ -875,9 +920,9 @@ True
 </section>
 <section id="id4">
 <h2><span class="section-number">10.4. </span>예제<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<p><strong>예제 ?</strong></p>
-<p>아래 두 논리식이 다른 값을 갖도록 하는 정수 a, b, c, d를 정하라.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span> <span class="ow">and</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">d</span>           <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span><span class="p">)</span> <span class="ow">and</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">d</span><span class="p">)</span>
+<p><strong>예제 1</strong></p>
+<p>아래 두 논리식이 서로 다른 값을 갖도록 하는 정수 a, b, c, d를 정하라.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span> <span class="ow">and</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">d</span>          <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span><span class="p">)</span> <span class="ow">and</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">d</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>답:</p>
@@ -900,9 +945,10 @@ False
 </div>
 </div>
 </div>
-<p><strong>예제 ?</strong></p>
-<p>주어진 세 개의 정수 <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code>중에서 최댓값을 확인하려면
-아래처럼 세 수를 비교해서 나머지 두 수보다 큰 값을 최댓값으로 정한다.</p>
+<p><strong>예제 2</strong></p>
+<p>주어진 세 개의 정수 <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code>중에서 최댓값을 확인하는 코드를 작성하라.</p>
+<p>답:</p>
+<p>세 개의 수를 비교해서 나머지 두 수보다 큰 값을 최댓값으로 정한다.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">a</span></code>가 <code class="docutils literal notranslate"><span class="pre">b</span></code>와 <code class="docutils literal notranslate"><span class="pre">c</span></code> 모두 보다 같거나 큰 경우: <code class="docutils literal notranslate"><span class="pre">a</span></code>가 최댓값</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">b</span></code>가 <code class="docutils literal notranslate"><span class="pre">a</span></code>와 <code class="docutils literal notranslate"><span class="pre">c</span></code> 모두 보다 같거나 큰 경우: <code class="docutils literal notranslate"><span class="pre">b</span></code>가 최댓값</p></li>
@@ -948,6 +994,533 @@ False
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>최댓값: 10
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 3</strong></p>
+<p>두 개의 양의 정수를 입력 받아 첫째 정수가 둘째 정수의 배수인지 여부를 판단하는 코드를 구현하라.
+단, 첫째 입력값은 변수 <code class="docutils literal notranslate"><span class="pre">x</span></code>에,
+둘째 입력값은 변수 <code class="docutils literal notranslate"><span class="pre">y</span></code>에 할당한다.
+또한 결과에 따라 배수인지 여부를 확인하는 문장을 출력한다.</p>
+<p>답:</p>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code>가 <code class="docutils literal notranslate"><span class="pre">y</span></code>의 배수인지 여부는 논리식 <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">y</span> <span class="pre">==</span> <span class="pre">0</span></code>로 판단된다.
+예를 들어 6은 3의 배수이지만 4의 배수가 아님을 다음과 같이 확인한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>배수 여부를 확인하는 논리식 <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">y</span> <span class="pre">==</span> <span class="pre">0</span></code>을 <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span> <span class="pre">...</span></code> 조건문과 함께 활용하면
+원하는 코드를 구현할 수 있다.</p>
+<ul class="simple">
+<li><p>6은 3의 배수임을 확인</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;첫째 양의 정수를 입력하세요: &quot;</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;둘째 양의 정수를 입력하세요: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;은(는)&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;의 배수임.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;은(는)&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;의 배수가 아님.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>첫째 양의 정수를 입력하세요: 6
+둘째 양의 정수를 입력하세요: 3
+6 은(는) 3 의 배수임.
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>6은 4의 배수가 아님을 확인</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;첫째 양의 정수를 입력하세요: &quot;</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;둘째 양의 정수를 입력하세요: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;은(는)&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;의 배수임.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;은(는)&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;의 배수가 아님.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>첫째 양의 정수를 입력하세요: 6
+둘째 양의 정수를 입력하세요: 4
+6 은(는) 4 의 배수가 아님.
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 4</strong></p>
+<p>1에서 10까지의 정수 중에서 3의 배수가 아닌 정수만 출력하는 코드를 작성하라.</p>
+<p>힌트: 리스트 <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">9,</span> <span class="pre">10]</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문 활용, 논리/비교 연산자 활용</p>
+<p>답:</p>
+<p>1에서 10까지의 정수를 리스트로 선언한다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">one2ten</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">num</span></code> 변수가 가리키는 값이 3의 배수가 아닐 때 참이되는 논리식은 다음과 같다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">!=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>아래 코드는 <code class="docutils literal notranslate"><span class="pre">one2ten</span></code> 리스트에 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문을 적용해서 3의 배수가 아닌 정수만 화면에 출력한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2ten</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">one2ten</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 2 4 5 7 8 10 
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">num</span></code> 변수가 가리키는 값이 3의 배수가 아닐 때 참이되는 논리식은 다음과 같이 <code class="docutils literal notranslate"><span class="pre">not</span></code> 논리 연산자를 이용할 수도 있다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>따라서 아래 코드도 동일한 결과를 생성한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2ten</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 2 4 5 7 8 10 
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 5</strong></p>
+<p>1에서 10까지의 정수 중에서 3의 배수 또는 7의 배수를 모두 출력하는 코드를 작성하라.</p>
+<p>힌트: 리스트 <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">9,</span> <span class="pre">10]</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문 활용, 논리/비교 연산자 활용</p>
+<p>답:</p>
+<p><code class="docutils literal notranslate"><span class="pre">num</span></code>이 가리키는 값이 3의 배수 또는 7의 배수인 경우에만 <code class="docutils literal notranslate"><span class="pre">num</span></code>을 출력하고자 하면
+아래 표현식을 이용한다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">7</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>이제 <code class="docutils literal notranslate"><span class="pre">num</span></code>을 1부터 10까지의 정수를 차례대로 가리키도록 하면서
+<code class="docutils literal notranslate"><span class="pre">if</span></code> 조건문을 이용하면 3의 배수 또는 7의 배수를 모두 출력할 수 있다.
+아래 코드가 위 내용을 정리한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one2ten</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">one2ten</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">7</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 6 7 9 
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 6</strong></p>
+<p>아래 코드가 실행중에 오류를 발생시키는 이유를 설명하라.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="kc">False</span> <span class="ow">or</span> <span class="mi">3</span><span class="o">/</span><span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">if</span> <span class="kc">False</span> <span class="ow">or</span> <span class="mi">3</span><span class="o">/</span><span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+
+<span class="ne">ZeroDivisionError</span>: division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<p>답:</p>
+<p>먼저 오류가 어디서 왜 발생했는가에 대한 정보를 확인한다.
+오류 정보의 맨 마지막 줄에 있는 아래 정보는
+0으로 나눗셈을 시도했음을 알려준다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">ZeroDivisionError</span><span class="p">:</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
+</pre></div>
+</div>
+<p>그리고 아래 오류 정보는 위 코드의 1번 줄에서 오류가 발생했음을 알려준다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">----&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="kc">False</span> <span class="ow">or</span> <span class="mi">3</span><span class="o">/</span><span class="mi">0</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>즉 <code class="docutils literal notranslate"><span class="pre">if</span></code> 조건문에 사용된 조건식인 <code class="docutils literal notranslate"><span class="pre">False</span> <span class="pre">or</span> <span class="pre">3/0</span></code>에 문제가 있다는 말이다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">False</span> <span class="pre">or</span> <span class="pre">3/0</span></code>은 우선 논리 연산자 <code class="docutils literal notranslate"><span class="pre">or</span></code>를 사용한다.
+그리고 <code class="docutils literal notranslate"><span class="pre">or</span></code> 연산자를 사용하는 논리식의 참/거짓 여부는
+먼저 첫째 인자의 참/거짓 여부를 확인한다.
+그런데 첫째 인자인 <code class="docutils literal notranslate"><span class="pre">False</span></code>는 (항상) 거짓이다.
+따라서 둘째 인자인 <code class="docutils literal notranslate"><span class="pre">3/0</span></code>의 참/거짓 여부를 확인한다.
+그리고 여기서 3을 0으로 나눈 결과를 확인하려할 때 문제가 발생한다.
+0을 이용한 나눗셈은 허용되지 않기에 오류가 발생한다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">if</span></code> 조건문에 사용되는 조건식의 참/거짓 여부를 판단할 때 오류가 발생하기에
+본문에 사용된 <code class="docutils literal notranslate"><span class="pre">print()</span></code> 함수 호출은 아예 발생하지 않는다.</p>
+<p><strong>예제 7</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code>가 세 개의 정수를 가리킨다.</p>
+<p>(1) 아래 두 논리식이 거짓이라고 가정하자.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span> <span class="ow">and</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">c</span>          <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">c</span>
+</pre></div>
+</div>
+<p>이제 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">c</span> <span class="pre">and</span> <span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">c</span></code>가 참임을 설명하라.</p>
+<p>답:</p>
+<p>먼저 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;=</span> <span class="pre">b</span> <span class="pre">and</span> <span class="pre">a</span> <span class="pre">&gt;=</span> <span class="pre">c</span></code>가 거짓이기에 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">b</span> <span class="pre">or</span> <span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">c</span></code>가 참이다.
+<code class="docutils literal notranslate"><span class="pre">or</span></code> 연산자의 정의에 의해 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">b</span></code>가 참이거나 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">c</span></code>가 참이다.
+따라서 두 가지 경우로 나눠서 살펴 본다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">b</span></code>가 참인 경우</p>
+<ul>
+<li><p>그러면 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code>가 참이다.</p></li>
+<li><p>그런데 <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">&gt;=</span> <span class="pre">a</span> <span class="pre">and</span> <span class="pre">b</span> <span class="pre">&gt;=</span> <span class="pre">c</span></code>가 거짓이기에 결국 <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">&gt;=</span> <span class="pre">c</span></code>가 거짓이다.</p></li>
+<li><p>즉, <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">c</span></code>가 참이다.</p></li>
+<li><p>결국 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">c</span></code>가 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">c</span> <span class="pre">and</span> <span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">c</span></code>가 참이다.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">c</span></code>가 참인 경우</p>
+<ul>
+<li><p>그런데 <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">&gt;=</span> <span class="pre">a</span> <span class="pre">and</span> <span class="pre">b</span> <span class="pre">&gt;=</span> <span class="pre">c</span></code>가 거짓이기에 <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">a</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">c</span></code>가 참다.</p></li>
+<li><p>만약 <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">a</span></code>가 참이면 <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">c</span></code>가 되어 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">c</span> <span class="pre">and</span> <span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">c</span></code>가 참이다.</p></li>
+<li><p>만약 <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">c</span></code>가 참이면 당연히 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">c</span> <span class="pre">and</span> <span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">c</span></code>가 참이다.</p></li>
+</ul>
+</li>
+</ul>
+<p>즉, 어떤 경우에도 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">c</span> <span class="pre">and</span> <span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">c</span></code>가 참이다.</p>
+<p>(2) 아래 두 논리식이 거짓이 되도록 하는 <code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b,</span> <span class="pre">c</span></code>를 찾아라.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span> <span class="ow">and</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">c</span>          <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">c</span>
+</pre></div>
+</div>
+<p>이제 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">c</span> <span class="pre">and</span> <span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">c</span></code>가 참임을 확인하는 코드를 작성하라.</p>
+<p>답:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span> <span class="ow">and</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span> <span class="o">&gt;=</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">c</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+False
+True
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 8</strong></p>
+<p>사용자가 연도를 입력했을 때 윤년 여부를 판단하는 코드를 작성하라.
+단, 아래 세 개의 논리식만 사용하며, <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code> 등의 논리 연산자는 절대로 사용하지 않아야 한다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">year</span> <span class="pre">%</span> <span class="pre">400</span> <span class="pre">==</span> <span class="pre">0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year</span> <span class="pre">%</span> <span class="pre">100</span> <span class="pre">==</span> <span class="pre">0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year</span> <span class="pre">%</span> <span class="pre">4</span> <span class="pre">==</span> <span class="pre">0</span></code></p></li>
+</ul>
+<p>힌트: <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">elif</span> <span class="pre">...</span> <span class="pre">else</span> <span class="pre">...</span></code> 명령문을 이용한다.
+또한 윤년과 평년 여부는 다음 세 가지 규칙으로 판단한다.</p>
+<ul class="simple">
+<li><p>4의 배수인 경우 윤년,</p></li>
+<li><p>하지만 100의 배수인 경우는 평년,</p></li>
+<li><p>그래도 400의 배수인 경우는 무조건 윤년!</p></li>
+</ul>
+<p>예를 들어 아래 연도는 모두 윤년이다.</p>
+<ul class="simple">
+<li><p>1988, 2024: 4의 배수이면서 100의 배수 아님</p></li>
+<li><p>2000: 100의 배수이지만 400의 배수임</p></li>
+</ul>
+<p>반면에 아래 연도는 모두 윤년이 아니다.</p>
+<ul class="simple">
+<li><p>1900: 4의 배수이지만 100의 배수임. 그리고 400의 배수 아님.</p></li>
+<li><p>2023: 4의 배수 아님.</p></li>
+</ul>
+<p>답:</p>
+<p>먼저 400의 배수는 100의 배수이고, 또 100의 배수는 4의 배수임에 주목한다.
+이제 아래 3가지 경우를 차례대로 확인한다.</p>
+<ul class="simple">
+<li><p>400의 배수는 무조건 윤년이기에 먼저 400의 배수 여부를 확인해서 참이면 윤년!</p></li>
+<li><p>400의 배수가 아닌데, 100의 배수라면 평년!</p></li>
+<li><p>400의 배수도, 100의 배수도 아닌데 4의 배수라면 평년!</p></li>
+<li><p>나머지 경우, 즉 4의 배수도 아니라면 평년!</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">elif</span> <span class="pre">...</span> <span class="pre">elif</span> <span class="pre">...</span> <span class="pre">else</span> <span class="pre">...</span></code> 명령문을 이용하여
+앞서 언급한 경우를 정확하게 표현할 수 있다.</p>
+<ul class="simple">
+<li><p>2024년: 윤년</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;연도를 입력하세요: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;400의 배수이기에 윤년!&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;400의 배수는 아니지만 100의 배수이기에 평년&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;100의 배수가 아니면서 4의 배수이기에 윤년&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4의 배수가 아니기에 평년&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>연도를 입력하세요: 2024
+100의 배수가 아니면서 4의 배수이기에 윤년
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>1900년: 평년</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;연도를 입력하세요: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;400의 배수이기에 윤년!&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;400의 배수는 아니지만 100의 배수이기에 평년&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;100의 배수가 아니면서 4의 배수이기에 윤년&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4의 배수가 아니기에 평년&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>연도를 입력하세요: 1900
+400의 배수는 아니지만 100의 배수이기에 평년
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>2000년: 윤년</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;연도를 입력하세요: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;400의 배수이기에 윤년!&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;400의 배수는 아니지만 100의 배수이기에 평년&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;100의 배수가 아니면서 4의 배수이기에 윤년&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4의 배수가 아니기에 평년&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>연도를 입력하세요: 2000
+400의 배수이기에 윤년!
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>2025년: 평년</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;연도를 입력하세요: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;400의 배수이기에 윤년!&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;400의 배수는 아니지만 100의 배수이기에 평년&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;100의 배수가 아니면서 4의 배수이기에 윤년&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4의 배수가 아니기에 평년&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>연도를 입력하세요: 2025
+4의 배수가 아니기에 평년
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 9</strong></p>
+<p>세 개의 막대를 이용하여 삼각형을 만들 수 있는지 여부를 판단하는 코드를 작성하라.
+단, 다음 조건을 만족해야 한다.</p>
+<ul class="simple">
+<li><p>세 개의 막대 길이에 해당하는 양의 부동소수점을 입력받아 각각 <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code> 변수에 저장한다.</p></li>
+<li><p>삼각형을 만들 수 있으면 <code class="docutils literal notranslate"><span class="pre">True</span></code>, 아니면 <code class="docutils literal notranslate"><span class="pre">False</span></code>를 반환한다.</p></li>
+</ul>
+<p>힌트: 막대 하나의 길이가 다른 두 막대의 길이의 합보다 작아야 삼각형을 만들 수 있다.</p>
+<p>답:</p>
+<p>아래 그림에서 확인할 수 있듯이 삼각형의 어떤 하나의 변도 다른 두 변의 합보다 클 수 없다.</p>
+<div align="center"><img src="https://raw.githubusercontent.com/codingalzi/pybook/master/jupyter-book/images/triangle01.jpg" style="width:500px"></div><p>세 변의 길이 <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code>가 주어졌을 때 어떤 하나의 변이 다른 두 변의 합보다 큰지 여부는
+<code class="docutils literal notranslate"><span class="pre">or</span></code> 연산자를 활용하는 다음 논리식으로 판단한다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">c</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+<p>아래 코드는 위 논리식의 참/거짓 여부에 따라 삼각형 그리기가 가능한지 여부를 알려준다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;첫째 막대 길이: &quot;</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;둘째 막대 길이: &quot;</span><span class="p">))</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;셋째 막대 길이: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">c</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;삼각형 불가능&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;삼각형 가능&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>첫째 막대 길이: 11.3
+둘째 막대 길이: 25.7
+셋째 막대 길이: 18.8
+삼각형 가능
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;첫째 막대 길이: &quot;</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;둘째 막대 길이: &quot;</span><span class="p">))</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;셋째 막대 길이: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">c</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;삼각형 불가능&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;삼각형 가능&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>첫째 막대 길이: 11.7
+둘째 막대 길이: 32.9
+셋째 막대 길이: 20.1
+삼각형 불가능
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 10</strong></p>
+<p>직사각형 모양의 바닥에 정사각형 모양의 타일을 깔 때
+타일은 온장을 그대로 사용할 수도 있고, 잘라서 일부분만 사용할 수도 있다.
+타일의 크기는 가로, 세로 모두 30cm이며, 잘라서 사용한 타일의 나머지는 사용하지 않는다.</p>
+<p>가로와 세로 각각 400cm, 500cm 인 바닥을 타일로 덮기 위해 필요한 온장 타일과 잘라서 사용한 타일의 개수의 합을
+계산하는 코드를 구현하라.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>: 공간의 가로 크기. 단위는 cm.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: 공간의 세로 크기. 단위는 cm.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tile_length=30</span></code>: 타일의 한 변의 크기. 단위는 cm. 기본 키워드 인자는 30.</p></li>
+</ul>
+<p>힌트: 중첩 조건문 활용</p>
+<p>답:</p>
+<p>온장의 개수 <code class="docutils literal notranslate"><span class="pre">num_full</span></code>은 공간의 가로와 세로를 타일 한 장의 길이로 나눈 몫을 곱한 값이다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_full_width</span> <span class="o">=</span> <span class="n">width</span> <span class="o">//</span> <span class="n">tile_length</span>
+<span class="n">num_full_height</span> <span class="o">=</span> <span class="n">height</span> <span class="o">//</span> <span class="n">tile_length</span>
+
+<span class="n">num_full</span> <span class="o">=</span> <span class="n">num_full_width</span> <span class="o">*</span> <span class="n">num_full_height</span> <span class="c1"># 온장 타일 수</span>
+</pre></div>
+</div>
+<p>잘라서 사용한 타일의 개수는 아래 두 경우의 조합에 따라 통 네 개의 경우가 발생한다.</p>
+<ul class="simple">
+<li><p>경우 1: 가로를 타일의 길이로 나눴을 때 나머지가 0인 경우</p></li>
+<li><p>경우 2: 세로는 타일의 길이로 나눴을 때 나머지가 0인 경우</p></li>
+</ul>
+<p>네 경우 각각에 따라 잘라서 사용한 타일의 개수가 달라진다.</p>
+<div align="center"><img src="https://raw.githubusercontent.com/codingalzi/pybook/master/jupyter-book/images/exc-functions-02.png" style="width:600px"></div><p>4가지 경우에 잘라서 사용한 타일의 수 <code class="docutils literal notranslate"><span class="pre">num_part</span></code>를 계산하는 코드는 다음과 같다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">width</span> <span class="o">%</span> <span class="n">tile_length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">height</span> <span class="o">%</span> <span class="n">tile_length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>     <span class="c1"># 경우 (A)</span>
+        <span class="n">num_part</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>                             <span class="c1"># 경우 (B)</span>
+        <span class="n">num_part</span> <span class="o">=</span> <span class="n">num_full_width</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">height</span> <span class="o">%</span> <span class="n">tile_length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>    <span class="c1"># 경우 (C)</span>
+        <span class="n">num_part</span> <span class="o">=</span> <span class="n">num_full_height</span>
+    <span class="k">else</span><span class="p">:</span>                            <span class="c1"># 경우 (D)</span>
+        <span class="n">num_part</span> <span class="o">=</span> <span class="n">num_full_width</span> <span class="o">+</span> <span class="n">num_full_height</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>온장 타일 수와 잘라서 사용한 타일의 수의 합은 <code class="docutils literal notranslate"><span class="pre">num_full</span> <span class="pre">+</span> <span class="pre">num_part</span></code>로 계산되며
+위 설명을 정리해서 코드를 다음과 구현한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">width</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="n">height</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">tile_length</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="n">num_full_width</span> <span class="o">=</span> <span class="n">width</span> <span class="o">//</span> <span class="n">tile_length</span>
+<span class="n">num_full_height</span> <span class="o">=</span> <span class="n">height</span> <span class="o">//</span> <span class="n">tile_length</span>
+
+<span class="c1"># 온장 타일 개수</span>
+<span class="n">num_full</span> <span class="o">=</span> <span class="n">num_full_width</span> <span class="o">*</span> <span class="n">num_full_height</span>
+
+<span class="c1"># 잘린 타일 개수</span>
+<span class="k">if</span> <span class="n">width</span> <span class="o">%</span> <span class="n">tile_length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">height</span> <span class="o">%</span> <span class="n">tile_length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">num_part</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">num_part</span> <span class="o">=</span> <span class="n">num_full_width</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">height</span> <span class="o">%</span> <span class="n">tile_length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">num_part</span> <span class="o">=</span> <span class="n">num_full_height</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">num_part</span> <span class="o">=</span> <span class="n">num_full_width</span> <span class="o">+</span> <span class="n">num_full_height</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1"># 온장 타일과 잘라딘 타일 수</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;필요한 타일의 수:&quot;</span><span class="p">,</span> <span class="n">num_full</span> <span class="o">+</span> <span class="n">num_part</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>필요한 타일의 수: 238
 </pre></div>
 </div>
 </div>
