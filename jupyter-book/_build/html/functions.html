@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -420,9 +420,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">12.3.2. 키워드 인자 사용 함수 정의</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">12.4. 지역 변수와 전역 변수</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">12.5. 예제</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">12.6. 연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">12.4. 지역 변수와 전역 변수</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">12.4.1. 매개 변수와 지역 변수</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global">12.4.2. global 키워드</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">12.5. 순수 대 비순수</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">12.6. 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">12.7. 연습문제</a></li>
 </ul>
             </nav>
         </div>
@@ -920,7 +925,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
 
 <span class="ne">TypeError</span>: unsupported operand type(s) for +: &#39;NoneType&#39; and &#39;int&#39;
@@ -939,6 +944,11 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14
 </pre></div>
 </div>
 </div>
@@ -1245,6 +1255,8 @@ document.write(`
 </section>
 <section id="id9">
 <h2><span class="section-number">12.4. </span>지역 변수와 전역 변수<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<section id="id10">
+<h3><span class="section-number">12.4.1. </span>매개 변수와 지역 변수<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <p>아래 <code class="docutils literal notranslate"><span class="pre">square_return()</span></code> 함수는 하나의 인자와 함께 호출되면 인자의 제곱을 반환한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1285,7 +1297,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">44</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">46</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">number</span>
 
 <span class="ne">NameError</span>: name &#39;number&#39; is not defined
@@ -1302,7 +1314,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">45</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">47</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">square</span>
 
 <span class="ne">NameError</span>: name &#39;square&#39; is not defined
@@ -1390,8 +1402,222 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="id10">
-<h2><span class="section-number">12.5. </span>예제<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<section id="global">
+<h3><span class="section-number">12.4.2. </span>global 키워드<a class="headerlink" href="#global" title="Link to this heading">#</a></h3>
+<p>전역 변수는 함수 내에서의 활용이 제한된다.
+아래 코드는 전역 변수를 함수 내에서 활용할 수 있음을 보여준다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 전역 변수</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="k">def</span> <span class="nf">add_a</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>  <span class="c1"># 전역 변수 a 활용</span>
+    <span class="k">return</span> <span class="n">c</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">add_a</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25
+</pre></div>
+</div>
+</div>
+</div>
+<p>하지만 함수 내에서 전역 변수 재할당을 시도하면 오류가 발생한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 전역 변수</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="k">def</span> <span class="nf">add_a</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>  <span class="c1"># 지역 변수 a 활용 시도.</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">50</span>     <span class="c1"># 지역 변수 a 선언. 너무 늦게 선언됨.</span>
+    <span class="k">return</span> <span class="n">c</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">add_a</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">UnboundLocalError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">54</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">a</span> <span class="o">=</span> <span class="mi">50</span>     <span class="c1"># 지역 변수 a 선언. 너무 늦게 선언됨.</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="k">return</span> <span class="n">c</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="nb">print</span><span class="p">(</span><span class="n">add_a</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="nn">Cell In[54], line 5,</span> in <span class="ni">add_a</span><span class="nt">(b)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">def</span> <span class="nf">add_a</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>  <span class="c1"># 지역 변수 a 활용 시도.</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">a</span> <span class="o">=</span> <span class="mi">50</span>     <span class="c1"># 지역 변수 a 선언. 너무 늦게 선언됨.</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="k">return</span> <span class="n">c</span>
+
+<span class="ne">UnboundLocalError</span>: cannot access local variable &#39;a&#39; where it is not associated with a value
+</pre></div>
+</div>
+</div>
+</div>
+<p>이유는 함수 본문에서 변수 할당 명령문이 포함되면 파이썬 실행기가 해당 변수를
+<strong>지역 변수</strong>로 처리하기 때문인데,
+위 코드의 6번 줄에 있는 변수 할당문으로 인해 변수 <code class="docutils literal notranslate"><span class="pre">a</span></code>가 지역 변수가 된다.
+그런데 5번 줄에서 아직 선언되지 않은 지역 변수 <code class="docutils literal notranslate"><span class="pre">a</span></code>를 사용하려 하기에
+<code class="docutils literal notranslate"><span class="pre">UnboundLocalError</span></code> 라는 오류가 발생한다.</p>
+<p>반면에 아래 코드는 오류 없이 실행된다.
+이유는 지역 변수 <code class="docutils literal notranslate"><span class="pre">a</span></code>가 먼저 선언된 후에 활용되기 때문이다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 전역 변수</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="k">def</span> <span class="nf">add_a</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">50</span>    <span class="c1"># 지역 변수 a 선언</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="c1"># 지역 변수 a 활용</span>
+    <span class="k">return</span> <span class="n">c</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">add_a</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>60
+</pre></div>
+</div>
+</div>
+</div>
+<p>전역 변수를 함수 내에서 제한 없이 활용하려면
+함수 본문에서 <code class="docutils literal notranslate"><span class="pre">global</span></code> 키워드를 이용하여 해당 변수를 지정해야 한다.
+예를 들어 아래 코드는 전역 변수 <code class="docutils literal notranslate"><span class="pre">a</span></code>를 함수 내부에 활용뿐만 아니라 재할당까지 할 수 있음을 보여준다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 전역 변수</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;전역 변수 a가 원래 가리키는 값:&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">add_a</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">a</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>  <span class="c1"># 전역 변수 a 활용</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">50</span>     <span class="c1"># 전역 변수 a 재할당</span>
+    <span class="k">return</span> <span class="n">c</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;함수 호출 결과:&quot;</span><span class="p">,</span> <span class="n">add_a</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;전역 변수 a가 가리키는 다른 값:&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>전역 변수 a가 원래 가리키는 값: 15
+함수 호출 결과: 25
+전역 변수 a가 가리키는 다른 값: 50
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id11">
+<h2><span class="section-number">12.5. </span>순수 대 비순수<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<p>아래 <code class="docutils literal notranslate"><span class="pre">add_impure()</span></code> 함수는 전역 변수 <code class="docutils literal notranslate"><span class="pre">a</span></code>의 값을
+함수가 실행할 때마다 업데이트 한다.
+반면에 <code class="docutils literal notranslate"><span class="pre">fun_a()</span></code> 함수는 전역 변수 <code class="docutils literal notranslate"><span class="pre">a</span></code>를 활용만 한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="k">def</span> <span class="nf">add_impure</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">a</span> 
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">c</span>     <span class="c1"># 전역 변수 a 업데이트</span>
+    <span class="k">return</span> <span class="n">c</span>
+
+<span class="k">def</span> <span class="nf">fun_a</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">a</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">add_impure()</span></code> 함수는 호출될 때마다 전역 변수 <code class="docutils literal notranslate"><span class="pre">a</span></code>의 업데이트 한다.
+따라서 동일 인자에 대해서도 다른 값을 반환한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">add_impure</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">add_impure</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">fun_a()</span></code> 함수는 전역 변수 <code class="docutils literal notranslate"><span class="pre">a</span></code>를 활용하기에 <code class="docutils literal notranslate"><span class="pre">add_impure()</span></code> 함수에 영향을
+간점적으로 받는다.
+예를 들어 그냥 두 번 호출하면 동일 인자에 대해 동일한 값을 반환한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fun_a</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fun_a</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36
+</pre></div>
+</div>
+</div>
+</div>
+<p>그런데 <code class="docutils literal notranslate"><span class="pre">add_impure()</span></code> 함수가 호출되면 <code class="docutils literal notranslate"><span class="pre">fun_a()</span></code> 함수의 반환값이 동일 인자에 대해서 달라진다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">add_impure</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">fun_a</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46
+</pre></div>
+</div>
+</div>
+</div>
+<p>반환값을 생성하는 것 이외에 전역 변수등을 변경하여 메모리의 상태를
+변화시키는 기능을 함수의 <strong>부작용</strong><font size='2'>side effect</font>라 하며,
+부작을 갖는 함수를 <strong>비순수 함수</strong><font size='2'>impure function</font>라 부른다.
+반면에 반환값을 계산할 때 함수의 매개 변수와 함수 본문에서 선언된 지역 변수만을 활용하여
+함수 외부로부터 영향을 받거나 영향을 주는 부작용이 없는 함수는
+<strong>순수 함수</strong><font size='2'>pure function</font>라 부른다.</p>
+<p>프로그래밍에 비순수 함수가 반드시 필요하지는 않지만
+편리성과 효율성 때문에 활용되곤 한다.
+하지만 앞서 보았듯이 비순수 함수를 사용하다 보면 전역 변수의 값 등 메모리의 상태가 달라져서
+<code class="docutils literal notranslate"><span class="pre">fun_a()</span></code>와 같은 함수에 의도치 않은 영향을 줄 수 있는 위험이 크기에 권장되지 않는다.</p>
+</section>
+<section id="id12">
+<h2><span class="section-number">12.6. </span>예제<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
 <p><strong>예제 1</strong></p>
 <p>아래 코드의 실행 결과를 설명하라.</p>
 <div class="cell docutils container">
@@ -1437,7 +1663,7 @@ B
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">64</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">func_hi</span><span class="p">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span> <span class="nf">func_hi</span><span class="p">()</span> <span class="p">:</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span>   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hi&quot;</span><span class="p">)</span>
@@ -2374,8 +2600,8 @@ while 반복문의 본문 반복 횟수: 1 번
 이유는 리스트 <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">4,</span> <span class="pre">6,</span> <span class="pre">...,</span> <span class="pre">n]</span></code> 의 길이가 <code class="docutils literal notranslate"><span class="pre">n</span></code>에 의존해서 달라지는데
 변수 <code class="docutils literal notranslate"><span class="pre">n</span></code>이 가리키는 값을 모르면 리스트 자체를 선언할 수 없기 때문이다.</p>
 </section>
-<section id="id11">
-<h2><span class="section-number">12.6. </span>연습문제<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<section id="id13">
+<h2><span class="section-number">12.7. </span>연습문제<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
 <p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/42H/blob/master/practices/practice-functions.ipynb">(연습) 함수</a></p>
 </section>
 </section>
@@ -2457,9 +2683,14 @@ while 반복문의 본문 반복 횟수: 1 번
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">12.3.2. 키워드 인자 사용 함수 정의</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">12.4. 지역 변수와 전역 변수</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">12.5. 예제</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">12.6. 연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">12.4. 지역 변수와 전역 변수</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">12.4.1. 매개 변수와 지역 변수</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global">12.4.2. global 키워드</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">12.5. 순수 대 비순수</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">12.6. 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">12.7. 연습문제</a></li>
 </ul>
   </nav></div>
 
