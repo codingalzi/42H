@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -410,7 +410,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import">13.1. 모듈 활용법 1: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">모듈명</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-import">13.2. 모듈 활용법 2: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">모듈명</span> <span class="pre">import</span> <span class="pre">...</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-as">13.3. 모듈 활용법 3: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">모듈명</span> <span class="pre">as</span> <span class="pre">모듈별칭</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">13.4. 필수 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">13.4. 예제</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">13.5. 연습문제</a></li>
 </ul>
             </nav>
@@ -822,8 +822,1209 @@ document.write(`
 </div>
 </section>
 <section id="id2">
-<h2><span class="section-number">13.4. </span>필수 예제<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/pybook/blob/master/examples/examples-modules.ipynb">(필수 예제) 모듈</a></p>
+<h2><span class="section-number">13.4. </span>예제<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p><strong>예제 1</strong></p>
+<p>(1) <code class="docutils literal notranslate"><span class="pre">random</span></code> 모듈의 <code class="docutils literal notranslate"><span class="pre">randrange()</span></code> 함수를 이용하여 0부터 5까지의 정수 중에서
+무작위로 하나의 정수를 생성하는 함수를 세 번 호출하라.
+단, <code class="docutils literal notranslate"><span class="pre">random</span></code> 모듈은 아래와같이 불러온다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>답:</p>
+<p><code class="docutils literal notranslate"><span class="pre">randrange()</span></code> 함수는 하나의 양의 정수 <code class="docutils literal notranslate"><span class="pre">n</span></code>과 함께 호출되면
+0부터 <code class="docutils literal notranslate"><span class="pre">n-1</span></code> 까지의 정수 중에서 무작위로 하나의 정수를 반환한다.
+따라서 0부터 5까지의 정수 중에서 하나를 무작위로 생성하려면
+6을 인자로 사용해서 호출한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>(2) <code class="docutils literal notranslate"><span class="pre">random</span></code> 모듈의 <code class="docutils literal notranslate"><span class="pre">randrange()</span></code> 함수를 이용하여 5부터 10까지의 정수 중에서
+무작위로 하나의 정수를 생성하는 함수를 세 번 호출하라.
+단, <code class="docutils literal notranslate"><span class="pre">random</span></code> 모듈은 아래와같이 불러온다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>답:</p>
+<p><code class="docutils literal notranslate"><span class="pre">randrange()</span></code> 함수는 두 개의 양의 정수 <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">m</span></code>과 함께 호출되면
+<code class="docutils literal notranslate"><span class="pre">n</span></code>부터 <code class="docutils literal notranslate"><span class="pre">m-1</span></code> 까지의 정수 중에서 무작위로 하나의 정수를 반환한다.
+따라서 5부터 10까지의 정수 중에서 하나를 무작위로 생성하려면
+5와 11을 인자로 사용해서 호출한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<p>(3) 아래 코드의 실행 결과를 이용하여 <code class="docutils literal notranslate"><span class="pre">randrange()</span></code> 함수를 세 개의 인자와 함께 호출되었을 때의 기능을 설명하라.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+1
+1
+9
+1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+0
+3
+3
+6
+</pre></div>
+</div>
+</div>
+</div>
+<p>답:</p>
+<p><code class="docutils literal notranslate"><span class="pre">randrange(a,</span> <span class="pre">b,</span> <span class="pre">c)</span></code> 형식으로 함수 호출이 되면
+<code class="docutils literal notranslate"><span class="pre">a</span></code>에서 <code class="docutils literal notranslate"><span class="pre">b</span></code> 이전 까지의 구간에서 값을 무작위로 선택할 때 아래에 언급된 값 중에서 하나 선택한다.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a, a+c, a+2*c, a+3*c, ...
+</pre></div>
+</div>
+<p>따라서</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">randrange(1,</span> <span class="pre">10,</span> <span class="pre">2)</span></code>: 1부터 9까지의 홀수 중에서 무작위로 하나 선택</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">randrange(0,</span> <span class="pre">10,</span> <span class="pre">3)</span></code>: 0부터 9까지의 수 중에서 3의 배수를 무작위로 하나 선택</p></li>
+</ul>
+<p><strong>예제 2</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">random</span></code> 모듈의 <code class="docutils literal notranslate"><span class="pre">randrange()</span></code> 함수와 <code class="docutils literal notranslate"><span class="pre">randint()</span></code> 함수의 공통점과 차이점을
+예를 이용하여 설명하라.</p>
+<p>답:</p>
+<p><code class="docutils literal notranslate"><span class="pre">randint()</span></code> 함수는 <code class="docutils literal notranslate"><span class="pre">randrange()</span></code> 함수를 이용해서 다음과 같이 정의되었다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">randint</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">randrange</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>따라서 <code class="docutils literal notranslate"><span class="pre">randint(a,</span> <span class="pre">b)</span></code>로 호출되면 무작위로 선택할 수 있는 정수의 구간이
+<code class="docutils literal notranslate"><span class="pre">a</span></code>에서 <code class="docutils literal notranslate"><span class="pre">b</span></code>까지이다.
+반면에 <code class="docutils literal notranslate"><span class="pre">randrange(a,</span> <span class="pre">b)</span></code>로 호출되면 <code class="docutils literal notranslate"><span class="pre">b</span></code>는 포함되지 않는다.</p>
+<p>예를 들어 아래 코드는 실행할 때마다 1 또는 2가 반환값으로 지정된다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>반면에 아래 코드는 항상 1만 생성된다. 이유는 탐색 구간에 2는 포함되지 않기 때문이다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 3</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">randdom</span></code> 모듈의 <code class="docutils literal notranslate"><span class="pre">randint()</span></code> 함수를 이용하여 주사위 던지기를
+시뮬레이션 하는 코드를 구현하라.</p>
+<p>답 1:</p>
+<p>주사위는 1부터 6까지의 숫자로 표기된 6개의 면을 갖는 정육면체다.
+주사위 자체는 생략하고 주사위를 던진 결과만을 고려한다면
+<code class="docutils literal notranslate"><span class="pre">randint(1,</span> <span class="pre">6)</span></code> 함수 표현식으로 주사위를 대신할 수 있다.
+이유는 언급된 표현식을 실행할 때마다 1부터 6 사이의 정수가 하나 선택되는데
+이 과정을 주사위를 던져서 하나의 수를 얻는 과정에 비유할 수 있기 때문이다.</p>
+<p>아래 코드를 실행할 때마다 1에서 6 사이의 정수 하나가 선택된다.
+즉, 아래 코드가 주사위 던지기를 시뮬레이션 한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;주사위를 던집니다.&quot;</span><span class="p">)</span>
+
+<span class="n">dice_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dice_number</span><span class="p">,</span> <span class="s2">&quot;이(가) 나왔습니다.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>주사위를 던집니다.
+4 이(가) 나왔습니다.
+</pre></div>
+</div>
+</div>
+</div>
+<p>답 2:</p>
+<p>반면에 정육면체 주사위까지는 아니지만 주사위를 던졌을 때
+윗쪽면에 보여지는 숫자 이미지를 모방하는 문자열을 이용하여
+주사위 던지기를 아래처럼 시뮬레이션 할 수 있다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">숫자</span><span class="p">:</span>
+
+   <span class="mi">1</span>           <span class="mi">2</span>           <span class="mi">3</span>           <span class="mi">4</span>           <span class="mi">5</span>           <span class="mi">6</span>
+
+<span class="n">숫자</span> <span class="n">이미지</span><span class="p">:</span>
+
+<span class="o">|</span>     <span class="o">|</span>     <span class="o">|</span><span class="mi">0</span>    <span class="o">|</span>     <span class="o">|</span><span class="mi">0</span>    <span class="o">|</span>     <span class="o">|</span><span class="mi">0</span>   <span class="mi">0</span><span class="o">|</span>     <span class="o">|</span><span class="mi">0</span>   <span class="mi">0</span><span class="o">|</span>     <span class="o">|</span><span class="mi">0</span>   <span class="mi">0</span><span class="o">|</span>
+<span class="o">|</span>  <span class="mi">0</span>  <span class="o">|</span>     <span class="o">|</span>     <span class="o">|</span>     <span class="o">|</span>  <span class="mi">0</span>  <span class="o">|</span>     <span class="o">|</span>     <span class="o">|</span>     <span class="o">|</span>  <span class="mi">0</span>  <span class="o">|</span>     <span class="o">|</span><span class="mi">0</span>   <span class="mi">0</span><span class="o">|</span>
+<span class="o">|</span>     <span class="o">|</span>     <span class="o">|</span>    <span class="mi">0</span><span class="o">|</span>     <span class="o">|</span>    <span class="mi">0</span><span class="o">|</span>     <span class="o">|</span><span class="mi">0</span>   <span class="mi">0</span><span class="o">|</span>     <span class="o">|</span><span class="mi">0</span>   <span class="mi">0</span><span class="o">|</span>     <span class="o">|</span><span class="mi">0</span>   <span class="mi">0</span><span class="o">|</span>
+</pre></div>
+</div>
+<p>아래 <code class="docutils literal notranslate"><span class="pre">prince_dice()</span></code> 함수는 지정된 숫자의 이미지를 출력한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_dice</span><span class="p">(</span><span class="n">dice_number</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">dice_number</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|     |&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|  0  |&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|     |&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">dice_number</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|0    |&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|     |&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|    0|&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">dice_number</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|0    |&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|  0  |&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|    0|&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">dice_number</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|0   0|&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|     |&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|0   0|&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">dice_number</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|0   0|&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|  0  |&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|0   0|&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">dice_number</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|0   0|&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|0   0|&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|0   0|&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>1에 해당하는 이미지</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_dice</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|     |
+|  0  |
+|     |
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>3에 해당하는 이미지</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_dice</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|0    |
+|  0  |
+|    0|
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>6에 해당하는 이미지</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_dice</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|0   0|
+|0   0|
+|0   0|
+</pre></div>
+</div>
+</div>
+</div>
+<p>위 함수를 이용하여 주사위 던지기를 최종적으로 아래 코드로 구현한다.
+아래 코드는 실행할 때마다 무작위로 1부터 6 사이의 값에 해당하는 이미지를 출력한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;주사위를 던집니다.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">dice_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="n">print_dice</span><span class="p">(</span><span class="n">dice_number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>주사위를 던집니다.
+
+
+|0   0|
+|  0  |
+|0   0|
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;주사위를 던집니다.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">dice_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="n">print_dice</span><span class="p">(</span><span class="n">dice_number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>주사위를 던집니다.
+
+
+|     |
+|  0  |
+|     |
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 4</strong></p>
+<p>이전 예제의 주사위 던지기 코드를 수정하여 사용자로부터 <code class="docutils literal notranslate"><span class="pre">Y</span></code>를 입력받는 동안 주사위를 반복해서 던지는 프로그램을 구현하라.</p>
+<p>힌트: <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문과 <code class="docutils literal notranslate"><span class="pre">input()</span></code> 함수 활용</p>
+<p>답:</p>
+<p>이전 코드는 주사위를 한 번 던지는 것을 구현한다.
+그리고 사용자로부터 입력받은 문자열이 <code class="docutils literal notranslate"><span class="pre">Y</span></code>인 동안 반복해서 주사위를 던지려면
+이전 코드를 <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문의 본문으로 사용한다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">논리식</span></code>에 사용되는 논리식은
+사용자가 입력한 알파벳이 <code class="docutils literal notranslate"><span class="pre">'Y'</span></code>인지 여부를 판단해야 한다.
+예를 들어 <code class="docutils literal notranslate"><span class="pre">rolling</span></code> 변수가 사용자의 입력값을 가리킨다고 가정할 때
+다음과 같이 <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문을 시작할 수 있다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">rolling</span> <span class="o">==</span> <span class="s1">&#39;Y&#39;</span><span class="p">:</span>
+    <span class="n">본문</span>
+</pre></div>
+</div>
+<p>또한 <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문의 본문에서 주사위 한 번 던지기가 완료되면
+곧바로 주사위를 계속해서 던질지 여부를 묻고
+그 결과를 <code class="docutils literal notranslate"><span class="pre">rolling</span></code> 변수에 재할당한다.
+그러면 사용자의 답변 여부에 따라 주사위 던지기를 반복할지가 결정된다.</p>
+<p>위 설명을 정리하면 다음과 같이 주사위 반복 던지기를 구현할 수 있다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">rolling</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;주사위 던지기를 시작하려면 Y를 누르세요! &quot;</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="n">rolling</span> <span class="o">==</span> <span class="s2">&quot;Y&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;주사위를 던집니다.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">dice_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
+    <span class="n">print_dice</span><span class="p">(</span><span class="n">dice_number</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">rolling</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;계속하고 싶으면 Y를 누르세요: &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>주사위 던지기를 시작하려면 Y를 누르세요! Y
+주사위를 던집니다.
+
+
+|0   0|
+|     |
+|0   0|
+
+
+계속하고 싶으면 Y를 누르세요: Y
+주사위를 던집니다.
+
+
+|0   0|
+|  0  |
+|0   0|
+
+
+계속하고 싶으면 Y를 누르세요: N
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 5</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">random</span></code> 모듈의 <code class="docutils literal notranslate"><span class="pre">randrange()</span></code> 함수, 따라서 <code class="docutils literal notranslate"><span class="pre">randint()</span></code> 함수는
+지정된 정수 구간에서 균등한 확률로 하나의 정수를 선택한다.
+이를 확인하는 코드를 작성하라.
+예를 들어 <code class="docutils literal notranslate"><span class="pre">randint(1,</span> <span class="pre">6)</span></code>을 10만 번 호출했을 때
+1이 선택되는 경우가 전체의 1/6, 즉 0.1666 정도임을 확인하는 코드를 작성하라.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.16666666666666666
+</pre></div>
+</div>
+</div>
+</div>
+<p>힌트: <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문, <code class="docutils literal notranslate"><span class="pre">random.randint()</span></code> 함수 활용</p>
+<p>답:</p>
+<p><code class="docutils literal notranslate"><span class="pre">random.randint(1,</span> <span class="pre">6)</span></code>를 10만 번 호출해서 반환값이 1인지 여부를 확인하는 코드는 다음과 같다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">100_000</span>
+
+<span class="n">toss</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">toss</span> <span class="o">&lt;</span> <span class="n">total</span><span class="p">:</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="n">toss</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>1부터 6까지의 정수 중에서 무작위로 선택된 값이 1인 경우가 몇 번이었는지를 기억하는 변수 <code class="docutils literal notranslate"><span class="pre">count</span></code>를 추가한다.
+<code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문이 시작하기 전에 0으로 초기화 한 다음에
+해당 경우가 발생할 때마다 1씩 커지도록 하면 된다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">100_000</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">toss</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">toss</span> <span class="o">&lt;</span> <span class="n">total</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">toss</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>끝으로 <code class="docutils literal notranslate"><span class="pre">count</span></code>에 저장된 값을 10만으로 나누면 1이 나온 비율이 계산된다.
+지금까지의 설명을 코드로 구현하면 다음과 같다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import random</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="mi">100_000</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">toss</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">toss</span> <span class="o">&lt;</span> <span class="n">total</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">toss</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1이 나온 비율:&quot;</span><span class="p">,</span> <span class="n">count</span><span class="o">/</span><span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1이 나온 비율: 0.16746
+</pre></div>
+</div>
+</div>
+</div>
+<p>동전 던지기를 많이 할 수록 1이 나온 비율이 보다 1/6에 가까워진다.</p>
+<ul class="simple">
+<li><p>1백만 번 던질 때</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import random</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="mi">1_000_000</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">toss</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">toss</span> <span class="o">&lt;</span> <span class="n">total</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">toss</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1이 나온 비율:&quot;</span><span class="p">,</span> <span class="n">count</span><span class="o">/</span><span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1이 나온 비율: 0.166421
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>1천만 번 던질 때</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import random</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="mi">10_000_000</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">toss</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">toss</span> <span class="o">&lt;</span> <span class="n">total</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">toss</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1이 나온 비율:&quot;</span><span class="p">,</span> <span class="n">count</span><span class="o">/</span><span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1이 나온 비율: 0.1666665
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 6</strong></p>
+<p>컴퓨터는 일반적으로 명령문을 가능한 한 빠르게 실행하려 한다.
+하지만 의도적으로 천천히 일을 진행시켜야 하는 경우 <code class="docutils literal notranslate"><span class="pre">time</span></code> 모듈의 <code class="docutils literal notranslate"><span class="pre">sleep()</span></code> 함수를 유용하게 활용할 수 있다.</p>
+<p>예를 들어 아래 코드를 실행하면 매우 빠르게 실행된다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+</pre></div>
+</div>
+</div>
+</div>
+<p>반면에 아래 코드를 실행하면 1초에 한 번 <code class="docutils literal notranslate"><span class="pre">count</span></code>를 재할당하여 5초 정도 걸린다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">time</span></code> 모듈의 <code class="docutils literal notranslate"><span class="pre">time()</span></code> 함수를 이용하여 위 두 코드의 실행시간을 비교하라.</p>
+<p>답:</p>
+<p><code class="docutils literal notranslate"><span class="pre">time</span></code> 모듈의 <code class="docutils literal notranslate"><span class="pre">time()</span></code> 함수는 호출되는 순간 컴퓨터 시간의 기원으로부터 흐른 시간을
+초 단위의 부동소수점으로 계산해서 반환한다.
+이 점을 이용하여 코드의 처음과 끝에서 <code class="docutils literal notranslate"><span class="pre">time()</span></code> 함수를 호출하여 차이를 계산하면
+코드의 실행시간이 계산된다.</p>
+<ul class="simple">
+<li><p>첫째 코드 실행시간: 약 1만 분의 5초</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;코드 실행시간:&quot;</span><span class="p">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">,</span> <span class="s2">&quot;초&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+코드 실행시간: 7.271766662597656e-05 초
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>둘째 코드 실행시간: 약 5초</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;코드 실행시간:&quot;</span><span class="p">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">,</span> <span class="s2">&quot;초&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+코드 실행시간: 5.108473062515259 초
+</pre></div>
+</div>
+</div>
+</div>
+<p>예제 7</p>
+<p>베스킨라빈스 31 게임은 두 사람이 참여하며 마지막에 31을 부른 사람이 지는 게임으로 규칙은 다음과 같다.</p>
+<ul class="simple">
+<li><p>참여자들은 번갈아가며 1부터 31까지의 수를 순서대로 부른다.</p></li>
+<li><p>한번에 1~3개의 수를 부를 수 있다.</p></li>
+</ul>
+<p>예를 들어, playerA가 1, 2, 3을 부르면, playerB는 4 또는 4, 5 또는 4, 5, 6을 부를 수 있다.</p>
+<p>playerA와 playerB가 번갈아서 1에서 3 사이의 수를 입력하면 다음처럼
+1부터 31 사이의 정수를 차례대로 지정된 수 만큼 언급하는 코드를 작성하라.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">playerA</span> <span class="n">차례입니다</span><span class="o">.</span>
+<span class="n">부를</span> <span class="n">숫자의</span> <span class="n">개수를</span> <span class="n">입력하세요</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="n">만</span> <span class="n">입력</span> <span class="n">가능</span><span class="p">):</span> <span class="mi">3</span>
+<span class="n">playerA</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">playerA</span><span class="p">:</span> <span class="mi">2</span>
+<span class="n">playerA</span><span class="p">:</span> <span class="mi">3</span>
+
+<span class="n">playerB</span> <span class="n">차례입니다</span><span class="o">.</span>
+<span class="n">부를</span> <span class="n">숫자의</span> <span class="n">개수를</span> <span class="n">입력하세요</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="n">만</span> <span class="n">입력</span> <span class="n">가능</span><span class="p">):</span> <span class="mi">2</span>
+<span class="n">playerB</span><span class="p">:</span> <span class="mi">4</span>
+<span class="n">playerB</span><span class="p">:</span> <span class="mi">5</span>
+
+<span class="n">playerA</span> <span class="n">차례입니다</span><span class="o">.</span>
+<span class="n">부를</span> <span class="n">숫자의</span> <span class="n">개수를</span> <span class="n">입력하세요</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="n">만</span> <span class="n">입력</span> <span class="n">가능</span><span class="p">):</span> <span class="mi">1</span>
+<span class="n">playerA</span><span class="p">:</span> <span class="mi">6</span>
+
+<span class="n">등등</span>
+
+</pre></div>
+</div>
+<p>답:</p>
+<p>베스킨라빈스 31 게임의 진행에 필요한 구성 요소를 확장하면서 프로그램을 완성한다.</p>
+<p><strong>구성요소 1: 원하는 수 만큼의 숫자 이어 부르기</strong></p>
+<p>먼저 몇 개의 수를 부를지 선택한 다음 마지막으로 언급된 숫자 다음부터 차례대로 언급한 수 만큼의 숫자를 출력하는 코드는 다음과 같다.
+아래 코드는 마지막으로 언급된 숫자가 22라고 가정하고 두 개의 숫자를 부르겠다고 지정한 결과를 보여준다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">call</span> <span class="pre">=</span> <span class="pre">22</span></code>: 마지막으로 언급된 숫자</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">call</span> <span class="o">=</span> <span class="mi">22</span>   <span class="c1"># 마지막으로 언급된 숫자 기억</span>
+
+<span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): &quot;</span><span class="p">))</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="n">number</span><span class="p">:</span>
+    <span class="n">call</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">call</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 2
+23
+24
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>구성요소 2: 게임 참여자 두 명이 번갈아 가며 원하는 수 만큼의 숫자 이어 부르기</strong></p>
+<p>아래 코드는 두 명의 게임 참여자가 번갈아 가며 원하는 수 만큼이 숫자를 차례대로 언급하도록 한다.
+시작은 0부터 출발하여 게임 진행을 단순화하기 위해 7을 부르는 사람이 지도록 하였다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">final</span> <span class="pre">=</span> <span class="pre">7</span></code>: 언급되면 지는 숫자</p></li>
+</ul>
+<p><strong>참고:</strong></p>
+<p>코드에 사용된 <code class="docutils literal notranslate"><span class="pre">break</span></code> 명령문은 누군가 31을 부르는 순간 해당 <code class="docutils literal notranslate"><span class="pre">break</span></code> 명령문을 포함한
+<code class="docutils literal notranslate"><span class="pre">while</span></code> 명령문이 더 이상 실행되지 않도록 한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">final</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1"># 언급되면 지는 숫자</span>
+<span class="n">call</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 마지막으로 언급된 숫자 기억</span>
+
+<span class="k">while</span> <span class="n">call</span> <span class="o">&lt;</span> <span class="n">final</span><span class="p">:</span>
+
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): &quot;</span><span class="p">))</span>
+
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="n">number</span><span class="p">:</span>
+        <span class="n">call</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">call</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">call</span> <span class="o">==</span> <span class="n">final</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;졌습니다.&quot;</span><span class="p">)</span>
+            <span class="k">break</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 2
+1
+2
+
+
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 1
+3
+
+
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 3
+4
+5
+6
+
+
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 2
+7
+졌습니다.
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>구성요소 3: 숫자를 불러야 하는 참여자 지정</strong></p>
+<p>아래 코드는 게임이 진행되는 동안 숫자를 부를 참여자를 지정하는 방식을 보여준다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">player</span> <span class="pre">=</span> <span class="pre">0</span></code>: 숫자를 불러야 하는 게임 참여자. 0은 playerA, 1은 playerB.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">player</span> <span class="pre">=</span> <span class="pre">(player</span> <span class="pre">+</span> <span class="pre">1)</span> <span class="pre">%</span> <span class="pre">2</span></code>: 게임이 진행될 때마다 숫자를 부를 게임 참여자 바꾸기</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">final</span> <span class="o">=</span> <span class="mi">7</span>  <span class="c1"># 언급되면 지는 숫자</span>
+<span class="n">call</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># 마지막으로 언급된 숫자 기억</span>
+<span class="n">player</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 숫자를 불러야 하는 게임 참여자. 0은 playerA, 1은 playerB.</span>
+
+<span class="k">while</span> <span class="n">call</span> <span class="o">&lt;</span> <span class="n">final</span><span class="p">:</span>
+
+    <span class="k">if</span> <span class="n">player</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">player_name</span> <span class="o">=</span> <span class="s1">&#39;playerB&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">player_name</span> <span class="o">=</span> <span class="s1">&#39;playerA&#39;</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">player_name</span> <span class="o">+</span> <span class="s2">&quot; 차례입니다.&quot;</span><span class="p">)</span>
+
+    <span class="n">player</span> <span class="o">=</span> <span class="p">(</span><span class="n">player</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span>
+
+    <span class="n">call</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>playerA 차례입니다.
+playerB 차례입니다.
+playerA 차례입니다.
+playerB 차례입니다.
+playerA 차례입니다.
+playerB 차례입니다.
+playerA 차례입니다.
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>게임 완성</strong></p>
+<p>앞서 설명한 3 개의 게임 구성요소를 종합하여 베스킨라벤스 31 게임을 다음과 같이 구현한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">final</span> <span class="o">=</span> <span class="mi">31</span> <span class="c1"># 언급되면 지는 숫자</span>
+<span class="n">call</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># 마지막으로 언급된 숫자 기억</span>
+<span class="n">player</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 숫자를 불러야 하는 게임 참여자. 0은 playerA, 1은 playerB를 가리킴.</span>
+
+<span class="k">while</span> <span class="n">call</span> <span class="o">&lt;</span> <span class="n">final</span><span class="p">:</span>
+
+    <span class="k">if</span> <span class="n">player</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">player_name</span> <span class="o">=</span> <span class="s1">&#39;playerB&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">player_name</span> <span class="o">=</span> <span class="s1">&#39;playerA&#39;</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">player_name</span> <span class="o">+</span> <span class="s2">&quot; 차례입니다.&quot;</span><span class="p">)</span>
+
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): &quot;</span><span class="p">))</span>
+
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="n">number</span><span class="p">:</span>
+        <span class="n">call</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">player_name</span><span class="o">+</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">call</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">call</span> <span class="o">==</span> <span class="n">final</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">player_name</span><span class="o">+</span><span class="s2">&quot;: 졌습니다&quot;</span><span class="p">)</span>
+            <span class="k">break</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">player</span> <span class="o">=</span> <span class="p">(</span><span class="n">player</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>playerA 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 3
+playerA: 1
+playerA: 2
+playerA: 3
+
+
+playerB 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 3
+playerB: 4
+playerB: 5
+playerB: 6
+
+
+playerA 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 2
+playerA: 7
+playerA: 8
+
+
+playerB 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 1
+playerB: 9
+
+
+playerA 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 3
+playerA: 10
+playerA: 11
+playerA: 12
+
+
+playerB 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 3
+playerB: 13
+playerB: 14
+playerB: 15
+
+
+playerA 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 2
+playerA: 16
+playerA: 17
+
+
+playerB 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 1
+playerB: 18
+
+
+playerA 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 3
+playerA: 19
+playerA: 20
+playerA: 21
+
+
+playerB 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 3
+playerB: 22
+playerB: 23
+playerB: 24
+
+
+playerA 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 1
+playerA: 25
+
+
+playerB 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 3
+playerB: 26
+playerB: 27
+playerB: 28
+
+
+playerA 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 3
+playerA: 29
+playerA: 30
+playerA: 31
+playerA: 졌습니다
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 8</strong></p>
+<p>사람 대 컴퓨터의 베스킨라벤스 31 게임을 구현하라.
+단, 사람이 먼저 시작하고 컴퓨터는 임의로 1~3개의 수를 부르도록 한다.
+또한 사람이 항상 이기는 전략이 있는지 확인한 후에 해당 전략을 활용하여 게임을 진행하라.</p>
+<p>답:</p>
+<p><strong>사람과 컴퓨터 구분</strong></p>
+<p>숫자를 부를 차례가 사람이면 몇 개를 부를지 지정하라 하고
+컴퓨터 차례이면 부를 숫자의 개수를 <code class="docutils literal notranslate"><span class="pre">random.randint()</span></code> 함수를 이용하여
+1에서 3 사이에서 무작위로 선택하도록 한다.</p>
+<ul class="simple">
+<li><p>사람이 숫자를 부를 차례인 경우</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">player</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">if</span> <span class="n">player</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): &quot;</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;부를 숫자의 개수:&quot;</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="s2">&quot;개&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 2
+부를 숫자의 개수: 2 개
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>컴퓨터가 숫자를 부를 차례인 경우</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">player</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">if</span> <span class="n">player</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): &quot;</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;부를 숫자의 개수:&quot;</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="s2">&quot;개&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>부를 숫자의 개수: 3 개
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>승리 전략</strong></p>
+<p>사람이 playerA, 컴퓨터가 playerB 역할을 수행하도록 한다.
+그리고 사람이 항상 4로 나눌 때 나머지가 2인 수까지만 부르는 전략을 따르면 항상 이긴다.
+이유는 다음과 같다.</p>
+<ul class="simple">
+<li><p>컴퓨터가 31을 부르도록 하기 위해 사람이 30을 불러야 한다.</p></li>
+<li><p>컴퓨터가 30을 부르지 못하도록 하기 위해 사람이 26을 불러야 한다.</p></li>
+<li><p>컴퓨터가 26을 부르지 못하도록 하기 위해 사람이 22을 불러야 한다.</p></li>
+<li><p>…</p></li>
+<li><p>컴퓨터가 6을 부르지 못하도록 하기 위해 사람이 2을 불러야 한다.</p></li>
+<li><p>사람이 처음 시작할 때 1과 2를 부른다.</p></li>
+</ul>
+<p>아래 코드를 실행할 때
+사람이 먼저 1과 2를 부르고 앞서 설명한 전략을 이용하여
+컴퓨터가 부르는 숫자의 개수에 대응하도록 하면 반드시 컴퓨터가 지게 됨을 확인할 수 있다.
+즉, 사람은 어떤 경우에도 2, 4, 8, …, 26, 30을 부르면 반드시 게임을 이긴다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">final</span> <span class="o">=</span> <span class="mi">31</span> <span class="c1"># 언급되면 지는 숫자</span>
+<span class="n">call</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># 마지막으로 언급된 숫자 기억</span>
+<span class="n">player</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 숫자를 불러야 하는 게임 참여자. 0은 playerA, 1은 playerB를 가리킴.</span>
+
+<span class="k">while</span> <span class="n">call</span> <span class="o">&lt;</span> <span class="n">final</span><span class="p">:</span>
+
+    <span class="k">if</span> <span class="n">player</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">player_name</span> <span class="o">=</span> <span class="s1">&#39;playerB&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">player_name</span> <span class="o">=</span> <span class="s1">&#39;playerA&#39;</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">player_name</span> <span class="o">+</span> <span class="s2">&quot; 차례입니다.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">player</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): &quot;</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="n">number</span><span class="p">:</span>
+        <span class="n">call</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">player_name</span><span class="o">+</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">call</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">call</span> <span class="o">==</span> <span class="n">final</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">player_name</span><span class="o">+</span><span class="s2">&quot;: 졌습니다.&quot;</span><span class="p">)</span>
+            <span class="k">break</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">player</span> <span class="o">=</span> <span class="p">(</span><span class="n">player</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>playerA 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 2
+playerA: 1
+playerA: 2
+
+
+playerB 차례입니다.
+playerB: 3
+
+
+playerA 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 3
+playerA: 4
+playerA: 5
+playerA: 6
+
+
+playerB 차례입니다.
+playerB: 7
+playerB: 8
+
+
+playerA 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 2
+playerA: 9
+playerA: 10
+
+
+playerB 차례입니다.
+playerB: 11
+playerB: 12
+
+
+playerA 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 2
+playerA: 13
+playerA: 14
+
+
+playerB 차례입니다.
+playerB: 15
+
+
+playerA 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 3
+playerA: 16
+playerA: 17
+playerA: 18
+
+
+playerB 차례입니다.
+playerB: 19
+playerB: 20
+playerB: 21
+
+
+playerA 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 1
+playerA: 22
+
+
+playerB 차례입니다.
+playerB: 23
+
+
+playerA 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 3
+playerA: 24
+playerA: 25
+playerA: 26
+
+
+playerB 차례입니다.
+playerB: 27
+
+
+playerA 차례입니다.
+부를 숫자의 개수를 입력하세요 (1, 2, 3만 입력 가능): 3
+playerA: 28
+playerA: 29
+playerA: 30
+
+
+playerB 차례입니다.
+playerB: 31
+playerB: 졌습니다.
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id3">
 <h2><span class="section-number">13.5. </span>연습문제<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
@@ -898,7 +2099,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import">13.1. 모듈 활용법 1: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">모듈명</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-import">13.2. 모듈 활용법 2: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">모듈명</span> <span class="pre">import</span> <span class="pre">...</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-as">13.3. 모듈 활용법 3: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">모듈명</span> <span class="pre">as</span> <span class="pre">모듈별칭</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">13.4. 필수 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">13.4. 예제</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">13.5. 연습문제</a></li>
 </ul>
   </nav></div>
