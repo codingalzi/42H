@@ -1,0 +1,1931 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>14. 오류와 예외 처리 &#8212; 파이썬 프로그래밍</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'exception_handling';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="15. 리스트와 튜플" href="lists_tuples.html" />
+    <link rel="prev" title="13. 모듈" href="modules.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">파이썬 프로그래밍</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="programming.html">1. 컴퓨터 프로그래밍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="starting.html">2. 프로그래밍 맛보기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="values.html">3. 값과 연산</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expressions_dataTypes.html">4. 표현식과 자료형</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">5. 사용자 입력</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings_part1.html">6. 문자열</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings_part2.html">7. 문자열 인덱싱, 슬라이싱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regex.html">8. 정규표현식</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logical.html">9. 논리 연산</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iteration_for.html">10. for 반복문</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iteration_while.html">11. while 반복문</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">12. 함수</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">13. 모듈</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. 오류와 예외 처리</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists_tuples.html">15. 리스트와 튜플</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dicts_sets.html">16. 사전과 집합</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">17. 파일</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/codingalzi/42H/blob/master/jupyter-book/exception_handling.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/codingalzi/42H" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/codingalzi/42H/issues/new?title=Issue%20on%20page%20%2Fexception_handling.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/exception_handling.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>오류와 예외 처리</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">14.1. 오류와 디버깅</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">14.1.1. 구문 오류</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">14.1.2. 런타임 오류</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">14.1.3. 의미 오류</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">14.2. 예외 처리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">14.3. 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">14.4. 연습문제</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ch-exception-handling">
+<span id="id1"></span><h1><span class="section-number">14. </span>오류와 예외 처리<a class="headerlink" href="#ch-exception-handling" title="Link to this heading">#</a></h1>
+<p>프로그램을 구현하다보면 여러 종류의 오류를 경험한다.
+프로그래밍 과정 중에 가장 많이 발생하는 오류와
+대처방안을 소개한다.</p>
+<section id="id2">
+<h2><span class="section-number">14.1. </span>오류와 디버깅<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>프로그램의 오류는 크게 세 가지 유형으로 나뉜다.
+오류가 발생하면 프로그램 개발자는 오류의 원인을 찾아 해결해야 한다.
+이렇게 프로그램의 오류를 찾아 해결하는 과정을 <strong>디버깅</strong><font size='2'>debugging</font>이라 부르며,
+파이썬 실행기는 오류가 발생할 경우 디버깅에 도움되는 정보를 제공한다.</p>
+<section id="id3">
+<h3><span class="section-number">14.1.1. </span>구문 오류<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><strong>구문 오류</strong><font size="2">syntax error</font>는 명령문을 작성할 때
+지켜야 하는 명령문 문법에 어긋나는 오류가 있음을 의미한다.
+파이썬 실행기는 프로그램을 실행하기 전에 문법 검사를 통해 모든 구문 오류를 찾아낸다.</p>
+<p><strong>예제: 변수 선언 과정</strong></p>
+<p>변수를 선언할 때 변수로 <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">return</span></code> 등
+파이썬에서 특별한 기능을 갖는 키워드를 사용하거나,
+<code class="docutils literal notranslate"><span class="pre">bad</span> <span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">odd~job</span></code>, <code class="docutils literal notranslate"><span class="pre">US$</span></code> 등처럼
+허용되지 방식을 사용하면 <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>와
+같은 구문 오류가 발생한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kc">False</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="kc">False</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="o">^</span>
+<span class="ne">SyntaxError</span>: cannot assign to False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bad</span> <span class="n">name</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="n">bad</span> <span class="n">name</span> <span class="o">=</span> <span class="mi">5</span>
+        <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제: 반복문 선언 과정</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문을 작성할 때 콜론 기호 <code class="docutils literal notranslate"><span class="pre">:</span></code>를 생략하거나 본문 들여쓰기를 하지 않은 경우에는
+종류에 따라 <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>, <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code> 등이 발생한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="nn">    for i</span> in <span class="ni">range</span><span class="nt">(5)</span>
+                     <span class="o">^</span>
+<span class="ne">SyntaxError</span>: expected &#39;:&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: expected an indented block after &#39;for&#39; statement on line 1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h3><span class="section-number">14.1.2. </span>런타임 오류<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><strong>런타임 오류</strong><font size="2">runtime error</font>는
+프로그램이 실행되는 도중에 발생하는 오류이다.
+프로그램의 실행을 중단시키는 예외 상황이라는 의미에서 런타임 오류를
+<strong>예외</strong><font size="2">exception</font>라고 부르기도 한다.
+런타임 오류는 다양한 경우에 발생한다.
+여기서는 네 종류의 런타임 오류를 살펴본다.</p>
+<p><strong>런타임 오류 예제 1: 0으로 나누기 오류</strong></p>
+<p>런타임 에러의 대표적인 예는 0으로 나누기 오류다.
+<code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code> 라고 표시되는데,
+이는 <code class="docutils literal notranslate"><span class="pre">num</span></code>이 0을 가리키고 있기에 결국 0으로 나눗셈을 시도하기 때문에 발생한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">/</span> <span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">/</span> <span class="n">num</span><span class="p">)</span>
+
+<span class="ne">ZeroDivisionError</span>: division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<p>참고로 <code class="docutils literal notranslate"><span class="pre">3/num</span></code>은 구문<font size='2'>syntax</font> 측면에서는 전혀 문제 없다.
+이유는 실제로 <code class="docutils literal notranslate"><span class="pre">3/num</span></code>이 계산될 때까지는
+변수 <code class="docutils literal notranslate"><span class="pre">num</span></code>에 할당된 값이 0이 될 수도, 되지 않을 수도 있기에
+겉모양만 보고는 실행이 가능한지 여부를 알 수 없기 때문이다.</p>
+<p><strong>런타임 오류 예제 2: 변수 이름 오류</strong></p>
+<p>아래 코드를 실행하면 <code class="docutils literal notranslate"><span class="pre">a_number</span></code> 라는 변수가 선언되어 있지 않기 때문에 문제가 발생한다.
+<code class="docutils literal notranslate"><span class="pre">NameError</span></code>라고 표시되는데, 이 오류는 선언되지 않은 변수가 사용될 때 발생한다.
+자세히 살펴보면 <code class="docutils literal notranslate"><span class="pre">a_number</span></code>와 <code class="docutils literal notranslate"><span class="pre">a_Number</span></code> 둘 중에 하나는 오타임을 알 수 있다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_Number</span> <span class="o">=</span> <span class="mf">327.68</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a_number</span> <span class="o">*</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">a_Number</span> <span class="o">=</span> <span class="mf">327.68</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a_number</span> <span class="o">*</span> <span class="mi">3</span>
+
+<span class="ne">NameError</span>: name &#39;a_number&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>런타임 오류 예제 3: 자료형 오류</strong></p>
+<p>아래 코드는 <code class="docutils literal notranslate"><span class="pre">float()</span></code> 함수를 리스트와 함께 호출한다.
+그런데 <code class="docutils literal notranslate"><span class="pre">float()</span></code> 함수는 <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code> 세 종류의 자료형만 인자로 사용하기로 정의되어 있다.
+따라서 함수 인자의 자료형이 틀렸다는 의미의 <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>가 발생하며 코드의 실행이 멈춘다.
+따라서 마지막 <code class="docutils literal notranslate"><span class="pre">print()</span></code> 함수의 호출은 실행되지 않는다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;프로그램 실행 완료!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;프로그램 실행 완료!&quot;</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: float() argument must be a string or a real number, not &#39;list&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>런타임 오류 예제 4: 값의 형식 오류</strong></p>
+<p>아래 코드는 <code class="docutils literal notranslate"><span class="pre">float()</span></code> 함수를 <code class="docutils literal notranslate"><span class="pre">123f2</span></code>라는 문자열을 가리키는 변수 <code class="docutils literal notranslate"><span class="pre">x</span></code>와 함께 호출한다.
+인자의 자료형이 <code class="docutils literal notranslate"><span class="pre">str</span></code> 이기에 <code class="docutils literal notranslate"><span class="pre">float()</span></code> 함수의 인자로 사용될 자격이 있다.
+하지만 지정된 문자열이 부동소수점 형식이 아니기에 인자의 형식이 올바르지 않다는 의미의
+<code class="docutils literal notranslate"><span class="pre">ValueError</span></code>가 발생하며 코드의 실행이 멈춘다.
+따라서 마지막 <code class="docutils literal notranslate"><span class="pre">print()</span></code> 함수의 호출은 실행되지 않는다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;123f2&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;프로그램 실행 완료!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;123f2&#39;</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;프로그램 실행 완료!&quot;</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: could not convert string to float: &#39;123f2&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id5">
+<h3><span class="section-number">14.1.3. </span>의미 오류<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>프로그램은 오류 없이 잘 실행되지만 원하는 결과를 만들지 못한다면 프로그램 어딘가에
+논리적 오류가 존재한다는 의미이다.
+이와같은 오류를
+<strong>의미 오류</strong><font size="2">semantic error</font>라 부른다.
+의미 오류의 발생원인은 매우 다양하다.</p>
+<p>프로그램이 정상적으로 작동하기 때문에 구문 오류나 런타임 오류와는 다르게
+오류의 원인을 바로 확인하기 어렵거나 아예 불가능할 수도 있다.
+수학 문제를 풀다가 계산 실수를 하거나, 기호를 다르게 적거나,
+문제를 잘못 이해했거나 해서 풀 수 있었던 문제를 틀렸던 경험이 있을 것이다.
+프로그래밍에서도 유사한 실수가 많이 발생한다.</p>
+<p>예를 들어, 아래 프로그램은 두 배 계산 대신에 제곱 계산을 하는 실수를 범한 경우이다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">doubleNum</span> <span class="o">=</span> <span class="n">num</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;입력한 값&quot;</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="s2">&quot;의 두 배는&quot;</span><span class="p">,</span> <span class="n">doubleNum</span><span class="p">,</span> <span class="s2">&quot;입니다.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>입력한 값 3 의 두 배는 9 입니다.
+</pre></div>
+</div>
+</div>
+</div>
+<p>두 배하려면 <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">*</span> <span class="pre">2</span></code>를 사용했어야 하는데 실수로 <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">**</span> <span class="pre">2</span></code>를 사용하여서
+결과적으로 입력한 값의 제곱을 계산하게 된다.
+수천, 수만 줄로 이루어진 프로그램에서 이런 형식의 오류의 원인을 찾는 일은
+경우에 따라 모래사장에서 바늘찾기처럼 매우 어렵거나 불가능할 수 있다.</p>
+</section>
+</section>
+<section id="id6">
+<h2><span class="section-number">14.2. </span>예외 처리<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p>오류가 발생할 수 있는 상황에 미리 대처하는 코딩 기법을 <strong>예외 처리</strong><font size='2'>exception handling</font>라 부른다.
+가장 단순한 예외 처리 형식은 다음과 같다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">code1</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">code2</span>
+</pre></div>
+</div>
+<p>위 코드의 의미는 다음과 같다.</p>
+<ul class="simple">
+<li><p>먼저 <code class="docutils literal notranslate"><span class="pre">try</span></code> 키워드의 본문인 <code class="docutils literal notranslate"><span class="pre">code1</span></code> 을 실행한다.
+실행 과정 중에 오류가 발생하지 않으면 <code class="docutils literal notranslate"><span class="pre">except</span></code> 키워드의 본문인 <code class="docutils literal notranslate"><span class="pre">code2</span></code> 부분은 건너 뛴다.</p></li>
+<li><p>만약 <code class="docutils literal notranslate"><span class="pre">code1</span></code> 실행중에 오류가 발생하면 프로그램의 실행을 멈추는 대신 바로 이어서 <code class="docutils literal notranslate"><span class="pre">code2</span></code> 를 실행한다.</p></li>
+</ul>
+<p>예를 들어 아래 코드는
+<code class="docutils literal notranslate"><span class="pre">ValueError</span></code>로 인해 코드 실행이 멈추는 대신
+입력값에 어떤 문제가 있는지 정보를 출력한다.
+이유는 <code class="docutils literal notranslate"><span class="pre">try</span></code>의 본문에 있는 코드가 실행할 때 오류가 발생하면
+바로 <code class="docutils literal notranslate"><span class="pre">except</span></code>의 본문에 있는 코드가 실행되도록 약속되었기 때문이다.
+또한 코드의 실행은 계속 이어져서 마지막 줄의 <code class="docutils literal notranslate"><span class="pre">print()</span></code> 함수도 호출되어
+프로그램이 제대로 실행되었음을 확인해준다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;123f2&#39;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;부동소수점 모양의 문자열이 아닙니다.&#39;</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;프로그램 실행 완료!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>부동소수점 모양의 문자열이 아닙니다.
+프로그램 실행 완료!
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>오류의 종류를 지정하는 예외 처리</strong></p>
+<p>특정 종류의 오류가 발생할 때만 예외 처리를 실행하도록 할 수 있다.
+예를 들어 아래 형식은
+<code class="docutils literal notranslate"><span class="pre">ValueError</span></code>가 발생할 때만 예외 처리를 실행한다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">code1</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="n">code2</span>
+</pre></div>
+</div>
+<p>아래 코드를 실행하면 <code class="docutils literal notranslate"><span class="pre">ValueEror</span></code> 오류가 발생한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;123f2&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;123f2&#39;</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="ne">ValueError</span>: could not convert string to float: &#39;123f2&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>아래 코드는 <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>가 발생했을 때의 예외 처리를 지정한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;123f2&#39;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;부동소수점 모양의 문자열이 아닙니다.&#39;</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;프로그램 실행 완료!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>부동소수점 모양의 문자열이 아닙니다.
+프로그램 실행 완료!
+</pre></div>
+</div>
+</div>
+</div>
+<p>오류의 종류를 명시하면 다른 종류의 오류는 처리하지 못한다.</p>
+<p>예를 들어 아래 코드는 <code class="docutils literal notranslate"><span class="pre">float()</span></code> 함수의 인자로 튜플이 입력되어 <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> 오류가 발생한다.
+그런데 <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>만 처리하도록 설정되어 있어서
+예외 처리가 제대로 실행되지 못하고 결국에 프로그램 실행이 중간에 멈춰버린다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;부동소수점 모양의 문자열이 아닙니다.&#39;</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;프로그램 실행 완료!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;부동소수점 모양의 문자열이 아닙니다.&#39;</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: float() argument must be a string or a real number, not &#39;list&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>이에 대한 해결책은 오류의 종류를 명시하지 않거나 아래처럼 여러 종류의 오류를 처리하도록 지정하는 것이다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;사용된 인자에 문제가 있습니다.&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;프로그램 실행 완료!&quot;</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>사용된 인자에 문제가 있습니다.
+프로그램 실행 완료!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id7">
+<h2><span class="section-number">14.3. </span>예제<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p><strong>예제 1</strong></p>
+<p>명령문을 실행해서 발생하는 오류의 종류와 원인을
+아래 형식의 예외 처리를 이용하여 설명하라.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">명령문1</span>
+<span class="k">except</span> <span class="n">오류종류</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(오류 설명) 오류종류: </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>위 코드의 <code class="docutils literal notranslate"><span class="pre">명령문1</span></code>을 실행할 때 <code class="docutils literal notranslate"><span class="pre">오류종류</span></code>에 해당하는 오류가 발생하면
+<code class="docutils literal notranslate"><span class="pre">err</span></code>은 오류가 발생한 이유를 설명하는 문자열이 지정된다.
+따라서 오류의 발생원인을 담은 문장이 화면에 출력된다.</p>
+<p>반면에 <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>, <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code> 등은 프로그램을 실행하기 전에 발견되는
+오류이기에 <code class="docutils literal notranslate"><span class="pre">try-except</span></code> 명령문을 사용할 의미가 없다.
+이런 경우엔 오류의 원인을 찾아 제거하라.</p>
+<p>(1)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">=</span> <span class="s2">&quot;시도해봐!&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="k">try</span> <span class="o">=</span> <span class="s2">&quot;시도해봐!&quot;</span>
+        <span class="o">^</span>
+<span class="ne">SyntaxError</span>: expected &#39;:&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>답:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> 발생: <code class="docutils literal notranslate"><span class="pre">try</span></code>는 예외처리에 사용되는 키워드이며 따라서 변수명으로 허용되지 않음.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>는 코드를 실행하기 전에 발생하는 오류이기 때문에
+<code class="docutils literal notranslate"><span class="pre">try-except</span></code> 명령문으로 감싸더라도 계속해서 <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>가 발생한다.
+따라서 아래 코드에서처럼 <code class="docutils literal notranslate"><span class="pre">try1</span></code> 등 다른 변수명을 사용해야 한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">try1</span> <span class="o">=</span> <span class="s2">&quot;시도해봐!&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(2)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L1</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">L1</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="ne">IndexError</span>: list index out of range
+</pre></div>
+</div>
+</div>
+</div>
+<p>답:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">IndexError</span></code> 발생: 길이가 <code class="docutils literal notranslate"><span class="pre">n</span></code>인 리스트에 사용할 수 있는 인덱스는 <code class="docutils literal notranslate"><span class="pre">-n</span></code>부터 <code class="docutils literal notranslate"><span class="pre">n-1</span></code> 사이의 정수만 해당함.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p>아래와 같이 코드를 수정한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">L1</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="k">except</span> <span class="ne">IndexError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(오류 설명) IndexError: </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(오류 설명) IndexError: list index out of range
+</pre></div>
+</div>
+</div>
+</div>
+<p>(3)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">i</span> <span class="o">-=</span> <span class="mi">2</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: unexpected indent
+</pre></div>
+</div>
+</div>
+</div>
+<p>답:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">IndentationError</span></code> 발생: <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문의 본문은 아래 코드처럼 들여쓰기가 일정해야 함.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">IndentationError</span></code> 또한 코드를 실행하기 전에 발생하는 오류이기 때문에
+<code class="docutils literal notranslate"><span class="pre">try-except</span></code> 명령문으로 감싸더라도 계속해서 <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>가 발생한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">i</span> <span class="o">-=</span> <span class="mi">2</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(오류 설명) IndexError: </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: unexpected indent
+</pre></div>
+</div>
+</div>
+</div>
+<p>따라서 아래 처럼 코드를 바로 수정하는 수밖에 없다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">i</span> <span class="o">-=</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2
+-1
+0
+1
+2
+</pre></div>
+</div>
+</div>
+</div>
+<p>(4)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">27</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;는(은) 3의 배수&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span>
+                 <span class="o">^</span>
+<span class="ne">SyntaxError</span>: expected &#39;:&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>답:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> 발생: <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">논리식</span></code> 명령문은 아래 코드처럼 항상 콜론(<code class="docutils literal notranslate"><span class="pre">:</span></code>)으로 마무리 해야 함.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>는 코드를 실행하기 전에 발생하는 오류이기 때문에
+<code class="docutils literal notranslate"><span class="pre">try-except</span></code> 명령문으로 감싸더라도 계속해서 <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>가 발생한다.
+따라서 아래 처럼 코드를 바로 수정하는 수밖에 없다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">27</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;는(은) 3의 배수&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>27 는(은) 3의 배수
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 2</strong></p>
+<p>아래처럼 출력을 하는 코드를 구현하려 한다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> 
+  <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> 
+    <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> 
+      <span class="o">*</span> <span class="o">*</span> 
+        <span class="o">*</span> 
+        <span class="o">*</span> 
+      <span class="o">*</span> <span class="o">*</span> 
+    <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> 
+  <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> 
+<span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> 
+</pre></div>
+</div>
+<p>그런데 아래 코드를 실행하면 원하는 모양이 출력되지 않는다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">stars</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">-</span> <span class="n">num</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">stars</span> <span class="o">=</span> <span class="n">num</span> <span class="o">-</span> <span class="mi">4</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;* &quot;</span> <span class="o">*</span> <span class="n">stars</span><span class="p">)</span>
+        
+    <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>* * * * * 
+* * * * 
+* * * 
+* * 
+* 
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+</pre></div>
+</div>
+</div>
+</div>
+<p>위 코드를 수정하여 원하는 모양이 출력되도록 하라.</p>
+<p>힌트: 각 행에서 공백 출력을 먼저하도록 한다. 그러기 위해 몇 개의 공백을 출력해야할지 정하는 변수 <code class="docutils literal notranslate"><span class="pre">spaces</span></code>를 선언해서 활용한다.
+그런다음 위 코드에 공백 출력과 관련된 부분만 새롭게 추가한다.</p>
+<p>답:</p>
+<ul class="simple">
+<li><p>위 코드에서 별을 출력하는 부분은 정확함.</p></li>
+<li><p>다만 별 출력 이전에 공백을 추가해야 하기에 출력에 필요한 공백의 크기를 정해야 함.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num</span></code>이 0부터 4까지 변할 때 공백크기는 0부터 8까지 2씩 커짐: <code class="docutils literal notranslate"><span class="pre">spaces</span> <span class="pre">=</span> <span class="pre">num</span> <span class="pre">*</span> <span class="pre">2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num</span></code>이 5부터 9까지 변할 때 공백크기는 8부터 0까지 2씩 작아짐: <code class="docutils literal notranslate"><span class="pre">spaces</span> <span class="pre">=</span> <span class="pre">(9-num)</span> <span class="pre">*</span> <span class="pre">2</span></code></p></li>
+<li><p>결론: 아래 코드에서처럼 <code class="docutils literal notranslate"><span class="pre">spaces</span></code> 변수 선언문을 경우에 따라 다르게 선언한 후에 <code class="docutils literal notranslate"><span class="pre">print()</span></code> 함수를 살짝 수정하면 됨.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">stars</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">-</span> <span class="n">num</span>
+        <span class="n">spaces</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">stars</span> <span class="o">=</span> <span class="n">num</span> <span class="o">-</span> <span class="mi">4</span>
+        <span class="n">spaces</span> <span class="o">=</span> <span class="p">(</span><span class="mi">9</span> <span class="o">-</span> <span class="n">num</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="n">spaces</span> <span class="o">+</span> <span class="s2">&quot;* &quot;</span> <span class="o">*</span> <span class="n">stars</span><span class="p">)</span>
+        
+    <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>* * * * * 
+  * * * * 
+    * * * 
+      * * 
+        * 
+        * 
+      * * 
+    * * * 
+  * * * * 
+* * * * * 
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 3</strong></p>
+<p>아래처럼 출력하는 코드를 구현하려 한다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>그런데 아래 코드를 실행하면 원하는 모양이 출력되지 않는다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="n">i</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">([</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">])</span>
+        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 0]
+[2, 0]
+[3, 0]
+[2, 1]
+[3, 1]
+[3, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>위 코드를 수정하여 원하는 모양이 출력되도록 하라.</p>
+<p>힌트: 한 행의 코드만 수정하면 된다.</p>
+<p>답:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>와 <code class="docutils literal notranslate"><span class="pre">j</span></code>가 0부터 3까지 변할 때 <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">&gt;</span> <span class="pre">i</span></code> 일 때만 <code class="docutils literal notranslate"><span class="pre">print()</span></code> 함수 실행</p></li>
+<li><p>그런데 출력되는 어레이의 0번과 1번 인덱스의 값의 위치가 서로 바뀜.</p></li>
+<li><p>따라서 <code class="docutils literal notranslate"><span class="pre">print([i,</span> <span class="pre">j])</span></code>를 <code class="docutils literal notranslate"><span class="pre">print([j,</span> <span class="pre">i])</span></code> 대신 사용.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="n">i</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">([</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1]
+[0, 2]
+[0, 3]
+[1, 2]
+[1, 3]
+[2, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 4</strong></p>
+<p>문자열을 인자로 입력받을 때
+부동소수점 형식이면 부동소수점으로 변환된 값을,
+아니면 문자열 그대로를 반환하는 함수 <code class="docutils literal notranslate"><span class="pre">whether_float()</span></code>를
+예외 처리를 이용하여 구현하라.</p>
+<p>답:</p>
+<p>변수 <code class="docutils literal notranslate"><span class="pre">x</span></code>가 가리키는 문자열이 부동소수점 형식을 갖추지 못한 경우 <code class="docutils literal notranslate"><span class="pre">float(x)</span></code>를 호출하면
+<code class="docutils literal notranslate"><span class="pre">ValueError</span></code> 오류가 발생한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;3.14abc&#39;</span>
+<span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;3.14abc&#39;</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: could not convert string to float: &#39;3.14abc&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>반면에 부동소수점 형식이면 정상적으로 부동소수점으로 변환된 값을 반환한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;3.14159&#39;</span>
+<span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14159
+</pre></div>
+</div>
+</div>
+</div>
+<p>따라서 <code class="docutils literal notranslate"><span class="pre">x</span></code>가 주어졌을 때 <code class="docutils literal notranslate"><span class="pre">float(x)</span></code>를 먼저 실행한 다음
+오류가 발생할 경우에 대해 예외처리를 진행한다.
+아래 <code class="docutils literal notranslate"><span class="pre">whether_float()</span></code> 함수는 오류가 발생할 경우 <code class="docutils literal notranslate"><span class="pre">x</span></code>를 반환하도록 설정되었다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">whether_float</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">whether_float</span><span class="p">(</span><span class="s1">&#39;3.14159&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14159
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">whether_float</span><span class="p">(</span><span class="s1">&#39;3.14abc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;3.14abc&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">whether_float</span><span class="p">(</span><span class="s1">&#39;부동소수점 모양의 문자열이 아닙니다.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;부동소수점 모양의 문자열이 아닙니다.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>예외처리 단계에서 <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> 만을 다루게 할 수도 있다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">whether_float</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">whether_float</span><span class="p">(</span><span class="s1">&#39;3.14159&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14159
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">whether_float</span><span class="p">(</span><span class="s1">&#39;3.14abc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;3.14abc&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">whether_float</span><span class="p">(</span><span class="s1">&#39;부동소수점 모양의 문자열이 아닙니다.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;부동소수점 모양의 문자열이 아닙니다.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 5</strong></p>
+<p>문자열 인덱싱을 이용하여 문자열에 포함된 문자를 확인할 수 있다.
+예를 들어 첫째 문자는 0을, 셋째 문자는 2를 인덱스로 활용한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_string</span> <span class="o">=</span> <span class="s1">&#39;python&#39;</span>
+
+<span class="n">a_string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;p&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_string</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;t&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>그런데 인덱스로 사용될 수 있는 정수들의 범위는 문자열에 따라 달라진다.
+<code class="docutils literal notranslate"><span class="pre">python</span></code> 문자열이 6개의 문자로 구성되었기에 인덱스로 사용될 수 있는 정수는
+0부터 5까지 또는 -6부터 -1까지이다.
+그 이외의 정수에 대해서는 아래처럼 <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>가 발생한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_string</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">a_string</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+
+<span class="ne">IndexError</span>: string index out of range
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_string</span><span class="p">[</span><span class="o">-</span><span class="mi">7</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">26</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">a_string</span><span class="p">[</span><span class="o">-</span><span class="mi">7</span><span class="p">]</span>
+
+<span class="ne">IndexError</span>: string index out of range
+</pre></div>
+</div>
+</div>
+</div>
+<p>질문:</p>
+<p>-10부터 10까지의 정수 <code class="docutils literal notranslate"><span class="pre">n</span></code>에 대해 <code class="docutils literal notranslate"><span class="pre">a_string[n]</span></code>을 출력하는 <code class="docutils literal notranslate"><span class="pre">for</span></code> 반복문을 작성하라.
+단, <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> 오류가 발생할 경우 “인덱스 범위 벗어남”을 출력하라.</p>
+<p>힌트: <code class="docutils literal notranslate"><span class="pre">try</span> <span class="pre">...</span> <span class="pre">except</span> <span class="pre">IndexError:</span></code> 명령문 활용</p>
+<p>답:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code>이 -10부터 10까지 변할 때 먼저 <code class="docutils literal notranslate"><span class="pre">a_string[n]</span></code>을 실행하도록 함</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code>이 허용된 범위를 넘어설 경우 <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>가 발생할 것이기에 이에 대해 아래 코드처럼 예외처리 실행.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code>이 -6부터 -1까지 변할 때 한 번, 그리고 0부터 5까지 변할 때 또 한 번 전체 문자가 출력됨.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_string</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">a_string</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;인덱스 범위 벗어남&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>인덱스 범위 벗어남
+인덱스 범위 벗어남
+인덱스 범위 벗어남
+인덱스 범위 벗어남
+p
+y
+t
+h
+o
+n
+p
+y
+t
+h
+o
+n
+인덱스 범위 벗어남
+인덱스 범위 벗어남
+인덱스 범위 벗어남
+인덱스 범위 벗어남
+인덱스 범위 벗어남
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 6</strong></p>
+<p>숫자 야구 게임은 임의로 정한 세 자리의 수를 참여자가 맞히는 게임이며 규칙은 다음과 같다.</p>
+<ul class="simple">
+<li><p>첫째, 1에서 9 사이의 서로 다른 숫자로 이루어진 세 자리 정수를 입력한다.</p></li>
+<li><p>둘째, 세 자리 숫자를 정확하게 맞혔으면 <code class="docutils literal notranslate"><span class="pre">'홈런'</span></code>을 출력한다.</p></li>
+<li><p>셋째, 세 자리수를 정확하게 맞히지 못했다면
+참여자가 입력한 수가 맞혀야 하는 세 자리 수와 어떻게 다른지 여부에 따라
+참여자에게 아래 규칙에 따른 결과를 출력한다.</p>
+<ul>
+<li><p>숫자와 위치가 맞으면, 스트라이크</p></li>
+<li><p>숫자는 맞지만 위치가 틀리면, 볼</p></li>
+<li><p>숫자와 위치가 모두 틀리면, 아웃</p></li>
+</ul>
+</li>
+</ul>
+<p>예를 들어, 맞혀야 하는 수가 123일 때 다음과 같이 출력한다.</p>
+<ul class="simple">
+<li><p>참여자가 123을 입력할 때: <code class="docutils literal notranslate"><span class="pre">'홈런'</span></code></p></li>
+<li><p>참여자가 456을 입력할 때: <code class="docutils literal notranslate"><span class="pre">'아웃'</span></code></p></li>
+<li><p>참여자가 257을 입력할 때: <code class="docutils literal notranslate"><span class="pre">'1</span> <span class="pre">볼'</span></code></p></li>
+<li><p>참여자가 273을 입력할 때: <code class="docutils literal notranslate"><span class="pre">'1</span> <span class="pre">볼</span> <span class="pre">1</span> <span class="pre">스트라이크'</span></code></p></li>
+</ul>
+<p>아래 코드는 숫자 야구 게임을 실행한다.
+사용자의 입력값이 정수가 아니면 세 자리 정수를 다시 입력하도록 요구한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">answer</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">guess</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;1에서 9사이의 서로 다른 숫자로 구성된 세자리 정수를 입력하세요: &#39;</span><span class="p">)</span>
+    
+    <span class="c1"># 정수 입력 여부 확인</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">int</span><span class="p">(</span><span class="n">guess</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">continue</span>
+
+    <span class="n">ball</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">strike</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">answer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">guess</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="n">strike</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">guess</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">answer</span><span class="p">:</span>
+            <span class="n">ball</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">strike</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;홈런&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">strike</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ball</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;아웃&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">ball</span><span class="p">,</span> <span class="s1">&#39;볼&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ball</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">strike</span><span class="p">,</span> <span class="s1">&#39;스트라이크&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">ball</span><span class="p">,</span> <span class="s1">&#39;볼&#39;</span><span class="p">,</span> <span class="n">strike</span><span class="p">,</span> <span class="s1">&#39;스트라이크&#39;</span><span class="p">)</span>
+            
+    <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1에서 9사이의 서로 다른 숫자로 구성된 세자리 정수를 입력하세요: 25.77
+1에서 9사이의 서로 다른 숫자로 구성된 세자리 정수를 입력하세요: 456
+아웃
+</pre></div>
+</div>
+</div>
+</div>
+<p>질문:</p>
+<p>위 코드는 하지만 맞혀야 하는 수가 123으로 고정되었다.
+맞혀야 하는 세 자리의 수가 무작위로 지정되도록 위 코드를 수정하라.
+단 숫자 0은 절대로 포함되지 않아야 한다.</p>
+<p>힌트: <code class="docutils literal notranslate"><span class="pre">random.randint()</span></code> 함수 활용</p>
+<p>답:</p>
+<ul>
+<li><p>세 자리수 생성을 위해 <code class="docutils literal notranslate"><span class="pre">random.randint(100,</span> <span class="pre">999)</span></code> 사용을 사용하면 0을 포함하지 않아야 한다는 조건믈 만족시키기 어려움</p></li>
+<li><p>대신 <code class="docutils literal notranslate"><span class="pre">random.randint(1,</span> <span class="pre">9)</span></code>를 세 번 호출하여 0을 포함하지 않는 세 자리수 모양의 문자열 생성 가능.</p></li>
+<li><p>이를 위해 아래 코드 활용: <code class="docutils literal notranslate"><span class="pre">random.randint(1,</span> <span class="pre">9)</span></code> 함수를 세 번 호출하여 세 개의 정수로 구성된 문자열 생성.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">answer</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">answer</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="c1"># 맞혀야 하는 세 자리 수 생성. 0을 포함하지 않음.</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">answer</span><span class="p">:</span>
+        <span class="k">continue</span>
+    
+    <span class="n">answer</span> <span class="o">+=</span> <span class="n">num</span>
+
+<span class="c1"># 게임 실행</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">guess</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;1에서 9사이의 서로 다른 숫자로 구성된 세자리 정수를 입력하세요: &#39;</span><span class="p">)</span>
+    
+    <span class="c1"># 정수 입력 여부 확인    </span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">int</span><span class="p">(</span><span class="n">guess</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">continue</span>
+
+    <span class="n">ball</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">strike</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">answer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">guess</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="n">strike</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">guess</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">answer</span><span class="p">:</span>
+            <span class="n">ball</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">strike</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;홈런&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">strike</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ball</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;아웃&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">ball</span><span class="p">,</span> <span class="s1">&#39;볼&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ball</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">strike</span><span class="p">,</span> <span class="s1">&#39;스트라이크&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">ball</span><span class="p">,</span> <span class="s1">&#39;볼&#39;</span><span class="p">,</span> <span class="n">strike</span><span class="p">,</span> <span class="s1">&#39;스트라이크&#39;</span><span class="p">)</span>
+            
+    <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1에서 9사이의 서로 다른 숫자로 구성된 세자리 정수를 입력하세요: abc
+1에서 9사이의 서로 다른 숫자로 구성된 세자리 정수를 입력하세요: 876
+1 볼
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 7</strong></p>
+<p>아래 코드는 <code class="docutils literal notranslate"><span class="pre">secret</span></code> 변수에 할당된 17을 맞힐 때까지 정수입력을 반복시킨다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;수 알아맞히기 게임에 환영합니다.&quot;</span><span class="p">)</span>
+
+<span class="n">secret</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">guess</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>   <span class="c1"># 이어지는 while 반복문이 최소 한 번은 실행되도록 함</span>
+
+<span class="k">while</span> <span class="n">guess</span> <span class="o">!=</span> <span class="n">secret</span><span class="p">:</span>
+    <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;1부터 100 사이의 정수 하나를 입력하세요: &quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">secret</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;맞았습니다!&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">guess</span> <span class="o">&gt;</span> <span class="n">secret</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;너무 커요!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;너무 작아요!&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;게임 종료!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>수 알아맞히기 게임에 환영합니다.
+1부터 100 사이의 정수 하나를 입력하세요: 50
+너무 커요!
+1부터 100 사이의 정수 하나를 입력하세요: 25
+너무 커요!
+1부터 100 사이의 정수 하나를 입력하세요: 12
+너무 작아요!
+1부터 100 사이의 정수 하나를 입력하세요: 18
+너무 커요!
+1부터 100 사이의 정수 하나를 입력하세요: 14
+너무 작아요!
+1부터 100 사이의 정수 하나를 입력하세요: 16
+너무 작아요!
+1부터 100 사이의 정수 하나를 입력하세요: 17
+맞았습니다!
+게임 종료!
+</pre></div>
+</div>
+</div>
+</div>
+<p>(1) 그런데 위 코드는 <code class="docutils literal notranslate"><span class="pre">secret</span></code>가 가리키는 값이 일정하기에
+한 번 실행한 다음에는 더 이상 재미가 없어진다.
+게임이 실행될 때마다
+<code class="docutils literal notranslate"><span class="pre">secret</span></code>가 가리키는 값이 1과 100까지의 정수 중에서 임의로 지정되도록
+위 코드를 수정하라.</p>
+<p>힌트: <code class="docutils literal notranslate"><span class="pre">random</span></code> 모듈의 <code class="docutils literal notranslate"><span class="pre">randint()</span></code> 함수 활용</p>
+<p>답:</p>
+<p><code class="docutils literal notranslate"><span class="pre">secret</span></code> 변수가 가리키는 값을 1부터 100 사이의 값으로 임의로 지정하기 위해
+<code class="docutils literal notranslate"><span class="pre">random.randint()</span></code> 함수를 다음과 같이 이용한다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+
+<span class="n">secret</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>이전 코드에 추가하면 다음과 같다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;수 알아맞히기 게임에 환영합니다.&quot;</span><span class="p">)</span>
+
+<span class="n">secret</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">guess</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>   <span class="c1"># 이어지는 while 반복문이 최소 한 번은 실행되도록 함</span>
+
+<span class="k">while</span> <span class="n">guess</span> <span class="o">!=</span> <span class="n">secret</span><span class="p">:</span>
+    <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;1부터 100 사이의 정수 하나를 입력하세요: &quot;</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">secret</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;맞았습니다!&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">guess</span> <span class="o">&gt;</span> <span class="n">secret</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;너무 커요!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;너무 작아요!&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;게임 종료!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>수 알아맞히기 게임에 환영합니다.
+1부터 100 사이의 정수 하나를 입력하세요: 50
+너무 커요!
+1부터 100 사이의 정수 하나를 입력하세요: 25
+너무 커요!
+1부터 100 사이의 정수 하나를 입력하세요: 12
+너무 커요!
+1부터 100 사이의 정수 하나를 입력하세요: 6
+너무 커요!
+1부터 100 사이의 정수 하나를 입력하세요: 3
+너무 작아요!
+1부터 100 사이의 정수 하나를 입력하세요: 4
+맞았습니다!
+게임 종료!
+</pre></div>
+</div>
+</div>
+</div>
+<p>(2) 참여자가 몇 번 시도하여 정답을 맞혔는지 게임이 종료되면서 출력되도록
+이전 질문의 답으로 사용된 코드를 수정하라.
+예를 들어, 7 번 만에 답을 맞혔다만 다음처럼 출력되어야 한다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span> <span class="n">번</span> <span class="n">만에</span> <span class="n">비밀을</span> <span class="n">맞혔습니다</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>답:</p>
+<p>참여자가 정답을 맞히려는 시도 횟수는 <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문의 실행횟수에 해당한다.
+따라서 <code class="docutils literal notranslate"><span class="pre">while</span></code> 반복문 실행횟수를 기억하는 <code class="docutils literal notranslate"><span class="pre">count</span></code> 변수를 활용하면 다음과 같다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;수 알아맞히기 게임에 환영합니다.&quot;</span><span class="p">)</span>
+
+<span class="n">secret</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">guess</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>   <span class="c1"># 이어지는 while 반복문이 최소 한 번은 실행되도록 함</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">guess</span> <span class="o">!=</span> <span class="n">secret</span><span class="p">:</span>
+    <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;1부터 100 사이의 정수 하나를 입력하세요: &quot;</span><span class="p">))</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">secret</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;맞았습니다!&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">guess</span> <span class="o">&gt;</span> <span class="n">secret</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;너무 커요!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;너무 작아요!&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="s2">&quot;번 만에 비밀을 맞혔습니다.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;게임 종료!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>수 알아맞히기 게임에 환영합니다.
+1부터 100 사이의 정수 하나를 입력하세요: 50
+너무 커요!
+1부터 100 사이의 정수 하나를 입력하세요: 25
+너무 작아요!
+1부터 100 사이의 정수 하나를 입력하세요: 37
+너무 커요!
+1부터 100 사이의 정수 하나를 입력하세요: 31
+너무 작아요!
+1부터 100 사이의 정수 하나를 입력하세요: 34
+너무 커요!
+1부터 100 사이의 정수 하나를 입력하세요: 32
+너무 작아요!
+1부터 100 사이의 정수 하나를 입력하세요: 33
+맞았습니다!
+7 번 만에 비밀을 맞혔습니다.
+게임 종료!
+</pre></div>
+</div>
+</div>
+</div>
+<p>(3) 위 코드를 수정하여 정수 입력이 아닌 경우에 재입력을 요구하도록 하라.</p>
+<p>힌트: <code class="docutils literal notranslate"><span class="pre">try</span> <span class="pre">...</span> <span class="pre">except</span> <span class="pre">...</span></code> 명령문과 <code class="docutils literal notranslate"><span class="pre">continue</span></code> 명령문 활용</p>
+<p>답:</p>
+<p>정수 입력이 아니면 <code class="docutils literal notranslate"><span class="pre">int()</span></code> 함수에 의해 <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> 오류가 발생한다.
+따라서 오류가 발생할 경우를 대비해서 <code class="docutils literal notranslate"><span class="pre">try</span> <span class="pre">...</span> <span class="pre">except</span> <span class="pre">...</span></code> 명령문으로 예외처리를
+다음과 같이 하면 된다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;1부터 100 사이의 정수 하나를 입력하세요: &quot;</span><span class="p">))</span>
+<span class="k">except</span><span class="p">:</span> 
+    <span class="k">continue</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;수 알아맞히기 게임에 환영합니다.&quot;</span><span class="p">)</span>
+
+<span class="n">secret</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">guess</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>   <span class="c1"># 이어지는 while 반복문이 최소 한 번은 실행되도록 함</span>
+
+<span class="k">while</span> <span class="n">guess</span> <span class="o">!=</span> <span class="n">secret</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;1부터 100 사이의 정수 하나를 입력하세요: &quot;</span><span class="p">))</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">continue</span>
+
+    <span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">secret</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;맞았습니다!&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">guess</span> <span class="o">&gt;</span> <span class="n">secret</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;너무 커요!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;너무 작아요!&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;게임 종료!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>수 알아맞히기 게임에 환영합니다.
+1부터 100 사이의 정수 하나를 입력하세요: 45.789
+1부터 100 사이의 정수 하나를 입력하세요: abc
+1부터 100 사이의 정수 하나를 입력하세요: 50
+너무 작아요!
+1부터 100 사이의 정수 하나를 입력하세요: 75
+너무 커요!
+1부터 100 사이의 정수 하나를 입력하세요: 62
+너무 작아요!
+1부터 100 사이의 정수 하나를 입력하세요: 68
+너무 커요!
+1부터 100 사이의 정수 하나를 입력하세요: 65
+너무 커요!
+1부터 100 사이의 정수 하나를 입력하세요: 63
+너무 작아요!
+1부터 100 사이의 정수 하나를 입력하세요: 64
+맞았습니다!
+게임 종료!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id8">
+<h2><span class="section-number">14.4. </span>연습문제<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/42H/blob/master/practices/practice-exception_handling.ipynb">(실습) 오류와 예외 처리</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="modules.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>모듈</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lists_tuples.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>리스트와 튜플</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">14.1. 오류와 디버깅</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">14.1.1. 구문 오류</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">14.1.2. 런타임 오류</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">14.1.3. 의미 오류</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">14.2. 예외 처리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">14.3. 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">14.4. 연습문제</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By 코딩알지
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

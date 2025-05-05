@@ -20,10 +20,10 @@ chapters:
 - file: iteration_while
 - file: functions
 - file: modules
+- file: exception_handling
+- file: lists_tuples
+- file: dicts_sets
 - file: files
-# - file: exception_handling
-# - file: lists_tuples
-# - file: dicts_sets
 # - file: oop
 # - file: classes_instances_objects
 # - file: inheritance
