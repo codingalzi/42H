@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: 파이썬 프로그래밍
+title: 42H$:$ 파이썬 프로그래밍
 author: 코딩알지
 # logo: logo.png
 only_build_toc_files: true
