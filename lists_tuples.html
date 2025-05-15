@@ -8,7 +8,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>15. 리스트와 튜플 &#8212; 42H$:$ 파이썬 프로그래밍</title>
+    <title>15. 리스트와 튜플 &#8212; 42H: 파이썬 프로그래밍
+</title>
   
   
   
@@ -34,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -152,7 +153,8 @@
   
   
   
-    <p class="title logo__title">42H$:$ 파이썬 프로그래밍</p>
+    <p class="title logo__title">42H: 파이썬 프로그래밍
+</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -1278,7 +1280,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>소문자 c와 d를 대문자 C와 D로 수정하고 곧바로 대문자 X를 추가하고자 한다면
+<p>소문자 c와 d를 대문자 C와 D로 수정하고 곧바로 대문자 Z를 추가하고자 한다면
 2번, 3번 인덱스 구간을 슬라이싱하면서 동시에 값을 다음과 같이 3개 지정하면 된다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1320,7 +1322,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">54</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">a2f</span><span class="p">[:</span><span class="mi">3</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">]</span>
 
 <span class="ne">ValueError</span>: attempt to assign sequence of size 3 to extended slice of size 2
@@ -2861,7 +2863,7 @@ y: [10, 2, 3]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;enumerate at 0x7f7bc20e6340&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;enumerate at 0x7f3b953efa60&gt;
 </pre></div>
 </div>
 </div>
@@ -2905,14 +2907,14 @@ thon
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">some_list</span><span class="p">)):</span>
-    <span class="k">if</span> <span class="n">i</span> <span class="o">&amp;</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">some_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>foo
-bar
+baz
 thon
 </pre></div>
 </div>
