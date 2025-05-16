@@ -24,7 +24,7 @@ chapters:
 - file: lists_tuples
 - file: dicts_sets
 - file: files
-# - file: oop
+- file: oop
 # - file: classes_instances_objects
 # - file: inheritance
 # - file: modules_advanced
