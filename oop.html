@@ -419,8 +419,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">18.2.3. 모든 게 객체!</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">18.3. 예제</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">18.4. 연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">18.3. 객체 교감</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">18.4. 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">18.5. 연습문제</a></li>
 </ul>
             </nav>
         </div>
@@ -553,7 +554,7 @@ OOP 역시 예외가 아니다.
 <ul class="simple">
 <li><p>거북이 객체 예제 코드</p></li>
 </ul>
-<iframe src="https://trinket.io/embed/python/1839f7a56d97?runOption=run&start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe><p>위 코드에 사용된 클래스와 객체는 다음과 같다.</p>
+<p><iframe src="https://trinket.io/embed/python/1839f7a56d97?runOption=run&start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe></p><p>위 코드에 사용된 클래스와 객체는 다음과 같다.</p>
 <div class="pst-scrollable-table-container"><table class="table" id="turtle-graphics">
 <caption><span class="caption-number">Table 18.2 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">turtle</span></code> 모듈과 거북이 객체</span><a class="headerlink" href="#turtle-graphics" title="Link to this table">#</a></caption>
 <colgroup>
@@ -584,25 +585,65 @@ OOP 역시 예외가 아니다.
 </tbody>
 </table>
 </div>
-<p><strong>객체의 독립성</strong></p>
+<p>코드에 사용된 객체의 속성과 메서드는 다음과 같다.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="turtle-methods">
+<caption><span class="caption-number">Table 18.3 </span><span class="caption-text">거북이 속성과 메서드</span><a class="headerlink" href="#turtle-methods" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 84.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>메서드</p></th>
+<th class="head"><p>설명</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tina.shape()</span></code></p></td>
+<td><p>객체 모양 속성 지졍</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tommy.color()</span></code></p></td>
+<td><p>객체 색상 속성 지정</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">t.speed()</span></code></p></td>
+<td><p>객체 이동 속도 속성 지정</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">t.forward()</span></code></p></td>
+<td><p>객체 전진 이동</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tina.goto()</span></code></p></td>
+<td><p>객체 위치 이동</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tina.penup()</span></code>, <code class="docutils literal notranslate"><span class="pre">tommy.penup()</span></code></p></td>
+<td><p>객체 펜 들어올리기</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tina.pendown()</span></code>, <code class="docutils literal notranslate"><span class="pre">tommy.pendown()</span></code></p></td>
+<td><p>객체 펜 내리기</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="id6">
+<h2><span class="section-number">18.3. </span>객체 교감<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>하나의 클래스를 이용해서 생성된 여러 개의 객체는 기본적으로 상호 독립적이다.
 예를 들어 두 개의 <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> 과 <code class="docutils literal notranslate"><span class="pre">['a',</span> <span class="pre">'b',</span> <span class="pre">'c']</span></code> 는 둘 모두 <code class="docutils literal notranslate"><span class="pre">list</span></code>의 인스턴스이지만
 기본적으로 서로 아무 연관이 없다.
 위 코드에서 생성된 두 마리이의 거북이 객체도 서로 영향을 주지도 받지 않으면서
 각자 독립적으로 움직이도록 설계되었다.</p>
-<p><strong>객체 교감</strong></p>
 <p>반면에 두 객체 사이의 상호 교감이 가능하게 만들 수도 있다.
-예를 들어 아래 코드는 <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> 과 <code class="docutils literal notranslate"><span class="pre">['a',</span> <span class="pre">'b',</span> <span class="pre">'c']</span></code> 를 서로 연관시킨다.</p>
+예를 들어 아래 코드는 <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> 과 <code class="docutils literal notranslate"><span class="pre">['a',</span> <span class="pre">'b',</span> <span class="pre">'c']</span></code> 를 서로 연관시킨 후
+홀수와 관련된 항목만 출력한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 a
-2 b
 3 c
 </pre></div>
 </div>
@@ -617,10 +658,10 @@ OOP 역시 예외가 아니다.
 <ul class="simple">
 <li><p>거북이 충돌 감지 예제 코드</p></li>
 </ul>
-<iframe src="https://trinket.io/embed/python/51822fae918b?runOption=run&start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe></section>
+<p><iframe src="https://trinket.io/embed/python/51822fae918b?runOption=run&start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe></p><p>이어지는 장에서 객체들 사이의 교감을 보다 다양한 방식으로 구현하는 방식을 소개한다.</p>
 </section>
-<section id="id6">
-<h2><span class="section-number">18.3. </span>예제<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<section id="id7">
+<h2><span class="section-number">18.4. </span>예제<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <p><strong>예제 1</strong></p>
 <p>아래 프로그램에서 <code class="docutils literal notranslate"><span class="pre">polygon()</span></code> 함수는 지정된 길이를 한 변으로 하는 정다격형을 그리도록 하며 두 개의 매개변수를 사용한다.</p>
 <ul class="simple">
@@ -631,7 +672,7 @@ OOP 역시 예외가 아니다.
 <ul class="simple">
 <li><p>다각형 그리기 코드</p></li>
 </ul>
-<iframe src="https://trinket.io/embed/python/e7e536be869e?runOption=run&start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe><p><strong>예제 2</strong></p>
+<p><iframe src="https://trinket.io/embed/python/e7e536be869e?runOption=run&start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe></p><p><strong>예제 2</strong></p>
 <p>거북이 객체의 <code class="docutils literal notranslate"><span class="pre">circle()</span></code> 함수를 이용하면 지정된 반지름의 원을 그린다.
 그런데 <code class="docutils literal notranslate"><span class="pre">polygon()</span></code> 함수를 이용하여 원을 그릴 수 있다.
 예를 들어 아래 프로그램에서 정의된 <code class="docutils literal notranslate"><span class="pre">p_circle()</span></code> 함수는 반지름 <code class="docutils literal notranslate"><span class="pre">r</span></code>이 주어졌을 때 먼저 원의 둘레를 계산한다.
@@ -643,14 +684,14 @@ OOP 역시 예외가 아니다.
 <ul class="simple">
 <li><p>원 그리기 코드</p></li>
 </ul>
-<iframe src="https://trinket.io/embed/python/5ea030f4da4a?runOption=run&start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe><p><strong>예제 3</strong></p>
+<p><iframe src="https://trinket.io/embed/python/5ea030f4da4a?runOption=run&start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe></p><p><strong>예제 3</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">isosceles(t,</span> <span class="pre">r,</span> <span class="pre">angle)</span></code> 함수는 길이가 <code class="docutils literal notranslate"><span class="pre">r</span></code>인 두 등변의 꼭지각이 <code class="docutils literal notranslate"><span class="pre">2*angle</span></code>인 이등변 삼각형을 그린다.
 단, <code class="docutils literal notranslate"><span class="pre">t</span></code>는 이등변 삼각형을 그리는 거북이 객체를 가리킨다.</p>
 <p>참고: <code class="docutils literal notranslate"><span class="pre">isosceles</span></code>는 ‘이등변의’ 뜻을 가진 영어 단어. ‘아이사슬리즈’ 라고 발음된다.</p>
 <ul class="simple">
 <li><p>이등변 삼각형 그리기 코드</p></li>
 </ul>
-<iframe src="https://trinket.io/embed/python/85bcb45bbca9?runOption=run&start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe><p><strong>예제 4</strong></p>
+<p><iframe src="https://trinket.io/embed/python/85bcb45bbca9?runOption=run&start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe></p><p><strong>예제 4</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">polygon_pie(t,</span> <span class="pre">n,</span> <span class="pre">r)</span></code> 함수는 다각형 파이 모양을 그린다.
 각각의 매개변수의 역할은 다음과 같다.</p>
 <ul class="simple">
@@ -663,8 +704,8 @@ OOP 역시 예외가 아니다.
 <li><p>다각형 파이 그리기 코드</p></li>
 </ul>
 <iframe src="https://trinket.io/embed/python/fbfbaffde1bc?runOption=run&start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe></section>
-<section id="id7">
-<h2><span class="section-number">18.4. </span>연습문제<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h2><span class="section-number">18.5. </span>연습문제<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/42H/blob/master/practices/practice-oop.ipynb">(연습) 객체 지향 프로그래밍</a></p>
 </section>
 </section>
@@ -731,8 +772,9 @@ OOP 역시 예외가 아니다.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">18.2.3. 모든 게 객체!</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">18.3. 예제</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">18.4. 연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">18.3. 객체 교감</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">18.4. 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">18.5. 연습문제</a></li>
 </ul>
   </nav></div>
 
