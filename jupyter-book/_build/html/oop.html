@@ -419,7 +419,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">18.2.3. 모든 게 객체!</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">18.3. 필수 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">18.3. 예제</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">18.4. 연습문제</a></li>
 </ul>
             </nav>
@@ -550,6 +550,9 @@ OOP 역시 예외가 아니다.
 <code class="docutils literal notranslate"><span class="pre">turtle</span></code> 모듈의 거북이 객체를 활용하여 파이썬 프로그래밍의 기초를 소개한
 <a class="reference external" href="https://leegys_gmail_com.trinket.io/python-turtle#/mini-peurojegteu/geobugi-yeoreo-mari">코딩 한 시간</a>에서
 가져왔다.</p>
+<ul class="simple">
+<li><p>거북이 객체 예제 코드</p></li>
+</ul>
 <iframe src="https://trinket.io/embed/python/1839f7a56d97?runOption=run&start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe><p>위 코드에 사용된 클래스와 객체는 다음과 같다.</p>
 <div class="pst-scrollable-table-container"><table class="table" id="turtle-graphics">
 <caption><span class="caption-number">Table 18.2 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">turtle</span></code> 모듈과 거북이 객체</span><a class="headerlink" href="#turtle-graphics" title="Link to this table">#</a></caption>
@@ -587,6 +590,7 @@ OOP 역시 예외가 아니다.
 기본적으로 서로 아무 연관이 없다.
 위 코드에서 생성된 두 마리이의 거북이 객체도 서로 영향을 주지도 받지 않으면서
 각자 독립적으로 움직이도록 설계되었다.</p>
+<p><strong>객체 교감</strong></p>
 <p>반면에 두 객체 사이의 상호 교감이 가능하게 만들 수도 있다.
 예를 들어 아래 코드는 <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> 과 <code class="docutils literal notranslate"><span class="pre">['a',</span> <span class="pre">'b',</span> <span class="pre">'c']</span></code> 를 서로 연관시킨다.</p>
 <div class="cell docutils container">
@@ -606,21 +610,59 @@ OOP 역시 예외가 아니다.
 </div>
 <p>객체 지향 프로그래밍은 한마디로 객체 각각이 수행하는 기능과
 객체들 사이의 교감을 활용하는 프로그램 기법을 의미한다.</p>
-<p>아래 코드는 <code class="docutils literal notranslate"><span class="pre">tina</span></code>와 <code class="docutils literal notranslate"><span class="pre">tommy</span></code> 서로 교감하는 방식을 보여준다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tina 와 tommy 교감 프로그램 예제</span>
-<span class="c1"># 준비중</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
+<p>아래 코드는 <code class="docutils literal notranslate"><span class="pre">tina</span></code>와 <code class="docutils literal notranslate"><span class="pre">tommy</span></code> 두 거북이 객체가 서로 충돌할 때 각자 임의의 위치로 달아나는 장면을 구현한다.
+<code class="docutils literal notranslate"><span class="pre">distance()</span></code> 함수는 수평선상에서 움직이는 두 거북이의 거리를 계산하기 위해 단순히 x-좌표의 오차를 이용한다.
+그런다음 두 거북이가 서로를 향해 다가오다가 거리가 30 이하가 되는 순간
+화들짝 놀라 서로 방향을 틀고 각자 임의의 위치로 이동한다.</p>
+<ul class="simple">
+<li><p>거북이 충돌 감지 예제 코드</p></li>
+</ul>
+<iframe src="https://trinket.io/embed/python/51822fae918b?runOption=run&start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe></section>
 </section>
 <section id="id6">
-<h2><span class="section-number">18.3. </span>필수 예제<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
-<p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/42H/blob/master/examples/examples-oop.ipynb">(필수 예제) 객체 지향 프로그래밍</a></p>
-</section>
+<h2><span class="section-number">18.3. </span>예제<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p><strong>예제 1</strong></p>
+<p>아래 프로그램에서 <code class="docutils literal notranslate"><span class="pre">polygon()</span></code> 함수는 지정된 길이를 한 변으로 하는 정다격형을 그리도록 하며 두 개의 매개변수를 사용한다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code>: 다각형의 모양. 즉, 변의 개수</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">length</span></code>: 한 변의 길이</p></li>
+</ul>
+<p>프로그램을 실행하면 Tina가 한 변의 길이가 50인 정삼각형과 한 변의 길이가 30인 정오각형을 그린다.</p>
+<ul class="simple">
+<li><p>다각형 그리기 코드</p></li>
+</ul>
+<iframe src="https://trinket.io/embed/python/e7e536be869e?runOption=run&start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe><p><strong>예제 2</strong></p>
+<p>거북이 객체의 <code class="docutils literal notranslate"><span class="pre">circle()</span></code> 함수를 이용하면 지정된 반지름의 원을 그린다.
+그런데 <code class="docutils literal notranslate"><span class="pre">polygon()</span></code> 함수를 이용하여 원을 그릴 수 있다.
+예를 들어 아래 프로그램에서 정의된 <code class="docutils literal notranslate"><span class="pre">p_circle()</span></code> 함수는 반지름 <code class="docutils literal notranslate"><span class="pre">r</span></code>이 주어졌을 때 먼저 원의 둘레를 계산한다.
+계산에 사용되는 <code class="docutils literal notranslate"><span class="pre">math.pi</span></code>는 <code class="docutils literal notranslate"><span class="pre">math</span></code> 모듈에서 원주율을 할당 받은 변수 <code class="docutils literal notranslate"><span class="pre">pi</span></code>를 가리킨다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circumference</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">r</span>
+</pre></div>
+</div>
+<p>그런 다음 원의 둘레를 100 등분해서 정 100-각형을 그린다. 엄밀히 따지면 원이 아니지만 각 변의 길이가 짧아서 마치 하나의 원처럼 보인다.</p>
+<ul class="simple">
+<li><p>원 그리기 코드</p></li>
+</ul>
+<iframe src="https://trinket.io/embed/python/5ea030f4da4a?runOption=run&start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe><p><strong>예제 3</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">isosceles(t,</span> <span class="pre">r,</span> <span class="pre">angle)</span></code> 함수는 길이가 <code class="docutils literal notranslate"><span class="pre">r</span></code>인 두 등변의 꼭지각이 <code class="docutils literal notranslate"><span class="pre">2*angle</span></code>인 이등변 삼각형을 그린다.
+단, <code class="docutils literal notranslate"><span class="pre">t</span></code>는 이등변 삼각형을 그리는 거북이 객체를 가리킨다.</p>
+<p>참고: <code class="docutils literal notranslate"><span class="pre">isosceles</span></code>는 ‘이등변의’ 뜻을 가진 영어 단어. ‘아이사슬리즈’ 라고 발음된다.</p>
+<ul class="simple">
+<li><p>이등변 삼각형 그리기 코드</p></li>
+</ul>
+<iframe src="https://trinket.io/embed/python/85bcb45bbca9?runOption=run&start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe><p><strong>예제 4</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">polygon_pie(t,</span> <span class="pre">n,</span> <span class="pre">r)</span></code> 함수는 다각형 파이 모양을 그린다.
+각각의 매개변수의 역할은 다음과 같다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">t</span></code>: 거북이 객체</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code>: 정 n-각형 지정</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">r</span></code>: 파이를 그릴 때 사용되는 이등변 삼각형의 등변 길이</p></li>
+</ul>
+<p>예를 들어 <code class="docutils literal notranslate"><span class="pre">polygon_pie(t,</span> <span class="pre">6,</span> <span class="pre">60)</span></code>은 등변의 길이가 60인 이등변 삼각형 6개로 구성된 파이를 그린다.</p>
+<ul class="simple">
+<li><p>다각형 파이 그리기 코드</p></li>
+</ul>
+<iframe src="https://trinket.io/embed/python/fbfbaffde1bc?runOption=run&start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe></section>
 <section id="id7">
 <h2><span class="section-number">18.4. </span>연습문제<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/42H/blob/master/practices/practice-oop.ipynb">(연습) 객체 지향 프로그래밍</a></p>
@@ -689,7 +731,7 @@ OOP 역시 예외가 아니다.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">18.2.3. 모든 게 객체!</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">18.3. 필수 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">18.3. 예제</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">18.4. 연습문제</a></li>
 </ul>
   </nav></div>
