@@ -940,59 +940,6 @@ document.write(`
 </div>
 </div>
 </div>
-<p>그런데 사전에 키가 없을 때 반환되는 값을 <code class="docutils literal notranslate"><span class="pre">정보</span> <span class="pre">없음</span></code>으로 지정할 수 있다.
-다만 이름이 정보에 포함된 경우 1번 인덱스의 값을 반환해야 하기에
-정보가 없을 때에도 <code class="docutils literal notranslate"><span class="pre">정보</span> <span class="pre">없음</span></code>이 어떤 리스트의 1번 인덱스의 값으로 위치시키는 게 좋다.
-그러면 리스트 인덱싱을 결과에 상관없이 적용할 수 있다.
-결과적으로 다음과 같이 <code class="docutils literal notranslate"><span class="pre">name_age()</span></code> 함수를 정의할 수 있다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">name_age</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="n">age</span> <span class="o">=</span> <span class="n">info_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;정보 없음&#39;</span><span class="p">])[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">age</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>김선주의 나이를 확인하자.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_age</span><span class="p">(</span><span class="s1">&#39;김선주&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22
-</pre></div>
-</div>
-</div>
-</div>
-<p>함중아의 나이는?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_age</span><span class="p">(</span><span class="s1">&#39;함중아&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18
-</pre></div>
-</div>
-</div>
-</div>
-<p>반면에 최강현은 정보가 없다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_age</span><span class="p">(</span><span class="s1">&#39;최강현&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;정보 없음&#39;
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
 <section id="id6">
