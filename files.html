@@ -576,7 +576,7 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">data_path</span></code> 또한 <code class="docutils literal notranslate"><span class="pre">Path</span></code> 자료형의 값을 가리키기에
-가리키는 디렉토리의 상대 경로와 절대 결오 정보를 저장한다.</p>
+가리키는 디렉토리의 상대 경로와 절대 경로 정보를 저장한다.</p>
 <ul class="simple">
 <li><p>상대 경로</p></li>
 </ul>
@@ -705,7 +705,7 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(PosixPath(&#39;data/results5m.txt&#39;), &lt;http.client.HTTPMessage at 0x7f5f418b8cb0&gt;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(PosixPath(&#39;data/results5m.txt&#39;), &lt;http.client.HTTPMessage at 0x7fbd0dedc5f0&gt;)
 </pre></div>
 </div>
 </div>
@@ -859,7 +859,7 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
 <p>파일을 불러오고 할 일을 다하면 파일 닫기를 자동으로 처리하는 다음 방식으로 진행하는 것이 권장된다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">target_path_5m</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">target_path_5m</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
@@ -902,7 +902,7 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
 <p>언급한 것을 모두 반영하여 파일을 불러오고 내용을 확인하는 코드는 다음과 같다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">target_path_5m</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">target_path_5m</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
 </pre></div>
@@ -928,7 +928,7 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
 <p><code class="docutils literal notranslate"><span class="pre">read()</span></code> 메서드는 파일 내용을 전체를 하나의 문자열로 불러온다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">target_path_5m</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">target_path_5m</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
 <span class="n">lines</span>
@@ -968,7 +968,7 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
 <p><code class="docutils literal notranslate"><span class="pre">readline()</span></code> 메서드는 한 줄씩 반환한다. 일종의 이터레이터의 <code class="docutils literal notranslate"><span class="pre">__next__()</span></code> 메서드와 유사하다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">target_path_5m</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">target_path_5m</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
 </pre></div>
@@ -1080,7 +1080,7 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
 
 <span class="n">scores_5m</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">target_path_5m</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">target_path_5m</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">name</span><span class="p">,</span> <span class="n">s_5m</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>  <span class="c1"># 리스트 해체 활용</span>
 
@@ -1256,7 +1256,7 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
 이를 위해 파일을 불러오기 위해 <code class="docutils literal notranslate"><span class="pre">open()</span></code> 함수 또는 <code class="docutils literal notranslate"><span class="pre">Path</span></code> 객체의 메서드 둘 다 이용할 수 있다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">target_path_5m</span><span class="o">.</span><span class="n">open</span><span class="p">()</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">target_path_5m</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">results_5m_dict</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">name</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
@@ -1291,7 +1291,7 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">target_path_10m</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">target_path_10m</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">results_10m_dict</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">name</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
@@ -1487,19 +1487,18 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
 <p><strong>예제 1</strong></p>
 <p>리스트의 마지막 항목인 <code class="docutils literal notranslate"><span class="pre">'zymurgy'</span></code> 문자열이 리스트에 포함되어 있는지 여부를
 확인할 때 걸리는 시간을 측정하라.</p>
-<p>힌트: <code class="docutils literal notranslate"><span class="pre">time</span></code> 모듈의 <code class="docutils literal notranslate"><span class="pre">time()</span></code> 함수 활용</p>
+<p>힌트: <code class="docutils literal notranslate"><span class="pre">timeit</span></code> 모듈의 <code class="docutils literal notranslate"><span class="pre">default_timer()</span></code> 함수 활용</p>
 <p>답:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">timeit</span>
 
 <span class="n">last_word</span> <span class="o">=</span> <span class="n">words_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="c1"># 탐색 시작 시간</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">default_timer</span><span class="p">()</span> <span class="c1"># 탐색 시작 시간</span>
 
 <span class="k">assert</span> <span class="n">last_word</span> <span class="ow">in</span> <span class="n">words_list</span>
 
-<span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span> <span class="c1"># 탐색 종료 시간</span>
+<span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">default_timer</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span> <span class="c1"># 탐색 종료 시간</span>
 </pre></div>
 </div>
 </div>
@@ -1511,7 +1510,7 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>마지막 항목 검색시간: 0.001087초
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>마지막 항목 검색시간: 0.000870초
 </pre></div>
 </div>
 </div>
@@ -1546,15 +1545,14 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
 <p>답:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">timeit</span>
 
 <span class="n">last_word</span> <span class="o">=</span> <span class="n">words_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="n">start_time_bin</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="c1"># 탐색 시작 시간</span>
+<span class="n">start_time_bin</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">default_timer</span><span class="p">()</span> <span class="c1"># 탐색 시작 시간</span>
 
 <span class="k">assert</span> <span class="n">binarySearch</span><span class="p">(</span><span class="n">words_list</span><span class="p">,</span> <span class="n">last_word</span><span class="p">)</span>
 
-<span class="n">elapsed_time_bin</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time_bin</span> <span class="c1"># 탐색 종료 시간</span>
+<span class="n">elapsed_time_bin</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">default_timer</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time_bin</span> <span class="c1"># 탐색 종료 시간</span>
 </pre></div>
 </div>
 </div>
@@ -1566,7 +1564,7 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>마지막 항목 검색시간: 0.000044초
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>마지막 항목 검색시간: 0.000036초
 </pre></div>
 </div>
 </div>
@@ -1578,7 +1576,7 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>이진 탐색이 in 연산자보다 약 24.8배 빠르다.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>이진 탐색이 in 연산자보다 약 24.3배 빠르다.
 </pre></div>
 </div>
 </div>
@@ -1649,14 +1647,14 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
 <p>답:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">timeit</span>
 
 <span class="n">last_word</span> <span class="o">=</span> <span class="n">words_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">start_time_dict</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="c1"># 탐색 시작 시간</span>
+<span class="n">start_time_dict</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">default_timer</span><span class="p">()</span> <span class="c1"># 탐색 시작 시간</span>
 
 <span class="k">assert</span> <span class="n">last_word</span> <span class="ow">in</span> <span class="n">words_dict</span>
 
-<span class="n">elapsed_time_dict</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time_dict</span> <span class="c1"># 탐색 종료 시간</span>
+<span class="n">elapsed_time_dict</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">default_timer</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time_dict</span> <span class="c1"># 탐색 종료 시간</span>
 </pre></div>
 </div>
 </div>
@@ -1668,7 +1666,7 @@ jpg, png, gif 등의 사진 파일 등 특정 소프트웨어를 사용해야만
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>마지막 항목 검색시간: 0.000038초
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>마지막 항목 검색시간: 0.000030초
 </pre></div>
 </div>
 </div>
