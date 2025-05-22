@@ -420,7 +420,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">19.1.2. 생성자</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">19.2. 인스턴스와 객체</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">19.2. 클래스 인스턴스</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">19.2.1. 인스턴스 생성</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">19.2.2. 인스턴스 변수와 속성</a></li>
 </ul>
@@ -517,12 +517,13 @@ document.write(`
 </section>
 </section>
 <section id="id5">
-<h2><span class="section-number">19.2. </span>인스턴스와 객체<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<p>객체는 특정 클래스의 인스턴스로 생성된다.</p>
+<h2><span class="section-number">19.2. </span>클래스 인스턴스<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>선언된 클래스는 값을 생성하는 데에 활용되며,
+클래스를 이용하여 생성된 값을 클래스 <strong>인스턴스</strong><font size='2'>instances</font>라 부른다.</p>
 <section id="id6">
 <h3><span class="section-number">19.2.1. </span>인스턴스 생성<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">Fraction</span></code> 클래스의 <strong>인스턴스</strong><font size='2'>instance</font>는 하나의 기약 분수처럼 작동하도록 해야 한다.
-예를 들어 아래 코드는 <code class="docutils literal notranslate"><span class="pre">3/5</span></code> 에 해당하는 <strong>객체</strong><font size='2'>object</font>를 가리키는 <code class="docutils literal notranslate"><span class="pre">f35</span></code> 변수를 선언한다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Fraction</span></code> 클래스는 생성된 인스턴스가 하나의 기약 분수처럼 작동하도록 의도되었다.
+예를 들어, <code class="docutils literal notranslate"><span class="pre">3/5</span></code> 에 해당하는 인스턴스를 아래 <code class="docutils literal notranslate"><span class="pre">f35</span></code> 변수가 가리킨다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f35</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
@@ -530,8 +531,12 @@ document.write(`
 </div>
 </div>
 </div>
-<p>메모리 상에서 <code class="docutils literal notranslate"><span class="pre">f35</span></code> 변수가 가리키는 분수 객체는 아래와 같이 저장된다.</p>
-<div align="center" border="1px"><img src="https://raw.githubusercontent.com/codingalzi/algopy/master/jupyter-book/imgs/fraction1.png" width="80%"></div><div class="note admonition">
+<p>메모리 상에서 <code class="docutils literal notranslate"><span class="pre">f35</span></code> 변수가 가리키는 인스턴스는 아래와 같이 저장된다.</p>
+<div align="center" border="1px"><img src="https://raw.githubusercontent.com/codingalzi/algopy/master/jupyter-book/imgs/fraction1.png" width="80%"></div><p><strong>인스턴스 대 객체</strong></p>
+<p>객체지향프로그래밍 언어에서
+<strong>객체</strong><font size='2'>objects</font>는 임의의 클래스의 인스턴스를 가리킨다.
+여기서는 객체와 인스턴스를 개념적으로 구분하기 위해 인스턴스는 항상 클래스 이름과 함께 언급한다.</p>
+<div class="note admonition">
 <p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">self</span></code>의 기능</p>
 <p><code class="docutils literal notranslate"><span class="pre">f35</span> <span class="pre">=</span> <span class="pre">Fraction(3,</span> <span class="pre">5)</span></code> 방식으로 변수 할당이 실행되면
 파이썬 실행기<font size='2'>interpreter</font>는 다음을 싱행한다.</p>
@@ -1463,7 +1468,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">19.1.2. 생성자</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">19.2. 인스턴스와 객체</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">19.2. 클래스 인스턴스</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">19.2.1. 인스턴스 생성</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">19.2.2. 인스턴스 변수와 속성</a></li>
 </ul>
