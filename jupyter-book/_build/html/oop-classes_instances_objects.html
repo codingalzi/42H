@@ -448,8 +448,8 @@ document.write(`
 <span id="id1"></span><h1><span class="section-number">19. </span>클래스, 인스턴스, 객체<a class="headerlink" href="#ch-classes-instances-objects" title="Link to this heading">#</a></h1>
 <p>객체 지향 프로그래밍 언어의 가장 큰 장점 중의 하나는
 필요한 자료형을 클래스로 정의하고 객체를 생성하여 활용할 수 있다는 점이다.</p>
-<p>여기서는 <code class="docutils literal notranslate"><span class="pre">fractions</span></code> 모듈에 포함된 <a class="reference external" href="https://docs.python.org/ko/3/library/fractions.html"><code class="docutils literal notranslate"><span class="pre">Fraction</span></code> 클래스</a>를
-직접 정의하면서 클래스, 인스턴스, 객체 개념을 구체적으로 소개한다.
+<p>여기서는 <code class="docutils literal notranslate"><span class="pre">fractions</span></code> 모듈에 포함된 <a class="reference external" href="https://docs.python.org/ko/3/library/fractions.html"><code class="docutils literal notranslate"><span class="pre">Fraction</span></code> 클래스</a>처럼
+작동하는 클래스를 직접 정의하면서 클래스, 인스턴스, 객체 개념을 구체적으로 소개한다.
 <code class="docutils literal notranslate"><span class="pre">Fraction</span></code> 클래스는 <code class="docutils literal notranslate"><span class="pre">1/2</span></code>, <code class="docutils literal notranslate"><span class="pre">2/7</span></code> 처럼 기약분수들의 자료형 역할을 수행하고
 분수들의 덧셈, 크기 비교 등을 지원한다.</p>
 <section id="id2">
@@ -462,9 +462,99 @@ document.write(`
 <h3><span class="section-number">19.1.1. </span>클래스 선언<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>클래스는 다음 형식으로 선언된다.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">클래스명</span><span class="p">:</span>
-    <span class="o">...</span>
-    <span class="c1"># 속성 지정 및 메서드 선언</span>
+    <span class="c1"># 속성과 메서드 선언</span>
 </pre></div>
+</div>
+<p>예를 들어 아래 코드는 이번 장에서 최종적으로 선언되는 <code class="docutils literal notranslate"><span class="pre">Fraction</span></code> 클래스를 보여준다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Fraction</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">bottom</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="o">=</span> <span class="n">top</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bottom</span> <span class="o">=</span> <span class="n">bottom</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">top</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">bottom</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="n">new_top</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">bottom</span> <span class="o">+</span> \
+                     <span class="bp">self</span><span class="o">.</span><span class="n">bottom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">top</span>
+        <span class="n">new_bottom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">bottom</span>
+        <span class="n">common</span> <span class="o">=</span> <span class="n">gcd</span><span class="p">(</span><span class="n">new_top</span><span class="p">,</span> <span class="n">new_bottom</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">Fraction</span><span class="p">(</span><span class="n">new_top</span> <span class="o">//</span> <span class="n">common</span><span class="p">,</span> <span class="n">new_bottom</span> <span class="o">//</span> <span class="n">common</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="n">first_top</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">bottom</span>
+        <span class="n">second_top</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">top</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom</span>
+
+        <span class="k">return</span> <span class="n">first_top</span> <span class="o">==</span> <span class="n">second_top</span>
+    
+    <span class="k">def</span> <span class="nf">numerator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">top</span>
+
+    <span class="k">def</span> <span class="nf">denominator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom</span>
+    
+    <span class="k">def</span> <span class="nf">to_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">numerator</span><span class="p">()</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Fraction</span></code> 클래스에서 선언된 속성과 메서드는 다음과 같다.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="fractiion-class-attributes">
+<caption><span class="caption-number">Table 19.1 </span><span class="caption-text">속성</span><a class="headerlink" href="#fractiion-class-attributes" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 21.4%" />
+<col style="width: 78.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>변수</p></th>
+<th class="head"><p>기능</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">self.top</span></code></p></td>
+<td><p>분자 할당</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">self.bottom</span></code></p></td>
+<td><p>분모 할당</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="fractiion-class-methods">
+<caption><span class="caption-number">Table 19.2 </span><span class="caption-text">메서드.</span><a class="headerlink" href="#fractiion-class-methods" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 21.4%" />
+<col style="width: 78.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>함수</p></th>
+<th class="head"><p>기능</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></p></td>
+<td><p>생성자</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__repr__()</span></code></p></td>
+<td><p>객체 출력</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__add__()</span></code></p></td>
+<td><p>분수 덧셈</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__eq__()</span></code></p></td>
+<td><p>분수 동치성 비교</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">numerator()</span></code></p></td>
+<td><p>분자 추출</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">denominator()</span></code></p></td>
+<td><p>분모 추출</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">to_float()</span></code></p></td>
+<td><p>부동소수점으로의 변환</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <p><strong>속성과 메서드</strong></p>
 <p><strong>속성</strong><font size='2'>attributes</font>은 클래스의 인스턴스에 저장되는 값을,
@@ -539,7 +629,7 @@ document.write(`
 <div class="note admonition">
 <p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">self</span></code>의 기능</p>
 <p><code class="docutils literal notranslate"><span class="pre">f35</span> <span class="pre">=</span> <span class="pre">Fraction(3,</span> <span class="pre">5)</span></code> 방식으로 변수 할당이 실행되면
-파이썬 실행기<font size='2'>interpreter</font>는 다음을 싱행한다.</p>
+파이썬 실행기<font size='2'>interpreter</font>는 다음을 실행한다.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="fm">__init__</span><span class="p">(</span><span class="n">f35</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
