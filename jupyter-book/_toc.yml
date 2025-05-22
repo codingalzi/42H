@@ -25,7 +25,7 @@ chapters:
 - file: dicts_sets
 - file: files
 - file: oop
-# - file: classes_instances_objects
+- file: oop-classes_instances_objects
 # - file: inheritance
 # - file: modules_advanced
 # - file: iterator_generator
