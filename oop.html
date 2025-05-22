@@ -419,7 +419,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">18.2.3. 모든 게 객체!</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">18.3. 객체 교감</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">18.3. 객체 상호 작용</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">18.4. 예제</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">18.5. 연습문제</a></li>
 </ul>
@@ -464,9 +464,9 @@ OOP 역시 예외가 아니다.
 <section id="id3">
 <h3><span class="section-number">18.2.1. </span>객체<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>파이썬에서 객체는 특정 클래스의 <strong>인스턴스</strong><font size='2'>instance</font>로 생성되는 값이다.
-그렇게 생성된 값의 자료형은 값을 생성할 때 사용된 클래스로 지정된다.
-결론적으로 파이썬의 모든 값은 하나의 객체, 즉 어떤 클래스의 인스턴스로 생성된다.</p>
-<p>예를 들어 정수, 부동소수점, 부울값, 문자열, 리스트, 튜플, 사전, 집합 등은
+그렇게 생성된 값의 자료형은 값을 생성할 때 사용된 클래스로 지정된다.</p>
+<p>파이썬의 모든 값은 하나의 객체, 즉 어떤 클래스의 인스턴스로 생성된다.
+예를 들어 정수, 부동소수점, 부울값, 문자열, 리스트, 튜플, 사전, 집합 등은
 각각 <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code> 클래스의
 인스턴스로 생성된 객체다.</p>
 <div class="pst-scrollable-table-container"><table class="table" id="classes-instances">
@@ -509,10 +509,10 @@ OOP 역시 예외가 아니다.
 <section id="id4">
 <h3><span class="section-number">18.2.2. </span>객체 중심 프로그래밍<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>객체는 클래스가 제공하는 속성과 기능을 활용할 수 있다.
-리스트의 속성은 포함된 항목과 항목의 개수 등의 정보를,
-리스트의 기능은 리스트에 포함된 항목과 정보를 활용하고 수정하는 메서드들이다.
-예를 들어, 아래 코드는 리스트에 항목(속성)을 확인하고 추가, 삭제하는 기능을 다룬다.
-이처럼 객체의 고유 기능을 이용하여 새로운 값을 생성하고 활용하는 일이
+리스트의 속성은 예를 들어 항목으로 사용된 값과 항목의 개수 등의 정보를,
+리스트의 기능은 리스트에 포함된 항목과 정보를 활용하고 수정하는 메서드들이다.</p>
+<p>아래 코드는 리스트에 항목(속성)을 확인하고 추가, 삭제하는 기능을 다룬다.
+이처럼 객체 고유 기능을 이용하여 새로운 값을 생성하고 활용하는 일이
 객체 중심 프로그래밍의 핵심이다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -623,17 +623,17 @@ OOP 역시 예외가 아니다.
 </div>
 <p>객체의 모양, 색깔, 이동 속도 등은 객체 내에서 선언된 변수에 할당되어 저장된다.
 예를 들어 <code class="docutils literal notranslate"><span class="pre">tommy</span></code> 거북이가 사용하는 펜의 색깔은 <code class="docutils literal notranslate"><span class="pre">tommy._pencolor</span></code> 속성 변수에 저장된다.
-이런 속성들은 터틀 그래픽스에 의해 게임을 실제 구현할 때 활용된다.</p>
+이런 속성들은 터틀 그래픽스가 게임을 실제로 실행되도록 구현할 때 활용된다.</p>
 </section>
 </section>
 <section id="id6">
-<h2><span class="section-number">18.3. </span>객체 교감<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.3. </span>객체 상호 작용<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>하나의 클래스를 이용해서 생성된 여러 개의 객체는 기본적으로 상호 독립적이다.
 예를 들어 두 개의 <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> 과 <code class="docutils literal notranslate"><span class="pre">['a',</span> <span class="pre">'b',</span> <span class="pre">'c']</span></code> 는 둘 모두 <code class="docutils literal notranslate"><span class="pre">list</span></code>의 인스턴스이지만
 기본적으로 서로 아무 연관이 없다.
-위 코드에서 생성된 두 마리이의 거북이 객체도 서로 영향을 주지도 받지 않으면서
-각자 독립적으로 움직이도록 설계되었다.</p>
-<p>반면에 두 객체 사이의 상호 교감이 가능하게 만들 수도 있다.
+위 코드에서 생성된 두 마리이의 거북이 객체들도 서로 상관없이
+각자 독립적으로 움직인다.</p>
+<p>반면에 두 객체 사이의 상호 작용이 가능하게 만들 수도 있다.
 예를 들어 아래 코드는 <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> 과 <code class="docutils literal notranslate"><span class="pre">['a',</span> <span class="pre">'b',</span> <span class="pre">'c']</span></code> 를 서로 연관시킨 후
 홀수와 관련된 항목만 출력한다.</p>
 <div class="cell docutils container">
@@ -652,15 +652,15 @@ OOP 역시 예외가 아니다.
 </div>
 </div>
 <p>객체 지향 프로그래밍은 한마디로 객체 각각이 수행하는 기능과
-객체들 사이의 교감을 활용하는 프로그램 기법을 의미한다.</p>
+객체들 사이의 상호 작용을 활용하는 프로그램 기법을 의미한다.</p>
 <p>아래 코드는 <code class="docutils literal notranslate"><span class="pre">tina</span></code>와 <code class="docutils literal notranslate"><span class="pre">tommy</span></code> 두 거북이 객체가 서로 충돌할 때 각자 임의의 위치로 달아나는 장면을 구현한다.
 <code class="docutils literal notranslate"><span class="pre">distance()</span></code> 함수는 수평선상에서 움직이는 두 거북이의 거리를 계산하기 위해 단순히 x-좌표의 오차를 이용한다.
-그런다음 두 거북이가 서로를 향해 다가오다가 거리가 30 이하가 되는 순간
-화들짝 놀라 서로 방향을 틀고 각자 임의의 위치로 이동한다.</p>
+두 거북이가 서로를 향해 다가오다가 거리가 30 이하가 되는 순간
+화들짝 놀라 서로 방향을 틀고 각자 임의의 위치로 달아난다.</p>
 <ul class="simple">
 <li><p>거북이 충돌 감지 예제 코드</p></li>
 </ul>
-<p><iframe src="https://trinket.io/embed/python/51822fae918b?runOption=run&start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe></p><p>이어지는 장에서 객체들 사이의 교감을 보다 다양한 방식으로 구현하는 방식을 소개한다.</p>
+<p><iframe src="https://trinket.io/embed/python/51822fae918b?runOption=run&start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe></p><p>이어지는 장에서 객체 상호 작용을 보다 다양한 방식으로 구현하는 방식을 소개한다.</p>
 </section>
 <section id="id7">
 <h2><span class="section-number">18.4. </span>예제<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
@@ -774,7 +774,7 @@ OOP 역시 예외가 아니다.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">18.2.3. 모든 게 객체!</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">18.3. 객체 교감</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">18.3. 객체 상호 작용</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">18.4. 예제</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">18.5. 연습문제</a></li>
 </ul>
