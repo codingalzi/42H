@@ -781,7 +781,7 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f35</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>메모리 상에서는 다음과 같이 변수와 객체가 생성된다.</p>
+<p>메모리 상에서는 다음과 같이 <code class="docutils literal notranslate"><span class="pre">Fraction</span></code> 클래스와 클래스의 인스턴스 객체 <code class="docutils literal notranslate"><span class="pre">Fraction(3,</span> <span class="pre">5)</span></code>가 생성된다.</p>
 <div align="center" border="1px"><img src="https://raw.githubusercontent.com/codingalzi/42H/master/jupyter-book/images/fraction1-1.png" width="70%"></div><p><strong>생성자 메서드 이름</strong></p>
 <p>파이썬 클래스의 생성자는 모두 <code class="docutils literal notranslate"><span class="pre">__init__</span></code> 로 정의된다.
 반면에 Java, C++, C# 등 많은 다른 OOP 언어에서는 생성자 메서드의 이름과
@@ -789,23 +789,37 @@ document.write(`
 언어마다 생성자를 부르는 방식이 다른 이유가 있지만 여기서는
 더이상 언급하지 않는다.</p>
 <p><strong><code class="docutils literal notranslate"><span class="pre">self</span></code>의 기능</strong></p>
-<p>클래스의 본문에서 선언된 메서드와 인스턴스 변수는 모두 <code class="docutils literal notranslate"><span class="pre">self</span></code> 키워드를 사용한다.
+<p>여기서 소개하는 클래스의 본문에서 선언된 메서드와 인스턴스 변수는 모두 <code class="docutils literal notranslate"><span class="pre">self</span></code> 키워드를 사용한다.
 이는 파이썬 언어만의 특징이며 Java, C++, C# 등 다른 프로그래밍언어에서는 일반적으로 사용되지 않는다.</p>
-<p><code class="docutils literal notranslate"><span class="pre">self</span></code>의 기능은 다양하다.
-먼저 <code class="docutils literal notranslate"><span class="pre">self.top_</span></code>과 <code class="docutils literal notranslate"><span class="pre">self.bottom_</span></code>은 클래스 내부 전체에서 사용될 수 있는 권한을 갖는다.</p>
-<p>…</p>
-<div class="note admonition">
-<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">self</span></code>의 기능</p>
-<p><code class="docutils literal notranslate"><span class="pre">f35</span> <span class="pre">=</span> <span class="pre">Fraction(3,</span> <span class="pre">5)</span></code> 방식으로 변수 할당이 실행되면
-파이썬 실행기<font size='2'>interpreter</font>는 다음을 실행한다.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="fm">__init__</span><span class="p">(</span><span class="n">f35</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<p><code class="docutils literal notranslate"><span class="pre">self</span></code>의 기능은 다양하다.</p>
+<p>첫째, <code class="docutils literal notranslate"><span class="pre">self.top_</span></code>과 <code class="docutils literal notranslate"><span class="pre">self.bottom_</span></code>은 클래스 내부 전체에서 사용될 수 있는 권한을 갖는다.</p>
+<p>두 변수는 <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> 메서드, 즉 함수 안에서 선언되었지만
+<code class="docutils literal notranslate"><span class="pre">to_float()</span></code> 메서드, 즉 다른 함수 내부에서 사용된다.
+이처럼 <code class="docutils literal notranslate"><span class="pre">self.변수명</span></code> 형식으로 클래스 본문 어딘가에서 선언된 변수는
+클래스 어디에서도 활용될 수 있다.
+즉, 인스턴스 변수의 활동 영역<font size='2'>scope</font>은 클래스 본문 전체다.</p>
+<p>둘째, 메서드의 첫째 매개 변수로 <code class="docutils literal notranslate"><span class="pre">self</span></code>가 사용된다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">self</span></code> 매개 변수는 현재 생성되는 객체를 인자로 받는다.
+따라서 <code class="docutils literal notranslate"><span class="pre">f35.to_float()</span></code> 처럼 객체의 메서드로 호출될 때는 <code class="docutils literal notranslate"><span class="pre">self</span></code> 매개 변수에 대한 인자는 지정하지 않는다.
+이유는 파이썬 실행기가 <code class="docutils literal notranslate"><span class="pre">self</span></code> 매개 변수에 메서드가 속한 객체인 <code class="docutils literal notranslate"><span class="pre">f35</span></code>를 인자로
+지정하기 때문이다.
+즉, 파이썬 실행기에 의해 아래 코드가 대신 실행된다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">to_float</span><span class="p">(</span><span class="n">f35</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>즉, <code class="docutils literal notranslate"><span class="pre">self</span></code> 매개변수는 현재 생성되는 객체를 인자로 받는다.</p>
+<p>메서드의 첫째 매개 변수로 <code class="docutils literal notranslate"><span class="pre">self</span></code>를 사용하는 메서드를 <strong>인스턴스 메서드</strong>라고 부른다.
+하지만 여기서는 다른 종류의 메서드를 다루지 않기에 그냥 메서드라고 한다.</p>
+<div class="note admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">self</span></code>를 사용하지 않는 변수와 메서드</p>
+<p>클래스 본문에 <code class="docutils literal notranslate"><span class="pre">self</span></code> 를 사용하지 않는 변수와 메서드를 선언할 수도 있다.
+그런 변수와 메서드는 여기서 다루는 인스턴스 변수와 메서드와 용도와 활용법이 다르다.
+하지만 자세한 내용은 더이상 다루지 않는다.</p>
+<p>보다 자세한 내용은 아래 두 링크를 참고할 수 있다.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://formal.hknu.ac.kr/ProgInPython/notebooks/PiPy08-ClassesAndInstances_Part1.html">코드 추상화: 클래스와 객체 1부</a></p></li>
+<li><p><a class="reference external" href="https://formal.hknu.ac.kr/ProgInPython/notebooks/PiPy09-ClassesAndInstances_Part2.html">코드 추상화: 클래스와 객체 2부</a></p></li>
+</ul>
 </div>
-<p>인스턴스 변수 이외에 <code class="docutils literal notranslate"><span class="pre">self</span></code> 를 사용하지 않는
-<strong>클래스 변수</strong><font size='2'>class variable</font>도 있지만
-여기서는 다루지 않는다.</p>
 </section>
 <section id="id6">
 <h2><span class="section-number">19.3. </span>매직 메서드<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
