@@ -899,7 +899,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fraction object at 0x7fcfdc09c770&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fraction object at 0x7f277ba981d0&gt;
 </pre></div>
 </div>
 </div>
@@ -1029,7 +1029,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fraction at 0x7fcfc2687ce0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fraction at 0x7f277ba9a1b0&gt;
 </pre></div>
 </div>
 </div>
@@ -1042,7 +1042,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &lt;__main__.Fraction object at 0x7fcfc2687ce0&gt;, 1]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &lt;__main__.Fraction object at 0x7f277ba9a1b0&gt;, 1]
 </pre></div>
 </div>
 </div>
@@ -1196,18 +1196,6 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f35</span><span class="p">)</span> <span class="c1"># __repr__() 대신 사용됨</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3/5
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f35</span>
 </pre></div>
 </div>
@@ -1226,6 +1214,32 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, 3/5, 1]
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">__str__()</span></code> 메서드가 선언되지 않았음에도 불구하고 지원된다.
+엄밀히 말하면 <code class="docutils literal notranslate"><span class="pre">__repr__()</span></code> 메서드를 활용하도록 설정되어 있다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f35</span><span class="p">)</span> <span class="c1"># __repr__() 대신 사용됨</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3/5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f35</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;3/5&#39;
 </pre></div>
 </div>
 </div>
@@ -1253,7 +1267,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">61</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">34</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">f14</span> <span class="o">+</span> <span class="n">f12</span>
 
 <span class="ne">TypeError</span>: unsupported operand type(s) for +: &#39;Fraction&#39; and &#39;Fraction&#39;
@@ -1552,14 +1566,14 @@ document.write(`
 
         <span class="k">return</span> <span class="n">Fraction</span><span class="p">(</span><span class="n">new_top</span><span class="o">//</span><span class="n">common</span><span class="p">,</span> <span class="n">new_bottom</span><span class="o">//</span><span class="n">common</span><span class="p">)</span>
     
-    <span class="k">def</span> <span class="nf">to_float</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">top_</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span><span class="p">,</span> <span class="n">digits</span><span class="p">)</span>
-    
     <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="n">first_top</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">bottom_</span>
         <span class="n">second_top</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">top_</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span>
 
-        <span class="k">return</span> <span class="n">first_top</span> <span class="o">==</span> <span class="n">second_top</span>    
+        <span class="k">return</span> <span class="n">first_top</span> <span class="o">==</span> <span class="n">second_top</span>
+
+    <span class="k">def</span> <span class="nf">to_float</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">top_</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span><span class="p">,</span> <span class="n">digits</span><span class="p">)</span>    
 </pre></div>
 </div>
 </div>
@@ -1617,51 +1631,158 @@ document.write(`
 </section>
 <section id="id10">
 <h2><span class="section-number">19.4. </span>인스턴스 메서드<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
-<p>매직 메서드 이외에 클래스에 다른 기능을 제공하는
-인스턴스 메서드를 선언할 수 있다.
-여기서는 다음 두 기능을 지원하는 메서드를 구현한다.</p>
-<ul class="simple">
-<li><p>분모와 분자 추출</p></li>
-<li><p>분수 객체를 부동소수점으로 변환</p></li>
-</ul>
-<p><strong>분모와 분자 추출</strong></p>
-<p>아래 코드는 <code class="docutils literal notranslate"><span class="pre">Fraction</span></code> 클래스의 인스턴스로부터
-분자와 분모를 반환하는 <code class="docutils literal notranslate"><span class="pre">numerator()</span></code> 메서드와 <code class="docutils literal notranslate"><span class="pre">denominator()</span></code> 메서드를 함께 구현한다.</p>
+<p><strong>매직 메서드의 특성</strong></p>
+<p>파이썬 클래스의 매직 메서드는 각지 고유의 역할이 있으며
+역할 수행 방식이 필요에 따라 적절히 재정의될 수 있다.
+예를 들어 <code class="docutils literal notranslate"><span class="pre">__str___()</span></code> 메서드는 임의의 객체가 사용할 수 있다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1/2&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;[1, 2, 3]&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;abc&#39;</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;abc&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>심지어 정수와 부동소수점에 대해서도 지원된다.
+단 소괄호로 감싸야 함에 주의한다.
+그렇지 않으면 점 기호 <code class="docutils literal notranslate"><span class="pre">.</span></code>가
+값과 메서드를 구분하는 구분점 기호가 아닌 소수점으로 잘못 인식되기 때문이다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">17</span><span class="p">)</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;17&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">17.1</span><span class="p">)</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;17.1&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>사용자 정의 메서드</strong></p>
+<p>클래스 고유의 기능은 사용자가 직접 정의한 메서드와 속성에 의해 결정된다.
+이렇듯 사용자가 직접 선언하는 메서드를
+<strong>인스턴스 메서드</strong><font size='2'>instance methods</font>라 부른다.
+인스턴스 메서드는 클래스 본문에서 정의되는 함수이며,
+첫째 매개 변수로 항상 <code class="docutils literal notranslate"><span class="pre">self</span></code> 가 사용된다.</p>
+<p>예를 들어,
+<code class="docutils literal notranslate"><span class="pre">Fraction</span></code> 클래스가 처음 정의될 때부터 포함된 <code class="docutils literal notranslate"><span class="pre">to_float()</span></code> 함수가 인스턴스 메서드다.
+<code class="docutils literal notranslate"><span class="pre">to_float()</span></code> 메서드는 매직 메서드와는 달리 <code class="docutils literal notranslate"><span class="pre">Fraction</span></code> 클래스의
+인스턴스만 사용할 수 있는 메서드다.</p>
+<p>인스턴스 메서드 호출은 리스트, 사전 등의 메서드 호출과 동일한 방식을 따른다.
+아래 코드는 <code class="docutils literal notranslate"><span class="pre">f1</span></code> 객체가 가리키는 값, 즉 1/2에 해당하는 분수 객체를
+부동소수점으로 변환한다.
+앞서 설명하였듯이 <code class="docutils literal notranslate"><span class="pre">self</span></code> 매개 변수에 대한 인자는 지정하지 않기에
+<code class="docutils literal notranslate"><span class="pre">to_float()</span></code> 메서드를 인자 없이 호출한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span><span class="o">.</span><span class="n">to_float</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>매직 메서드와는 달리 <code class="docutils literal notranslate"><span class="pre">to_float()</span></code> 메서드는 다른 클래스의 인스턴스,
+즉 다른 자료형의 값과는 함께 사용될 수 없다.
+예를 들어 리스트에 대해 <code class="docutils literal notranslate"><span class="pre">to_float()</span></code> 메서드를 호출하면
+지원되지 않는 메서드이기에 <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> 오류가 발생한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">to_float</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">60</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">to_float</span><span class="p">()</span>
+
+<span class="ne">AttributeError</span>: &#39;list&#39; object has no attribute &#39;to_float&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제: 분모와 분자 추출 인스턴스 메서드</strong></p>
+<p>아래 코드의 <code class="docutils literal notranslate"><span class="pre">Fraction</span></code> 클래스는
+생성된 인스턴스로부터 각각 분자와 분모를 추출하는 <code class="docutils literal notranslate"><span class="pre">numerator()</span></code> 메서드와 <code class="docutils literal notranslate"><span class="pre">denominator()</span></code> 메서드를
+인스턴스 메서드로 포함한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Fraction</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fraction 클래스&quot;&quot;&quot;</span>
-
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">bottom</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;생성자 메서드</span>
-<span class="sd">        top: 분자</span>
-<span class="sd">        bottom: 분모</span>
-<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">top_</span> <span class="o">=</span> <span class="n">top</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span> <span class="o">=</span> <span class="n">bottom</span>
-
+        
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">top_</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span><span class="si">}</span><span class="s2">&quot;</span>
-
+    
     <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="n">new_top</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">bottom_</span> <span class="o">+</span> \
-                     <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">top_</span>
+        <span class="n">new_top</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">bottom_</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">top_</span>
         <span class="n">new_bottom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">bottom_</span>
-        <span class="n">common</span> <span class="o">=</span> <span class="n">gcd</span><span class="p">(</span><span class="n">new_top</span><span class="p">,</span> <span class="n">new_bottom</span><span class="p">)</span>
         
-        <span class="k">return</span> <span class="n">Fraction</span><span class="p">(</span><span class="n">new_top</span> <span class="o">//</span> <span class="n">common</span><span class="p">,</span> <span class="n">new_bottom</span> <span class="o">//</span> <span class="n">common</span><span class="p">)</span>
+        <span class="n">common</span> <span class="o">=</span> <span class="n">gcd</span><span class="p">(</span><span class="n">new_top</span><span class="p">,</span> <span class="n">new_bottom</span><span class="p">)</span>
 
+        <span class="k">return</span> <span class="n">Fraction</span><span class="p">(</span><span class="n">new_top</span><span class="o">//</span><span class="n">common</span><span class="p">,</span> <span class="n">new_bottom</span><span class="o">//</span><span class="n">common</span><span class="p">)</span>
+    
     <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="n">first_top</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">bottom_</span>
         <span class="n">second_top</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">top_</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span>
 
         <span class="k">return</span> <span class="n">first_top</span> <span class="o">==</span> <span class="n">second_top</span>
+
+    <span class="k">def</span> <span class="nf">to_float</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">top_</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span><span class="p">,</span> <span class="n">digits</span><span class="p">)</span>
     
     <span class="k">def</span> <span class="nf">numerator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_</span>     <span class="c1"># 분자 반환</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_</span>
 
     <span class="k">def</span> <span class="nf">denominator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span>  <span class="c1"># 분모 반환</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span>
 </pre></div>
 </div>
 </div>
@@ -1679,67 +1800,6 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2/3의 분자: 2
 2/3의 분모: 3
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>부동소수점으로의 변환</strong></p>
-<p>아래 코드는 분수를 부동소수점으로 변환하는 <code class="docutils literal notranslate"><span class="pre">to_float()</span></code> 메서드를 구현한다.
-<code class="docutils literal notranslate"><span class="pre">to_float()</span></code> 메서드의 반환값은 인자로 입력된 분수 객체의 분자를 분모로 나눈 결과를 반환한다.
-분자와 분모의 나눗셈은 파이썬의 기본 나눗셈 연산자를 활용한다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Fraction</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fraction 클래스&quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">bottom</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;생성자 메서드</span>
-<span class="sd">        top: 분자</span>
-<span class="sd">        bottom: 분모</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">top_</span> <span class="o">=</span> <span class="n">top</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span> <span class="o">=</span> <span class="n">bottom</span>
-
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">top_</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span><span class="si">}</span><span class="s2">&quot;</span>
-
-    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="n">new_top</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">bottom_</span> <span class="o">+</span> \
-                     <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">top_</span>
-        <span class="n">new_bottom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">bottom_</span>
-        <span class="n">common</span> <span class="o">=</span> <span class="n">gcd</span><span class="p">(</span><span class="n">new_top</span><span class="p">,</span> <span class="n">new_bottom</span><span class="p">)</span>
-        
-        <span class="k">return</span> <span class="n">Fraction</span><span class="p">(</span><span class="n">new_top</span> <span class="o">//</span> <span class="n">common</span><span class="p">,</span> <span class="n">new_bottom</span> <span class="o">//</span> <span class="n">common</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="n">first_top</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">bottom_</span>
-        <span class="n">second_top</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">top_</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span>
-
-        <span class="k">return</span> <span class="n">first_top</span> <span class="o">==</span> <span class="n">second_top</span>
-    
-    <span class="k">def</span> <span class="nf">numerator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_</span>
-
-    <span class="k">def</span> <span class="nf">denominator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span>
-    
-    <span class="k">def</span> <span class="nf">to_float</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">top_</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span><span class="p">,</span> <span class="n">digits</span><span class="p">)</span> <span class="c1"># 부동소수점으로 변환</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">Fraction</span></code> 클래스의 인스턴스는 아래 그림에서 언급된 모든 메서드를 활용할 수 있다.</p>
-<p>예를 들어 2/3을 부동소수점으로 변환하면 다음과 같다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f3</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">f3</span><span class="o">.</span><span class="n">to_float</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.67
 </pre></div>
 </div>
 </div>
