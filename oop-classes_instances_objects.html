@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -428,7 +428,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">19.4. 인스턴스 메서드</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">19.5. 연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">19.5. 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">19.6. 연습문제</a></li>
 </ul>
             </nav>
         </div>
@@ -476,36 +477,36 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">Fraction</span></code> 클래스는 속성으로 분모와 분자로 사용되는 두 개의 정수를 저장하며,
 분수의 분수의 사칙연산, 크기 비교 등의 기능을 메서드로 제공한다.</p>
 <p>아래 코드는 이번 장에서 최종적으로 선언되는 <code class="docutils literal notranslate"><span class="pre">Fraction</span></code> 클래스를 보여준다.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Fraction</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Fraction</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">bottom</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">top_</span> <span class="o">=</span> <span class="n">top</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span> <span class="o">=</span> <span class="n">bottom</span>
-
+        
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">top_</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span><span class="si">}</span><span class="s2">&quot;</span>
-
+    
     <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="n">new_top</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">bottom_</span> <span class="o">+</span> \
-                     <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">top_</span>
+        <span class="n">new_top</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">bottom_</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">top_</span>
         <span class="n">new_bottom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">bottom_</span>
-        <span class="n">common</span> <span class="o">=</span> <span class="n">gcd</span><span class="p">(</span><span class="n">new_top</span><span class="p">,</span> <span class="n">new_bottom</span><span class="p">)</span>
         
-        <span class="k">return</span> <span class="n">Fraction</span><span class="p">(</span><span class="n">new_top</span> <span class="o">//</span> <span class="n">common</span><span class="p">,</span> <span class="n">new_bottom</span> <span class="o">//</span> <span class="n">common</span><span class="p">)</span>
+        <span class="n">common</span> <span class="o">=</span> <span class="n">gcd</span><span class="p">(</span><span class="n">new_top</span><span class="p">,</span> <span class="n">new_bottom</span><span class="p">)</span>
 
+        <span class="k">return</span> <span class="n">Fraction</span><span class="p">(</span><span class="n">new_top</span><span class="o">//</span><span class="n">common</span><span class="p">,</span> <span class="n">new_bottom</span><span class="o">//</span><span class="n">common</span><span class="p">)</span>
+    
     <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="n">first_top</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">bottom_</span>
         <span class="n">second_top</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">top_</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span>
 
         <span class="k">return</span> <span class="n">first_top</span> <span class="o">==</span> <span class="n">second_top</span>
+
+    <span class="k">def</span> <span class="nf">to_float</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">top_</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span><span class="p">,</span> <span class="n">digits</span><span class="p">)</span>
     
     <span class="k">def</span> <span class="nf">numerator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_</span>
 
     <span class="k">def</span> <span class="nf">denominator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span>
-    
-    <span class="k">def</span> <span class="nf">to_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom_</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -899,7 +900,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fraction object at 0x7f277ba981d0&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fraction object at 0x77849164cdd0&gt;
 </pre></div>
 </div>
 </div>
@@ -1029,7 +1030,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fraction at 0x7f277ba9a1b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fraction at 0x77849165ec90&gt;
 </pre></div>
 </div>
 </div>
@@ -1042,7 +1043,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &lt;__main__.Fraction object at 0x7f277ba9a1b0&gt;, 1]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &lt;__main__.Fraction object at 0x77849165ec90&gt;, 1]
 </pre></div>
 </div>
 </div>
@@ -1806,7 +1807,297 @@ document.write(`
 </div>
 </section>
 <section id="id11">
-<h2><span class="section-number">19.5. </span>연습문제<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.5. </span>예제<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<p><strong><code class="docutils literal notranslate"><span class="pre">datetime</span></code> 모듈</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime</span></code> 모듈은 날짜와 시간을 다루는 클래스를 제공한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">datetime</span></code> 모듈의 <code class="docutils literal notranslate"><span class="pre">date</span></code> 클래스는 날짜 정보를 <code class="docutils literal notranslate"><span class="pre">(년,</span> <span class="pre">월,</span> <span class="pre">일)</span></code> 형식으로 저장한다.
+예를 들어 2025년 5월 30일을 아래와 같이 저장하면
+변수 <code class="docutils literal notranslate"><span class="pre">d</span></code>는 언급된 날짜의 정보를 <code class="docutils literal notranslate"><span class="pre">date</span></code> 클래스의 객체로 저장한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">d</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.date(2025, 5, 30)
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">date</span></code> 객체에 저장된 년, 월, 일 정보는 각각 <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, <code class="docutils literal notranslate"><span class="pre">day</span></code> 속성으로 확인된다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;변수 d에 저장된 날짜: </span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2">년 </span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2">월 </span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">day</span><span class="si">}</span><span class="s2">일&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>변수 d에 저장된 날짜: 2025년 5월 30일
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">date</span></code> 클래스의 <code class="docutils literal notranslate"><span class="pre">today()</span></code> 메서드는 호출되는 순간의 날짜를 저장한 <code class="docutils literal notranslate"><span class="pre">date</span></code> 객체를 생성한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="n">today</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.date(2025, 5, 28)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;오늘 날짜: </span><span class="si">{</span><span class="n">today</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2">년 </span><span class="si">{</span><span class="n">today</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2">월 </span><span class="si">{</span><span class="n">today</span><span class="o">.</span><span class="n">day</span><span class="si">}</span><span class="s2">일&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>오늘 날짜: 2025년 5월 28일
+</pre></div>
+</div>
+</div>
+</div>
+<p>참고: <code class="docutils literal notranslate"><span class="pre">today()</span></code> 메서드는 클래스의 인스턴스를 생성하지 않아도 사용할 수 있는 메서드다.
+이런 메서드를 <strong>클래스 메서드</strong>라 부른다.
+클래스 메서드와 인스턴스 메서드와의 자세한 차이점과 활용법은 아래 링크를 참고한다.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://formal.hknu.ac.kr/ProgInPython/notebooks/PiPy08-ClassesAndInstances_Part1.html">코드 추상화: 클래스와 객체 1부</a></p></li>
+<li><p><a class="reference external" href="https://formal.hknu.ac.kr/ProgInPython/notebooks/PiPy09-ClassesAndInstances_Part2.html">코드 추상화: 클래스와 객체 2부</a></p></li>
+</ul>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Person</span></code> 클래스</strong></p>
+<p>아래 코드는 개인정보를 저장하는 클래스를 선언한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">birthdate</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">telephone</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name_</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">surname_</span> <span class="o">=</span> <span class="n">surname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">birthdate_</span> <span class="o">=</span> <span class="n">birthdate</span> <span class="c1"># datetime.date 객체 사용</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">telephone_</span> <span class="o">=</span> <span class="n">telephone</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email_</span> <span class="o">=</span> <span class="n">email</span>
+
+    <span class="k">def</span> <span class="nf">age</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># 나이 계산</span>
+        <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+        <span class="n">age</span> <span class="o">=</span> <span class="n">today</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">birthdate_</span><span class="o">.</span><span class="n">year</span>
+
+        <span class="k">if</span> <span class="n">today</span> <span class="o">&lt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">birthdate_</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">birthdate_</span><span class="o">.</span><span class="n">day</span><span class="p">):</span>
+            <span class="n">age</span> <span class="o">-=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">age</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Person</span></code> 클래스의 인스턴스 선언</strong></p>
+<p>아래와 같이 Jane Doe라는 사람의 개인 정보를 담은 객체를 생성하여
+<code class="docutils literal notranslate"><span class="pre">jDoe</span></code> 변수에 할당한다.
+생년월일에 필요한 정보는 <code class="docutils literal notranslate"><span class="pre">date</span></code> 객체를 이용한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jDoe</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Jane&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+              <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">1992</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+              <span class="s2">&quot;No. 12 Short Street, Greenville&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;555 456 0987&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;jane.doe@example.com&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 1</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">jDoe</span></code> 객체를 생성할 때 <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> 생성자 메서드가 실제로 호출되는 방식을 설명하라.</p>
+<p>답:</p>
+<p>실제로는 다음과 호출된다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span><span class="n">jDoe</span><span class="p">,</span>
+         <span class="s2">&quot;Jane&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+         <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">1992</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+         <span class="s2">&quot;No. 12 Short Street, Greenville&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;555 456 0987&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;jane.doe@example.com&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>예제 2</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">jDoe</span></code>의 이메일 주소를 확인하는 코드를 작성하라.</p>
+<p>답:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;이메일:&quot;</span><span class="p">,</span> <span class="n">jDoe</span><span class="o">.</span><span class="n">email_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>이메일: jane.doe@example.com
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 3</strong></p>
+<p>Jane Doe의 나이를 확인하는 코드를 작성하라.</p>
+<p>답:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;나이:&quot;</span><span class="p">,</span> <span class="n">jDoe</span><span class="o">.</span><span class="n">age</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>나이: 33
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제 4</strong></p>
+<p>변수의 활동 영역<font size='2'>scope</font>은
+해당 변수의 의미가 인정되는 코드 영역을 가리킨다.
+예를 들어 전역 변수는 프로그램 전체에서 의미가 있지만
+함수 내부에서 선언된 지역 변수는 함수 밖에서는 의미를 갖지 않는다.
+클래스 내부에서 선언된 변수 또한 자신만의 활동 영역을 갖는다.</p>
+<p>다음 클래스 또는 변수들의 역할과 활동영역(scope)을 설명하라.</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Person</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jDoe</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">surname</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">self.surname_</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">age</span></code> (함수이름)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">age</span></code> (<code class="docutils literal notranslate"><span class="pre">age</span></code> 함수 내부에서 선언된 변수)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">self.email_</span></code></p></li>
+</ol>
+<p>답:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Person</span></code>: 클래스 이름. 프로그램 전역에서 사용 가능</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jDoe</span></code>: <code class="docutils literal notranslate"><span class="pre">Person</span></code> 클래스의 인스턴스 이름. 전역변수.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">surname</span></code>: <code class="docutils literal notranslate"><span class="pre">__init__</span></code> 함수의 매개변수.
+<code class="docutils literal notranslate"><span class="pre">__init__</span></code> 함수 본체에서만 사용되는 지역변수.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">self.surname_</span></code>: 클래스 내부에서만 사용되는 인스턴스 변수. 객체 속성으로는 전역변수로 사용될 수 있음.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">age</span></code> (함수이름): <code class="docutils literal notranslate"><span class="pre">Person</span></code> 클래스의 메서드 이름.
+<code class="docutils literal notranslate"><span class="pre">Person</span></code>클래스 내부에서만 사용되는 함수. 객체의 매서드로는 프로그램 전체에서 활용 가능.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">age</span></code> (<code class="docutils literal notranslate"><span class="pre">age</span></code> 함수 내부에서 선언된 변수)
+<code class="docutils literal notranslate"><span class="pre">age</span></code> 메서드 내부에서만 사용되는 지역변수.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">self.email_</span></code>: 클래스 내부에서만 사용되 인스턴스 변수. 객체 속성으로는 전역변수로 사용될 수 있음.</p></li>
+</ol>
+<p><strong>예제 5</strong></p>
+<p>아래 <code class="docutils literal notranslate"><span class="pre">Person</span></code> 클래스는 다른 사람의 전화번호를 저장하는 기능을 포함한다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">self.phonebook_</span></code> 인스턴스 변수: 이름과 전화번호를 저장하는 사전 객체</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phoneNumberAdd()</span></code> 인스턴스 메서드: 상대방의 이름과 전화번호 추가</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">birthdate</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">telephone</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name_</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">surname_</span> <span class="o">=</span> <span class="n">surname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">birthdate_</span> <span class="o">=</span> <span class="n">birthdate</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">address_</span> <span class="o">=</span> <span class="n">address</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">telephone_</span> <span class="o">=</span> <span class="n">telephone</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email_</span> <span class="o">=</span> <span class="n">email</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phonebook_</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">age</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># 나이 계산</span>
+        <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+        <span class="n">age</span> <span class="o">=</span> <span class="n">today</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">birthdate</span><span class="o">.</span><span class="n">year</span>
+
+        <span class="k">if</span> <span class="n">today</span> <span class="o">&lt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">birthdate_</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">birthdate_</span><span class="o">.</span><span class="n">day</span><span class="p">):</span>
+            <span class="n">age</span> <span class="o">-=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">age</span>
+
+    <span class="k">def</span> <span class="nf">phoneNumberAdd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phonebook_</span><span class="p">[</span><span class="n">other</span><span class="o">.</span><span class="n">name_</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">other</span><span class="o">.</span><span class="n">surname_</span><span class="p">]</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">telephone_</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>아래와 같이 Jane Doe와 Dana Scotty 두 사람의 개인 정보를 담은 객체를 생성한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jDoe</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Jane&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+              <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">1992</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+              <span class="s2">&quot;No. 12 Short Street, Greenville&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;555 456 0987&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;jane.doe@example.com&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dScotty</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Dana&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Scotty&quot;</span><span class="p">,</span>
+                 <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">1970</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">22</span><span class="p">),</span>
+                 <span class="s2">&quot;No. 2 Long Street, Bluecity&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;444 654 0135&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;dana.scotty@example.com&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Jane Doe가 Dana Scotty의 전환번호를 저장한 다음에 저장된 Dana Scotty의 전화번호를 확인하라.</p>
+<p>답:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jDoe</span><span class="o">.</span><span class="n">phoneNumberAdd</span><span class="p">(</span><span class="n">dScotty</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dana Scotty의 전화번호:&quot;</span><span class="p">,</span> <span class="n">jDoe</span><span class="o">.</span><span class="n">phonebook_</span><span class="p">[</span><span class="s1">&#39;Dana Scotty&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dana Scotty의 전화번호: 444 654 0135
+</pre></div>
+</div>
+</div>
+</div>
+<p>반면에 아래 코드는 Dana Scotty가 Jane Doe의 전환번호를 저장한 다음에 저장된 번호를 확인한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dScotty</span><span class="o">.</span><span class="n">phoneNumberAdd</span><span class="p">(</span><span class="n">jDoe</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jane Doe의 전화번호:&quot;</span><span class="p">,</span> <span class="n">dScotty</span><span class="o">.</span><span class="n">phonebook_</span><span class="p">[</span><span class="s1">&#39;Jane Doe&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jane Doe의 전화번호: 555 456 0987
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id12">
+<h2><span class="section-number">19.6. </span>연습문제<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
 <p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/42H/blob/master/practices/practices-oop-classes_instances_objects.ipynb">(실습) 클래스, 인스턴스, 객체</a></p>
 </section>
 </section>
@@ -1879,7 +2170,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">19.4. 인스턴스 메서드</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">19.5. 연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">19.5. 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">19.6. 연습문제</a></li>
 </ul>
   </nav></div>
 
