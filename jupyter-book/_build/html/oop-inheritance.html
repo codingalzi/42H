@@ -1,0 +1,1569 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>20. 상속 &#8212; 42H: 파이썬 프로그래밍
+</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'oop-inheritance';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="19. 클래스, 인스턴스, 객체" href="oop-classes_instances_objects.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">42H: 파이썬 프로그래밍
+</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="programming.html">1. 컴퓨터 프로그래밍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="starting.html">2. 프로그래밍 맛보기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="values.html">3. 값과 연산</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expressions_dataTypes.html">4. 표현식과 자료형</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">5. 사용자 입력</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings_part1.html">6. 문자열</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings_part2.html">7. 문자열 인덱싱, 슬라이싱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regex.html">8. 정규표현식</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logical.html">9. 논리 연산</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iteration_for.html">10. for 반복문</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iteration_while.html">11. while 반복문</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">12. 함수</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">13. 모듈</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception_handling.html">14. 오류와 예외 처리</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists_tuples.html">15. 리스트와 튜플</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dicts_sets.html">16. 사전과 집합</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">17. 파일</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">18. 객체 지향 프로그래밍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop-classes_instances_objects.html">19. 클래스, 인스턴스, 객체</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">20. 상속</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/codingalzi/42H/blob/master/jupyter-book/oop-inheritance.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/codingalzi/42H" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/codingalzi/42H/issues/new?title=Issue%20on%20page%20%2Foop-inheritance.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/oop-inheritance.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>상속</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">20.1. 인스턴스 생성 기술의 단점</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">20.2. 상속</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">20.2.1. 메서드 상속과 재정의</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">20.3. 구성</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">20.3.1. 프로그램 확장성</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">20.3.2. 추상 클래스</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">20.3.3. 구상 클래스</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oop">20.4. OOP 디자인 패턴</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">20.5. 연습문제</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">20. </span>상속<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>클래스와 객체를 보다 실용적으로 활용하는 두 가지 방법 <strong>상속</strong>과 <strong>구성</strong>을 소개하면서
+객체 지향 프로그래밍(OOP)의 기본 디자인 원칙을 살펴본다.</p>
+<section id="id2">
+<h2><span class="section-number">20.1. </span>인스턴스 생성 기술의 단점<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p><strong>주요 예제: 게임 캐릭터 설정</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Character</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">damage</span><span class="p">,</span> <span class="n">inventory</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">power</span> <span class="o">=</span> <span class="n">power</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">damage</span> <span class="o">=</span> <span class="n">damage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span> <span class="o">=</span> <span class="n">inventory</span>
+        
+    <span class="c1"># 자기소개 매소드</span>
+    <span class="k">def</span> <span class="nf">introduction</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;제 이름은 </span><span class="si">%s</span><span class="s2">입니다&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;현재 저의 파워는 </span><span class="si">%s</span><span class="s2">입니다.&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">power</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;저는 공격할 때마다 상대방에게 </span><span class="si">%s</span><span class="s2">만큼의 손상을 줍니다.&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">damage</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;제 수트의 방어력은 </span><span class="si">%d</span><span class="s2">이며 사용하는 무기는 </span><span class="si">%s</span><span class="s2">입니다.&quot;</span> <span class="o">%</span> \
+              <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="p">[</span><span class="s1">&#39;suit&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="p">[</span><span class="s1">&#39;weapon&#39;</span><span class="p">]))</span>
+        
+    <span class="c1"># 파워 정보 확인 메서드</span>
+    <span class="k">def</span> <span class="nf">getPower</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">power</span>
+    
+    <span class="c1"># 파워 조절 메서드</span>
+    <span class="k">def</span> <span class="nf">setPower</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">power</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">power</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">power</span> <span class="o">+</span> <span class="n">power</span>
+        
+    <span class="c1"># 상대 캐릭터 공격 메서드</span>
+    <span class="c1"># 둘째 인자로 상대 캐릭터 인스턴스가 사용될 것임.</span>
+    <span class="k">def</span> <span class="nf">attack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="c1"># print(&quot;%s: %s 공격하기!&quot; % (self.name, other.name))</span>
+        <span class="c1"># 공격력의 10% 만큼 상대 파워 감소시킴</span>
+        <span class="n">attackPower</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">damage</span> <span class="o">*</span> <span class="mf">0.1</span> 
+        <span class="n">other</span><span class="o">.</span><span class="n">setPower</span><span class="p">(</span><span class="o">-</span><span class="n">attackPower</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>아래 코드는 어벤저스 영화의 아이언맨과 데드풀 캐릭터를 생성한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ironman</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s1">&#39;아이언맨&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;suit&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;weapon&#39;</span><span class="p">:</span> <span class="s1">&#39;레이저&#39;</span><span class="p">})</span>
+<span class="n">deadpool</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s1">&#39;데드풀&#39;</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;suit&#39;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span> <span class="s1">&#39;weapon&#39;</span><span class="p">:</span> <span class="s1">&#39;장검&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">introduction()</span></code> 메서드: 캐릭터 자기소개</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ironman</span><span class="o">.</span><span class="n">introduction</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>제 이름은 아이언맨입니다
+현재 저의 파워는 100입니다.
+저는 공격할 때마다 상대방에게 200만큼의 손상을 줍니다.
+제 수트의 방어력은 500이며 사용하는 무기는 레이저입니다.
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">getPower()</span></code>: 캐릭터의 파워 확인</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setPower()</span></code>: 캐릭터의 파워 조절</p></li>
+</ul>
+<p>예를 들어, 아이언맨 인스턴스의 파워를 키우고나서 확인하는 과정은 다음과 같다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ironman</span><span class="o">.</span><span class="n">getPower</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ironman</span><span class="o">.</span><span class="n">setPower</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ironman</span><span class="o">.</span><span class="n">getPower</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>150
+</pre></div>
+</div>
+</div>
+</div>
+<p>위 예제에서 살펴 본 <code class="docutils literal notranslate"><span class="pre">getPower()</span></code>와 <code class="docutils literal notranslate"><span class="pre">setPower()</span></code> 같이 인스턴스의 속성값을 확인하거나 지정하는 메서드를
+각각 <strong>게터(getter)</strong> 메서드와 <strong>세터(setter)</strong> 메서드라 부른다.
+관용적으로 게터 메서드 이름은 <code class="docutils literal notranslate"><span class="pre">get</span></code>으로 시작하며, 세터 메서드 이름은 <code class="docutils literal notranslate"><span class="pre">set</span></code>으로 시작한다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">attack()</span></code> 메서드: 게터와 세터 활용</p></li>
+</ul>
+<p>파워가 100인 침입자가 출현했다고 가정한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">intruder</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s1">&#39;적군&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;suit&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;weapon&#39;</span><span class="p">:</span> <span class="s1">&#39;독&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>이제 데드풀이 침입자를 공격하니 파워가 3만큼 줄게 된다.
+여기서 3은 데드풀의 공격력의 10분의 1을 가리킨다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">deadpool</span><span class="o">.</span><span class="n">attack</span><span class="p">(</span><span class="n">intruder</span><span class="p">)</span>
+<span class="n">intruder</span><span class="o">.</span><span class="n">getPower</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>97.0
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>문제</strong></p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스에서 사용되는 모든 인스턴스 속성에 대한 게터/세터 메서드를 선언한 후에
+<code class="docutils literal notranslate"><span class="pre">attack()</span></code> 메서드를 게터/세터 메서드만을 사용하여 선언하라.
+즉, 인스턴스 속성 변수를 직접 사용하지 않아야 한다.</p></li>
+</ol>
+<p><strong>메서드 추가</strong></p>
+<p>지금까지 OOP에 대하여 살펴본 내용의 핵심은 다음과 같다.</p>
+<blockquote>
+<div><p>하나의 클래스를 이용하여 다양한 인스턴스를 쉽게 생성할 수 있다.</p>
+</div></blockquote>
+<p>그런데 한 가지 단점은
+인스턴스 변수에 저장된 값에 따라 성능의 차이가 있기는 하지만 모든 인스턴스가
+동일한 기능을 갖는다는 것이다.
+원래 클래스를 활용하는 주요 이유이지만, 경우에 따라 단점으로 작동할 수 있음을 보여주고자 한다.</p>
+<p>인스턴스 생성 기술의 단점을 설명하기 위해 지금까지 사용한 <code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스를 다시 살펴보자.
+<code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스의 인스턴스는 모두 공격(<code class="docutils literal notranslate"><span class="pre">attack</span></code>) 기능을 갖게 된다.
+그런데 게임 캐릭터에 따라 비행 능력을 갖는 캐릭터와 그렇지 못한 캐릭터를 구분해야 하는 경우가 있다.
+어떻게 구분할까?</p>
+<p>먼저 <code class="docutils literal notranslate"><span class="pre">Character</span></code>에 비행 기능인 <code class="docutils literal notranslate"><span class="pre">fly</span></code> 메서드를 추가해보자.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Character</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">damage</span><span class="p">,</span> <span class="n">inventory</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">power</span> <span class="o">=</span> <span class="n">power</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">damage</span> <span class="o">=</span> <span class="n">damage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span> <span class="o">=</span> <span class="n">inventory</span>
+        
+    <span class="c1"># 자기소개 매소드</span>
+    <span class="k">def</span> <span class="nf">introduction</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;제 이름은 </span><span class="si">%s</span><span class="s2">입니다&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;현재 저의 파워는 </span><span class="si">%s</span><span class="s2">입니다.&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">power</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;저는 공격할 때마다 상대방에게 </span><span class="si">%s</span><span class="s2">만큼의 손상을 줍니다.&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">damage</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;제 수트의 방어력은 </span><span class="si">%d</span><span class="s2">이며 사용하는 무기는 </span><span class="si">%s</span><span class="s2">입니다.&quot;</span> <span class="o">%</span> \
+              <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="p">[</span><span class="s1">&#39;suit&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="p">[</span><span class="s1">&#39;weapon&#39;</span><span class="p">]))</span>
+        
+    <span class="c1"># 파워 정보 확인 메서드</span>
+    <span class="k">def</span> <span class="nf">getPower</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">power</span>
+    
+    <span class="c1"># 파워 조절 메서드</span>
+    <span class="k">def</span> <span class="nf">setPower</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">power</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">power</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">power</span> <span class="o">+</span> <span class="n">power</span>
+        
+    <span class="c1"># 상대 캐릭터 공격 메서드</span>
+    <span class="c1"># 둘째 인자로 상대 캐릭터 인스턴스가 사용될 것임.</span>
+    <span class="k">def</span> <span class="nf">attack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2"> 공격하기!&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="c1"># 공격력의 10% 만큼 상대 파워 감소시킴</span>
+        <span class="n">attackPower</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">damage</span> <span class="o">*</span> <span class="mf">0.1</span> 
+        <span class="n">other</span><span class="o">.</span><span class="n">setPower</span><span class="p">(</span><span class="o">-</span><span class="n">attackPower</span><span class="p">)</span>
+        
+    <span class="c1"># 지정된 속도로 날아가기 메서드</span>
+    <span class="k">def</span> <span class="nf">fly</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">speed</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: 시속 </span><span class="si">%d</span><span class="s2"> km로 날아갑니다.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">speed</span><span class="p">))</span>        
+</pre></div>
+</div>
+</div>
+</div>
+<p>이렇게 하면 <code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스의 모든 인스턴스가 <code class="docutils literal notranslate"><span class="pre">fly</span></code> 기능을 갖게 된다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ironman</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s1">&#39;아이언맨&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;suit&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;weapon&#39;</span><span class="p">:</span> <span class="s1">&#39;레이저&#39;</span><span class="p">})</span>
+<span class="n">ironman</span><span class="o">.</span><span class="n">fly</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>아이언맨: 시속 100 km로 날아갑니다.
+</pre></div>
+</div>
+</div>
+</div>
+<p>그런데 예를 들어 헐크 캐릭터도 날 수 있게 된다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hulk</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s1">&#39;헐크&#39;</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;suit&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;weapon&#39;</span><span class="p">:</span> <span class="s1">&#39;주먹&#39;</span><span class="p">})</span>
+<span class="n">hulk</span><span class="o">.</span><span class="n">fly</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>헐크: 시속 1000 km로 날아갑니다.
+</pre></div>
+</div>
+</div>
+</div>
+<p>우리가 아는 헐크 캐릭터는 날지 못하는데 이와같이 단순히 인스턴스를 생성하면
+비행 능력을 기본적으로 갖게 된다. 어떻게 할까?</p>
+<p>여러 방법이 있을 수 있다.
+먼저 <code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스의 <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> 메서드에 매개변수를
+하나 더 추가하는 방식을 사용해 보자.
+즉, 캐릭터를 생성할 때 비행능력을 추가로 입력받아서 날지 못하는 경우 <code class="docutils literal notranslate"><span class="pre">fly</span></code> 메서드가 호출되면
+“저는 날지 못합니다” 라는 문구를 출력하도록 해보자.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init()__</span></code> 메서드에 <code class="docutils literal notranslate"><span class="pre">flight=False</span></code> 옵션 변수 추가</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fly()</span></code> 메서드 수정</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Character</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    
+    <span class="c1"># 비행능력 여부 확인 매개변수 flight 추가. 기본값은 False.</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">damage</span><span class="p">,</span> <span class="n">inventory</span><span class="p">,</span> <span class="n">flight</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">power</span> <span class="o">=</span> <span class="n">power</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">damage</span> <span class="o">=</span> <span class="n">damage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span> <span class="o">=</span> <span class="n">inventory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flight</span> <span class="o">=</span> <span class="n">flight</span>                  <span class="c1"># 비행능력</span>
+        
+    <span class="c1"># 자기소개 매소드</span>
+    <span class="k">def</span> <span class="nf">introduction</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;제 이름은 </span><span class="si">%s</span><span class="s2">입니다&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;현재 저의 파워는 </span><span class="si">%s</span><span class="s2">입니다.&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">power</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;저는 공격할 때마다 상대방에게 </span><span class="si">%s</span><span class="s2">만큼의 손상을 줍니다.&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">damage</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;제 수트의 방어력은 </span><span class="si">%d</span><span class="s2">이며 사용하는 무기는 </span><span class="si">%s</span><span class="s2">입니다.&quot;</span> <span class="o">%</span> \
+              <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="p">[</span><span class="s1">&#39;suit&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="p">[</span><span class="s1">&#39;weapon&#39;</span><span class="p">]))</span>
+        
+    <span class="c1"># 파워 정보 확인 메서드</span>
+    <span class="k">def</span> <span class="nf">getPower</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">power</span>
+    
+    <span class="c1"># 파워 조절 메서드</span>
+    <span class="k">def</span> <span class="nf">setPower</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">power</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">power</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">power</span> <span class="o">+</span> <span class="n">power</span>
+        
+    <span class="c1"># 상대 캐릭터 공격 메서드</span>
+    <span class="c1"># 둘째 인자로 상대 캐릭터 인스턴스가 사용될 것임.</span>
+    <span class="k">def</span> <span class="nf">attack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2"> 공격하기!&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="c1"># 공격력의 10% 만큼 상대 파워 감소시킴</span>
+        <span class="n">attackPower</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">damage</span> <span class="o">*</span> <span class="mf">0.1</span> 
+        <span class="n">other</span><span class="o">.</span><span class="n">setPower</span><span class="p">(</span><span class="o">-</span><span class="n">attackPower</span><span class="p">)</span>
+        
+    <span class="c1"># 지정된 속도로 날아가기 메서드</span>
+    <span class="c1"># 비행능력 여부에 따라 다른 행동 지정</span>
+    <span class="k">def</span> <span class="nf">fly</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">speed</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">flight</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: 시속 </span><span class="si">%d</span><span class="s2"> km로 날아갑니다.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">speed</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: 저는 날지 못합니다.&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>이제 아이언맨과 헐크를 아래와 같이 생성할 수 있다.</p>
+<ul class="simple">
+<li><p>아이언맨의 경우: 다섯째 인자로 <code class="docutils literal notranslate"><span class="pre">True</span></code>를 입력하면 <code class="docutils literal notranslate"><span class="pre">flight</span></code> 매개변수에 인자로 전달 된다.</p></li>
+<li><p>헐크의 경우: 다섯째 인자가 없으면 기본값인 <code class="docutils literal notranslate"><span class="pre">False</span></code>가 <code class="docutils literal notranslate"><span class="pre">flight</span></code> 매개변수에 인자로 전달 된다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ironman</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s1">&#39;아이언맨&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;suit&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;weapon&#39;</span><span class="p">:</span> <span class="s1">&#39;레이저&#39;</span><span class="p">},</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">hulk</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s1">&#39;헐크&#39;</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;suit&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;weapon&#39;</span><span class="p">:</span> <span class="s1">&#39;주먹&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ironman</span><span class="o">.</span><span class="n">fly</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>아이언맨: 시속 1000 km로 날아갑니다.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hulk</span><span class="o">.</span><span class="n">fly</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>헐크: 저는 날지 못합니다.
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">flight</span></code> 인자에 전달되는 값에 따라 비행능력을 확실하게 보여주게 되었다.
+하지만 헐크의 경우 비행능력을 묻는 것 자체가 이상하게 보일 수 있다.</p>
+<p>또한 인스턴스를 생성할 때마다 매번 옵션인자의 값을 지정하는 일도 바람직하지 않다.
+실제 영화나 게임에 등장하는 캐릭터의 수는 경우에 따라 수천, 수만, 수십만인데
+그 모든 캐릭터의 옵션을 일일이 다르게 설정하는 일은 피해야 한다.</p>
+<p>그렇다면 헐크 캐릭터를 생성할 때 애초부터 ‘난다(fly)’ 기능을
+신경쓸 필요 없게 만들 수는 없을까?
+여기서는 <strong>상속</strong>과 <strong>구성</strong>을 이용한 해결책을 제시한다.</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">20.2. </span>상속<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p><strong>상속</strong>(inheritance)은 기존 클래스에서 선언된 속성(변수)과 기능(메서드)을 필요에 따라
+<strong>재활용</strong>하거나 속성과 기능을 <strong>추가</strong>해서
+보다 효율적으로 객체와 데이터를 관리하기 위해 사용되는 OOP의 핵심 기술 중 하나이다.</p>
+<p>앞서 예제에서 살펴본 인스턴스 생성의 단점을 상속을 이용하여
+해결하는 방법을 설명하기 위해
+<code class="docutils literal notranslate"><span class="pre">fly</span></code> 기능을 추가하기 이전의 <code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스로 다시 돌아가자.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Character</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">damage</span><span class="p">,</span> <span class="n">inventory</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">power</span> <span class="o">=</span> <span class="n">power</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">damage</span> <span class="o">=</span> <span class="n">damage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span> <span class="o">=</span> <span class="n">inventory</span>
+        
+    <span class="c1"># 자기소개 매소드</span>
+    <span class="k">def</span> <span class="nf">introduction</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;제 이름은 </span><span class="si">%s</span><span class="s2">입니다&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;현재 저의 파워는 </span><span class="si">%s</span><span class="s2">입니다.&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">power</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;저는 공격할 때마다 상대방에게 </span><span class="si">%s</span><span class="s2">만큼의 손상을 줍니다.&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">damage</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;제 수트의 방어력은 </span><span class="si">%d</span><span class="s2">이며 사용하는 무기는 </span><span class="si">%s</span><span class="s2">입니다.&quot;</span> <span class="o">%</span> \
+              <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="p">[</span><span class="s1">&#39;suit&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="p">[</span><span class="s1">&#39;weapon&#39;</span><span class="p">]))</span>
+        
+    <span class="c1"># 파워 정보 확인 메서드</span>
+    <span class="k">def</span> <span class="nf">getPower</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">power</span>
+    
+    <span class="c1"># 파워 조절 메서드</span>
+    <span class="k">def</span> <span class="nf">setPower</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">power</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">power</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">power</span> <span class="o">+</span> <span class="n">power</span>
+        
+    <span class="c1"># 상대 캐릭터 공격 메서드</span>
+    <span class="c1"># 둘째 인자로 상대 캐릭터 인스턴스가 사용될 것임.</span>
+    <span class="k">def</span> <span class="nf">attack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2"> 공격하기!&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="c1"># 공격력의 10% 만큼 상대 파워 감소시킴</span>
+        <span class="n">attackPower</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">damage</span> <span class="o">*</span> <span class="mf">0.1</span> 
+        <span class="n">other</span><span class="o">.</span><span class="n">setPower</span><span class="p">(</span><span class="o">-</span><span class="n">attackPower</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>아이언맨과 헐크를 <code class="docutils literal notranslate"><span class="pre">Character</span></code> 캐릭터 인스턴스를 생성하면서
+아이언맨에게만 비행능력을 주고,
+헐크는 아예 날다라는 개념을 모르게 하고 싶다고 가정하자.</p>
+<p>이렇게 하려면 비행능력을 가진 클래스를 <code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스의 자식 클래스로 선언하면 된다.
+상속을 정의하는 방식은 다음과 같다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">자식클래스</span><span class="p">(</span><span class="n">부모클래스</span><span class="p">):</span>
+    <span class="n">클래스</span> <span class="n">본문</span>
+</pre></div>
+</div>
+<p>이제 상속을 이용하여 <code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스의 속성과 기능을 모두 물려받으면서 동시에
+비행 능력을 추가한 클래스인 <code class="docutils literal notranslate"><span class="pre">FlyingCharacter</span></code> 클래스를 선언해 보자.</p>
+<p><strong>주의:</strong> <code class="docutils literal notranslate"><span class="pre">flight</span></code> 매개변수는 전혀 사용하지 않는다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">FlyingCharacter</span><span class="p">(</span><span class="n">Character</span><span class="p">):</span>
+    
+    <span class="c1"># 지정된 속도로 날아가기 메서드</span>
+    <span class="k">def</span> <span class="nf">fly</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">speed</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: 시속 </span><span class="si">%d</span><span class="s2"> km로 날고 있습니다.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">speed</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>자식클래스의 인스턴스는 부모클래스의 인스턴스!</strong></p>
+<p>아이언맨의 경우 비행능력이 있으므로 <code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스가 아닌 <code class="docutils literal notranslate"><span class="pre">FlyingCharacter</span></code> 클래스의
+인스턴스로 생성한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ironman</span> <span class="o">=</span> <span class="n">FlyingCharacter</span><span class="p">(</span><span class="s1">&#39;아이언맨&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;suit&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;weapon&#39;</span><span class="p">:</span> <span class="s1">&#39;레이저&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">isinstance()</span></code> 함수를 사용하여 <code class="docutils literal notranslate"><span class="pre">ironman</span></code>은 여전히 <code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스의
+인스턴스임을 확인할 수 있다.
+즉, 자식클래스의 인스턴스는 모두 부모클래스의 인스턴스이기도 하다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="n">ironman</span><span class="p">,</span> <span class="n">Character</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>따라서 <code class="docutils literal notranslate"><span class="pre">ironman</span></code>은 <code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스의 모든 메서드를 사용할 수 있다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ironman</span><span class="o">.</span><span class="n">getPower</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
+</pre></div>
+</div>
+</div>
+</div>
+<p>아이언맨은 비행능력도 당연히 있다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ironman</span><span class="o">.</span><span class="n">fly</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>아이언맨: 시속 100 km로 날고 있습니다.
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>부모클래스의 인스턴스는 자식클래스를 모름!</strong></p>
+<p>헐크 캐릭터는 아예 비행능력이 없으므로 <code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스의 인스턴스로 선언한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hulk</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s1">&#39;헐크&#39;</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;suit&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;weapon&#39;</span><span class="p">:</span> <span class="s1">&#39;주먹&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>앞서 언급한 대로 <code class="docutils literal notranslate"><span class="pre">ironman</span></code> 역시 <code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스의 기능을 공유한다.
+따라서, 예를 들어, <code class="docutils literal notranslate"><span class="pre">ironman</span></code>이 <code class="docutils literal notranslate"><span class="pre">hulk</span></code>가 서로 공격할 수 있다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ironman</span><span class="o">.</span><span class="n">attack</span><span class="p">(</span><span class="n">hulk</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>아이언맨: 헐크 공격하기!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hulk</span><span class="o">.</span><span class="n">attack</span><span class="p">(</span><span class="n">ironman</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>헐크: 아이언맨 공격하기!
+</pre></div>
+</div>
+</div>
+</div>
+<p>헐크는 비행능력이 없으며 <code class="docutils literal notranslate"><span class="pre">fly</span></code> 메서드를 아예 모른다.</p>
+<p><strong>주의</strong>: 아래 코드는 오류발생을 피하기 위해 예외처리를 사용한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span> 
+    <span class="n">hulk</span><span class="o">.</span><span class="n">fly</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;헐크: 전 날지 못해요!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>헐크: 전 날지 못해요!
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id4">
+<h3><span class="section-number">20.2.1. </span>메서드 상속과 재정의<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><strong><code class="docutils literal notranslate"><span class="pre">__init__()</span></code> 메서드 상속과 재정의</strong></p>
+<p>모든 클래스에는 초기 설정 메서드인 <code class="docutils literal notranslate"><span class="pre">init()</span></code> 메서드가 포함되어야 한다.
+그런데 <code class="docutils literal notranslate"><span class="pre">FlyingCharacter</span></code> 클래스에는 초기 설정 메서드가 포함되어 있지 않다.
+이럴 때는 부모 클래스인 <code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스의 <code class="docutils literal notranslate"><span class="pre">init()</span></code> 메서드를 그대로 사용한다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">FlyingCharacter</span></code>의 인스턴스를 생성할 때 <code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스의 인스턴스를
+생성하는 것처럼 네 개의 인자를 사용한 이유가 여기에 있다.
+실제로 <code class="docutils literal notranslate"><span class="pre">FlyingCharacter</span></code> 클래스의 초기 설정 메서드를 아래와 같이 선언하는 것과 동일하게 작동한다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">damage</span><span class="p">,</span> <span class="n">inventory</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">damage</span><span class="p">,</span> <span class="n">inventory</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>둘째 줄에 있는 <code class="docutils literal notranslate"><span class="pre">super()</span></code>는 부모클래스인 <code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스를 가리킨다.</p></li>
+<li><p>따라서 자식클래스인 <code class="docutils literal notranslate"><span class="pre">FlyingCharacter</span></code>의 초기 설정 메서드를 호출하면 부모클래스인 <code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스의
+초기 설정 메서드가 자동으로 호출된다.</p></li>
+<li><p>부모클래스의 초기 설정 메서드를 호출할 때 사용되는 인자는 자식클래스의 초기 설정 메서드를 통해 전달되는 인자들을 이용한다.</p></li>
+<li><p><strong>주의:</strong> 초기 설정 메서드를 호출할 때 <code class="docutils literal notranslate"><span class="pre">self</span></code> 매개변수는 사용하지 않는다.</p></li>
+</ul>
+<p>이제 초기 설정 메서드를 구체적으로 선언하여 <code class="docutils literal notranslate"><span class="pre">FlyingCharacter</span></code>를 정의하면 다음과 같다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">FlyingCharacter</span><span class="p">(</span><span class="n">Character</span><span class="p">):</span>
+    <span class="c1"># 자식클래스 초기 설정 메서드</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">damage</span><span class="p">,</span> <span class="n">inventory</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">damage</span><span class="p">,</span> <span class="n">inventory</span><span class="p">)</span>
+    
+    <span class="c1"># 지정된 속도로 날아가기 메서드</span>
+    <span class="k">def</span> <span class="nf">fly</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">speed</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: 시속 </span><span class="si">%d</span><span class="s2"> km로 날고 있습니다.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">speed</span><span class="p">))</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<p>앞서 설명한 경우와 동일하게 작동함을 아래 예제가 보여주고 있다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ironman</span> <span class="o">=</span> <span class="n">FlyingCharacter</span><span class="p">(</span><span class="s1">&#39;아이언맨&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;suit&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;weapon&#39;</span><span class="p">:</span> <span class="s1">&#39;레이저&#39;</span><span class="p">})</span>
+<span class="n">hulk</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s1">&#39;헐크&#39;</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;suit&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;weapon&#39;</span><span class="p">:</span> <span class="s1">&#39;주먹&#39;</span><span class="p">})</span>
+
+<span class="n">ironman</span><span class="o">.</span><span class="n">attack</span><span class="p">(</span><span class="n">hulk</span><span class="p">)</span>
+<span class="n">hulk</span><span class="o">.</span><span class="n">attack</span><span class="p">(</span><span class="n">ironman</span><span class="p">)</span>
+<span class="n">ironman</span><span class="o">.</span><span class="n">fly</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span> 
+    <span class="n">hulk</span><span class="o">.</span><span class="n">fly</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;헐크: 전 날지 못해요!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>아이언맨: 헐크 공격하기!
+헐크: 아이언맨 공격하기!
+아이언맨: 시속 100 km로 날고 있습니다.
+헐크: 전 날지 못해요!
+</pre></div>
+</div>
+</div>
+</div>
+<p>자식클래스 초기 설정 메서드가 부모클래스 초기 설정 메서드가 하는 일에 추가하여 다른 일을 할 수도 있다.
+이렇게 자식클래를 선언할 때 부모클래스로부터 상속한 메서드의 일부를 재정의할 수 있다.
+메서드 재정의를 <strong>오버라이딩</strong>(overriding)이라 부르기도 한다.</p>
+<p>예를 들어, 아래에 정의된 <code class="docutils literal notranslate"><span class="pre">FlyingCharacter</span></code> 클래스의 인스턴스를 생성할 때 생성된 캐릭터의
+<code class="docutils literal notranslate"><span class="pre">suit</span></code>의 능력에 따라 비행 속도를 다르게 지정할 수 있다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">FlyingCharacter</span><span class="p">(</span><span class="n">Character</span><span class="p">):</span>
+    <span class="c1"># 자식클래스 초기 설정 메서드</span>
+    <span class="c1"># hero 매개변수 추가</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">damage</span><span class="p">,</span> <span class="n">inventory</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">damage</span><span class="p">,</span> <span class="n">inventory</span><span class="p">)</span>
+        
+        <span class="c1"># suit의 능력이 400 이상인 경우 두 배 속도로 비행하도록 설정</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="p">[</span><span class="s1">&#39;suit&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">400</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">speedUp</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">speedUp</span> <span class="o">=</span> <span class="mi">1</span>
+    
+    <span class="c1"># 지정된 속도로 날아가기 메서드</span>
+    <span class="c1"># 영웅 캐릭터인 경우 지정 속도보다 두 배 빠르게 날게 함</span>
+    <span class="c1"># fly 메서드 역시 재정의됨.</span>
+    <span class="k">def</span> <span class="nf">fly</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">speed</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: 시속 </span><span class="si">%d</span><span class="s2"> km로 날고 있습니다.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">speed</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">speedUp</span><span class="p">))</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">FlyingCharacter</span></code>의 새로운 초기 설정 메서드의 변화는 다음과 같다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">self.inventory[suit]</span></code> 값의 크기에 따라 <code class="docutils literal notranslate"><span class="pre">speedUp</span></code> 속성을 다르게 설정</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">speedUp</span></code> 속성: <code class="docutils literal notranslate"><span class="pre">fly</span></code> 메서드를 선언할 때 사용되었음.</p></li>
+</ul>
+<p>아래 코드는 아이언맨과 울트론을 생성한 후에 시속 100으로
+날으라고 할 때 두 캐릭터의 속도가 2배 차이나는 것을 보여준다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ironman</span> <span class="o">=</span> <span class="n">FlyingCharacter</span><span class="p">(</span><span class="s1">&#39;아이언맨&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;suit&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;weapon&#39;</span><span class="p">:</span> <span class="s1">&#39;레이저&#39;</span><span class="p">})</span>
+<span class="n">ultron</span> <span class="o">=</span> <span class="n">FlyingCharacter</span><span class="p">(</span><span class="s1">&#39;울트론&#39;</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;suit&#39;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span> <span class="s1">&#39;weapon&#39;</span><span class="p">:</span> <span class="s1">&#39;플라즈마 빔&#39;</span><span class="p">})</span>
+
+<span class="n">ironman</span><span class="o">.</span><span class="n">attack</span><span class="p">(</span><span class="n">ultron</span><span class="p">)</span>
+<span class="n">ultron</span><span class="o">.</span><span class="n">attack</span><span class="p">(</span><span class="n">ironman</span><span class="p">)</span>
+<span class="c1"># 비행속도를 100으로 지정하면 아이언맨은 200으로 날아 오름.</span>
+<span class="n">ironman</span><span class="o">.</span><span class="n">fly</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">ultron</span><span class="o">.</span><span class="n">fly</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>아이언맨: 울트론 공격하기!
+울트론: 아이언맨 공격하기!
+아이언맨: 시속 200 km로 날고 있습니다.
+울트론: 시속 100 km로 날고 있습니다.
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">*args</span></code>, <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> 활용</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">*args</span></code>와 <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>는 함수를 정의할 때
+인자의 수를 미리 지정하지 않을 때 사용하는 표현식이다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">*args</span></code>: 임의의 개수의 매개변수를 의미함</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>: 임의의 개수의 옵션 매개변수를 의미함.</p></li>
+</ul>
+<p><strong>참조</strong>: args는 kwargs는 각각
+arguments(인자)와 keyword arguements(옵션 인자)의 줄임말이다.</p>
+<p>이 방식을 이용하면 <code class="docutils literal notranslate"><span class="pre">FlyingCharacter</span></code> 클래스의 <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> 메서드를
+다음과 같이 정의할 수 있다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="c1"># suit의 능력이 400 이상인 경우 두 배 속도로 비행하도록 설정</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="p">[</span><span class="s1">&#39;suit&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">400</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speedUp</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speedUp</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>위와같이 하면 모든 매개변수가
+부모클래스의 초기 설정 메서드에 그대로 전달된다.</p>
+<p><strong>참조</strong>:</p>
+<ul class="simple">
+<li><p>여기서는 <code class="docutils literal notranslate"><span class="pre">kwargs</span></code>에 해당하는 옵션 매개변수는 사용하지 않지만,
+그래도 항상 위와 같은 방식으로 사용한다.</p></li>
+<li><p>이런 방식의 장점은, 부모클래스의 메서드에 사용되는 매개변수가 달라져도
+자식클래스에서 일일이 그에 맞게 수정할 필요가 없다는 데에 있다.</p></li>
+</ul>
+<p><strong>사용자 정의 메서드 재정의</strong></p>
+<p>부모클래스에서 선언된 메서드를 자식클래스에서 모두 <strong>재정의</strong>할 수 있다.
+예를 들어 설명하자.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스에 선언된 <code class="docutils literal notranslate"><span class="pre">attack</span></code> 메서드를 영웅 캐릭터가 공격하면 보다 큰 치명타를 가할 수 있도록 하고자 한다.</p>
+<ul class="simple">
+<li><p>기존의 <code class="docutils literal notranslate"><span class="pre">attack</span></code> 메서드는 공격자의 <code class="docutils literal notranslate"><span class="pre">damage</span></code> 파워의 10%만큼 상대방 파워(<code class="docutils literal notranslate"><span class="pre">power</span></code>)를 감소시켰다.</p></li>
+<li><p>이제 캐릭터의 파워가 400보다 크면 캐릭터를 공격할 때 공격 캐릭터의 <code class="docutils literal notranslate"><span class="pre">damage</span></code> 파워의 10%가 아닌 20%만큼
+상대방 파워를 감소시키도록 하자.</p></li>
+</ul>
+<p>그러려면 <code class="docutils literal notranslate"><span class="pre">FlyingCharacter</span></code>에서 <code class="docutils literal notranslate"><span class="pre">attack</span></code> 메서드를 아래와 같이 재정의해야 한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">FlyingCharacter</span><span class="p">(</span><span class="n">Character</span><span class="p">):</span>
+    <span class="c1"># 자식클래스 초기 설정 메서드</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        
+        <span class="c1"># suit의 능력이 400 이상인 경우 두 배 속도로 비행하도록 설정</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="p">[</span><span class="s1">&#39;suit&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">400</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">speedUp</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">speedUp</span> <span class="o">=</span> <span class="mi">1</span>
+    
+    <span class="c1"># 지정된 속도로 날아가기 메서드</span>
+    <span class="c1"># 영웅 캐릭터인 경우 지정 속도보다 두 배 빠르게 날게 함</span>
+    <span class="k">def</span> <span class="nf">fly</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">speed</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: 시속 </span><span class="si">%d</span><span class="s2"> km로 날고 있습니다.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">speed</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">speedUp</span><span class="p">))</span>    
+        
+    <span class="c1"># attack 메서드 재정의</span>
+    <span class="k">def</span> <span class="nf">attack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2"> 공격하기!&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="c1"># 영웅이 악당 공격할 때 타격효과 두 배</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">power</span> <span class="o">&gt;=</span> <span class="mi">300</span><span class="p">:</span>
+            <span class="n">attackPower</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">damage</span> <span class="o">*</span> <span class="mf">0.2</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">attackPower</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">damage</span> <span class="o">*</span> <span class="mf">0.1</span> 
+        <span class="n">other</span><span class="o">.</span><span class="n">setPower</span><span class="p">(</span><span class="o">-</span><span class="n">attackPower</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>이제 아이언맨과 울트론을 이용하여 확인해보자.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ironman</span> <span class="o">=</span> <span class="n">FlyingCharacter</span><span class="p">(</span><span class="s1">&#39;아이언맨&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;suit&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;weapon&#39;</span><span class="p">:</span> <span class="s1">&#39;레이저&#39;</span><span class="p">})</span>
+<span class="n">ultron</span> <span class="o">=</span> <span class="n">FlyingCharacter</span><span class="p">(</span><span class="s1">&#39;울트론&#39;</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;suit&#39;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span> <span class="s1">&#39;weapon&#39;</span><span class="p">:</span> <span class="s1">&#39;플라즈마 빔&#39;</span><span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;아이언맨 파워:&#39;</span><span class="p">,</span> <span class="n">ironman</span><span class="o">.</span><span class="n">getPower</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;울트론 파워:&#39;</span><span class="p">,</span> <span class="n">ultron</span><span class="o">.</span><span class="n">getPower</span><span class="p">())</span>
+
+<span class="c1"># 10% 타격</span>
+<span class="n">ironman</span><span class="o">.</span><span class="n">attack</span><span class="p">(</span><span class="n">ultron</span><span class="p">)</span>                      
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;울트론 파워:&#39;</span><span class="p">,</span> <span class="n">ultron</span><span class="o">.</span><span class="n">getPower</span><span class="p">())</span>
+
+<span class="c1"># 20% 타격</span>
+<span class="n">ultron</span><span class="o">.</span><span class="n">attack</span><span class="p">(</span><span class="n">ironman</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;아이언맨 파워:&#39;</span><span class="p">,</span> <span class="n">ironman</span><span class="o">.</span><span class="n">getPower</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>아이언맨 파워: 100
+울트론 파워: 400
+아이언맨: 울트론 공격하기!
+울트론 파워: 380.0
+울트론: 아이언맨 공격하기!
+아이언맨 파워: 40.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id5">
+<h2><span class="section-number">20.3. </span>구성<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p><strong>구성</strong>(composition)은 다른 클래스의 인스턴스를 인스턴스 속성으로
+지정하여 사용하는 기법을 의미한다.
+구성을 이용한 예제를 이미 앞서 살펴보았다.
+바로 <a class="reference external" href="https://github.com/liganega/ProgInPython/blob/master/notebooks/PiPy08-ClassesAndInstances_Part1.ipynb">코드 추상화: 클래스와 객체 1부</a>
+에서 <code class="docutils literal notranslate"><span class="pre">Person</span></code> 클래스의 인스턴스를 생성할 때 필요한
+생년월일에 대한 정보를 <code class="docutils literal notranslate"><span class="pre">datetime</span></code> 모듈의 <code class="docutils literal notranslate"><span class="pre">date</span></code> 클래스의 객체에
+담아 활용하였다.</p>
+<p>예를 들어, 아래 코드에서 Jane Doe의 개인정보를 담은 <code class="docutils literal notranslate"><span class="pre">Person</span></code> 클래스의
+객체를 생성할 때 생년월일 정보는 <code class="docutils literal notranslate"><span class="pre">datetime.date(1992,</span> <span class="pre">3,</span> <span class="pre">12)</span></code> 객체에 담겨져 있다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">birthdate</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">telephone</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">surname</span> <span class="o">=</span> <span class="n">surname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">birthdate</span> <span class="o">=</span> <span class="n">birthdate</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">telephone</span> <span class="o">=</span> <span class="n">telephone</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+
+<span class="n">jDoe</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span>
+    <span class="s2">&quot;Jane&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+    <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">1992</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="c1"># 년, 월, 일</span>
+    <span class="s2">&quot;No. 12 Short Street, Greenville&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;555 456 0987&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;jane.doe@example.com&quot;</span>
+    <span class="p">)</span>    
+</pre></div>
+</div>
+<section id="id6">
+<h3><span class="section-number">20.3.1. </span>프로그램 확장성<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>구성 방식을 활용하면 상속을 사용하지 않으면서 보다 확장성이 좋은 프로그램을 작성할 수 있다.
+<strong>확장성이 좋은 프로그램</strong>이란 프로그램 전체 구조의 변화 없이 특정 기능을 추가하고 변경할 수 있는
+프로그램을 의미한다.</p>
+<p>예를 들어, 앞서 사용한 <code class="docutils literal notranslate"><span class="pre">FlyingChracter</span></code> 클래스의 경우를 보자.
+생성되는 캐릭터마다 비행 방식이 다를 수 있다.</p>
+<ul class="simple">
+<li><p>아이언맨: 로켓 장치 사용</p></li>
+<li><p>팔콘: 날개 사용</p></li>
+<li><p>토르: 특별한 장치 없음. 스스로 비행능력 있음.</p></li>
+</ul>
+<p>이렇게 캐릭터마다 다른 비행 방식을 어떻게 다룰 수 있을까?</p>
+<p>가장 간단한 방식은 비행 방식에 따라 <code class="docutils literal notranslate"><span class="pre">fly()</span></code> 메서드를 다르게 구현한</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">RocketFlyingCharacter</span></code>: 로켓 장치 사용 비행 캐릭터 클래스</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WingFlyingCharacter</span></code>: 날개 비행 캐릭터 클래스</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SelfFlyingCharacter</span></code>: 스스로 비행하는 캐릭터 클래스</p></li>
+</ul>
+<p>등과 같은 여러 개의 클래스를 구현하고 필요한 클래스를 상속하여 캐릭터 인스턴스를 생성하는 것이다.
+즉, 아이언맨, 팔콘, 토르를 각각
+<code class="docutils literal notranslate"><span class="pre">RockerFlyingCharacter</span></code>,
+<code class="docutils literal notranslate"><span class="pre">WingFlyingCharacter</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SelfFlyingCharacter</span></code>
+클래스의 인스턴스로 생성하는 것이다.</p>
+<p>그런데 이런 방식은 한 가지 문제를 갖는다.
+바로 비행 방식이 캐릭터 인스턴스를 생성할 때 고정된다는 것이다.
+예를 들어, 스스로 비행하는 캐릭터가 중간에 로켓 장치를 이용할 수 밖에 없는 상황에 처하면
+비행 방식을 바꾸어야 하는데 이런 것을 매번 따로 처리해야 한다.
+아마도 새로운 도구나 장치를 이용하는 기능을 캐릭터에 추가해야 할 것이다.
+하지만 이방식을 사용하려면 기존에 사용했던 클래스 자체를 수정해야 한다.</p>
+<p>만약에 상황에 따라 동적으로 비행 방식을 바꿀 수 있다면
+기존 클래스와 코드를 수정할 필요 없이 미리 준비된 장치만 교체하는 방식으로
+비행 방식을 동적으로 결정할 수 있다.</p>
+<p>어떻게 하면 이런 프로그램을 작성할 수 있을까?
+바로 추상클래스와 구성 방식을 이용하면 된다.</p>
+</section>
+<section id="id7">
+<h3><span class="section-number">20.3.2. </span>추상 클래스<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><strong>추상 클래스</strong>(abstract class)는 구현은 되지 않고 언급만 된 메서드를 포함하는 클래스를 의미한다.
+구현이 되지 않은 메서드를 <strong>추상 메서드</strong>(abstract method)라 부른다.
+추상 클래스와 추상 메서드를 선언하는 기본 과정은 다음과 같다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">abc</span></code> 모듈로부터 <code class="docutils literal notranslate"><span class="pre">ABC</span></code> 클래스와 <code class="docutils literal notranslate"><span class="pre">abstractmethod</span></code> 장식자를 불러온다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ABC</span></code> 클래스를 상속한다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;abstractmethod</span></code> 장식자를 이용하여 추상 메서드를 선언한다.</p></li>
+</ul>
+<p>예를 들어, 비행 방식과 관련된 <code class="docutils literal notranslate"><span class="pre">Flying</span></code> 이란 추상 클래스를 아래와 같이 정의하자.
+<code class="docutils literal notranslate"><span class="pre">fly()</span></code> 메서드를 추상 메서드로 선언한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+<span class="k">class</span> <span class="nc">Flying</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">fly</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>추상 클래스는 인스턴스 생성을 허용하지 않는다.
+먼저 모든 추상 메서드를 구현한 자식 클래스를 구현한 후에야 인스턴스를 생성할 수 있다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">Flying</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;주의: 먼저 모든 추상 메서드를 구현해야 합니다.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>주의: 먼저 모든 추상 메서드를 구현해야 합니다.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id8">
+<h3><span class="section-number">20.3.3. </span>구상 클래스<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>추상 메서드를 전혀 포함하지 않은 클래스를 <strong>구상 클래스</strong>(concrete class)라고 부른다.
+여기서 구상은 ‘세부 내용이 구체적이다’ 라는 의미로 사용된다.
+사실 지금까지 다뤄온 모든 클래스가 구상 클래스이다.
+앞으로도 구상 클래스란 표현은 추상 클래스와 구분하는 용도로만 사용할 것이다.</p>
+<p>여기서는 <code class="docutils literal notranslate"><span class="pre">Flying</span></code> 추상 클래스를 상속하는 구상 클래스 세 개를 비행 방식에 따라 구현한다.</p>
+<ul class="simple">
+<li><p>로켓 장치 비행</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RocketFlying</span><span class="p">(</span><span class="n">Flying</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fly</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;로켓으로 날아요!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>날개 비행</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">WingFlying</span><span class="p">(</span><span class="n">Flying</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fly</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;날개가 멋져요!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>스스로 비행</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SelfFlying</span><span class="p">(</span><span class="n">Flying</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fly</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;스스로 날아요!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>예제: 동적으로 비행 방식 변경하기</strong></p>
+<p>이제 <code class="docutils literal notranslate"><span class="pre">FlyingCharacter</span></code> 클래스 대신에 비행 방식에 따른 클래스를 필요에 따라 사용하면서
+동적으로 비행 방식을 바꿀 수 있는 캐릭터를 생성하는 프로그램을
+구성을 이용하여 구현한다.</p>
+<p>먼저, <code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스를 다음과 같이 수정한다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__()</span></code> 메서드: 비행 방삭을 인스턴스 속성으로 지정하는 기능 추가</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">self.flying</span></code> 인스턴스 변수에 비행 방식 저장.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flying</span></code> 매개변수 인자: <code class="docutils literal notranslate"><span class="pre">Flying</span></code> 클래스의 객체</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fly()</span></code> 메서드: 비행하도록 하는 메서드.</p>
+<ul>
+<li><p>직접 구현하지 않음.</p></li>
+<li><p>대신에 지정된 <code class="docutils literal notranslate"><span class="pre">Flying</span></code> 객체에 비행 기능 위임.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setFlying()</span></code> 메서드: <code class="docutils literal notranslate"><span class="pre">self.flying</span></code> 속성값 변경</p>
+<ul>
+<li><p>동적으로 비행 방식을 바꿀 때 사용</p></li>
+<li><p>예제: 스스로 비행하다가 로켓 장치 활용 비행으로 변경 가능</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Character</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># 비행 방식을 인스턴스 속성으로 추가</span>
+    <span class="c1"># 사용하지 않으면 그대로 None으로 둠.</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">damage</span><span class="p">,</span> <span class="n">inventory</span><span class="p">,</span> <span class="n">flying</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">power</span> <span class="o">=</span> <span class="n">power</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">damage</span> <span class="o">=</span> <span class="n">damage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span> <span class="o">=</span> <span class="n">inventory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flying</span> <span class="o">=</span> <span class="n">flying</span>
+        
+    <span class="c1"># 자기소개 매소드</span>
+    <span class="k">def</span> <span class="nf">introduction</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;제 이름은 </span><span class="si">%s</span><span class="s2">입니다&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;현재 저의 파워는 </span><span class="si">%s</span><span class="s2">입니다.&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">power</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;저는 공격할 때마다 상대방에게 </span><span class="si">%s</span><span class="s2">만큼의 손상을 줍니다.&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">damage</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;제 수트의 방어력은 </span><span class="si">%d</span><span class="s2">이며 사용하는 무기는 </span><span class="si">%s</span><span class="s2">입니다.&quot;</span> <span class="o">%</span> \
+              <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="p">[</span><span class="s1">&#39;suit&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="p">[</span><span class="s1">&#39;weapon&#39;</span><span class="p">]))</span>
+        
+    <span class="c1"># 파워 정보 확인 메서드</span>
+    <span class="k">def</span> <span class="nf">getPower</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">power</span>
+    
+    <span class="c1"># 파워 조절 메서드</span>
+    <span class="k">def</span> <span class="nf">setPower</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">power</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">power</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">power</span> <span class="o">+</span> <span class="n">power</span>
+        
+    <span class="c1"># 상대 캐릭터 공격 메서드</span>
+    <span class="c1"># 둘째 인자로 상대 캐릭터 인스턴스가 사용될 것임.</span>
+    <span class="k">def</span> <span class="nf">attack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2"> 공격하기!&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="c1"># 공격력의 10% 만큼 상대 파워 감소시킴</span>
+        <span class="n">attackPower</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">damage</span> <span class="o">*</span> <span class="mf">0.1</span> 
+        <span class="n">other</span><span class="o">.</span><span class="n">setPower</span><span class="p">(</span><span class="o">-</span><span class="n">attackPower</span><span class="p">)</span>
+        
+    <span class="c1"># 비행 기능은 사용하는 Flying 객체에 위임</span>
+    <span class="k">def</span> <span class="nf">fly</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flying</span><span class="o">.</span><span class="n">fly</span><span class="p">()</span>
+        
+    <span class="c1"># 비행 방식 변경 지정</span>
+    <span class="k">def</span> <span class="nf">setFlying</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flying</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flying</span> <span class="o">=</span> <span class="n">flying</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>예를 틀어, 토르 캐릭터가 비행 중에 동적으로 비행 방식을 변경하며 비행하도록 만들 수 있다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">thor</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s1">&#39;토르&#39;</span><span class="p">,</span> <span class="s1">&#39;500&#39;</span><span class="p">,</span> <span class="s1">&#39;300&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;suit&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;weapon&#39;</span><span class="p">:</span> <span class="s1">&#39;hammer&#39;</span><span class="p">},</span> <span class="n">SelfFlying</span><span class="p">())</span>
+
+<span class="n">thor</span><span class="o">.</span><span class="n">fly</span><span class="p">()</span>
+<span class="n">thor</span><span class="o">.</span><span class="n">setFlying</span><span class="p">(</span><span class="n">RocketFlying</span><span class="p">())</span>
+<span class="n">thor</span><span class="o">.</span><span class="n">fly</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>스스로 날아요!
+로켓으로 날아요!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="oop">
+<h2><span class="section-number">20.4. </span>OOP 디자인 패턴<a class="headerlink" href="#oop" title="Link to this heading">#</a></h2>
+<p>OOP의 기본 아이디어는 클래스를 활용하는 <strong>캡슐화</strong>(encapsulation)이다.
+지금까지 코드 추상화로 설명하였지만 하나의 클래스 안에 다양한 성분을 포함해서
+하나의 객체로 활용할 수 있다는 의미에서 캡슐화라는 표현도 함께 사용한다.</p>
+<p>확장성이 높은 프로그램을 구현하려면 적절한 캡슐화를 이용하는 것이며,
+가장 기본적인 디자인 원칙은 다음 두 가지이다.</p>
+<p><strong>디자인 원칙 1: 변하는 부분과 변하지 않는 부분을 구분하라.</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스를 선언할 때 비행 방식은 캐릭터마다 다양하게 변할 수 있다.
+이런 부분까지 하나의 클래스에 포함하기 보다는 독립적으로 다루어야 한다.</p>
+<p><strong>디자인 원칙 2: 상속보다 구성에 집중하라.</strong></p>
+<p>캐릭터를 구현하는 프로그램을 작성할 때 구현 대상을 기능별로 구분하여 어떻게 구성할 것인가에 집중해야 한다.
+그러면 클래스와 상속만으로 해결하는 것보다 훨씬 확장성이 높은 프로그램을 구현할 수 있다.</p>
+<p>지금까지 설명한 내용은 OOP를 이용하여 확장성이 높은 프로그램을 작성하는 여러 디자인 패턴 중에서
+가장 기본적인 내용을 담고 있다.
+OOP 언어를 이용한 소프트웨어 개발을 제대로 하고 싶다면 디자인 패턴에 대한 깊은 이해가 필수적이다.</p>
+<p>OOP 디자인 패턴에 대한 간단한 역사는
+<a class="reference external" href="https://ko.wikipedia.org/wiki/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4_%EB%94%94%EC%9E%90%EC%9D%B8_%ED%8C%A8%ED%84%B4">위키: 소프트웨어 디자인 패턴</a>에서
+읽어볼 수 있으며,
+참고서는 아래 책을 추천한다.
+비록 자바 언어를 사용하지만 OOP 디자인 패턴의 핵심을 친절하게 설명한다.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.hanbit.co.kr/store/books/look.php?p_code=B9860513241">Head First Design Patterns</a></p>
+<ul>
+<li><p>저자: 에릭 프리먼 , 엘리자베스 프리먼 , 케이시 시에라 , 버트 베이츠</p></li>
+<li><p>번역: 서환수</p></li>
+<li><p>사용 언어: 자바</p></li>
+</ul>
+</li>
+</ul>
+<p>파이썬으로 작성된 책들도 있다.</p>
+<ul class="simple">
+<li><p>참고: <a class="reference external" href="https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=All&amp;amp;KeyWord=%ED%8C%8C%EC%9D%B4%EC%8D%AC+%EB%94%94%EC%9E%90%EC%9D%B8+%ED%8C%A8%ED%84%B4&amp;amp;KeyRecentPublish=0&amp;amp;OutStock=0&amp;amp;ViewType=Detail&amp;amp;SortOrder=2&amp;amp;CustReviewCount=0&amp;amp;CustReviewRank=0&amp;amp;KeyFullWord=%ED%8C%8C%EC%9D%B4%EC%8D%AC+%EB%94%94%EC%9E%90%EC%9D%B8+%ED%8C%A8%ED%84%B4&amp;amp;KeyLastWord=%ED%8C%8C%EC%9D%B4%EC%8D%AC+%EB%94%94%EC%9E%90%EC%9D%B8+%ED%8C%A8%ED%84%B4&amp;amp;CategorySearch=&amp;amp;chkKeyTitle=&amp;amp;chkKeyAuthor=&amp;amp;chkKeyPublisher=&amp;amp;chkKeyISBN=&amp;amp;chkKeyTag=&amp;amp;chkKeyTOC=&amp;amp;chkKeySubject=&amp;amp;ViewRowCount=25&amp;amp;SuggestKeyWord=">알라딘 검색: 파이썬 디자인 패턴</a></p></li>
+</ul>
+</section>
+<section id="id9">
+<h2><span class="section-number">20.5. </span>연습문제<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>구성 방식을 이용하여 <code class="docutils literal notranslate"><span class="pre">Character</span></code> 클래스가 보다 다양한 기능을 제공하도록 만들어라.
+예를 들어, 캐릭터가 사용하는 무기를 동적으로 변경할 수 있도록 만들 수 있다.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="oop-classes_instances_objects.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>클래스, 인스턴스, 객체</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">20.1. 인스턴스 생성 기술의 단점</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">20.2. 상속</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">20.2.1. 메서드 상속과 재정의</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">20.3. 구성</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">20.3.1. 프로그램 확장성</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">20.3.2. 추상 클래스</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">20.3.3. 구상 클래스</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oop">20.4. OOP 디자인 패턴</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">20.5. 연습문제</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By 코딩알지
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

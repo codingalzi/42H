@@ -26,7 +26,7 @@ chapters:
 - file: files
 - file: oop
 - file: oop-classes_instances_objects
-# - file: inheritance
+- file: oop-inheritance
 # - file: modules_advanced
 # - file: iterator_generator
 # - file: recursion
