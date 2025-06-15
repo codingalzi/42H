@@ -720,7 +720,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>보폭을 생략할 떄는 둘째 콜론(:)도 함께 생략할 수 있다.</p>
+<p>보폭을 생략할 때는 둘째 콜론(:)도 함께 생략할 수 있다.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">colors[0:3]</span></code></p></li>
 </ul>
@@ -799,7 +799,7 @@ document.write(`
 즉, 한 번 생성된 문자열은 수정할 수 없다.
 따라서 인덱싱 또는 슬라이싱을 사용하여 값의 일부를 변경하려 시도하면
 수정을 허용하지 않는 자료형을 수정하려 시도한다는 의미에서 <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>가 발생한다.</p>
-<p>예를 들어 아래 그림은 “Michael Jackson” 문자열에 포함된 항목을 인덱싱으로 수정할 수 없음을 보연준다.
+<p>예를 들어 아래 그림은 “Michael Jackson” 문자열에 포함된 항목을 인덱싱으로 수정할 수 없음을 보여준다.
 심지어 대문자 ‘J’를 동일한 문자로 교체하는 것도 허용되지 않는다.</p>
 <p><div align="center"><img src="https://raw.githubusercontent.com/codingalzi/42H/master/jupyter-book/images/string_immutable.png" style="width:400px"></div></p><p>위 그림의 내용을 코드로 작성하면 다음과 같다.</p>
 <div class="cell docutils container">
@@ -1269,7 +1269,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>위 방식이 어용되는 이유는 메서드를 실행하는 표현식과 메서드의 반환값을 동일시되기 때문이다.
+<p>위 방식이 허용되는 이유는 메서드를 실행하는 표현식과 메서드의 반환값을 동일시되기 때문이다.
 즉, <code class="docutils literal notranslate"><span class="pre">words.strip()</span></code>와 문자열 <code class="docutils literal notranslate"><span class="pre">My</span> <span class="pre">life</span> <span class="pre">is</span> <span class="pre">\tso</span> <span class="pre">so</span> <span class="pre">cool!</span></code>이 동일시되며,
 따라서 <code class="docutils literal notranslate"><span class="pre">startswith()</span></code> 메서드 등 다른 문자열 메서드를 연속해서 적용할 수 있다.</p>
 <p>반면에 아래 코드는 먼저 소문자로 변경한 다음에 화이트 스페이스 기준으로 쪼갠다.</p>
