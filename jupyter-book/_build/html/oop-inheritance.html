@@ -29,8 +29,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
@@ -431,7 +431,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oop">20.4. OOP 디자인 패턴</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">20.5. 연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">20.5. 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">20.6. 연습문제</a></li>
 </ul>
             </nav>
         </div>
@@ -540,7 +541,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>150
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
 </pre></div>
 </div>
 </div>
@@ -553,7 +554,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>150
 </pre></div>
 </div>
 </div>
@@ -1178,11 +1179,10 @@ arguments(인자)와 keyword arguements(옵션 인자)의 줄임말이다.</p>
 </section>
 <section id="id7">
 <h2><span class="section-number">20.3. </span>구성<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
-<p><strong>구성</strong>(composition)은 다른 클래스의 인스턴스를 인스턴스 속성으로
+<p><strong>구성</strong><font size='2'>composition</font>은 다른 클래스의 인스턴스를 인스턴스 속성으로
 지정하여 사용하는 기법을 의미한다.
 구성을 이용한 예제를 이미 앞서 살펴보았다.
-바로 <a class="reference external" href="https://github.com/liganega/ProgInPython/blob/master/notebooks/PiPy08-ClassesAndInstances_Part1.ipynb">코드 추상화: 클래스와 객체 1부</a>
-에서 <code class="docutils literal notranslate"><span class="pre">Person</span></code> 클래스의 인스턴스를 생성할 때 필요한
+바로 <a class="reference internal" href="oop-classes_instances_objects.html#ch-classes-instances-objects"><span class="std std-numref">19장</span></a>에서 <code class="docutils literal notranslate"><span class="pre">Person</span></code> 클래스의 인스턴스를 생성할 때 필요한
 생년월일에 대한 정보를 <code class="docutils literal notranslate"><span class="pre">datetime</span></code> 모듈의 <code class="docutils literal notranslate"><span class="pre">date</span></code> 클래스의 객체에
 담아 활용하였다.</p>
 <p>예를 들어, 아래 코드에서 Jane Doe의 개인정보를 담은 <code class="docutils literal notranslate"><span class="pre">Person</span></code> 클래스의
@@ -1450,7 +1450,83 @@ OOP 언어를 이용한 소프트웨어 개발을 제대로 하고 싶다면 디
 <p>파이썬으로 작성된 책들도 있으며 검색을 통해 쉽게 확인할 수 있다.</p>
 </section>
 <section id="id11">
-<h2><span class="section-number">20.5. </span>연습문제<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.5. </span>예제<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<p><strong>예제 1</strong></p>
+<p>아래 <code class="docutils literal notranslate"><span class="pre">Person</span></code> 클래스는 한 사람의 개인정보와 함께 친구들의 전화번호를 저장할 수 있다</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">birthdate</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">telephone</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name_</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">birthdate_</span> <span class="o">=</span> <span class="n">birthdate</span> <span class="c1"># datetime.date 객체 사용</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">telephone_</span> <span class="o">=</span> <span class="n">telephone</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email_</span> <span class="o">=</span> <span class="n">email</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phonebook_</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>        
+
+    <span class="k">def</span> <span class="nf">age</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># 나이 계산</span>
+        <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+        <span class="n">age_</span> <span class="o">=</span> <span class="n">today</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">birthdate_</span><span class="o">.</span><span class="n">year</span>
+
+        <span class="k">if</span> <span class="n">today</span> <span class="o">&lt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">birthdate_</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">birthdate_</span><span class="o">.</span><span class="n">day</span><span class="p">):</span>
+            <span class="n">age_</span> <span class="o">-=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">age_</span>
+
+    <span class="k">def</span> <span class="nf">phoneNumberAdd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phonebook_</span><span class="p">[</span><span class="n">other</span><span class="o">.</span><span class="n">name_</span><span class="p">]</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">telephone_</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>아래 두 코드는 새롭게 정의된 <code class="docutils literal notranslate"><span class="pre">Person</span></code> 클래스를 이용하여
+김강현과 함중아 두 사람의 개인 정보를 담은 객체를 생성한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kgh</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;김강현&quot;</span><span class="p">,</span>
+             <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+             <span class="s2">&quot;경기도 안성시 중앙로 327&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;010-1234-5678&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;kgh@python_class.com&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hja</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;함중아&quot;</span><span class="p">,</span>
+             <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2002</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span>
+             <span class="s2">&quot;경기도 안성시 중앙로 327&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;010-5678-1234&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;hja@python_class.com&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>아래 코드는 함중아가 김강현의 전환번호를 저장한 다음에 저장된 번호를 확인한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hja</span><span class="o">.</span><span class="n">phoneNumberAdd</span><span class="p">(</span><span class="n">kgh</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;김강현의 전화번호:&quot;</span><span class="p">,</span> <span class="n">hja</span><span class="o">.</span><span class="n">phonebook_</span><span class="p">[</span><span class="s1">&#39;김강현&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>김강현의 전화번호: 010-1234-5678
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>게터 vs. 세터</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">phoneNumberAdd()</span></code> 메서드는 세터 메서드다.
+이에 대응하는 게터 메서드 <code class="docutils literal notranslate"><span class="pre">phoneNumberSearch()</span></code> 메서드를 선언하라.</p>
+<p>(준비중 …)</p>
+</section>
+<section id="id12">
+<h2><span class="section-number">20.6. </span>연습문제<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
 <p>참고: <a class="reference external" href="https://colab.research.google.com/github/codingalzi/42H/blob/master/practices/practice-oop-inheritance.ipynb">(연습) 상속</a></p>
 </section>
 </section>
@@ -1534,7 +1610,8 @@ OOP 언어를 이용한 소프트웨어 개발을 제대로 하고 싶다면 디
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oop">20.4. OOP 디자인 패턴</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">20.5. 연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">20.5. 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">20.6. 연습문제</a></li>
 </ul>
   </nav></div>
 
