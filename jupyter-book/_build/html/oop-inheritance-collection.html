@@ -435,20 +435,23 @@ document.write(`
 예를 들어, <code class="docutils literal notranslate"><span class="pre">list</span></code> 클래스는 <code class="docutils literal notranslate"><span class="pre">Sequence</span></code> 클래스를 상속하며,
 <code class="docutils literal notranslate"><span class="pre">Sequence</span></code>는 <code class="docutils literal notranslate"><span class="pre">Collection</span></code> 클래를 상속한다.
 이렁 이유로 “리스트는 순차<font size='2'>Sequence</font> 자료형이다” 등으로 말한다.
-이와 달리 항목들의 순서를 고려하지 않는 <code class="docutils literal notranslate"><span class="pre">dict</span></code>와 <code class="docutils literal notranslate"><span class="pre">set</span></code> 은 순차 자료형이 아니다.</p>
+이와 달리 항목들의 순서를 고려하지 않는 <code class="docutils literal notranslate"><span class="pre">dict</span></code>와 <code class="docutils literal notranslate"><span class="pre">set</span></code> 은 비순차 자료형이다.</p>
 <div align="center"><img src="https://runestone.academy/ns/books/published/pythonds3/_images/inheritance1.png" width="70%"></div>
 <p>&lt;그림 출처: <a class="reference external" href="https://runestone.academy/ns/books/published/pythonds3/Introduction/ObjectOrientedProgramminginPythonDefiningClasses.html">Problem Solving with Algorithms and Data Structures using Python의 1.13 절</a>&gt;</p>
 <p><code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code> 클래스 모두 <code class="docutils literal notranslate"><span class="pre">Sequence</span></code> 클래스를 상속하기에
-인덱싱, 슬라이싱 등 자신들의 항목을 다루는 공통된 방식을 갖는다.
-반면에 각 자료형은 고유의 메서드도 제공한다.
-이렇듯 한 클래스의 여러 자식 클래스는 서로 공통된 요소와 함께
-각 자식 클래스 고유의 요소를 갖는다.</p>
-<p>여기서는 <code class="docutils literal notranslate"><span class="pre">Vector</span></code> 클래스를 선언할 때 상속을 어떻게 활용하는지 보여준다.</p>
+인덱싱, 슬라이싱 등 자신들의 항목을 다루는 공통된 기능을 제공한다.
+반면에 각각의 자료형 고유의 기능(메서드)도 존재한다.
+이렇듯 하나의 클래스의 서로 다른 자식 클래스에는 공통된 요소와 함께
+각각의 자식 클래스 고유의 요소가 포함된다.</p>
+<p>여기서는 리스트 클래스를 상속하는 <code class="docutils literal notranslate"><span class="pre">Vector</span></code> 클래스를 선언하면서
+벡터 고유의 기능을 구현하는 과정을 살펴본다.</p>
 <section id="vector">
 <h2><span class="section-number">21.1. </span>Vector 클래스<a class="headerlink" href="#vector" title="Link to this heading">#</a></h2>
 <p>벡터는 정수 또는 부동소수점으로 이루어진 리스트와 유사한 모음 자료형이다.
-Numpy의 1차원 어레이<font size='2'>array</font>가 대표적인 벡터 자료형이다.
-벡터는 벡터 자체의 길이, 내적 등 리스트와는 다른 속성과 기능을 제공한다.</p>
+<a class="reference external" href="https://datascienceschool.net/01%20python/03.01%20%EB%84%98%ED%8C%8C%EC%9D%B4%20%EB%B0%B0%EC%97%B4.html">Numpy의 1차원 어레이<font size='2'>array</font></a>가
+대표적인 벡터 자료형이다.
+벡터는 벡터 자체의 길이 정보를 저장하며, 리스트와는 다른 연산과
+내적 등 벡터 고유의 기능을 제공한다.</p>
 <p><strong>벡터 내적</strong></p>
 <p>길이(항목의 개수)가 동일한 두 벡터의 내적은 동일한 위치의 두 항목의 곱셈의 합이다.
 예를 들어 <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code> 와 <code class="docutils literal notranslate"><span class="pre">[5,</span> <span class="pre">6,</span> <span class="pre">9]</span></code> 두 벡터의 내적은 다음과 같다.</p>
